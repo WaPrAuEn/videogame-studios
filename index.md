@@ -5,3 +5,4 @@
 *(Les fiches apparaîtront ici automatiquement)*
 
 - [Motion Twin](studios/motion-twin.html) — Bordeaux, France — Studio de développement indépendant
+- [Ubisoft](studios/ubisoft.html) — Saint-Mandé, France
