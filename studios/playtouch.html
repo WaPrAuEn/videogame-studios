@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playtouch - Studio de Développement HTML5</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section h2 {
+            font-size: 1.8em;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .section h3 {
+            font-size: 1.3em;
+            color: #764ba2;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .identite-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .identite-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .identite-card strong {
+            display: block;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        
+        .jeux-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .jeu-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-top: 4px solid #764ba2;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .jeu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+        }
+        
+        .jeu-card h4 {
+            color: #764ba2;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .recrutement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .recrutement-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid #667eea;
+        }
+        
+        .recrutement-card .niveau {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 2px solid #667eea;
+        }
+        
+        .niveau-eleve {
+            color: #28a745;
+        }
+        
+        .niveau-moyen {
+            color: #ffc107;
+        }
+        
+        .niveau-faible {
+            color: #dc3545;
+        }
+        
+        .metier-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .metier-section h4 {
+            color: #764ba2;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        
+        .metier-details {
+            margin: 15px 0;
+        }
+        
+        .metier-details p {
+            margin: 8px 0;
+        }
+        
+        .metier-details strong {
+            color: #667eea;
+        }
+        
+        .liens-utiles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .lien-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .lien-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .lien-card a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .lien-card p {
+            color: rgba(255,255,255,0.9);
+            font-size: 0.9em;
+            margin-top: 8px;
+        }
+        
+        .verdict {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            border-right: 5px solid #764ba2;
+        }
+        
+        .verdict h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .verdict-list {
+            list-style: none;
+        }
+        
+        .verdict-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .verdict-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #ddd;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin: 5px 5px 5px 0;
+        }
+        
+        .badge-html5 {
+            background: #ff7043;
+        }
+        
+        .badge-fun {
+            background: #764ba2;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 20px 15px;
+            }
+            
+            .identite-grid,
+            .jeux-grid,
+            .recrutement-grid,
+            .liens-utiles {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎮 PLAYTOUCH</h1>
+            <p>Studio de Développement HTML5 | Port Louis, Île Maurice</p>
+        </div>
+        
+        <div class="content">
+            <!-- SECTION IDENTITÉ -->
+            <div class="section">
+                <h2>📋 Identité du Studio</h2>
+                <div class="identite-grid">
+                    <div class="identite-card">
+                        <strong>Localisation</strong>
+                        Port Louis, Île Maurice
+                    </div>
+                    <div class="identite-card">
+                        <strong>Fondation</strong>
+                        2010
+                    </div>
+                    <div class="identite-card">
+                        <strong>Taille</strong>
+                        1-50 employés
+                    </div>
+                    <div class="identite-card">
+                        <strong>Spécialité</strong>
+                        Studio de développement HTML5
+                    </div>
+                </div>
+                
+                <h3>Culture d'Entreprise</h3>
+                <p>Playtouch est un studio passionné par la création de jeux <span class="badge badge-fun">fun</span> <span class="badge">accessibles</span> et <span class="badge badge-html5">cross-platform</span>. L'équipe internationale valorise l'innovation, la créativité et un environnement collaboratif où chacun peut s'épanouir.</p>
+            </div>
+            
+            <!-- SECTION JEUX NOTABLES -->
+            <div class="section">
+                <h2>🎯 Jeux Notables</h2>
+                <div class="jeux-grid">
+                    <div class="jeu-card">
+                        <h4>Bobanza Blast</h4>
+                        <p>Un jeu dynamique et coloré développé entièrement en HTML5, reflétant la spécialisation du studio dans les jeux web cross-platform accessibles.</p>
+                    </div>
+                    <div class="jeu-card">
+                        <h4>Jaxspot</h4>
+                        <p>Démontre l'expertise de Playtouch dans la création d'expériences de jeu innovantes et engageantes sur navigateur web.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SECTION RECRUTEMENT -->
+            <div class="section">
+                <h2>💼 Opportunités de Recrutement</h2>
+                
+                <h3>Vue d'ensemble</h3>
+                <div class="recrutement-grid">
+                    <div class="recrutement-card">
+                        <strong>Game Designer</strong>
+                        <div class="niveau niveau-moyen">Niveau Moyen</div>
+                    </div>
+                    <div class="recrutement-card">
+                        <strong>Programmeur</strong>
+                        <div class="niveau niveau-eleve">Niveau Élevé</div>
+                    </div>
+                    <div class="recrutement-card">
+                        <strong>Artiste 3D</strong>
+                        <div class="niveau niveau-faible">Niveau Faible</div>
+                    </div>
+                    <div class="recrutement-card">
+                        <strong>UI Artist</strong>
+                        <div class="niveau niveau-eleve">Niveau Élevé</div>
+                    </div>
+                    <div class="recrutement-card">
+                        <strong>Concept Artist</strong>
+                        <div class="niveau niveau-moyen">Niveau Moyen</div>
+                    </div>
+                </div>
+                
+                <!-- DÉTAILS PAR MÉTIER -->
+                <h3>Détails par Métier</h3>
+                
+                <div class="metier-section">
+                    <h4>🎲 Game Designer</h4>
+                    <div class="metier-details">
+                        <p><strong>Niveau de demande :</strong> <span style="color: #ffc107;">Moyen</span></p>
+                        <p><strong>Focus :</strong> HTML5 et accessibilité</p>
+                        <p><strong>Opportunités :</strong> Vous aurez l'occasion de concevoir des jeux accessibles pour un large public, en tirant parti de la plateforme web. Le studio valorise la créativité dans la conception de mécaniques de jeu innovantes et engageantes.</p>
+                        <p><strong>Compétences recherchées :</strong> Maîtrise du design HTML5, compréhension de l'accessibilité web, expérience en game design cross-platform.</p>
+                    </div>
+                </div>
+                
+                <div class="metier-section">
+                    <h4>💻 Programmeur</h4>
+                    <div class="metier-details">
+                        <p><strong>Niveau de demande :</strong> <span style="color: #28a745;">Élevé</span></p>
+                        <p><strong>Focus :</strong> Développement 100% interne en HTML5</p>
+                        <p><strong>Opportunités :</strong> C'est le poste le plus demandé. Playtouch privilégie une approche 100% interne pour le développement HTML5, offrant des opportunités d'impact direct sur les productions du studio.</p>
+                        <p><strong>Compétences recherchées :</strong> Excellente maîtrise du JavaScript, HTML5 Canvas/WebGL, frameworks modernes (Pixi.js, Babylon.js, Three.js, etc.), optimisation de performance web.</p>
+                    </div>
+                </div>
+                
+                <div class="metier-section">
+                    <h4>🎨 Artiste 3D</h4>
+                    <div class="metier-details">
+                        <p><strong>Niveau de demande :</strong> <span style="color: #dc3545;">Faible</span></p>
+                        <p><strong>Focus :</strong> Spécialisation HTML5, peu de 3D</p>
+                        <p><strong>Opportunités :</strong> Peu de postes disponibles. Le studio privilégie les technologies web légères plutôt que la 3D complète. Si vous avez une spécialisation en HTML5 et graphismes web, vous pourriez trouver des opportunités.</p>
+                        <p><strong>Compétences recherchées :</strong> WebGL, Three.js, Babylon.js, optimisation d'assets pour le web, expérience avec les jeux HTML5.</p>
+                    </div>
+                </div>
+                
+                <div class="metier-section">
+                    <h4>🖼️ UI Artist</h4>
+                    <div class="metier-details">
+                        <p><strong>Niveau de demande :</strong> <span style="color: #28a745;">Élevé</span></p>
+                        <p><strong>Focus :</strong> UI pour jeux web cross-platform</p>
+                        <p><strong>Opportunités :</strong> Forte demande. Vous concevrez des interfaces utilisateur pour des jeux web accessibles sur tous les appareils. L'expérience en responsive design est un plus.</p>
+                        <p><strong>Compétences recherchées :</strong> Design UI/UX, responsive design, connaissance des limitations des navigateurs, outils de design modernes (Figma, Adobe XD), maîtrise du CSS/HTML5.</p>
+                    </div>
+                </div>
+                
+                <div class="metier-section">
+                    <h4>✨ Concept Artist</h4>
+                    <div class="metier-details">
+                        <p><strong>Niveau de demande :</strong> <span style="color: #ffc107;">Moyen</span></p>
+                        <p><strong>Focus :</strong> Concepts pour jeux fun et innovants</p>
+                        <p><strong>Opportunités :</strong> Le studio a besoin de créateurs de concepts pour imaginer des jeux fun et innovants. Vous collaborerez étroitement avec les game designers.</p>
+                        <p><strong>Compétences recherchées :</strong> Illustration digitale, concept art pour jeux, maîtrise de logiciels comme Photoshop/Procreate, capacité à traduire les idées en visuels engageants.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SECTION LIENS UTILES -->
+            <div class="section">
+                <h2>🔗 Liens Utiles</h2>
+                <div class="liens-utiles">
+                    <div class="lien-card">
+                        <a href="https://playtouch.net">Site Web Officiel</a>
+                        <p>Découvrez le portfolio et l'actualité du studio</p>
+                    </div>
+                    <div class="lien-card">
+                        <a href="https://playtouch.net/career/">Carrières</a>
+                        <p>Consultez les offres d'emploi actuelles</p>
+                    </div>
+                    <div class="lien-card">
+                        <a href="https://www.linkedin.com/company/playtouch/">LinkedIn</a>
+                        <p>Suivez l'actualité et connectez-vous avec l'équipe</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SECTION VERDICT -->
+            <div class="section">
+                <div class="verdict">
+                    <h3>⭐ Verdict & Conseils de Candidature</h3>
+                    
+                    <h4 style="color: #764ba2; margin: 20px 0 15px 0;">Profil Idéal</h4>
+                    <ul class="verdict-list">
+                        <li>Compétences solides en HTML5 et JavaScript</li>
+                        <li>Portfolio de jeux web ou projets web démontrant votre expertise</li>
+                        <li>Motivation pour travailler dans un environnement international (France/Maurice)</li>
+                        <li>Passion pour les jeux accessibles et cross-platform</li>
+                        <li>Capacité à s'adapter à une petite équipe dynamique (1-50 employés)</li>
+                    </ul>
+                    
+                    <h4 style="color: #764ba2; margin: 20px 0 15px 0;">Difficulté de Candidature</h4>
+                    <p><strong>Niveau : Moyen</strong></p>
+                    <p>Playtouch est une petite équipe internationale qui privilégie l'expérience HTML5. Les postes de Programmeur et UI Artist offrent les meilleures opportunités. L'expérience en jeux web et la démonstration d'une compréhension des enjeux d'accessibilité seront des atouts majeurs.</p>
+                    
+                    <h4 style="color: #764ba2; margin: 20px 0 15px 0;">📝 Comment Postuler</h4>
+                    <ul class="verdict-list">
+                        <li>Consultez les offres sur : <a href="https://playtouch.net/career/" style="color: #667eea; text-decoration: underline;">https://playtouch.net/career/</a></li>
+                        <li>Mettez en avant vos compétences HTML5 et votre portfolio de jeux web</li>
+                        <li>Démontrez votre compréhension de l'accessibilité et du cross-platform</li>
+                        <li>Exprimez votre intérêt pour un environnement international</li>
+                        <li>Préparez un portfolio solide avec des jeux ou projets web accessibles</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2024 - Fiche Descriptive Playtouch | Studio de Développement HTML5 | Port Louis, Île Maurice</p>
+        </div>
+    </div>
+</body>
+</html>
