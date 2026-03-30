@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Sheep Studio - Fiche Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-subtitle {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #f39c12;
+        }
+        
+        .section h2 {
+            color: #f39c12;
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e67e22;
+        }
+        
+        .section h3 {
+            color: #2c3e50;
+            font-size: 1.3em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .info-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #f39c12;
+        }
+        
+        .info-card strong {
+            color: #f39c12;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .info-card p {
+            color: #555;
+        }
+        
+        .links-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .link-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+        }
+        
+        .link-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(243, 156, 18, 0.5);
+            color: white;
+        }
+        
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .job-card {
+            background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #95a5a6;
+        }
+        
+        .job-card h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .job-status {
+            color: #e74c3c;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+        
+        .difficulty-bar {
+            background: #ecf0f1;
+            height: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 15px 0;
+            border: 2px solid #bdc3c7;
+        }
+        
+        .difficulty-fill {
+            background: linear-gradient(90deg, #27ae60 0%, #f39c12 50%, #e74c3c 100%);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+        
+        .verdict-box {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .verdict-box h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .empty-message {
+            color: #7f8c8d;
+            font-style: italic;
+            padding: 15px;
+            background: #ecf0f1;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .highlight {
+            background: #fff9e6;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #f39c12;
+            margin: 15px 0;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #bdc3c7;
+            margin-top: 40px;
+            border-top: 1px solid #34495e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1>🎮 Black Sheep Studio</h1>
+            <p class="header-subtitle">Studio de développement de jeux vidéo basé à Paris, France</p>
+        </div>
+
+        <!-- SECTION IDENTITÉ -->
+        <div class="section">
+            <h2>📋 Identité du Studio</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <strong>Localisation</strong>
+                    <p>Paris, France</p>
+                </div>
+                <div class="info-card">
+                    <strong>Type</strong>
+                    <p>Studio de Développement</p>
+                </div>
+                <div class="info-card">
+                    <strong>Taille</strong>
+                    <p>11 à 50 collaborateurs</p>
+                </div>
+                <div class="info-card">
+                    <strong>Fondation</strong>
+                    <p>Date non disponible</p>
+                </div>
+            </div>
+            <div class="highlight">
+                <strong>À propos:</strong> Black Sheep Studio est un studio de développement de jeux vidéo établi en France. Le studio se concentre sur la création d'expériences ludiques innovantes avec une équipe agile et passionnée.
+            </div>
+        </div>
+
+        <!-- SECTION JEUX NOTABLES -->
+        <div class="section">
+            <h2>🎯 Jeux Notables</h2>
+            <p class="empty-message">Aucun jeu spécifique listés actuellement</p>
+            <p style="margin-top: 15px; color: #555;">Consultez la <a href="https://store.steampowered.com/search/?developer=Black%20Sheep%20Studio" target="_blank" style="color: #f39c12; font-weight: 600;">page Steam du studio</a> pour découvrir leurs productions.</p>
+        </div>
+
+        <!-- SECTION RECRUTEMENT -->
+        <div class="section">
+            <h2>💼 Recrutement</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <strong>Postes Ouverts</strong>
+                    <p class="empty-message">Non spécifiés</p>
+                </div>
+                <div class="info-card">
+                    <strong>Email Recrutement</strong>
+                    <p class="empty-message">Non disponible</p>
+                </div>
+                <div class="info-card">
+                    <strong>Site Carrières</strong>
+                    <p class="empty-message">Non disponible</p>
+                </div>
+            </div>
+            <p style="color: #555; margin-top: 15px;">Pour connaître les opportunités d'emploi, consultez directement le <a href="https://www.linkedin.com/company/black-sheep-studio/about/" target="_blank" style="color: #f39c12; font-weight: 600;">profil LinkedIn</a> du studio.</p>
+        </div>
+
+        <!-- SECTION PAR MÉTIER -->
+        <div class="section">
+            <h2>👨‍💼 Opportunités par Métier</h2>
+            
+            <h3>🎮 Game Designer</h3>
+            <div class="jobs-grid">
+                <div class="job-card">
+                    <h4>Game Designer</h4>
+                    <p class="job-status">À vérifier directement auprès du studio</p>
+                </div>
+            </div>
+
+            <h3>💻 Programmeur</h3>
+            <div class="jobs-grid">
+                <div class="job-card">
+                    <h4>Programmeur / Développeur</h4>
+                    <p class="job-status">À vérifier directement auprès du studio</p>
+                </div>
+            </div>
+
+            <h3>🎨 Artiste 3D</h3>
+            <div class="jobs-grid">
+                <div class="job-card">
+                    <h4>Artiste 3D</h4>
+                    <p class="job-status">À vérifier directement auprès du studio</p>
+                </div>
+            </div>
+
+            <h3>🖼️ UI Artist</h3>
+            <div class="jobs-grid">
+                <div class="job-card">
+                    <h4>UI/UX Artist</h4>
+                    <p class="job-status">À vérifier directement auprès du studio</p>
+                </div>
+            </div>
+
+            <h3>✏️ Concept Artist</h3>
+            <div class="jobs-grid">
+                <div class="job-card">
+                    <h4>Concept Artist</h4>
+                    <p class="job-status">À vérifier directement auprès du studio</p>
+                </div>
+            </div>
+
+            <p style="color: #7f8c8d; margin-top: 20px; font-style: italic;">💡 Conseil: Contactez directement le studio via LinkedIn ou leur site web pour connaître les postes disponibles et les modalités de candidature.</p>
+        </div>
+
+        <!-- SECTION LIENS UTILES -->
+        <div class="section">
+            <h2>🔗 Liens Utiles</h2>
+            <div class="links-container">
+                <a href="http://www.blacksheep-studio.com/b.index.html" target="_blank" class="link-btn">🌐 Site Web</a>
+                <a href="https://store.steampowered.com/search/?developer=Black%20Sheep%20Studio" target="_blank" class="link-btn">🎮 Steam</a>
+                <a href="https://www.linkedin.com/company/black-sheep-studio/about/" target="_blank" class="link-btn">💼 LinkedIn</a>
+            </div>
+        </div>
+
+        <!-- SECTION DIFFICULTÉ -->
+        <div class="section">
+            <h2>📊 Difficulté d'Accès</h2>
+            <p style="color: #555; margin-bottom: 15px;">Évaluation de la difficulté pour intégrer ce studio:</p>
+            <div class="difficulty-bar">
+                <div class="difficulty-fill" style="width: 0%;">Non évalué</div>
+            </div>
+            <p style="color: #7f8c8d; font-size: 0.9em; margin-top: 10px;">À déterminer selon votre profil et les postes disponibles.</p>
+        </div>
+
+        <!-- SECTION VERDICT -->
+        <div class="section">
+            <div class="verdict-box">
+                <h3>🏆 Verdict</h3>
+                <p>Black Sheep Studio est un studio de développement parisien de taille modérée (11-50 collaborateurs) offrant un environnement de travail dynamique. Le studio se concentre sur la création de jeux innovants avec une approche créative.</p>
+                <p style="margin-top: 15px;">Pour les candidats intéressés, nous recommandons de:</p>
+                <ul style="margin-top: 10px; margin-left: 20px;">
+                    <li>Consulter régulièrement leur <strong>profil LinkedIn</strong> pour les offres d'emploi</li>
+                    <li>Visiter leur <strong>site web officiel</strong> pour en savoir plus sur leurs projets</li>
+                    <li>Découvrir leurs jeux sur <strong>Steam</strong> pour comprendre leur direction créative</li>
+                    <li>Préparer un portfolio solide et adapté aux besoins du studio</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <p>Fiche studio mise à jour - Black Sheep Studio © 2024</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">Les informations peuvent être incomplètes. Consultez directement le studio pour les détails actualisés.</p>
+        </footer>
+    </div>
+</body>
+</html>
