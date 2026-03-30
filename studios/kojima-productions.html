@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kojima Productions - Fiche de Recrutement</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+            padding: 40px 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 5px solid #e94560;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            color: #ffffff;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            color: #b0b0b0;
+        }
+
+        .section {
+            background: #0f3460;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #e94560;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #e94560;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section h3 {
+            font-size: 1.3em;
+            color: #64b5f6;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        .identite-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .identite-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 3px solid #64b5f6;
+        }
+
+        .identite-item strong {
+            color: #64b5f6;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .jeux-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .jeu-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid #64b5f6;
+            transition: all 0.3s ease;
+        }
+
+        .jeu-card:hover {
+            background: rgba(100, 181, 246, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .jeu-card h4 {
+            color: #e94560;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .metier-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .metier-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid #64b5f6;
+        }
+
+        .metier-card h4 {
+            color: #64b5f6;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .difficulty-bar {
+            background: rgba(0, 0, 0, 0.3);
+            height: 25px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .difficulty-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #64b5f6, #e94560);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8em;
+            font-weight: bold;
+            color: #ffffff;
+            border-radius: 4px;
+        }
+
+        .postes-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin: 15px 0;
+        }
+
+        .poste-tag {
+            background: rgba(100, 181, 246, 0.2);
+            padding: 10px 15px;
+            border-radius: 4px;
+            border-left: 3px solid #64b5f6;
+            font-size: 0.95em;
+        }
+
+        .culture-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .culture-tag {
+            background: rgba(233, 69, 96, 0.2);
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: 1px solid #e94560;
+            font-size: 0.9em;
+        }
+
+        .liens-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .lien-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #64b5f6;
+        }
+
+        .lien-item a {
+            color: #64b5f6;
+            text-decoration: none;
+            word-break: break-all;
+            transition: color 0.3s ease;
+        }
+
+        .lien-item a:hover {
+            color: #e94560;
+        }
+
+        .verdict {
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.1), rgba(100, 181, 246, 0.1));
+            padding: 25px;
+            border-radius: 8px;
+            border: 2px solid #e94560;
+        }
+
+        .verdict-score {
+            font-size: 1.1em;
+            margin: 15px 0;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            border-left: 3px solid #e94560;
+            border-radius: 4px;
+        }
+
+        .star-rating {
+            color: #ffc107;
+            font-size: 1.2em;
+            margin: 5px 0;
+        }
+
+        .conseil-section {
+            background: rgba(100, 181, 246, 0.1);
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid #64b5f6;
+            margin-top: 20px;
+        }
+
+        .conseil-section h4 {
+            color: #64b5f6;
+            margin-bottom: 10px;
+        }
+
+        .conseil-section ul {
+            margin-left: 20px;
+            color: #e0e0e0;
+        }
+
+        .conseil-section li {
+            margin: 8px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #808080;
+            border-top: 1px solid #333;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .section h2 {
+                font-size: 1.4em;
+            }
+
+            .metier-grid, .jeux-container, .liens-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Kojima Productions</h1>
+            <p>Studio Indépendant AAA - Tokyo, Japon</p>
+        </header>
+
+        <!-- SECTION IDENTITÉ -->
+        <div class="section">
+            <h2>Identité du Studio</h2>
+            <div class="identite-grid">
+                <div class="identite-item">
+                    <strong>Localisation</strong>
+                    Tokyo, Japon
+                </div>
+                <div class="identite-item">
+                    <strong>Année de Fondation</strong>
+                    2015
+                </div>
+                <div class="identite-item">
+                    <strong>Taille</strong>
+                    51-200 employés
+                </div>
+                <div class="identite-item">
+                    <strong>Type</strong>
+                    Studio Indépendant AAA
+                </div>
+                <div class="identite-item">
+                    <strong>Éditeur Principal</strong>
+                    Sony Interactive Entertainment
+                </div>
+                <div class="identite-item">
+                    <strong>Direction</strong>
+                    Hideo Kojima
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION JEUX NOTABLES -->
+        <div class="section">
+            <h2>Jeux Notables</h2>
+            <div class="jeux-container">
+                <div class="jeu-card">
+                    <h4>Death Stranding</h4>
+                    <p>Titre phare du studio, réalisé par Hideo Kojima. Un jeu novateur qui a révolutionné le genre avec sa gameplay unique et son histoire captivante. Succès critique et commercial majeur.</p>
+                    <p style="margin-top: 10px; color: #64b5f6; font-size: 0.9em;"><strong>Platform:</strong> PS4, PS5, PC, Xbox Series X|S</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION RECRUTEMENT -->
+        <div class="section">
+            <h2>Offres de Recrutement Actuelles</h2>
+            <h3>Postes Ouverts</h3>
+            <div class="postes-list">
+                <div class="poste-tag">Concept Artist</div>
+                <div class="poste-tag">Environment Artist</div>
+                <div class="poste-tag">Game Data Analyst</div>
+                <div class="poste-tag">Animator</div>
+                <div class="poste-tag">Social Media Specialist</div>
+                <div class="poste-tag">Marketing Communications Assistant</div>
+                <div class="poste-tag">Localization Specialist</div>
+                <div class="poste-tag">System Programmer</div>
+                <div class="poste-tag">Sound Programmer</div>
+            </div>
+
+            <h3 style="margin-top: 30px;">Culture d'Entreprise</h3>
+            <div class="culture-tags">
+                <div class="culture-tag">Innovation</div>
+                <div class="culture-tag">Haute Qualité</div>
+                <div class="culture-tag">Collaboration</div>
+                <div class="culture-tag">Diversité</div>
+                <div class="culture-tag">Environnement Ouvert</div>
+                <div class="culture-tag">Talents Internationaux</div>
+                <div class="culture-tag">Vétérans Bienvenue</div>
+            </div>
+        </div>
+
+        <!-- SECTION PAR MÉTIER -->
+        <div class="section">
+            <h2>Opportunités par Métier</h2>
+            
+            <div class="metier-grid">
+                <div class="metier-card">
+                    <h4>Game Designer</h4>
+                    <p style="margin-bottom: 10px;">Niveau de Demande: <strong>MOYEN</strong></p>
+                    <div class="difficulty-bar">
+                        <div class="difficulty-fill" style="width: 50%; background: linear-gradient(90deg, #64b5f6, #ffc107);">50%</div>
+                    </div>
+                    <p style="font-size: 0.9em; margin-top: 10px; color: #b0b0b0;">Aucun poste spécifique listé actuellement. Potentiel pour candidatures spontanées auprès d'équipes seniors.</p>
+                </div>
+
+                <div class="metier-card">
+                    <h4>Programmeur</h4>
+                    <p style="margin-bottom: 10px;">Niveau de Demande: <strong>ÉLEVÉ</strong></p>
+                    <div class="difficulty-bar">
+                        <div class="difficulty-fill" style="width: 75%; background: linear-gradient(90deg, #64b5f6, #e94560);">75%</div>
+                    </div>
+                    <p style="font-size: 0.9em; margin-top: 10px;"><strong>Postes ouverts:</strong></p>
+                    <ul style="margin-left: 15px; font-size: 0.9em;">
+                        <li>System Programmer</li>
+                        <li>Sound Programmer</li>
+                    </ul>
+                </div>
+
+                <div class="metier-card">
+                    <h4>Artiste 3D</h4>
+                    <p style="margin-bottom: 10px;">Niveau de Demande: <strong>TRÈS ÉLEVÉ</strong></p>
+                    <div class="difficulty-bar">
+                        <div class="difficulty-fill" style="width: 95%; background: linear-gradient(90deg, #64b5f6, #e94560);">95%</div>
+                    </div>
+                    <p style="font-size: 0.9em; margin-top: 10px;"><strong>Postes ouverts:</strong></p>
+                    <ul style="margin-left: 15px; font-size: 0.9em;">
+                        <li>Concept Artist</li>
+                        <li>Environment Artist</li>
+                        <li>Animator</li>
+                    </ul>
+                </div>
+
+                <div class="metier-card">
+                    <h4>UI Artist</h4>
+                    <p style="margin-bottom: 10px;">Niveau de Demande: <strong>MOYEN</strong></p>
+                    <div class="difficulty-bar">
+                        <div class="difficulty-fill" style="width: 50%; background: linear-gradient(90deg, #64b5f6, #ffc107);">50%</div>
+                    </div>
+                    <p style="font-size: 0.9em; margin-top: 10px; color: #b0b0b0;">Non listé spécifiquement. Peut être considéré sous "Concept Artist" ou via candidature spontanée.</p>
+                </div>
+
+                <div class="metier-card">
+                    <h4>Concept Artist</h4>
+                    <p style="margin-bottom: 10px;">Niveau de Demande: <strong>ÉLEVÉ</strong></p>
+                    <div class="difficulty-bar">
+                        <div class="difficulty-fill" style="width: 80%; background: linear-gradient(90deg, #64b5f6, #e94560);">80%</div>
+                    </div>
+                    <p style="font-size: 0.9em; margin-top: 10px;"><strong>Statut:</strong> Poste actuellement ouvert. Très compétitif.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION DIFFICULTÉ GLOBALE -->
+        <div class="section">
+            <h2>Difficultés d'Accès</h2>
+            <div class="verdict-score">
+                <strong>Niveau Global de Difficulté: ÉLEVÉ</strong>
+                <div class="star-rating">★★★★☆</div>
+            </div>
+            <p style="margin: 15px 0;">Kojima Productions est un studio prestigieux dirigé par l'icône Hideo Kojima. Accès réservé aux professionnels avec:</p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li>Expérience prouvée sur jeux vidéo publiés</li>
+                <li>Portfolio de qualité AAA</li>
+                <li>Compétences techniques démontrées</li>
+                <li>Possibilité d'expérience en motion capture (avantage)</li>
+                <li>Maîtrise des outils industrie (Maya, 3ds Max, etc.)</li>
+            </ul>
+        </div>
+
+        <!-- SECTION CONSEILS -->
+        <div class="section">
+            <h2>Conseils pour Postuler</h2>
+            <div class="conseil-section">
+                <h4>Points Clés à Respecter</h4>
+                <ul>
+                    <li><strong>CV Japonais (Rirekisho):</strong> Fortement recommandé si possible. Format et contenu spécifiques à respecter.</li>
+                    <li><strong>Portfolio Détaillé:</strong> Incluez les outils maîtrisés (Maya, 3ds Max, Unreal Engine, etc.) avec captures d'écran ou vidéos.</li>
+                    <li><strong>Expérience AAA:</strong> Listez les titres publiés auxquels vous avez contribué. C'est un critère majeur.</li>
+                    <li><strong>Motion Capture & Animation:</strong> Si applicable, mettez l'accent sur toute expérience en mocap, rigging ou animation avancée.</li>
+                    <li><strong>Lettres de Motivation:</strong> Montrez votre passion pour l'innovation et l'excellence artistique.</li>
+                    <li><strong>Langues:</strong> Anglais courant minimum. Japonais un plus significatif.</li>
+                </ul>
+            </div>
+
+            <div class="conseil-section" style="margin-top: 15px;">
+                <h4>Processus de Candidature</h4>
+                <ul>
+                    <li><strong>Site Carrières Officiel:</strong> https://www.kojimaproductions.jp/en/careers</li>
+                    <li><strong>LinkedIn Recrutement:</strong> Suivez Kojima Productions et activez les alertes emploi.</li>
+                    <li><strong>Email Direct:</strong> Consultez le site carrières pour les contacts spécifiques par département.</li>
+                    <li><strong>Candidature Spontanée:</strong> Possible auprès des responsables de départements via LinkedIn professionnel.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SECTION LIENS UTILES -->
+        <div class="section">
+            <h2>Liens Utiles</h2>
+            <div class="liens-grid">
+                <div class="lien-item">
+                    <strong>Site Web Principal</strong>
+                    <p style="margin-top: 10px;">
+                        <a href="https://www.kojimaproductions.jp/" target="_blank">https://www.kojimaproductions.jp/</a>
+                    </p>
+                </div>
+                <div class="lien-item">
+                    <strong>Carrières & Recrutement</strong>
+                    <p style="margin-top: 10px;">
+                        <a href="https://www.kojimaproductions.jp/en/careers" target="_blank">https://www.kojimaproductions.jp/en/careers</a>
+                    </p>
+                </div>
+                <div class="lien-item">
+                    <strong>LinkedIn Kojima Productions</strong>
+                    <p style="margin-top: 10px;">
+                        <a href="https://www.linkedin.com/company/kojimaproductions/" target="_blank">https://www.linkedin.com/company/kojimaproductions/</a>
+                    </p>
+                </div>
+                <div class="lien-item">
+                    <strong>Contact Recrutement</strong>
+                    <p style="margin-top: 10px; color: #b0b0b0;">À obtenir via le site carrières officiel</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION VERDICT FINAL -->
+        <div class="section verdict">
+            <h2>Verdict Final</h2>
+            
+            <div class="verdict-score">
+                <strong>Attractivité Globale: ⭐⭐⭐⭐⭐</strong>
+                <p style="margin-top: 8px; color: #64b5f6;">Prestige et innovation au plus haut niveau</p>
+            </div>
+
+            <div class="verdict-score">
+                <strong>Probabilité d'Accès: ⭐⭐★★★</strong>
+                <p style="margin-top: 8px; color: #e94560;">Très sélectif - Réservé aux professionnels expérimentés</p>
+            </div>
+
+            <h3 style="color: #64b5f6; margin-top: 20px;">Résumé</h3>
+            <p style="margin: 15px 0;">Kojima Productions représente l'une des plus grandes opportunités pour les créatifs en jeux vidéo, mais également l'une des plus compétitives. Le studio recherche activement des talents exceptionnels dans les domaines artistiques (concept, environnement, animation) et techniques (programmation).</p>
+
+            <p style="margin: 15px 0;"><strong>Pour qui?</strong> Artistes 3D expérimentés, programmeurs spécialisés, et professionnels ayant travaillé sur des titres AAA reconnus.</p>
+
+            <p style="margin: 15px 0;"><strong>Points Forts:</strong> Environnement de travail innovant, direction visionnaire, équipe talentueuse, projets avant-gardistes.</p>
+
+            <p style="margin: 15px
