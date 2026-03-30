@@ -52,6 +52,7 @@
 - [Guerrilla Games](studios/guerrilla-games.html) — Amsterdam, Pays-Bas
 - [Guru Studio](studios/guru-studio.html) — Toronto, Canada
 - [Hawkswell](studios/hawkswell.html) — Paris, France
+- [Headbang Club](studios/headbang-club.html) — Gond Pontouvre, France
 - [Homo Ludens](studios/homo-ludens.html) — Paris, France
 - [Honikou Games](studios/honikou-games.html) — Marseille, France
 - [Hot Chili Games](studios/hot-chili-games.html) — Montpellier, France
