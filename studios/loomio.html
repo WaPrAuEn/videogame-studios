@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loomio - Studio de Jeux Vidéo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        header h1 {
+            color: #667eea;
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .header-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            font-size: 0.95em;
+        }
+
+        .meta-item {
+            background: #f0f0f0;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: #555;
+        }
+
+        .meta-item strong {
+            color: #667eea;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 3px solid #764ba2;
+            padding-bottom: 10px;
+        }
+
+        .card h3 {
+            color: #764ba2;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .card p {
+            margin-bottom: 15px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .card ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .card li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin: 5px 5px 5px 0;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .metier-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .metier-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .metier-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 5px solid #ffd700;
+        }
+
+        .metier-card h4 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        .difficulty {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .metier-card p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .verdict-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .verdict-section h2 {
+            color: white;
+            border-bottom-color: #ffd700;
+            margin-bottom: 20px;
+        }
+
+        .verdict-score {
+            font-size: 3em;
+            font-weight: bold;
+            color: #ffd700;
+            margin: 20px 0;
+        }
+
+        .verdict-section p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .conseil {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-left: 4px solid #ffd700;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .liens-utiles {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .liens-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .lien-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .lien-item a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .lien-item a:hover {
+            text-decoration: underline;
+        }
+
+        .icon {
+            font-size: 2em;
+        }
+
+        .empty-message {
+            background: #f0f0f0;
+            padding: 15px;
+            border-left: 4px solid #999;
+            border-radius: 5px;
+            color: #666;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            .header-meta {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .verdict-score {
+                font-size: 2em;
+            }
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            margin-top: 30px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Loomio</h1>
+            <p>Studio de Jeux Vidéo - Jeux Mobiles Casual, Hybrid-Casual et Hypercasual</p>
+            <div class="header-meta">
+                <div class="meta-item"><strong>📍 Localisation :</strong> Levallois-Perret, France</div>
+                <div class="meta-item"><strong>📅 Fondé :</strong> 2022</div>
+                <div class="meta-item"><strong>👥 Taille :</strong> 2-10 collaborateurs</div>
+                <div class="meta-item"><strong>🎯 Type :</strong> Jeux Mobiles Casual</div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="card">
+                <h2>📋 Identité</h2>
+                <h3>À propos</h3>
+                <p>Loomio est un jeune studio de jeux vidéo français fondé en 2022 par d'anciens talents d'<strong>Ubisoft</strong> et <strong>Gameloft</strong>. Les fondateurs combinent des profils complémentaires couvrant le business, la technologie et l'art.</p>
+                
+                <h3>Spécialité</h3>
+                <p>Le studio se concentre sur le développement de jeux mobiles dans les catégories :</p>
+                <ul>
+                    <li>Casual</li>
+                    <li>Hybrid-Casual</li>
+                    <li>Hypercasual</li>
+                </ul>
+
+                <h3>Ambition</h3>
+                <p>Devenir un <strong>acteur majeur du marché des jeux mobiles casual</strong> en capitalisant sur l'expérience de ses fondateurs et en proposant des titres innovants et attractifs.</p>
+            </div>
+
+            <div class="card">
+                <h2>🎮 Jeux Notables</h2>
+                <div class="empty-message">
+                    Aucun jeu actuellement répertorié publiquement. Le studio est en phase de développement de ses premiers titres.
+                </div>
+
+                <h3>🚀 À venir</h3>
+                <p>En tant que jeune studio créé en 2022, Loomio développe activement ses premiers jeux mobiles casual pour conquérir le marché des jeux mobiles.</p>
+            </div>
+
+            <div class="card">
+                <h2>💼 Recrutement</h2>
+                <h3>Offres d'emploi</h3>
+                <div class="empty-message">
+                    Aucune offre d'emploi ou de stage actuellement disponible. Cependant, en tant que studio en croissance fondé en 2022, des opportunités peuvent émerger via le réseau.
+                </div>
+
+                <h3>Conseil de candidature</h3>
+                <p><strong>Contacter directement :</strong></p>
+                <ul>
+                    <li>Nicolas Rodeghiero (PDG) via LinkedIn</li>
+                    <li>Via le site web officiel</li>
+                </ul>
+                <p style="margin-top: 15px; color: #667eea; font-weight: bold;">💡 Mettez en avant votre expérience en jeux mobiles casual et vos profils complémentaires (business/tech/art).</p>
+            </div>
+
+            <div class="card">
+                <h2>🔗 Liens Utiles</h2>
+                <div class="liens-grid">
+                    <div class="lien-item">
+                        <a href="https://loomio.games" target="_blank">
+                            <span class="icon">🌐</span>
+                            <span>Site Web</span>
+                        </a>
+                    </div>
+                    <div class="lien-item">
+                        <a href="https://www.linkedin.com/company/loomio-games/?originalSubdomain=fr" target="_blank">
+                            <span class="icon">💼</span>
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="metier-section">
+            <h2 style="color: #667eea; border-bottom: 3px solid #764ba2; padding-bottom: 10px; margin-bottom: 20px;">👔 Opportunités par Métier</h2>
+            <p style="color: #555; margin-bottom: 30px;">Évaluation des opportunités de carrière selon votre domaine de compétences chez Loomio :</p>
+
+            <div class="metier-grid">
+                <div class="metier-card">
+                    <h4>🎨 Game Designer</h4>
+                    <div class="difficulty">Difficulté : Moyen</div>
+                    <p><strong>Potentiel :</strong> Moyen</p>
+                    <p>Studio petit et spécialisé en jeux casual. Les fondateurs possèdent une expertise en design et technologie. Bonnes opportunités si vous avez de l'expérience en casual gaming.</p>
+                </div>
+
+                <div class="metier-card">
+                    <h4>💻 Programmeur</h4>
+                    <div class="difficulty">Difficulté : Élevée</div>
+                    <p><strong>Potentiel :</strong> Élevé</p>
+                    <p>Les fondateurs ont des profils tech forts (code APE 6201Z - Programmation informatique). Excellente opportunité pour les développeurs avec expérience mobile.</p>
+                </div>
+
+                <div class="metier-card">
+                    <h4>🖼️ Artiste 3D</h4>
+                    <div class="difficulty">Difficulté : Moyen</div>
+                    <p><strong>Potentiel :</strong> Moyen</p>
+                    <p>Les fondateurs ont un profil art, mais les jeux casual/hypercasual sont généralement moins intensifs en 3D. Vérifiez la direction artistique du studio.</p>
+                </div>
+
+                <div class="metier-card">
+                    <h4>✨ UI Artist</h4>
+                    <div class="difficulty">Difficulté : Élevée</div>
+                    <p><strong>Potentiel :</strong> Élevé</p>
+                    <p>Très pertinent pour jeux mobiles casual et hybrid-casual. Interface intuitive et attrayante = clé du succès mobile. Profil très demandé.</p>
+                </div>
+
+                <div class="metier-card">
+                    <h4>🎭 Concept Artist</h4>
+                    <div class="difficulty">Difficulté : Moyen</div>
+                    <p><strong>Potentiel :</strong> Moyen</p>
+                    <p>Studio en création de jeux mobiles. Besoin potentiel en concept art pour les phases préliminaires, mais généralement limité pour hypercasual.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="verdict-section">
+            <h2>🎯 Verdict Global</h2>
+            <div class="verdict-score">3/5</div>
+            <p><strong>Difficulté de candidature : Moyenne</strong></p>
+            
+            <div style="text-align: left; max-width: 800px; margin: 0 auto;">
+                <p><strong>✅ Points positifs :</strong></p>
+                <ul style="margin-left: 20px; text-align: left;">
+                    <li>Studio fondé par d'anciens talents d'Ubisoft et Gameloft</li>
+                    <li>Profils fondateurs très complémentaires (business, tech, art)</li>
+                    <li>Spécialisation claire en jeux mobiles (marché porteur)</li>
+                    <li>Jeune studio en croissance = potentiel d'évolution rapide</li>
+                </ul>
+
+                <p style="margin-top: 20px;"><strong>⚠️ Points à considérer :</strong></p>
+                <ul style="margin-left: 20px; text-align: left;">
+                    <li>Aucune offre d'emploi actuellement ouverte</li>
+                    <li>Petite équipe (2-10 personnes)</li>
+                    <li>Studio très jeune (fondé en 2022)</li>
+                    <li>Pas d'historique de jeux publiés</li>
+                </ul>
+            </div>
+
+            <div class="conseil">
+                <h3 style="color: #ffd700; margin-bottom: 15px;">💡 Conseil de Candidature</h3>
+                <p><strong>Contactez directement :</strong></p>
+                <ul style="margin-left: 20px; color: white;">
+                    <li>Nicolas Rodeghiero (PDG) via <strong>LinkedIn</strong></li>
+                    <li>Via le <strong>site web officiel</strong> loomio.games</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Mettez en avant :</strong></p>
+                <ul style="margin-left: 20px; color: white;">
+                    <li>Votre expérience en jeux mobiles casual/hypercasual</li>
+                    <li>Votre profil complémentaire (si applicable)</li>
+                    <li>Votre vision pour les jeux mobiles</li>
+                    <li>Votre intérêt pour une startup en croissance</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <p>Fiche d'information sur Loomio - Studio de Jeux Vidéo | Mise à jour 2024</p>
+        </footer>
+    </div>
+</body>
+</html>
