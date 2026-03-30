@@ -50,6 +50,7 @@
 - [Sirene Games](studios/sirene-games.html) — Aucamville, France
 - [Sirène Rouge Games](studios/sirene-rouge-games.html) — Lyon, France
 - [Sköll Studio](studios/sköll-studio.html) — Metz, France
+- [Skydance Interactive](studios/skydance-interactive.html) — Malibu, États-Unis
 - [Square Enix](studios/square-enix.html) — Tokyo, Japon
 - [Studio Black Flag](studios/studio-black-flag.html) — Bordeaux, France
 - [Studio Wildcard](studios/studio-wildcard.html) — Redmond, États-Unis
