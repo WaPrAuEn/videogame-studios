@@ -35,6 +35,7 @@
 - [DIGIC Pictures](studios/digic-pictures.html) — Budapest, Hongrie
 - [Dodge Roll](studios/dodge-roll.html) — Fairfax, USA
 - [Douze Dixièmes](studios/douze-dixiemes.html) — Saint Ouen, France
+- [DreamWorks Animation](studios/dreamworks-animation.html) — Los Angeles, États-Unis
 - [Duper Games](studios/duper-games.html) — Montpellier, France
 - [Eden Games](studios/eden-games.html) — Lyon, France
 - [Elia Games](studios/elia-games.html) — Saint-Gély-du-Fesc, France
