@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eugen Systems - Studio de Développement de Jeux RTS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 3px solid #e94560;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            color: #fff;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        header p {
+            font-size: 1.1em;
+            color: #b0b0b0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            background: rgba(30, 30, 50, 0.9);
+            margin: 20px 0;
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 5px solid #e94560;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        section h2 {
+            font-size: 2em;
+            color: #fff;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        section h3 {
+            font-size: 1.4em;
+            color: #e94560;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        .identite-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .identite-card {
+            background: rgba(15, 52, 96, 0.6);
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid #e94560;
+        }
+
+        .identite-card strong {
+            color: #e94560;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .identite-card p {
+            color: #c0c0c0;
+        }
+
+        .jeux-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .jeu-card {
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.1) 0%, rgba(15, 52, 96, 0.3) 100%);
+            padding: 20px;
+            border-radius: 6px;
+            border: 2px solid #e94560;
+            transition: all 0.3s ease;
+        }
+
+        .jeu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(233, 69, 96, 0.3);
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.2) 0%, rgba(15, 52, 96, 0.4) 100%);
+        }
+
+        .jeu-card h4 {
+            color: #fff;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .jeu-card p {
+            color: #a0a0a0;
+            font-size: 0.95em;
+        }
+
+        .editeur-tag {
+            display: inline-block;
+            background: #e94560;
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 3px;
+            font-size: 0.85em;
+            margin: 5px 5px 5px 0;
+        }
+
+        .metier-section {
+            margin-top: 30px;
+        }
+
+        .metier-card {
+            background: rgba(15, 52, 96, 0.7);
+            padding: 25px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 5px solid #e94560;
+        }
+
+        .metier-card h4 {
+            color: #fff;
+            font-size: 1.3em;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .difficulty-bar {
+            background: rgba(0, 0, 0, 0.3);
+            height: 8px;
+            border-radius: 4px;
+            margin: 12px 0;
+            overflow: hidden;
+        }
+
+        .difficulty-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #27ae60, #e94560);
+            border-radius: 4px;
+        }
+
+        .liens-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .lien-card {
+            background: rgba(15, 52, 96, 0.6);
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid #e94560;
+            text-align: center;
+        }
+
+        .lien-card a {
+            display: inline-block;
+            color: #fff;
+            background: #e94560;
+            padding: 12px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .lien-card a:hover {
+            background: #c93552;
+            transform: scale(1.05);
+        }
+
+        .verdict {
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.15) 0%, rgba(39, 174, 96, 0.15) 100%);
+            padding: 30px;
+            border-radius: 8px;
+            border: 2px solid #e94560;
+        }
+
+        .verdict h3 {
+            margin-top: 0;
+        }
+
+        .verdict-score {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .score-item {
+            text-align: center;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 6px;
+        }
+
+        .score-item strong {
+            color: #e94560;
+            font-size: 1.2em;
+        }
+
+        .score-item p {
+            color: #a0a0a0;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .conseil-box {
+            background: rgba(39, 174, 96, 0.1);
+            border-left: 4px solid #27ae60;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+
+        .conseil-box strong {
+            color: #27ae60;
+        }
+
+        .conseil-box ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .conseil-box li {
+            margin: 8px 0;
+            color: #c0c0c0;
+        }
+
+        .stats-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 12px 0;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+
+        .stats-line strong {
+            color: #e94560;
+            min-width: 150px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 2px solid #e94560;
+            margin-top: 40px;
+            color: #808080;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            section h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🎮 EUGEN SYSTEMS</h1>
+        <p>Studio de Développement de Jeux de Stratégie en Temps Réel - Paris, France</p>
+    </header>
+
+    <div class="container">
+        <!-- SECTION IDENTITÉ -->
+        <section>
+            <h2>📋 Identité du Studio</h2>
+            <div class="identite-grid">
+                <div class="identite-card">
+                    <strong>📍 Localisation</strong>
+                    <p>Paris, France</p>
+                </div>
+                <div class="identite-card">
+                    <strong>📅 Année de Fondation</strong>
+                    <p>1998 (26 ans d'expérience)</p>
+                </div>
+                <div class="identite-card">
+                    <strong>👥 Taille de l'Équipe</strong>
+                    <p>11-50 salariés</p>
+                </div>
+                <div class="identite-card">
+                    <strong>🎯 Spécialité</strong>
+                    <p>Développement de Jeux RTS (Stratégie en Temps Réel)</p>
+                </div>
+                <div class="identite-card">
+                    <strong>📊 Type de Studio</strong>
+                    <p>Studio Indépendant avec Partenaires Éditeurs</p>
+                </div>
+                <div class="identite-card">
+                    <strong>💼 PDG</strong>
+                    <p>Cédric Le Dressay</p>
+                </div>
+            </div>
+
+            <h3>Partenaires Éditeurs</h3>
+            <div style="margin-top: 15px;">
+                <span class="editeur-tag">Microïds</span>
+                <span class="editeur-tag">Arxel Tribe</span>
+                <span class="editeur-tag">Atari</span>
+                <span class="editeur-tag">Ubisoft</span>
+            </div>
+        </section>
+
+        <!-- SECTION JEUX NOTABLES -->
+        <section>
+            <h2>🎮 Jeux Notables</h2>
+            <p>Eugen Systems s'est forgé une réputation incontournable dans les RTS avec des titres reconnaissant pour leur profondeur stratégique et leur attention aux détails.</p>
+            
+            <div class="jeux-grid">
+                <div class="jeu-card">
+                    <h4>Times of Conflict</h4>
+                    <p>Jeu de stratégie en temps réel où les ressources et la planification tactique sont clés. Un classique du genre.</p>
+                </div>
+                <div class="jeu-card">
+                    <h4>The Gladiators</h4>
+                    <p>Jeu de combat stratégique mettant en avant la gestion des unités et les affrontements directs.</p>
+                </div>
+                <div class="jeu-card">
+                    <h4>Act of War</h4>
+                    <p>RTS moderne avec unités militaires réalistes et campagne solo captivante. Publication par Atari.</p>
+                </div>
+                <div class="jeu-card">
+                    <h4>R.U.S.E.</h4>
+                    <p>RTS innovant basé sur les ruses militaires. Un tournant majeur du studio avec publication Ubisoft.</p>
+                </div>
+                <div class="jeu-card">
+                    <h4>Wargame: European Escalation</h4>
+                    <p>Jeu de stratégie militaire moderne axé sur les forces armées réalistes et la profondeur tactique.</p>
+                </div>
+                <div class="jeu-card">
+                    <h4>Steel Division: Normandy 44</h4>
+                    <p>RTS de combat basé sur la Bataille de Normandie. Référence en matière de détail historique et gameplay stratégique.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION RECRUTEMENT -->
+        <section>
+            <h2>💼 Informations Recrutement</h2>
+            <div style="background: rgba(233, 69, 96, 0.1); padding: 20px; border-radius: 6px; margin: 20px 0; border: 1px solid #e94560;">
+                <p style="color: #e0e0e0; margin-bottom: 15px;">
+                    <strong style="color: #e94560;">⚠️ Actuellement :</strong> Aucune offre d'emploi affichée publiquement. Le studio peut recruter de manière ciblée ou par recommandation.
+                </p>
+                <p style="color: #a0a0a0; font-size: 0.95em;">
+                    Pour envoyer une candidature spontanée, consultez le formulaire de contact sur le site web ou approchez via LinkedIn.
+                </p>
+            </div>
+        </section>
+
+        <!-- SECTION PAR MÉTIER -->
+        <section>
+            <h2>👨‍💼 Opportunités par Métier</h2>
+            
+            <div class="metier-section">
+                <div class="metier-card">
+                    <h4>🎮 Game Designer</h4>
+                    <div class="stats-line">
+                        <strong>Niveau de Demande:</strong>
+                        <span>⭐⭐⭐⭐⭐ ÉLEVÉ</span>
+                    </div>
+                    <div class="difficulty-bar">
+                        <div class="difficulty-fill" style="width: 90%;"></div>
+                    </div>
+                    <p><strong>Focus Principal:</strong> Design de gameplay RTS, mécanique de stratégie en temps réel, équilibrage</p>
+                    <p><strong>Attentes:</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>Expérience confirmée en RTS et jeux de stratégie</li>
+                        <li>Maîtrise des outils de level design et scripting</li>
+                        <li>Compréhension profonde des mécaniques de stratégie militaire</li>
+                        <li>Portfolio détaillé avec projets RTS</li>
+                    </ul>
+                </div>
+
+                <div class="metier-card">
+                    <h4>💻 Programmeur</h4>
+                    <div class="stats-line">
+                        <strong>Niveau de Demande:</strong>
+                        <span>⭐⭐⭐⭐⭐ ÉLEVÉ</span>
+                    </div>
+                    <div class="difficulty-bar">
+                        <div class="difficulty-fill" style="width: 85%;"></div>
+                    </div>
+                    <p><strong>Focus Principal:</strong> Programmation moteur RTS, optimisation temps réel, gameplay core</p>
+                    <p><strong>Attentes:</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>Spécialisation en programmation RTS ou jeux temps réel</li>
+                        <li>Langages: C++, C#, scripts de gameplay</li>
+                        <li>Expérience avec moteurs RTS ou propriétaires</li>
+                        <li>Optimisation de performances critiques</li>
+                        <li>Portfolio de code ou projets techniques</li>
+                    </ul>
+                </div>
+
+                <div class="metier-card">
+                    <h4>🎨 Artiste 3D</h4>
+                    <div class="stats-line">
+                        <strong>Niveau de Demande:</strong>
+                        <span>⭐⭐⭐⭐ MOYEN-ÉLEVÉ</span>
+                    </div>
+                    <div class="difficulty-bar">
+                        <div class="difficulty-fill" style="width: 70%;"></div>
+                    </div>
+                    <p><strong>Focus Principal:</strong> Modélisation 3D détaillée, texturing, visuels militaires réalistes</p>
+                    <p><strong>Attentes:</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>Modélisation 3D haute qualité (unités, bâtiments, véhicules)</li>
+                        <li>Maîtrise de logiciels: Maya, Blender, 3DS Max</li>
+                        <li>Texturing PBR pour jeux temps réel</li>
+                        <li>Portfolio avec assets militaires/historiques</li>
+                        <li>Optimisation pour jeux RTS</li>
+                    </ul>
+                </div>
+
+                <div class="metier-card">
+                    <h4>🖼️ UI Artist</h4>
+                    <div class="stats-line">
+                        <strong>Niveau de Demande:</strong>
+                        <span>⭐⭐⭐ MOYEN</span>
+                    </div>
+                    <div class="difficulty-bar">
+                        <div class="difficulty-fill" style="width: 60%;"></div>
+                    </div>
+                    <p><strong>Focus Principal:</strong> Design d'interfaces stratégiques, HUD RTS, ergonomie utilisateur</p>
+                    <p><strong>Attentes:</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>Design d'interfaces RTS complexes et intuitives</li>
+                        <li>Figma, Adobe XD, ou outils similaires</li>
+                        <li>Compréhension des HUD temps réel</li>
+                        <li>Design d'icônes et visuels de gameplay</li>
+                        <li>Portfolio avec interfaces de jeux stratégiques</li>
+                    </ul>
+                </div>
+
+                <div class="metier-card">
+                    <h4>🎭 Concept Artist</h4>
+                    <div class="stats-line">
+                        <strong>Niveau de Demande:</strong>
+                        <span>⭐⭐⭐ MOYEN</span>
+                    </div>
+                    <div class="difficulty-bar">
+                        <div class="difficulty-fill" style="width: 65%;"></div>
+                    </div>
+                    <p><strong>Focus Principal:</strong> Concepts militaires historiques, design d'unités, environnements</p>
+                    <p><strong>Attentes:</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>Expertise en design militaire et historique</li>
+                        <li>Maîtrise du dessin digital (Photoshop, Procreate, Clip Studio)</li>
+                        <li>Capacité à créer de l'artwork variée (véhicules, soldats, architecture)</li>
+                        <li>Recherche historique et attention aux détails authentiques</li>
+                        <li>Portfolio spécialisé en concept art militaire</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION LIENS UTILES -->
+        <section>
+            <h2>🔗 Liens Utiles</h2>
+            <div class="liens-grid">
+                <div class="lien-card">
+                    <strong>Site Web Officiel</strong>
+                    <p>Informations générales, actualités et portfolio</p>
+                    <a href="https://eugensystems.com" target="_blank">Visiter eugensystems.com</a>
+                </div>
+                <div class="lien-card">
+                    <strong>LinkedIn</strong>
+                    <p>Page entreprise, actualités, opportunités</p>
+                    <a href="https://www.linkedin.com/company/eugen-systems/?originalSubdomain=fr" target="_blank">Suivre Eugen Systems</a>
+                </div>
+                <div class="lien-card">
+                    <strong>Candidature Spontanée</strong>
+                    <p>Envoyez votre portfolio via le formulaire du site</p>
+                    <a href="https://eugensystems.com" target="_blank">Accéder au Formulaire</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION CULTURE & CONTEXTE -->
+        <section>
+            <h2>🏢 Culture & Contexte du Studio</h2>
+            <h3>Points Forts</h3>
+            <ul style="margin-left: 20px; color: #c0c0c0;">
+                <li><strong style="color: #27ae60;">Expertise RTS Reconnue :</strong> Eugen Systems est une référence absolue en matière de développement RTS, avec un patrimoine de 26 ans d'expérience</li>
+                <li><strong style="color: #27ae60;">Attention aux Détails :</strong> Tous les jeux bénéficient d'une richesse de contenu, d'équilibrage profond et de fidélité historique</li>
+                <li><strong style="color: #27ae60;">Partenaires Éditeurs Prestigieux :</strong> Collaborations avec U
