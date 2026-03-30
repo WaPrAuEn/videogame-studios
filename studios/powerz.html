@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerZ - Studio de Jeux Vidéo Éducatif</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        header h1 {
+            color: #667eea;
+            font-size: 3em;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        header p {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .badge-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            margin-bottom: 30px;
+        }
+
+        .card h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .card h3 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .info-block {
+            background: #f8f9ff;
+            padding: 15px;
+            border-left: 4px solid #667eea;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        .info-block strong {
+            color: #667eea;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .sidebar .card {
+            margin-bottom: 0;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .metiers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .metier-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-top: 4px solid #667eea;
+            text-align: center;
+        }
+
+        .metier-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .metier-card .check {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        .metier-card p {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .liens-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .lien-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: block;
+        }
+
+        .lien-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .verdict-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .verdict-card h2 {
+            color: white;
+            border-bottom-color: rgba(255, 255, 255, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .difficulty-bar {
+            background: rgba(255, 255, 255, 0.3);
+            height: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .difficulty-fill {
+            background: #4ade80;
+            height: 100%;
+            width: 60%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 15px;
+        }
+
+        footer {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            color: #666;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .conseil {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            color: #856404;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            .metiers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PowerZ</h1>
+            <p>Studio de Jeux Vidéo Éducatif</p>
+            <div class="badge-container">
+                <span class="badge">🎮 Jeux Éducatifs</span>
+                <span class="badge">🇫🇷 Paris, France</span>
+                <span class="badge">📅 Depuis 2020</span>
+                <span class="badge">👥 11-50 collaborateurs</span>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div>
+                <div class="card">
+                    <h2>Identité</h2>
+                    
+                    <div class="info-block">
+                        <strong>Localisation :</strong> Paris, France
+                    </div>
+
+                    <div class="info-block">
+                        <strong>Année de fondation :</strong> 2020
+                    </div>
+
+                    <div class="info-block">
+                        <strong>Taille de l'équipe :</strong> 11-50 collaborateurs
+                    </div>
+
+                    <div class="info-block">
+                        <strong>Type de studio :</strong> Studio de jeux vidéo éducatif
+                    </div>
+
+                    <h3>Mission et Culture</h3>
+                    <p>PowerZ révolutionne l'apprentissage par le jeu vidéo. La philosophie du studio repose sur un principe simple : <strong>apprendre en s'amusant</strong>. En combinant pédagogie innovante et technologie ludique, PowerZ crée des expériences qui transforment l'éducation en aventure captivante.</p>
+
+                    <h3>Éditeurs et Partenaires</h3>
+                    <ul>
+                        <li>BpiFrance</li>
+                        <li>Raise Venture</li>
+                        <li>Hachette Livre</li>
+                        <li>Educapital</li>
+                        <li>Bayard</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>Jeux Notables</h2>
+                    
+                    <h3>Portfolio Éducatif</h3>
+                    <p>PowerZ développe des jeux vidéo éducatifs de haute qualité destinés aux enfants à partir de 6 ans.</p>
+
+                    <div class="info-block">
+                        <strong>Type de jeux :</strong> Jeux vidéo éducatif pour enfants (à partir de 6 ans)
+                    </div>
+
+                    <div class="info-block">
+                        <strong>Approche pédagogique :</strong> Jeux éducatifs multi-niveaux adaptés à la progression de chaque apprenant
+                    </div>
+
+                    <p style="margin-top: 15px; color: #666; font-size: 0.95em;">Chaque titre est conçu pour développer les compétences fondamentales (mathématiques, langue, logique, créativité) dans un environnement ludique et engageant.</p>
+                </div>
+
+                <div class="card">
+                    <h2>Recrutement</h2>
+                    
+                    <div class="conseil">
+                        <strong>💡 Conseil :</strong> Consultez le site Welcome to the Jungle pour découvrir les offres actuelles chez PowerZ. Démontrez votre passion pour l'éducation et les jeux vidéo lors de votre candidature !
+                    </div>
+
+                    <div class="info-block">
+                        <strong>Postes ouverts :</strong> Non spécifié - consultez les liens ci-dessous
+                    </div>
+
+                    <div class="info-block">
+                        <strong>Email recrutement :</strong> Non disponible
+                    </div>
+
+                    <h3>Comment Candidater ?</h3>
+                    <p>PowerZ recrute activement sur Welcome to the Jungle. Visitez régulièrement le site des carrières pour découvrir les dernières offres d'emploi adaptées à votre profil. Montrez votre enthousiasme pour l'éducation ludique !</p>
+                </div>
+
+                <div class="card">
+                    <h2>Liens Utiles</h2>
+                    <div class="liens-container">
+                        <a href="https://powerz.tech/fr-fr/" class="lien-btn" target="_blank">🌐 Site Web Officiel</a>
+                        <a href="https://www.welcometothejungle.com/fr/companies/powerz" class="lien-btn" target="_blank">💼 Page Carrières</a>
+                        <a href="https://www.linkedin.com/company/powerz/posts/?feedView=all" class="lien-btn" target="_blank">💼 LinkedIn PowerZ</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Opportunités par Métier</h2>
+                    <div class="metiers-grid">
+                        <div class="metier-card">
+                            <div class="check">✓</div>
+                            <h3>Game Designer</h3>
+                            <p>Créez des expériences éducatives captivantes qui combinent gameplay et apprentissage</p>
+                        </div>
+
+                        <div class="metier-card">
+                            <div class="check">✓</div>
+                            <h3>Programmeur</h3>
+                            <p>Développez les mécaniques de jeu et les fonctionnalités éducatives interactives</p>
+                        </div>
+
+                        <div class="metier-card">
+                            <div class="check">✓</div>
+                            <h3>Artiste 3D</h3>
+                            <p>Donnez vie aux univers ludiques et pédagogiques avec des environnements visuellement attractifs</p>
+                        </div>
+
+                        <div class="metier-card">
+                            <div class="check">✓</div>
+                            <h3>UI Artist</h3>
+                            <p>Concevez des interfaces intuitives et engageantes pour les jeunes utilisateurs</p>
+                        </div>
+
+                        <div class="metier-card">
+                            <div class="check">✓</div>
+                            <h3>Concept Artist</h3>
+                            <p>Imaginez les mondes, personnages et concepts visuels des jeux éducatifs PowerZ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="card">
+                    <h2>Informations Clés</h2>
+                    
+                    <div class="info-block">
+                        <strong>Plateforme Steam :</strong> Non disponible
+                    </div>
+
+                    <div class="info-block">
+                        <strong>Secteur :</strong> EdTech & Serious Games
+                    </div>
+
+                    <div class="info-block">
+                        <strong>Spécialité :</strong> Jeux vidéo éducatifs multi-âges
+                    </div>
+
+                    <div class="info-block">
+                        <strong>Innovation :</strong> Pédagogie ludique et interactive
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Difficulté de Recrutement</h2>
+                    <div class="difficulty-bar">
+                        <div class="difficulty-fill">3/5</div>
+                    </div>
+                    <p style="text-align: center; color: #666; margin-top: 15px;"><strong>Modérée</strong></p>
+                    <p style="font-size: 0.9em; color: #888; margin-top: 10px;">PowerZ recherche des talents avec une passion commune pour l'éducation et les jeux vidéo. Une candidature bien présentée et montrant votre compréhension de la pédagogie ludique augmente vos chances !</p>
+                </div>
+
+                <div class="card">
+                    <h2>À Retenir</h2>
+                    <ul>
+                        <li>✓ Studio en croissance depuis 2020</li>
+                        <li>✓ Backed par des investisseurs majeurs</li>
+                        <li>✓ Focus sur l'EdTech ludique</li>
+                        <li>✓ Équipe jeune et dynamique</li>
+                        <li>✓ Mission inspirante et impactante</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="verdict-card">
+            <h2>🎯 Verdict Final</h2>
+            <p style="font-size: 1.1em; margin-bottom: 20px;">PowerZ est une excellente opportunité pour les professionnels qui souhaitent combiner leur passion pour les jeux vidéo avec un impact éducatif réel.</p>
+            
+            <p style="margin-bottom: 15px;"><strong>Points forts :</strong></p>
+            <p>Studio innovant, mission inspirante, investisseurs de qualité, expertise reconnue en EdTech, équipe multidisciplinaire engagée.</p>
+
+            <p style="margin: 20px 0 15px 0;"><strong>Pour réussir sa candidature :</strong></p>
+            <p>Montrez votre compréhension des enjeux de l'éducation ludique, présentez des portfolios démontrant votre expertise, et exprimez votre enthousiasme pour la mission de PowerZ. Consultez régulièrement Welcome to the Jungle pour les offres actuelles !</p>
+
+            <p style="margin-top: 25px; font-size: 1.2em; font-weight: bold;">Recommandation : ⭐⭐⭐⭐ (4/5)</p>
+        </div>
+
+        <footer>
+            <p>📍 <strong>PowerZ Studio</strong> - Paris, France | Révolutionner l'apprentissage par le jeu vidéo</p>
+            <p style="margin-top: 10px; font-size: 0.9em; color: #999;">Fiche informative | Mise à jour 2024</p>
+        </footer>
+    </div>
+</body>
+</html>
