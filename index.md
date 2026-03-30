@@ -102,6 +102,7 @@
 - [Quantic Dream](studios/quantic-dream.html) — Paris, France
 - [Rainmaker Entertainment](studios/rainmaker-entertainment.html) — Vancouver, Canada
 - [Reenbow](studios/reenbow.html) — Paris, France
+- [Riot Games France](studios/riot-games-france.html) — Paris, France
 - [Sandfall Interactive](studios/sandfall-interactive.html) — Montpellier, France
 - [Semiwork](studios/semiwork.html) — Uppsala, Suède
 - [Shiro Games](studios/shiro-games.html) — Bordeaux, France
