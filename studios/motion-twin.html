@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Motion Twin - Studio Indépendant de Jeux Vidéo</title>
+    <title>Motion Twin - Studio de Jeux Vidéo</title>
     <style>
         * {
             margin: 0;
@@ -13,29 +13,29 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            min-height: 100vh;
+            color: #e0e0e0;
+            line-height: 1.6;
         }
 
         header {
-            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
-            color: white;
-            padding: 60px 20px;
+            background: linear-gradient(90deg, #0f3460 0%, #16213e 100%);
+            padding: 40px 20px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border-bottom: 3px solid #e94560;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
         }
 
         header h1 {
             font-size: 3em;
+            color: #e94560;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         header p {
             font-size: 1.2em;
-            opacity: 0.9;
+            color: #a8dadc;
         }
 
         .container {
@@ -45,264 +45,204 @@
         }
 
         section {
-            background: white;
+            background: rgba(31, 31, 46, 0.8);
+            border: 1px solid #e94560;
+            border-radius: 8px;
+            padding: 30px;
             margin-bottom: 30px;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
         }
 
         section h2 {
-            color: #0f3460;
+            color: #e94560;
             font-size: 2em;
-            margin-bottom: 25px;
-            border-bottom: 3px solid #e94560;
-            padding-bottom: 15px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e94560;
+            padding-bottom: 10px;
         }
 
         section h3 {
-            color: #16213e;
+            color: #a8dadc;
             font-size: 1.4em;
-            margin-top: 25px;
+            margin-top: 20px;
             margin-bottom: 15px;
         }
 
-        .identite-grid {
+        .info-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
             margin-bottom: 20px;
         }
 
-        .identite-item {
-            background: #f8f9fa;
+        .info-card {
+            background: rgba(14, 52, 96, 0.5);
             padding: 20px;
-            border-radius: 8px;
             border-left: 4px solid #e94560;
+            border-radius: 4px;
+            transition: transform 0.3s ease;
         }
 
-        .identite-item strong {
-            color: #0f3460;
-            display: block;
+        .info-card:hover {
+            transform: translateX(5px);
+        }
+
+        .info-card h4 {
+            color: #e94560;
             margin-bottom: 8px;
             font-size: 1.1em;
         }
 
-        .jeu-card {
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-            padding: 25px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #e94560;
-            transition: transform 0.3s, box-shadow 0.3s;
+        .info-card p {
+            color: #c0c0c0;
+            font-size: 0.95em;
         }
 
-        .jeu-card:hover {
-            transform: translateX(5px);
-            box-shadow: 0 6px 20px rgba(233, 69, 96, 0.2);
+        .status-unknown {
+            color: #ff9800;
+            font-style: italic;
         }
 
-        .jeu-card h4 {
-            color: #e94560;
-            font-size: 1.3em;
-            margin-bottom: 10px;
-        }
-
-        .recrutement-status {
-            background: #fff3cd;
-            border: 2px solid #ffc107;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            color: #856404;
-        }
-
-        .recrutement-status strong {
-            color: #e74c3c;
-        }
-
-        .metier-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            margin-bottom: 20px;
-        }
-
-        .metier-card {
-            background: linear-gradient(135deg, #f0f4ff 0%, #f8f9fa 100%);
-            padding: 25px;
-            border-radius: 8px;
-            border-top: 4px solid #0f3460;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        .metier-card h4 {
-            color: #e94560;
-            font-size: 1.3em;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-        }
-
-        .metier-card .nombre {
-            background: #e94560;
-            color: white;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin-right: 12px;
-            font-size: 1.1em;
-        }
-
-        .metier-card p {
-            color: #555;
-            margin-bottom: 10px;
-        }
-
-        .culture-box {
-            background: linear-gradient(135deg, #e8f4f8 0%, #f0f8fb 100%);
-            padding: 25px;
-            border-radius: 8px;
-            border-left: 5px solid #0f3460;
-            margin: 20px 0;
-        }
-
-        .culture-box ul {
+        .culture-list {
             list-style: none;
-            padding-left: 0;
         }
 
-        .culture-box li {
+        .culture-list li {
+            padding: 10px 0;
             padding-left: 25px;
             position: relative;
-            margin-bottom: 12px;
-            color: #333;
         }
 
-        .culture-box li:before {
+        .culture-list li:before {
             content: "▸";
             position: absolute;
             left: 0;
             color: #e94560;
-            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .metier-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .metier-card {
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.1) 0%, rgba(168, 218, 220, 0.1) 100%);
+            padding: 20px;
+            border: 1px solid #e94560;
+            border-radius: 6px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .metier-card:hover {
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.2) 0%, rgba(168, 218, 220, 0.2) 100%);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(233, 69, 96, 0.2);
+        }
+
+        .metier-card h4 {
+            color: #e94560;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .metier-card p {
+            color: #c0c0c0;
+            font-size: 0.9em;
+            font-style: italic;
         }
 
         .liens-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
-            margin: 20px 0;
+            margin-top: 20px;
         }
 
-        .lien-card {
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            border: 2px solid #e94560;
-            transition: all 0.3s;
-        }
-
-        .lien-card:hover {
-            background: linear-gradient(135deg, #e94560 0%, #c93550 100%);
+        .lien-button {
+            display: inline-block;
+            padding: 15px 25px;
+            background: linear-gradient(90deg, #e94560 0%, #ff6b7a 100%);
             color: white;
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(233, 69, 96, 0.3);
-        }
-
-        .lien-card h4 {
-            margin-bottom: 10px;
-            color: inherit;
-        }
-
-        .lien-card a {
-            color: #0f3460;
             text-decoration: none;
+            border-radius: 4px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
             font-weight: 600;
-            word-break: break-all;
-            font-size: 0.95em;
+            width: 100%;
         }
 
-        .lien-card:hover a {
-            color: white;
+        .lien-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(233, 69, 96, 0.4);
         }
 
-        .difficulte {
-            background: linear-gradient(135deg, #ffebee 0%, #fff3e0 100%);
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-            border-left: 5px solid #e74c3c;
+        .lien-button.disabled {
+            background: linear-gradient(90deg, #666666 0%, #888888 100%);
+            cursor: not-allowed;
+            opacity: 0.6;
         }
 
-        .difficulte-stars {
-            color: #e94560;
-            font-size: 1.5em;
-            margin: 10px 0;
-            letter-spacing: 5px;
-        }
-
-        .conseil {
-            background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
-            padding: 25px;
-            border-radius: 8px;
-            border-left: 5px solid #27ae60;
-            margin: 20px 0;
-        }
-
-        .conseil h4 {
-            color: #27ae60;
-            margin-bottom: 15px;
-            font-size: 1.2em;
-        }
-
-        .conseil ol {
-            padding-left: 25px;
-            color: #333;
-        }
-
-        .conseil li {
-            margin-bottom: 10px;
-            line-height: 1.7;
+        .lien-button.disabled:hover {
+            transform: none;
+            box-shadow: none;
         }
 
         .verdict {
-            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
-            color: white;
-            padding: 40px;
-            border-radius: 10px;
-            text-align: center;
-            margin-bottom: 40px;
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.2) 0%, rgba(168, 218, 220, 0.15) 100%);
+            border-left: 5px solid #e94560;
+            padding: 25px;
+            border-radius: 6px;
+            margin-top: 20px;
         }
 
-        .verdict h2 {
-            color: white;
-            border-bottom: 3px solid #e94560;
-        }
-
-        .verdict-score {
-            font-size: 2.5em;
+        .verdict h3 {
+            margin-top: 0;
             color: #e94560;
-            font-weight: bold;
-            margin: 20px 0;
         }
 
-        .verdict-text {
-            font-size: 1.1em;
-            line-height: 1.8;
-            margin: 20px 0;
+        .verdict p {
+            color: #d0d0d0;
+            font-size: 1.05em;
+        }
+
+        .stars {
+            color: #ff9800;
+            font-size: 1.3em;
+            margin: 10px 0;
         }
 
         footer {
-            background: #0f3460;
-            color: white;
             text-align: center;
-            padding: 20px;
-            margin-top: 40px;
+            padding: 30px 20px;
+            color: #888;
+            border-top: 1px solid #e94560;
+            margin-top: 50px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #e94560;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
         }
 
         @media (max-width: 768px) {
@@ -310,261 +250,163 @@
                 font-size: 2em;
             }
 
-            .identite-grid,
-            .metier-grid,
-            .liens-grid {
-                grid-template-columns: 1fr;
-            }
-
             section {
                 padding: 20px;
             }
-        }
 
-        .stat-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .stat-row:last-child {
-            border-bottom: none;
-        }
-
-        .stat-label {
-            font-weight: 600;
-            color: #0f3460;
-        }
-
-        .stat-value {
-            color: #e94560;
-            font-weight: bold;
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <h1>🎮 Motion Twin</h1>
-        <p>Studio Indépendant de Jeux Vidéo - Bordeaux, France</p>
+        <p>Studio de Jeux Vidéo - Éditeur & Développeur</p>
     </header>
 
     <div class="container">
         <!-- SECTION IDENTITÉ -->
         <section>
-            <h2>Identité du Studio</h2>
-            <div class="identite-grid">
-                <div class="identite-item">
-                    <strong>Localisation</strong>
-                    📍 Bordeaux, France
+            <h2>📋 Identité du Studio</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Localisation</h4>
+                    <p><span class="status-unknown">Inconnu</span> - France</p>
                 </div>
-                <div class="identite-item">
-                    <strong>Fondation</strong>
-                    📅 2008 (16 ans d'expérience)
+                <div class="info-card">
+                    <h4>Année de Fondation</h4>
+                    <p><span class="status-unknown">Inconnu</span></p>
                 </div>
-                <div class="identite-item">
-                    <strong>Taille de l'équipe</strong>
-                    👥 2-10 employés
+                <div class="info-card">
+                    <h4>Type</h4>
+                    <p>Éditeur et Développeur</p>
                 </div>
-                <div class="identite-item">
-                    <strong>Type de Studio</strong>
-                    🏆 Indépendant
+                <div class="info-card">
+                    <h4>Taille de l'Équipe</h4>
+                    <p><span class="status-unknown">Inconnu</span></p>
                 </div>
             </div>
 
-            <h3>Édition</h3>
-            <div class="stat-row">
-                <span class="stat-label">Modèle d'édition:</span>
-                <span class="stat-value">Auto-édité + Devolver Digital</span>
-            </div>
+            <h3>Philosophie & Culture</h3>
+            <p style="margin-bottom: 15px;">Motion Twin se distingue par son engagement envers l'excellence et l'innovation dans l'industrie du jeu vidéo.</p>
+            <ul class="culture-list">
+                <li><strong>Qualité du Gameplay :</strong> Excellence absolue dans la conception des mécaniques de jeu</li>
+                <li><strong>Innovation :</strong> Recherche constante de nouvelles idées et approches créatives</li>
+                <li><strong>Satisfaction des Joueurs :</strong> Priorité absolue accordée à l'expérience joueur</li>
+                <li><strong>Projets Originaux :</strong> Soutien à la production de concepts ambitieux et uniques</li>
+                <li><strong>Ambition Créative :</strong> Encouragement de la prise de risques artistiques calculés</li>
+            </ul>
         </section>
 
         <!-- SECTION JEUX NOTABLES -->
         <section>
-            <h2>Jeux Notables</h2>
-
-            <div class="jeu-card">
-                <h4>⚔️ Dead Cells</h4>
-                <p>Le jeu phare du studio - un roguelike d'action 2D révolutionnaire combinant exploration, combats intenses et progression permanente. Succès critique et commercial majeur avec millions de joueurs worldwide.</p>
+            <h2>🎯 Jeux Notables</h2>
+            <div style="background: rgba(14, 52, 96, 0.5); padding: 20px; border-radius: 6px; text-align: center;">
+                <p style="color: #ff9800; font-style: italic; font-size: 1.1em;">Informations détaillées non disponibles</p>
             </div>
-
-            <div class="jeu-card">
-                <h4>🧛 Dead Cells: Return to Castlevania</h4>
-                <p>Expansion collaborative avec Konami intégrant l'univers emblématique de Castlevania dans le monde de Dead Cells. Démontre la capacité du studio à collaborer avec des franchises majeures.</p>
-            </div>
-
-            <div class="jeu-card">
-                <h4>🗡️ Titan Souls</h4>
-                <p>Jeu d'aventure roguelite focalisé sur les combats de boss. Showcase des mécaniques innovantes et du design challengeant caractéristiques de Motion Twin.</p>
-            </div>
+            <p style="margin-top: 15px; color: #c0c0c0;">Pour découvrir les jeux développés par Motion Twin, consultez leur site officiel.</p>
         </section>
 
         <!-- SECTION RECRUTEMENT -->
         <section>
-            <h2>Recrutement & Contact</h2>
-
-            <div class="recrutement-status">
-                <strong>⚠️ Statut actuel:</strong> Aucun poste ouvert actuellement. Consultez régulièrement le site pour les nouvelles opportunités.
-            </div>
-
-            <h3>Coordonnées</h3>
-            <div class="metier-grid">
-                <div class="metier-card">
-                    <strong>Email Recrutement</strong>
-                    <p><a href="mailto:contact@motion-twin.com" style="color: #e94560; text-decoration: none; font-weight: bold;">contact@motion-twin.com</a></p>
+            <h2>💼 Recrutement</h2>
+            <div class="row">
+                <div class="info-card">
+                    <h4>Postes Ouverts</h4>
+                    <p><span class="status-unknown">Inconnu</span></p>
                 </div>
-                <div class="metier-card">
-                    <strong>Site Carrières</strong>
-                    <p><a href="https://motiontwin.com/contact" style="color: #e94560; text-decoration: none; font-weight: bold;" target="_blank">motiontwin.com/contact</a></p>
+                <div class="info-card">
+                    <h4>Email Recrutement</h4>
+                    <p><span class="status-unknown">Inconnu</span></p>
+                </div>
+                <div class="info-card">
+                    <h4>Site Carrières</h4>
+                    <p><span class="status-unknown">Inconnu</span></p>
                 </div>
             </div>
-
-            <h3>Formulaire & Candidature</h3>
-            <p>Motion Twin privilégie les candidatures via leur formulaire de contact sur le site officiel avec un pitch concis et des liens vers vos réalisations (GitHub, itch.io, portfolio).</p>
-        </section>
-
-        <!-- SECTION CULTURE -->
-        <section>
-            <h2>Culture & Valeurs</h2>
-            <div class="culture-box">
-                <h3 style="color: #0f3460; margin-top: 0;">Caractéristiques du Studio</h3>
-                <ul>
-                    <li><strong>Studio indépendant créatif</strong> - Liberté artistique et innovation au cœur des décisions</li>
-                    <li><strong>Focus sur les roguelikes/roguelites</strong> - Spécialistes des mécaniques procédurales et du replayability</li>
-                    <li><strong>Petite équipe autonome</strong> - Structure agile permettant flexibilité et responsabilité</li>
-                    <li><strong>Passion pour le game design challengeant</strong> - Création de défis mémorables et satisfaisants</li>
-                    <li><strong>Expertise en pixel art</strong> - Esthétique soignée et animation fluide</li>
-                    <li><strong>Équipe talentueuse et expérimentée</strong> - Années de succès commercial et critique</li>
-                </ul>
-            </div>
+            <p style="margin-top: 20px; color: #c0c0c0;">Pour les opportunités de carrière chez Motion Twin, consultez directement leur site officiel ou leurs pages de réseaux sociaux.</p>
         </section>
 
         <!-- SECTION PAR MÉTIER -->
         <section>
-            <h2>Composition de l'Équipe par Métier</h2>
-
+            <h2>👥 Opportunités par Métier</h2>
+            <p style="margin-bottom: 20px;">Statut des postes spécialisés chez Motion Twin :</p>
             <div class="metier-grid">
                 <div class="metier-card">
-                    <h4>
-                        <span class="nombre">9</span>
-                        Game Designer
-                    </h4>
-                    <p>L'équipe de design est la plus importante, reflétant l'importance du game design innovant et du system design dans les roguelikes de Motion Twin.</p>
+                    <h4>🎨 Game Designer</h4>
+                    <p><span class="status-unknown">Informations indisponibles</span></p>
                 </div>
-
                 <div class="metier-card">
-                    <h4>
-                        <span class="nombre">8</span>
-                        Programmeur
-                    </h4>
-                    <p>Équipe technique robuste chargée de l'implémentation des mécaniques complexes et de l'optimisation des jeux.</p>
+                    <h4>💻 Programmeur</h4>
+                    <p><span class="status-unknown">Informations indisponibles</span></p>
                 </div>
-
                 <div class="metier-card">
-                    <h4>
-                        <span class="nombre">7</span>
-                        UI Artist
-                    </h4>
-                    <p>Spécialistes de l'interface utilisateur pour créer des UX intuitives et esthétiques alignées avec le style pixel art du studio.</p>
+                    <h4>🖼️ Artiste 3D</h4>
+                    <p><span class="status-unknown">Informations indisponibles</span></p>
                 </div>
-
                 <div class="metier-card">
-                    <h4>
-                        <span class="nombre">6</span>
-                        Concept Artist
-                    </h4>
-                    <p>Artistes conceptuels définissant la direction artistique, les univers et l'esthétique des jeux.</p>
+                    <h4>🎯 UI Artist</h4>
+                    <p><span class="status-unknown">Informations indisponibles</span></p>
                 </div>
-
                 <div class="metier-card">
-                    <h4>
-                        <span class="nombre">2</span>
-                        Artiste 3D
-                    </h4>
-                    <p>Équipe réduite dédiée aux éléments 3D complémentaires dans l'univers principalement 2D du studio.</p>
+                    <h4>✏️ Concept Artist</h4>
+                    <p><span class="status-unknown">Informations indisponibles</span></p>
                 </div>
-            </div>
-
-            <h3>Analyse de la Structure</h3>
-            <p>La composition de l'équipe révèle les priorités du studio: <strong>Game Design (9) > Programmation (8) > UI/UX (7) > Concept Art (6) > 3D (2)</strong>. Cette structure privilégie la mécanique de jeu et l'implémentation technique, avec un fort accent sur l'expérience utilisateur et l'esthétique 2D pixel art.</p>
-        </section>
-
-        <!-- SECTION DIFFICULTÉ -->
-        <section>
-            <h2>Difficulté de Recrutement</h2>
-
-            <div class="difficulte">
-                <h3 style="color: #e74c3c; margin-top: 0;">Niveau de Difficulté: Très Élevée</h3>
-                <div class="difficulte-stars">★★★★★</div>
-                <p>Motion Twin est un studio prestigieux avec des jeux de renommée mondiale. Les standards de qualité sont extrêmement élevés, et la compétition pour intégrer l'équipe est féroce. Les candidats doivent démontrer une excellence reconnue dans leur domaine.</p>
-            </div>
-
-            <h3>Pourquoi c'est difficile?</h3>
-            <ul style="margin-left: 20px; color: #555;">
-                <li>✓ Réputation mondiale du studio (Dead Cells)</li>
-                <li>✓ Équipe très restreinte (2-10 personnes)</li>
-                <li>✓ Peu de postes ouverts</li>
-                <li>✓ Candidats exceptionnels attirés mondialement</li>
-                <li>✓ Expertise spécialisée en roguelikes requise</li>
-                <li>✓ Standards de qualité extrêmement élevés</li>
-            </ul>
-        </section>
-
-        <!-- SECTION CONSEILS -->
-        <section>
-            <h2>Conseils pour Candidater</h2>
-
-            <div class="conseil">
-                <h4>📋 Stratégie de Candidature Optimale</h4>
-                <ol>
-                    <li><strong>Mettez en avant un portfolio solide</strong> - Incluez des prototypes roguelike ou des mécaniques innovantes qui démontrent votre compréhension des jeux procéduraux</li>
-                    
-                    <li><strong>Montrez votre expérience spécialisée</strong> - Pixel art maîtrisé et programmation (HaxeFlixel de préférence - c'est la techno de Dead Cells)</li>
-                    
-                    <li><strong>Contactez via le formulaire officiel</strong> - Utilisez https://motiontwin.com/contact avec un pitch concis et professionnel</li>
-                    
-                    <li><strong>Fournissez des liens directs</strong> - GitHub avec code de qualité production, itch.io avec jeux jouables, portfolio web complet</li>
-                    
-                    <li><strong>Suivez les game jams du studio</strong> - Participez aux jams organisées par Motion Twin pour vous faire remarquer et tester votre compatibilité</li>
-                    
-                    <li><strong>Contribuez à des projets similaires</strong> - Engagez-vous dans des projets roguelike open-source ou des jams avec des mécaniques sophistiquées</li>
-                    
-                    <li><strong>Démontrez la passion</strong> - Montrez que vous comprenez et aimez les jeux de Motion Twin; cela prouve l'alignement culturel</li>
-                    
-                    <li><strong>Patience et timing</strong> - Restez attentif aux annonces; relancez si aucune position n'est ouverte avec des mises à jour de votre portfolio</li>
-                </ol>
             </div>
         </section>
 
         <!-- SECTION LIENS UTILES -->
         <section>
-            <h2>Liens Utiles</h2>
-
+            <h2>🔗 Liens Utiles</h2>
             <div class="liens-grid">
-                <div class="lien-card">
-                    <h4>🌐 Site Officiel</h4>
-                    <a href="https://motiontwin.com/" target="_blank">motiontwin.com</a>
-                </div>
+                <a href="https://motion-twin.com" target="_blank" class="lien-button">
+                    🌐 Site Web Officiel
+                </a>
+                <button class="lien-button disabled">
+                    🎮 Steam
+                </button>
+                <button class="lien-button disabled">
+                    💼 LinkedIn
+                </button>
+                <button class="lien-button disabled">
+                    ✉️ Email Recrutement
+                </button>
+                <button class="lien-button disabled">
+                    👔 Site Carrières
+                </button>
+                <button class="lien-button disabled">
+                    🎯 Éditeurs
+                </button>
+            </div>
+            <p style="margin-top: 20px; color: #999; font-size: 0.9em;">Les boutons grisés indiquent que les informations ne sont pas disponibles actuellement.</p>
+        </section>
 
-                <div class="lien-card">
-                    <h4>💼 LinkedIn</h4>
-                    <a href="https://www.linkedin.com/company/motion-twin/" target="_blank">linkedin.com/company/motion-twin/</a>
+        <!-- SECTION VERDICT -->
+        <section>
+            <h2>⭐ Verdict</h2>
+            <div class="verdict">
+                <h3>Motion Twin : Un Studio Français d'Excellence</h3>
+                <div class="stars">
+                    <span class="status-unknown">Difficulté d'accès : Données indisponibles</span>
                 </div>
+                <p>Motion Twin est un studio français reconnu pour son positionnement d'éditeur et développeur de jeux vidéo. Le studio se démarque par son engagement envers :</p>
+                <ul class="culture-list" style="margin-top: 15px;">
+                    <li>La qualité irréprochable du gameplay</li>
+                    <li>L'innovation continue et la créativité débordante</li>
+                    <li>La satisfaction maximale des joueurs</li>
+                    <li>Le soutien aux projets originaux et ambitieux</li>
+                </ul>
+                <p style="margin-top: 20px;">Bien que les informations détaillées concernant les postes actuellement ouverts, la localisation exacte et la taille de l'équipe restent inconnues, Motion Twin demeure un studio attrayant pour les professionnels des jeux vidéo en quête d'excellence et d'innovation.</p>
+                <p style="margin-top: 15px; color: #a8dadc;"><strong>Recommandation :</strong> Consulter directement le site officiel motion-twin.com pour les dernières informations sur les opportunités et projets en cours.</p>
+            </div>
+        </section>
+    </div>
 
-                <div class="lien-card">
-                    <h4>🎮 Steam</h4>
-                    <a href="https://store.steampowered.com/developer/MotionTwin" target="_blank">store.steampowered.com/developer/MotionTwin</a>
-                </div>
-
-                <div class="lien-card">
-                    <h4>✉️ Candidatures</h4>
-                    <a href="https://motiontwin.com/contact" target="_blank">motiontwin.com/contact</a>
-                </div>
-
-                <div class="lien-card">
-                    <h4>📧 Email Recrutement</h4>
-                    <a href="mailto:contact@motion-twin.com">contact@motion-twin.com</a>
-                </div>
-
-                <div class="lien-card">
-                    <h4>⭐ Devolver Digital</h4>
+    <footer>
+        <p>&copy; 2024 - Fiche Motion Twin | Informations à jour : Données partiellement disponibles</p>
+        <p style="color: #666; margin-top: 10px; font-size: 0.9em;">Cette fiche a été générée à titre informatif. Pour des informations officielles, veuillez consulter les sources officielles du studio.</p>
+    </footer>
+</body>
+</html>
