@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umeshu Lovers - Studio de Jeux Vidéo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2d3561 0%, #1a1f3a 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .section {
+            background: white;
+            margin-bottom: 30px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #4f46e5;
+        }
+
+        h2 {
+            color: #2d3561;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #4f46e5;
+        }
+
+        h3 {
+            color: #4f46e5;
+            font-size: 1.3em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f1ff 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #4f46e5;
+        }
+
+        .info-card strong {
+            color: #2d3561;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .info-card p {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .job-role {
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f1ff 100%);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #4f46e5;
+        }
+
+        .job-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #2d3561;
+            margin-bottom: 10px;
+        }
+
+        .difficulty-bar {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .difficulty-label {
+            width: 100px;
+            font-weight: 500;
+            color: #666;
+        }
+
+        .bar-container {
+            flex: 1;
+            height: 25px;
+            background: #e5e7eb;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 0 15px;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4f46e5, #7c3aed);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+
+        .links-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .link-button {
+            display: inline-block;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .link-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.3);
+        }
+
+        .recruitment-info {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #f59e0b;
+            margin: 20px 0;
+        }
+
+        .recruitment-info strong {
+            color: #92400e;
+        }
+
+        .recruitment-info p {
+            color: #78350f;
+            margin: 10px 0;
+        }
+
+        .verdict-section {
+            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+            border-left: 4px solid #22c55e;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .verdict-section h3 {
+            color: #15803d;
+            border-bottom: 2px solid #22c55e;
+            padding-bottom: 10px;
+        }
+
+        .verdict-section p {
+            color: #166534;
+            margin: 10px 0;
+        }
+
+        .unknown {
+            color: #9ca3af;
+            font-style: italic;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .stat-row:last-child {
+            border-bottom: none;
+        }
+
+        .stat-label {
+            font-weight: 500;
+            color: #2d3561;
+        }
+
+        .stat-value {
+            color: #4f46e5;
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: white;
+            margin-top: 30px;
+            font-size: 0.9em;
+        }
+
+        .advice-box {
+            background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+            border-left: 4px solid #7c3aed;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .advice-box strong {
+            color: #5b21b6;
+        }
+
+        .advice-box p {
+            color: #6b21a8;
+            margin: 10px 0;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Umeshu Lovers</h1>
+            <p>Studio de Développement de Jeux Vidéo</p>
+        </header>
+
+        <!-- Section Identité -->
+        <section class="section">
+            <h2>Identité du Studio</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <strong>📍 Localisation</strong>
+                    <p>Toulouse, France</p>
+                </div>
+                <div class="info-card">
+                    <strong>👥 Taille de l'équipe</strong>
+                    <p>22 personnes</p>
+                </div>
+                <div class="info-card">
+                    <strong>🏢 Type</strong>
+                    <p>Studio de Développement Indépendant</p>
+                </div>
+                <div class="info-card">
+                    <strong>📅 Date de Fondation</strong>
+                    <p class="unknown">Non disponible</p>
+                </div>
+                <div class="info-card">
+                    <strong>🎯 Éditeurs</strong>
+                    <p class="unknown">Non disponible</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Jeux Notables -->
+        <section class="section">
+            <h2>Jeux Notables</h2>
+            <p class="unknown">Catalogue de jeux non spécifié dans nos données actuelles. Consultez la plateforme Steam du studio pour découvrir ses productions.</p>
+        </section>
+
+        <!-- Section Recrutement -->
+        <section class="section">
+            <h2>Recrutement</h2>
+            <div class="recruitment-info">
+                <strong>📧 Email de Recrutement</strong>
+                <p><a href="mailto:application@umeshulovers.com" style="color: #92400e; text-decoration: underline;">application@umeshulovers.com</a></p>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Postes Ouverts</span>
+                <span class="stat-value unknown">À vérifier</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Site Carrières</span>
+                <span class="stat-value unknown">Non disponible</span>
+            </div>
+            <div class="advice-box">
+                <strong>💡 Conseil pour candidater :</strong>
+                <p>Envoyez votre CV et portfolio à <strong>application@umeshulovers.com</strong></p>
+                <p>Mettez particulièrement en avant votre expérience en <strong>Concept Art</strong>, domaine prioritaire du studio avec Sylvain Sarrailh comme figure clé.</p>
+            </div>
+        </section>
+
+        <!-- Section Liens Utiles -->
+        <section class="section">
+            <h2>Liens Utiles</h2>
+            <div class="links-container">
+                <a href="https://umeshulovers.com" target="_blank" class="link-button">🌐 Site Officiel</a>
+                <a href="https://store.steampowered.com/search/?developer=Umeshu%20Lovers" target="_blank" class="link-button">🎮 Page Steam</a>
+                <a href="https://www.linkedin.com/company/umeshu-lovers/" target="_blank" class="link-button">💼 LinkedIn</a>
+                <a href="mailto:application@umeshulovers.com" class="link-button">📧 Contacter</a>
+            </div>
+        </section>
+
+        <!-- Section Par Métier -->
+        <section class="section">
+            <h2>Analyse par Métier</h2>
+
+            <div class="job-role">
+                <div class="job-title">🎨 Game Designer</div>
+                <p><strong>Niveau de Difficulté d'Accès :</strong> Moyen</p>
+                <div class="difficulty-bar">
+                    <span class="difficulty-label">Difficulté</span>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 50%;">Moyen (2.5/5)</div>
+                    </div>
+                </div>
+                <p><strong>Remarques :</strong> Le studio recherche des profils créatifs capables de concevoir des expériences de jeu engageantes. Apportez votre portfolio de projets personnels ou professionnels.</p>
+            </div>
+
+            <div class="job-role">
+                <div class="job-title">💻 Programmeur</div>
+                <p><strong>Niveau de Difficulté d'Accès :</strong> Moyen</p>
+                <div class="difficulty-bar">
+                    <span class="difficulty-label">Difficulté</span>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 50%;">Moyen (2.5/5)</div>
+                    </div>
+                </div>
+                <p><strong>Remarques :</strong> Des compétences solides en programmation et familiarité avec les moteurs de jeu (Unity, Unreal Engine) sont attendues. Montrez vos projets GitHub ou vos jeux publiés.</p>
+            </div>
+
+            <div class="job-role">
+                <div class="job-title">🗿 Artiste 3D</div>
+                <p><strong>Niveau de Difficulté d'Accès :</strong> Élevé</p>
+                <div class="difficulty-bar">
+                    <span class="difficulty-label">Difficulté</span>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 70%;">Élevé (3.5/5)</div>
+                    </div>
+                </div>
+                <p><strong>Remarques :</strong> Le studio demande une expérience solide en modélisation 3D, texturing et animation. Maîtrise de Blender, Maya ou 3DS Max requise. Portfolio de qualité professionnelle essentiel.</p>
+            </div>
+
+            <div class="job-role">
+                <div class="job-title">🎨 UI/UX Artist</div>
+                <p><strong>Niveau de Difficulté d'Accès :</strong> Moyen</p>
+                <div class="difficulty-bar">
+                    <span class="difficulty-label">Difficulté</span>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 50%;">Moyen (2.5/5)</div>
+                    </div>
+                </div>
+                <p><strong>Remarques :</strong> Créativité en design d'interface et compréhension des principes UX/UI indispensables. Montrez vos réalisations avec Figma, Adobe XD ou autres outils modernes.</p>
+            </div>
+
+            <div class="job-role">
+                <div class="job-title">✨ Concept Artist</div>
+                <p><strong>Niveau de Difficulté d'Accès :</strong> Très Élevé</p>
+                <div class="difficulty-bar">
+                    <span class="difficulty-label">Difficulté</span>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 85%;">Très Élevé (4.25/5)</div>
+                    </div>
+                </div>
+                <p><strong>Remarques :</strong> Rôle prioritaire du studio ! Talent artistique exceptionnel requis. Expertise en character design, environment design et visual storytelling. Portfolio impressionnant obligatoire. C'est le domaine où Sylvain Sarrailh excelle et où le studio recrute activement.</p>
+            </div>
+        </section>
+
+        <!-- Section Verdict -->
+        <section class="section verdict-section">
+            <h2>🎯 Verdict Global</h2>
+            <p><strong>Difficulté Globale d'Accès :</strong> Moyenne (2.5/5)</p>
+            <h3>Résumé</h3>
+            <p>Umeshu Lovers est un studio de 22 personnes basé à Toulouse avec une excellente réputation, notamment dans le domaine du <strong>Concept Art</strong>. Le studio propose des opportunités accessibles pour les profils Game Designer, Programmeur et UI Artist (difficulté moyenne), mais est particulièrement exigeant pour les postes d'Artiste 3D et de Concept Artist.</p>
+            <h3>Points Forts</h3>
+            <ul style="margin-left: 20px; color: #166534;">
+                <li>Localisation attractive en France (Toulouse)</li>
+                <li>Équipe compacte favorisant les bonnes conditions de travail</li>
+                <li>Excellence reconnue en direction artistique, notamment en concept art</li>
+                <li>Présence active sur les plateformes professionnelles (Steam, LinkedIn)</li>
+            </ul>
+            <h3 style="margin-top: 15px;">Profils Prioritaires</h3>
+            <ul style="margin-left: 20px; color: #166534;">
+                <li><strong>Concept Artists</strong> : C'est le rôle phare du studio. Niveau requis : excellent</li>
+                <li><strong>Artistes 3D</strong> : Très demandé avec standards de qualité élevés</li>
+                <li>Game Designers et Programmeurs : Plus d'opportunités pour profils juniors</li>
+            </ul>
+            <h3 style="margin-top: 15px;">Recommandation Finale</h3>
+            <p>Studio idéal si vous avez une forte affinité pour le <strong>concept art</strong> et l'<strong>art direction</strong>. Adressez votre candidature à <strong>application@umeshulovers.com</strong> avec un portfolio solide mettant en avant l'expérience artistique.</p>
+        </section>
+
+        <footer>
+            <p>Fiche informative générée pour Umeshu Lovers - Toulouse, France</p>
+            <p>Pour les informations les plus récentes sur les postes ouverts, visitez directement le site officiel et LinkedIn du studio.</p>
+        </footer>
+    </div>
+</body>
+</html>
