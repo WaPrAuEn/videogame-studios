@@ -17,6 +17,7 @@
 - [Blizzard Entertainment](studios/blizzard-entertainment.html) — Irvine, États-Unis
 - [Blue Twelve Studio](studios/blue-twelve-studio.html) — Montpellier, France
 - [BlueTwelve Studio](studios/bluetwelve-studio.html) — Montpellier, France
+- [Brain Up](studios/brain-up.html) — Bordeaux, France
 - [Build The Light](studios/build-the-light.html) — Montpellier, France
 - [Carpool Studio](studios/carpool-studio.html) — Montpellier et Paris, France
 - [CD Projekt Red](studios/cd-projekt-red.html) — Varsovie, Pologne
