@@ -29,6 +29,7 @@
 - [Duper Games](studios/duper-games.html) — Montpellier, France
 - [Fortiche Production](studios/fortiche-production.html) — Paris, France
 - [Game Freak, Inc.](studios/game-freak,-inc..html) — Tokyo, Japon
+- [Glitchr Studio](studios/glitchr-studio.html) — Bordeaux, France
 - [Guerrilla Games](studios/guerrilla-games.html) — Amsterdam, Pays-Bas
 - [Illogic Studios](studios/illogic-studios.html) — Montpellier, France
 - [Illumination Studios Paris (anciennement Illumination Mac Guff)](studios/illumination-studios-paris-(anciennement-illumination-mac-guff).html) — Paris, France
