@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glitchr Studio - Studio de Jeux Vidéo Indie à Bordeaux</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
+        }
+
+        header .subtitle {
+            font-size: 1.3em;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        header .location {
+            font-size: 1.1em;
+            color: #aaa;
+        }
+
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 1024px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .card h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #555;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #667eea;
+            width: 40%;
+        }
+
+        .info-value {
+            color: #666;
+            width: 60%;
+            text-align: right;
+        }
+
+        .game-list {
+            list-style: none;
+        }
+
+        .game-list li {
+            padding: 12px;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #667eea15 0%, transparent 100%);
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+            color: #333;
+        }
+
+        .game-list strong {
+            color: #764ba2;
+        }
+
+        .job-position {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid #764ba2;
+        }
+
+        .job-position h4 {
+            color: #764ba2;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .job-position p {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        .status-open {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-closed {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .status-unknown {
+            background: #e2e3e5;
+            color: #383d41;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .link-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .link-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 25px rgba(102, 126, 234, 0.5);
+        }
+
+        .professions-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 1024px) {
+            .professions-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .professions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .profession-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            border-top: 4px solid #667eea;
+        }
+
+        .profession-card h3 {
+            color: #764ba2;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .profession-icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .difficulty-bar {
+            width: 100%;
+            height: 10px;
+            background: #eee;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .difficulty-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 5px;
+        }
+
+        .verdict {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .verdict h2 {
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            border-bottom: none;
+        }
+
+        .verdict p {
+            color: #f0f0f0;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .emoji {
+            font-size: 1.2em;
+            margin: 0 5px;
+        }
+
+        .culture-highlight {
+            background: #e8f4f8;
+            padding: 20px;
+            border-left: 5px solid #667eea;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .culture-highlight p {
+            color: #333;
+            margin: 0;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 30px;
+            margin-top: 40px;
+            font-size: 0.95em;
+        }
+
+        .star-rating {
+            color: #ffc107;
+            font-size: 1.3em;
+            letter-spacing: 2px;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 2.5em;
+            }
+            
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 GLITCHR STUDIO</h1>
+            <p class="subtitle">Studio Indie Français</p>
+            <p class="location">📍 Bordeaux, France</p>
+        </header>
+
+        <div class="content-wrapper">
+            <!-- IDENTITÉ -->
+            <div class="card">
+                <h2>🏢 Identité</h2>
+                
+                <div class="info-row">
+                    <span class="info-label">Studio</span>
+                    <span class="info-value">Glitchr Studio</span>
+                </div>
+                
+                <div class="info-row">
+                    <span class="info-label">Localisation</span>
+                    <span class="info-value">Bordeaux, France</span>
+                </div>
+                
+                <div class="info-row">
+                    <span class="info-label">Type</span>
+                    <span class="info-value">Studio Indie</span>
+                </div>
+                
+                <div class="info-row">
+                    <span class="info-label">Spécialité</span>
+                    <span class="info-value">VR, AR, Digital</span>
+                </div>
+
+                <div class="culture-highlight">
+                    <p><strong>🎯 Culture Studio:</strong><br>Studio indie français axé sur les expériences interactives innovantes en VR et AR. Création d'expériences immersives repoussant les limites de la technologie et de la créativité.</p>
+                </div>
+
+                <h3>📊 Informations Complémentaires</h3>
+                <div class="info-row">
+                    <span class="info-label">Taille équipe</span>
+                    <span class="info-value">Non spécifiée</span>
+                </div>
+                
+                <div class="info-row">
+                    <span class="info-label">Année fondation</span>
+                    <span class="info-value">Non spécifiée</span>
+                </div>
+                
+                <div class="info-row">
+                    <span class="info-label">Éditeurs</span>
+                    <span class="info-value">Non spécifiés</span>
+                </div>
+            </div>
+
+            <!-- JEUX NOTABLES -->
+            <div class="card">
+                <h2>🎮 Jeux Notables</h2>
+                
+                <ul class="game-list">
+                    <li>
+                        <strong>Sky Sanctuary</strong>
+                        <p style="margin: 8px 0 0 0; color: #888; font-size: 0.9em;">Expérience interactive immersive</p>
+                    </li>
+                    <li>
+                        <strong>Bruegel</strong>
+                        <p style="margin: 8px 0 0 0; color: #888; font-size: 0.9em;">Projet créatif et artistique</p>
+                    </li>
+                </ul>
+
+                <h3>🔗 Plateformes de Distribution</h3>
+                <div class="links-grid">
+                    <a href="https://www.glitchr-studio.com/fr/" class="link-button" target="_blank">
+                        🌐 Site Web
+                    </a>
+                    <a href="https://store.steampowered.com/app/526130/Sky_Sanctuary/" class="link-button" target="_blank">
+                        🎮 Steam
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="two-column">
+            <!-- RECRUTEMENT -->
+            <div class="card">
+                <h2>💼 Recrutement</h2>
+                
+                <h3>Postes Actuellement Ouverts</h3>
+                <p style="color: #888; font-style: italic; margin: 15px 0;">Aucun poste spécifié actuellement</p>
+                
+                <div class="job-position" style="background: #fff3cd; border-left-color: #ffc107;">
+                    <p style="color: #856404;">ℹ️ <strong>Veuillez consulter directement les canaux de recrutement pour les postes actuels.</strong></p>
+                </div>
+
+                <h3>📧 Contact Recrutement</h3>
+                <div class="info-row">
+                    <span class="info-label">Email</span>
+                    <span class="info-value">Non spécifié</span>
+                </div>
+
+                <h3>🔗 Ressources Carrière</h3>
+                <p style="color: #666; margin-bottom: 15px;">Consultez le site officiel pour les offres d'emploi actuelles et les opportunités de carrière.</p>
+                <a href="https://www.glitchr-studio.com/fr/" class="link-button" style="display: block; text-align: center;" target="_blank">
+                    Carrières chez Glitchr Studio
+                </a>
+            </div>
+
+            <!-- LIENS UTILES -->
+            <div class="card">
+                <h2>🔗 Liens Utiles</h2>
+                
+                <h3>Ressources Officielles</h3>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <a href="https://www.glitchr-studio.com/fr/" class="link-button" target="_blank">
+                        🌐 Site Web Officiel
+                    </a>
+                    <a href="https://store.steampowered.com/app/526130/Sky_Sanctuary/" class="link-button" target="_blank">
+                        🎮 Sky Sanctuary sur Steam
+                    </a>
+                </div>
+
+                <h3 style="margin-top: 30px;">Réseaux Sociaux</h3>
+                <div class="job-position" style="background: #f0f0f0;">
+                    <p style="color: #666;">LinkedIn et autres réseaux: Non spécifiés</p>
+                    <p style="color: #888; font-size: 0.9em; margin-top: 10px;">Consultez le site officiel pour les liens vers les réseaux sociaux.</p>
+                </div>
+
+                <div class="culture-highlight">
+                    <p><strong>💡 Conseil:</strong> Explorez le portfolio des jeux existants pour mieux comprendre la vision créative du studio avant de postuler.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAR MÉTIER -->
+        <div style="margin-bottom: 40px;">
+            <h2 style="color: white; font-size: 2.5em; margin-bottom: 30px; text-align: center; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">👥 Opportunités par Métier</h2>
+            
+            <div class="professions-grid">
+                <!-- Game Designer -->
+                <div class="profession-card">
+                    <div class="profession-icon">🎮</div>
+                    <h3>Game Designer</h3>
+                    <p style="color: #666; font-size: 0.95em; margin-bottom: 15px;">Conception de mécaniques interactives pour VR/AR</p>
+                    <span class="status-badge status-unknown">Non spécifié</span>
+                    <div class="difficulty-bar">
+                        <div class="difficulty-fill" style="width: 0%;"></div>
+                    </div>
+                    <p style="color: #888; font-size: 0.85em;">Consulter le site pour les offres actuelles</p>
+                </div>
+
+                <!-- Programmeur -->
+                <div class="profession-card">
+                    <div class="profession-icon">💻</div>
+                    <h3>Programmeur</h3>
+                    <p style="color: #666; font-size: 0.95em; margin-bottom: 15px;">Développement VR, AR et expériences digitales</p>
+                    <span class="status-badge status-unknown">Non spécifié</span>
+                    <div class="difficulty-bar">
+                        <div class="difficulty-fill" style="width: 0%;"></div>
+                    </div>
+                    <p style="color: #888; font-size: 0.85em;">Compétences en technologies immersives appréciées</p>
+                </div>
+
+                <!-- Artiste 3D -->
+                <div class="profession-card">
+                    <div class="profession-icon">🎨</div>
+                    <h3>Artiste 3D</h3>
+                    <p style="color: #666; font-size: 0.95em; margin-bottom: 15px;">Modélisation et assets pour mondes virtuels</p>
+                    <span class="status-badge status-open">Recherché</span>
+                    <div class="difficulty-bar">
+                        <div class="difficulty-fill" style="width: 60%;"></div>
+                    </div>
+                    <p style="color: #888; font-size: 0.85em;"><strong style="color: #333;">Opportunité identifiée ✓</strong></p>
+                </div>
+
+                <!-- UI Artist -->
+                <div class="profession-card">
+                    <div class="profession-icon">🖼️</div>
+                    <h3>UI Artist</h3>
+                    <p style="color: #666; font-size: 0.95em; margin-bottom: 15px;">Design d'interfaces pour expériences interactives</p>
+                    <span class="status-badge status-unknown">Non spécifié</span>
+                    <div class="difficulty-bar">
+                        <div class="difficulty-fill" style="width: 0%;"></div>
+                    </div>
+                    <p style="color: #888; font-size: 0.85em;">UX/UI pour VR et AR en demande</p>
+                </div>
+
+                <!-- Concept Artist -->
+                <div class="profession-card">
+                    <div class="profession-icon">✏️</div>
+                    <h3>Concept Artist</h3>
+                    <p style="color: #666; font-size: 0.95em; margin-bottom: 15px;">Direction artistique et concepts visuels</p>
+                    <span class="status-badge status-unknown">Non spécifié</span>
+                    <div class="difficulty-bar">
+                        <div class="difficulty-fill" style="width: 0%;"></div>
+                    </div>
+                    <p style="color: #888; font-size: 0.85em;">Portfolio créatif important</p>
+                </div>
+
+                <!-- Spécialiste VR/AR -->
+                <div class="profession-card">
+                    <div class="profession-icon">🥽</div>
+                    <h3>Tech VR/AR</h3>
+                    <p style="color: #666; font-size: 0.95em; margin-bottom: 15px;">Technologie de réalité virtuelle et augmentée</p>
+                    <span class="status-badge status-unknown">Non spécifié</span>
+                    <div class="difficulty-bar">
+                        <div class="difficulty-fill" style="width: 0%;"></div>
+                    </div>
+                    <p style="color: #888; font-size: 0.85em;">Compétences très recherchées</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- VERDICT -->
+        <div class="verdict">
+            <h2>🎯 Verdict Final</h2>
+            <p>
+                <span class="emoji">⭐</span>
+                <strong>Glitchr Studio</strong> est un studio indie dynamique basé à Bordeaux, spécialisé dans les expériences interactives immersives en VR et AR. 
+                <span class="emoji">🚀</span>
+            </p>
+            <p style="margin-top: 20px;">
+                <strong>Profil du Studio:</strong> Studio créatif et innovant axé sur les technologies émergentes. Idéal pour les développeurs passionnés par la réalité virtuelle, augmentée et les expériences digitales interactives.
+            </p>
+            <p style="margin-top: 20px;">
+                <strong>Difficulté d'accès au recrutement:</strong> <span class="star-rating">? / 5</span> (Données limitées - À déterminer)
+            </p>
+            <p style="margin-top: 20px;">
+                <strong>Recommandation:</strong> Explorer le portfolio existant (Sky Sanctuary, Bruegel), consulter le site officiel pour les offres d'emploi actuelles, et envoyer un portfolio solide adapté aux technologies VR/AR pour augmenter vos chances.
+            </p>
+            <p style="margin-top: 25
