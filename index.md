@@ -4,6 +4,7 @@
 ## Studios analysés
 *(Les fiches apparaîtront ici automatiquement)*
 
+- [Alt Shift](studios/alt-shift.html) — Montpellier, France
 - [Ankama](studios/ankama.html) — Roubaix, France
 - [BlueTwelve Studio](studios/bluetwelve-studio.html) — Montpellier, France
 - [Build The Light](studios/build-the-light.html) — Montpellier, France
