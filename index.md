@@ -53,6 +53,7 @@
 - [Ishtar Games](studios/ishtar-games.html) — Lille/Bordeaux, France
 - [istargames](studios/istargames.html) — 
 - [Kojima Productions](studios/kojima-productions.html) — Tokyo, Japon
+- [Loomio](studios/loomio.html) — Levallois-Perret, France
 - [Ludogram](studios/ludogram.html) — Lille, France
 - [Magic Design Studios](studios/magic-design-studios.html) — Montpellier, France
 - [Mangoo Games (Green Panda Games)](studios/mangoo-games-(green-panda-games).html) — Paris, France
