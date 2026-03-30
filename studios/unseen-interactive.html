@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unseen Interactive - Studio de Jeux Vidéo Indépendant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1a3e 50%, #2d1b69 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, rgba(255, 100, 80, 0.1) 0%, rgba(100, 150, 255, 0.1) 100%);
+            border: 2px solid rgba(255, 100, 80, 0.3);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .logo {
+            font-size: 48px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #ff6450, #ffa500, #64b5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+        }
+        
+        .tagline {
+            font-size: 18px;
+            color: #64b5ff;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        .info-header {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+        
+        .info-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #64b5ff;
+        }
+        
+        .info-label {
+            font-size: 12px;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .info-value {
+            font-size: 16px;
+            font-weight: bold;
+            color: #64b5ff;
+            margin-top: 5px;
+        }
+        
+        section {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 100, 80, 0.2);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+        
+        h2 {
+            font-size: 32px;
+            margin-bottom: 25px;
+            color: #ff6450;
+            border-bottom: 3px solid #64b5ff;
+            padding-bottom: 15px;
+        }
+        
+        h3 {
+            font-size: 22px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: #ffa500;
+        }
+        
+        h3:first-child {
+            margin-top: 0;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            color: #d0d0d0;
+        }
+        
+        .identity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .identity-item {
+            background: rgba(100, 181, 255, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid rgba(100, 181, 255, 0.2);
+        }
+        
+        .identity-item h4 {
+            color: #64b5ff;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .game-card {
+            background: rgba(255, 100, 80, 0.05);
+            padding: 25px;
+            border-radius: 8px;
+            border: 2px solid rgba(255, 100, 80, 0.3);
+            margin-bottom: 20px;
+        }
+        
+        .game-title {
+            font-size: 24px;
+            color: #ff6450;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .game-status {
+            display: inline-block;
+            background: rgba(255, 165, 0, 0.3);
+            color: #ffa500;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 165, 0, 0.5);
+        }
+        
+        .game-description {
+            color: #c0c0c0;
+        }
+        
+        .recruitment-status {
+            background: rgba(100, 150, 100, 0.1);
+            border: 2px solid rgba(100, 150, 100, 0.3);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .recruitment-status.closed {
+            background: rgba(150, 100, 100, 0.1);
+            border: 2px solid rgba(150, 100, 100, 0.3);
+        }
+        
+        .status-text {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .status-text.closed {
+            color: #ff8a80;
+        }
+        
+        .status-text.open {
+            color: #81c784;
+        }
+        
+        .profession-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .profession-card {
+            background: rgba(100, 181, 255, 0.08);
+            border: 2px solid rgba(100, 181, 255, 0.3);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .profession-title {
+            font-size: 18px;
+            color: #64b5ff;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+        
+        .level-indicator {
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+        
+        .level-label {
+            color: #aaa;
+            font-size: 12px;
+            margin-right: 8px;
+        }
+        
+        .level-bars {
+            display: inline-flex;
+            gap: 4px;
+        }
+        
+        .bar {
+            width: 8px;
+            height: 16px;
+            background: rgba(100, 181, 255, 0.2);
+            border-radius: 2px;
+        }
+        
+        .bar.filled {
+            background: #64b5ff;
+        }
+        
+        .profession-details {
+            color: #c0c0c0;
+            font-size: 14px;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .link-button {
+            background: linear-gradient(135deg, rgba(255, 100, 80, 0.2), rgba(100, 181, 255, 0.2));
+            border: 2px solid rgba(100, 181, 255, 0.4);
+            padding: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #64b5ff;
+            text-align: center;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .link-button:hover {
+            background: linear-gradient(135deg, rgba(255, 100, 80, 0.3), rgba(100, 181, 255, 0.3));
+            border-color: #ff6450;
+            color: #ff6450;
+            transform: translateY(-3px);
+        }
+        
+        .link-button.inactive {
+            opacity: 0.5;
+            cursor: not-allowed;
+            color: #666;
+            border-color: #444;
+        }
+        
+        .link-button.inactive:hover {
+            transform: none;
+            background: linear-gradient(135deg, rgba(255, 100, 80, 0.2), rgba(100, 181, 255, 0.2));
+            border-color: #444;
+            color: #666;
+        }
+        
+        .verdict {
+            background: linear-gradient(135deg, rgba(255, 165, 0, 0.1), rgba(255, 100, 80, 0.1));
+            border: 2px solid rgba(255, 165, 0, 0.4);
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .verdict-score {
+            font-size: 28px;
+            color: #ffa500;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .stars {
+            color: #ffa500;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .verdict-text {
+            color: #d0d0d0;
+            line-height: 1.8;
+        }
+        
+        .strength {
+            color: #81c784;
+            font-weight: bold;
+        }
+        
+        .weakness {
+            color: #ff8a80;
+            font-weight: bold;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            border-top: 1px solid rgba(100, 181, 255, 0.2);
+            margin-top: 40px;
+        }
+        
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .highlight {
+            color: #64b5ff;
+            font-weight: bold;
+        }
+        
+        .icon {
+            display: inline-block;
+            width: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🎮 UNSEEN INTERACTIVE</div>
+            <div class="tagline">Créativité sans frontières</div>
+            <div class="info-header">
+                <div class="info-card">
+                    <div class="info-label">Localisation</div>
+                    <div class="info-value">🗾 Tokyo, Japon</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">Fondation</div>
+                    <div class="info-value">2023</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">Type</div>
+                    <div class="info-value">Studio Indépendant</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">Équipe</div>
+                    <div class="info-value">Petite & Hétéroclite</div>
+                </div>
+            </div>
+        </header>
+        
+        <section>
+            <h2>📋 Identité du Studio</h2>
+            <div class="identity-grid">
+                <div class="identity-item">
+                    <h4>🌍 Philosophy Borderless</h4>
+                    <p>Un studio sans limites de temps, d'espace, de langue ou de créativité. Unseen Interactive incarne une vision où les frontières n'existent pas, permettant à chaque créateur de s'exprimer pleinement.</p>
+                </div>
+                <div class="identity-item">
+                    <h4>🎨 Hub Multiculturel</h4>
+                    <p>Équipe internationale où les cultures se croisent et s'enrichissent mutuellement. Cet environnement cosmopolite est le cœur battant du studio, favorisant l'innovation et la diversité créative.</p>
+                </div>
+                <div class="identity-item">
+                    <h4>✨ Équipe d'Artistes</h4>
+                    <p>Focus artistique prononcé avec une équipe de talents créatifs exceptionnels. Direction créative assurée par <span class="highlight">Ikumi Nakamura</span>, figure iconique de l'industrie du jeu vidéo.</p>
+                </div>
+                <div class="identity-item">
+                    <h4>🤝 Partenariat</h4>
+                    <p>Édité par <span class="highlight">Kaizen Gameworks</span>, partenaire reconnu pour son soutien aux studios créatifs indépendants. Une collaboration stratégique pour amplifier la vision du studio.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>🎯 Jeux Notables</h2>
+            
+            <div class="game-card">
+                <div class="game-title">Kemuri</div>
+                <div class="game-status">EN DÉVELOPPEMENT</div>
+                <p class="game-description">
+                    <strong>Genre:</strong> Action Coopératif en Monde Ouvert<br>
+                    <strong>Style Artistique:</strong> Yokai & Urbain Surnaturel<br>
+                    <strong>Plateforme:</strong> PC (Steam)
+                </p>
+                <p class="game-description">
+                    Kemuri est le titre phare d'Unseen Interactive, combinant une direction artistique unique inspirée des yokai japonais avec une atmosphère urbaine surnaturelle. Le jeu propose une expérience coopérative immersive dans un monde riche et détaillé, mettant en avant l'expertise artistique du studio.
+                </p>
+            </div>
+        </section>
+        
+        <section>
+            <h2>💼 Recrutement</h2>
+            
+            <div class="recruitment-status closed">
+                <div class="status-text closed">⛔ Aucun Poste Ouvert</div>
+                <p>Unseen Interactive n'affiche actuellement aucune position ouverte. Le studio maintient une équipe réduite et sélective de talents exceptionnels. Les candidatures spontanées ne sont pas acceptées.</p>
+            </div>
+            
+            <h3>Conseils pour une Future Candidature</h3>
+            <ul>
+                <li>⭐ <span class="highlight">Portfolio artistique exceptionnel</span> - Le studio valorise avant tout l'excellence créative et l'unicité du style</li>
+                <li>🌍 <span class="highlight">Expérience multiculturelle</span> - Privilégier les profils ayant travaillé dans des environnements internationaux</li>
+                <li>🚀 <span class="highlight">Profils expérimentés</span> - Unseen Interactive recrute des vétérans reconnus, pas des débutants</li>
+                <li>🎮 <span class="highlight">Passion pour l'innovation</span> - Démontrer une créativité sans frontières et une volonté de repousser les limites</li>
+                <li>🔗 <span class="highlight">Réseau LinkedIn solide</span> - Maintenir une présence professionnelle active pour être visible lors d'ouvertures</li>
+            </ul>
+            
+            <h3>Canaux de Contact</h3>
+            <p style="color: #999;">Aucun email de recrutement, site carrières ou site web officiel n'a été publiquement communiqué. Le studio préfère une approche discrète et sélective. Consultez régulièrement Steam et LinkedIn pour toute mise à jour.</p>
+        </section>
+        
+        <section>
+            <h2>🔗 Liens Utiles</h2>
+            <div class="links-grid">
+                <a href="https://store.steampowered.com/search/?developer=Unseen%20Interactive" class="link-button" target="_blank">
+                    <span class="icon">🎮</span> Steam
+                </a>
+                <a href="#" class="link-button inactive">
+                    <span class="icon">🌐</span> Site Web
+                </a>
+                <a href="#" class="link-button inactive">
+                    <span class="icon">👥</span> LinkedIn
+                </a>
+                <a href="#" class="link-button inactive">
+                    <span class="icon">📧</span> Email Recrutement
+                </a>
+                <a href="#" class="link-button inactive">
+                    <span class="icon">💼</span> Carrières
+                </a>
+            </div>
+        </section>
+        
+        <section>
+            <h2>👨‍💼 Compétences par Métier</h2>
+            
+            <div class="profession-grid">
+                <div class="profession-card">
+                    <div class="profession-title">Game Designer</div>
+                    <div class="level-indicator">
+                        <span class="level-label">Niveau:</span>
+                        <div class="level-bars">
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+                    <div class="profession-details">
+                        <p><strong>Compétence: MOYEN</strong></p>
+                        <p>Shane Canning assure la conception de niveaux. L'équipe dispose d'une solide expertise en game design, notamment pour les expériences coopératives complexes.</p>
+                    </div>
+                </div>
+                
+                <div class="profession-card">
+                    <div class="profession-title">Programmeur</div>
+                    <div class="level-indicator">
+                        <span class="level-label">Niveau:</span>
+                        <div class="level-bars">
+                            <div class="bar filled"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+                    <div class="profession-details">
+                        <p><strong>Compétence: FAIBLE</strong></p>
+                        <p>Le studio privilégie l'approche artistique. La programmation est secondaire par rapport aux créateurs. Les besoins restent focalisés sur l'implémentation technique du vision artistique.</p>
+                    </div>
+                </div>
+                
+                <div class="profession-card">
+                    <div class="profession-title">Artiste 3D</div>
+                    <div class="level-indicator">
+                        <span class="level-label">Niveau:</span>
+                        <div class="level-bars">
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                        </div>
+                    </div>
+                    <div class="profession-details">
+                        <p><strong>Compétence: ÉLEVÉE ★★★★★</strong></p>
+                        <p>Cœur du studio. Excellence en modélisation 3D, spécialisation dans le style yokai et l'urbain surnaturel. Les artistes 3D sont les piliers créatifs du projet.</p>
+                    </div>
+                </div>
+                
+                <div class="profession-card">
+                    <div class="profession-title">UI Artist</div>
+                    <div class="level-indicator">
+                        <span class="level-label">Niveau:</span>
+                        <div class="level-bars">
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+                    <div class="profession-details">
+                        <p><strong>Compétence: MOYEN</strong></p>
+                        <p>L'UI design est significatif pour un jeu coopératif complexe. L'équipe possède une bonne maîtrise de l'expérience utilisateur dans les mondes ouverts multijoueurs.</p>
+                    </div>
+                </div>
+                
+                <div class="profession-card">
+                    <div class="profession-title">Concept Artist</div>
+                    <div class="level-indicator">
+                        <span class="level-label">Niveau:</span>
+                        <div class="level-bars">
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                        </div>
+                    </div>
+                    <div class="profession-details">
+                        <p><strong>Compétence: ÉLEVÉE ★★★★★</strong></p>
+                        <p>Direction créative menée par <span class="highlight">Ikumi Nakamura</span>, légendaire dans le concept art. Excellence dans la création de mondes visuels uniques et immersifs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>📊 Verdict Final</h2>
+            
+            <div class="verdict">
+                <div class="verdict-score">Difficulté d'Accès: 4.5 / 5</div>
+                <div class="stars">★★★★
