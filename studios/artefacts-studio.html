@@ -3,534 +3,361 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artefacts Studio - Studio de Développement de Jeux Vidéo</title>
+    <title>Artefacts Studio - Fiche Studio</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
         }
-
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
+            padding: 20px;
         }
-
+        
         header {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            color: white;
-            padding: 60px 40px;
+            background: linear-gradient(135deg, #0f3460 0%, #533483 100%);
+            padding: 40px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             text-align: center;
         }
-
+        
         header h1 {
             font-size: 3em;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            color: #00d4ff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
-
-        header p {
+        
+        .studio-subtitle {
             font-size: 1.2em;
-            opacity: 0.9;
+            color: #b0b0b0;
             margin-bottom: 10px;
         }
-
-        header .tagline {
+        
+        .studio-year {
             font-size: 0.95em;
-            opacity: 0.8;
-            font-style: italic;
+            color: #888;
         }
-
-        .content {
-            padding: 40px;
-        }
-
+        
         section {
-            margin-bottom: 40px;
-            padding-bottom: 40px;
-            border-bottom: 2px solid #ecf0f1;
+            background: #0f0f23;
+            border-left: 4px solid #00d4ff;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
-
-        section:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        h2 {
-            font-size: 2em;
-            color: #2c3e50;
+        
+        section h2 {
+            color: #00d4ff;
+            font-size: 1.8em;
             margin-bottom: 20px;
             padding-bottom: 10px;
-            border-left: 5px solid #667eea;
-            padding-left: 15px;
+            border-bottom: 2px solid #533483;
         }
-
-        h3 {
+        
+        section h3 {
+            color: #00d4ff;
             font-size: 1.3em;
-            color: #34495e;
-            margin-top: 15px;
-            margin-bottom: 10px;
+            margin-top: 20px;
+            margin-bottom: 15px;
         }
-
+        
         .identity-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             margin-top: 20px;
         }
-
+        
         .identity-card {
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
             padding: 20px;
             border-radius: 8px;
-            border-left: 4px solid #667eea;
+            border: 1px solid #533483;
         }
-
+        
         .identity-card strong {
-            color: #667eea;
+            color: #00d4ff;
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
-
-        .games-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .game-card {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .game-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .game-card h3 {
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-
-        .game-card .platforms {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            margin-top: 10px;
-        }
-
-        .game-card .genre {
-            display: inline-block;
-            background: #764ba2;
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            margin-left: 5px;
-            margin-top: 10px;
-        }
-
-        .recruitment-box {
-            background: #fff3cd;
-            border-left: 5px solid #ffc107;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-
-        .recruitment-box strong {
-            color: #856404;
-        }
-
+        
         .links-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 15px;
             margin-top: 20px;
         }
-
-        .link-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px 20px;
+        
+        .link-card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+            padding: 20px;
             border-radius: 8px;
-            text-decoration: none;
-            text-align: center;
+            border: 1px solid #533483;
             transition: all 0.3s ease;
-            font-weight: 500;
         }
-
-        .link-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        
+        .link-card:hover {
+            transform: translateY(-5px);
+            border-color: #00d4ff;
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.2);
         }
-
-        .professions-grid {
+        
+        .link-card a {
+            color: #00d4ff;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .link-card a:hover {
+            color: #00ffff;
+        }
+        
+        .profession-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
             margin-top: 20px;
         }
-
+        
         .profession-card {
-            background: white;
-            border: 2px solid #ecf0f1;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+            padding: 20px;
             border-radius: 8px;
-            padding: 25px;
+            border-left: 4px solid #533483;
             transition: all 0.3s ease;
         }
-
+        
         .profession-card:hover {
-            border-color: #667eea;
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
+            border-left-color: #00d4ff;
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.1);
         }
-
-        .profession-card .icon {
-            font-size: 2.5em;
+        
+        .profession-card h4 {
+            color: #00d4ff;
             margin-bottom: 10px;
+            font-size: 1.1em;
         }
-
-        .profession-card h3 {
-            color: #2c3e50;
-            margin-bottom: 10px;
+        
+        .profession-card p {
+            color: #b0b0b0;
+            font-size: 0.95em;
         }
-
-        .profession-card .availability {
-            display: inline-block;
-            background: #d4edda;
-            color: #155724;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            margin-top: 10px;
-        }
-
+        
         .verdict-box {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: linear-gradient(135deg, #533483 0%, #0f3460 100%);
             padding: 30px;
             border-radius: 8px;
+            border: 2px solid #00d4ff;
             margin-top: 20px;
         }
-
-        .verdict-box h3 {
-            color: white;
-            margin-top: 15px;
+        
+        .verdict-content p {
+            margin-bottom: 15px;
+            font-size: 1.05em;
         }
-
-        .difficulty-meter {
-            margin: 15px 0;
-        }
-
-        .difficulty-bar {
-            background: rgba(255, 255, 255, 0.2);
-            height: 10px;
+        
+        .empty-state {
+            color: #888;
+            font-style: italic;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.2);
             border-radius: 5px;
-            overflow: hidden;
+            text-align: center;
+        }
+        
+        .stat-box {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #533483;
+            text-align: center;
             margin: 10px 0;
         }
-
-        .difficulty-fill {
-            background: #ffc107;
-            height: 100%;
-            width: 70%;
-        }
-
-        .culture-list {
-            list-style: none;
-            margin: 15px 0;
-        }
-
-        .culture-list li {
-            padding: 8px 0;
-            padding-left: 25px;
-            position: relative;
-        }
-
-        .culture-list li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #667eea;
+        
+        .stat-number {
+            color: #00d4ff;
+            font-size: 2.5em;
             font-weight: bold;
         }
-
-        .editors-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 10px;
-            margin: 15px 0;
+        
+        .stat-label {
+            color: #b0b0b0;
+            margin-top: 8px;
+            font-size: 0.95em;
         }
-
-        .editor-item {
-            background: #f8f9fa;
-            padding: 12px;
-            border-radius: 6px;
-            border-left: 3px solid #667eea;
-        }
-
+        
         footer {
-            background: #f8f9fa;
-            padding: 20px 40px;
             text-align: center;
+            padding: 20px;
             color: #666;
-            border-top: 1px solid #ecf0f1;
+            margin-top: 40px;
+            border-top: 1px solid #333;
         }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
-            }
-
-            .content {
-                padding: 20px;
-            }
-
-            h2 {
-                font-size: 1.5em;
-            }
-
-            .identity-grid, .games-grid, .links-grid, .professions-grid, .editors-list {
-                grid-template-columns: 1fr;
-            }
+        
+        .icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: #00d4ff;
+            border-radius: 50%;
+            margin-right: 8px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🎮 Artefacts Studio</h1>
-            <p>Studio de Développement Indépendant</p>
-            <p class="tagline">Excellence en RPG Tactiques et Développement Multi-Plateforme</p>
+            <h1>⚙️ ARTEFACTS STUDIO</h1>
+            <p class="studio-subtitle">Studio d'Édition de Jeux Électroniques</p>
+            <p class="studio-year">Fondé en 2003 • Villeurbanne, France</p>
         </header>
-
-        <div class="content">
-            <!-- IDENTITÉ -->
-            <section>
-                <h2>📍 Identité du Studio</h2>
-                <div class="identity-grid">
-                    <div class="identity-card">
-                        <strong>📍 Localisation</strong>
-                        Villeurbanne, France (Lyon)
-                    </div>
-                    <div class="identity-card">
-                        <strong>📅 Fondation</strong>
-                        2003 (20+ ans d'expérience)
-                    </div>
-                    <div class="identity-card">
-                        <strong>👥 Taille de l'équipe</strong>
-                        80 professionnels expérimentés
-                    </div>
-                    <div class="identity-card">
-                        <strong>🏢 Type</strong>
-                        Studio Indépendant Majeur Français
-                    </div>
-                    <div class="identity-card">
-                        <strong>🎯 Spécialités</strong>
-                        RPG Tactiques, CRPG, Racing
-                    </div>
-                    <div class="identity-card">
-                        <strong>🤝 Services</strong>
-                        Sous-traitance graphique, technique, design
-                    </div>
+        
+        <!-- SECTION IDENTITÉ -->
+        <section>
+            <h2>📋 Identité du Studio</h2>
+            <div class="identity-grid">
+                <div class="identity-card">
+                    <strong>🏢 Localisation</strong>
+                    Villeurbanne, France
                 </div>
-
-                <h3 style="margin-top: 30px;">📺 Éditeurs Partenaires</h3>
-                <div class="editors-list">
-                    <div class="editor-item">Eden Games</div>
-                    <div class="editor-item">Widescreen Games</div>
-                    <div class="editor-item">Etranges Libellules</div>
-                    <div class="editor-item">Magic Pockets</div>
-                    <div class="editor-item">Producteurs audiovisuels</div>
+                <div class="identity-card">
+                    <strong>📅 Année de Fondation</strong>
+                    2003 (21 ans d'expérience)
                 </div>
-
-                <h3>🌟 Caractéristiques Clés</h3>
-                <ul class="culture-list">
-                    <li>Fondé par d'anciens d'Infogrames</li>
-                    <li>Survie aux crises du secteur</li>
-                    <li>Expertise reconnue en RPG tactiques</li>
-                    <li>Spécialisation en co-production</li>
-                    <li>Équipe stable et expérimentée</li>
-                    <li>Basé dans le pôle technologique lyonnais</li>
-                </ul>
-            </section>
-
-            <!-- JEUX NOTABLES -->
-            <section>
-                <h2>🎮 Jeux Notables</h2>
-                <div class="games-grid">
-                    <div class="game-card">
-                        <h3>Le Donjon de Naheulbeuk</h3>
-                        <p>RPG tactique humoristique adapté de la série audio culte française. Combinaison unique de tactique au tour par tour et humour absurde.</p>
-                        <span class="platforms">💻 PC</span>
-                        <span class="genre">RPG Tactique</span>
-                    </div>
-                    <div class="game-card">
-                        <h3>Le Tour de France</h3>
-                        <p>Jeu de simulation cycliste officiel. Gestion de l'équipe, stratégie de course et immersion dans l'univers du cyclisme professionnel.</p>
-                        <span class="platforms">Multi-plateformes</span>
-                        <span class="genre">Racing/Simulation</span>
-                    </div>
+                <div class="identity-card">
+                    <strong>👥 Taille de l'Équipe</strong>
+                    <span class="stat-number">75</span>
+                    <span class="stat-label">collaborateurs</span>
                 </div>
-            </section>
-
-            <!-- RECRUTEMENT -->
-            <section>
-                <h2>💼 Recrutement & Carrière</h2>
-                
-                <div class="recruitment-box">
-                    <strong>⚠️ Situation actuelle :</strong> Aucune offre d'emploi ou de stage n'est actuellement disponible.
+                <div class="identity-card">
+                    <strong>🎮 Type de Studio</strong>
+                    Studio d'Édition de Jeux Électroniques
                 </div>
-
-                <h3>📧 Pour Postuler</h3>
-                <p>Consultez régulièrement les offres et déposez votre candidature via :</p>
-                <ul class="culture-list">
-                    <li><strong>Site Carrières :</strong> https://www.artefacts-studio.fr/carriere</li>
-                    <li><strong>LinkedIn :</strong> https://www.linkedin.com/company/artefacts-studio/</li>
-                    <li><strong>Contact RH :</strong> Julie P. (DRH)</li>
-                    <li><strong>Direction :</strong> Bruno Chabanel (PDG)</li>
-                </ul>
-
-                <h3>💡 Conseils pour Postuler</h3>
-                <ul class="culture-list">
-                    <li>Mettez en avant votre <strong>expérience en RPG tactiques</strong></li>
-                    <li>Montrez votre expertise en <strong>sous-traitance ou développement multi-plateformes</strong></li>
-                    <li>Préparez un <strong>portfolio technique et graphique solide</strong></li>
-                    <li>Contactez via le site carrières ou LinkedIn pour les meilleures chances</li>
-                    <li>Démontrez votre compréhension des <strong>projets AAA et indépendants</strong></li>
-                </ul>
-            </section>
-
-            <!-- MÉTIERS -->
-            <section>
-                <h2>👨‍💼 Opportunités par Métier</h2>
-                <div class="professions-grid">
-                    <div class="profession-card">
-                        <div class="icon">🎨</div>
-                        <h3>Game Designer</h3>
-                        <p>Services complets en design et développement de jeux. Spécialisation en mécaniques de RPG tactiques et systèmes de progression.</p>
-                        <span class="availability">✓ Services disponibles</span>
-                    </div>
-
-                    <div class="profession-card">
-                        <div class="icon">💻</div>
-                        <h3>Programmeur</h3>
-                        <p>Sous-traitance technique multi-plateforme. Expertise en architecture de jeu, optimisation et intégration d'outils.</p>
-                        <span class="availability">✓ Services disponibles</span>
-                    </div>
-
-                    <div class="profession-card">
-                        <div class="icon">🗿</div>
-                        <h3>Artiste 3D</h3>
-                        <p>Modélisation, texturing et animation 3D de haut niveau. Création d'assets pour jeux AAA et indépendants.</p>
-                        <span class="availability">✓ Services disponibles</span>
-                    </div>
-
-                    <div class="profession-card">
-                        <div class="icon">🖼️</div>
-                        <h3>UI/UX Artist</h3>
-                        <p>Design d'interfaces et expérience utilisateur. Services en sous-traitance graphique et ergonomie.</p>
-                        <span class="availability">✓ Probable en sous-traitance</span>
-                    </div>
-
-                    <div class="profession-card">
-                        <div class="icon">✏️</div>
-                        <h3>Concept Artist</h3>
-                        <p>Illustrations, concepts et designs visuels. Direction artistique et création de rough pour pré-production.</p>
-                        <span class="availability">✓ Services disponibles</span>
-                    </div>
+            </div>
+        </section>
+        
+        <!-- SECTION JEUX NOTABLES -->
+        <section>
+            <h2>🎯 Jeux Notables</h2>
+            <div class="empty-state">
+                Informations non disponibles pour cette fiche. Consultez le site officiel pour découvrir les productions du studio.
+            </div>
+        </section>
+        
+        <!-- SECTION RECRUTEMENT -->
+        <section>
+            <h2>💼 Recrutement</h2>
+            <div class="empty-state">
+                Les postes ouverts et les coordonnées de recrutement ne sont pas renseignés. Veuillez consulter la page carrière officielle pour connaître les opportunités actuelles.
+            </div>
+            <div style="margin-top: 20px;">
+                <p><strong>📧 Email de recrutement:</strong> Non renseigné</p>
+                <p style="margin-top: 10px;"><strong>Postes Ouverts:</strong> À consulter sur le site carrière</p>
+            </div>
+        </section>
+        
+        <!-- SECTION PAR MÉTIER -->
+        <section>
+            <h2>👨‍💼 Opportunités par Métier</h2>
+            <div class="profession-grid">
+                <div class="profession-card">
+                    <h4>🎨 Game Designer</h4>
+                    <p>Créez l'expérience de jeu et la mécanique des titres d'Artefacts Studio. Informations détaillées disponibles sur le site carrière.</p>
                 </div>
-            </section>
-
-            <!-- LIENS UTILES -->
-            <section>
-                <h2>🔗 Liens Utiles</h2>
-                <div class="links-grid">
-                    <a href="https://www.artefacts-studio.fr" class="link-btn">🌐 Site Web Officiel</a>
-                    <a href="https://www.artefacts-studio.fr/carriere" class="link-btn">💼 Carrières</a>
-                    <a href="https://www.linkedin.com/company/artefacts-studio/" class="link-btn">💼 LinkedIn</a>
-                    <a href="https://store.steampowered.com/curator/601026" class="link-btn">🎮 Steam Curator</a>
+                <div class="profession-card">
+                    <h4>💻 Programmeur</h4>
+                    <p>Développez les fondations techniques des jeux vidéo. Des postes en C++, C#, Python et autres technologies selon les projets.</p>
                 </div>
-            </section>
-
-            <!-- VERDICT -->
-            <section>
-                <div class="verdict-box">
-                    <h2 style="color: white; border-left-color: white;">📊 Verdict & Analyse</h2>
-                    
-                    <h3>Difficulté d'Accès</h3>
-                    <div class="difficulty-meter">
-                        <p><strong>Niveau: Moyen à Élevé (3.5/5)</strong></p>
-                        <div class="difficulty-bar">
-                            <div class="difficulty-fill" style="width: 70%;"></div>
-                        </div>
-                    </div>
-
-                    <h3>📈 Pourquoi c'est difficile ?</h3>
-                    <ul class="culture-list" style="color: white;">
-                        <li>Studio majeur français avec 80 professionnels expérimentés</li>
-                        <li>20+ ans d'expertise en industrie du jeu</li>
-                        <li>Fondateurs issus d'Infogrames (pedigree prestigieux)</li>
-                        <li>Sélectivité élevée sur les compétences techniques</li>
-                        <li>Peu de postes ouverts (structure stable)</li>
-                    </ul>
-
-                    <h3>✅ Avantages à Rejoindre</h3>
-                    <ul class="culture-list" style="color: white;">
-                        <li>Stabilité : studio ayant survécu aux crises du secteur</li>
-                        <li>Expérience : équipe de 80 pros avec expertise reconnue</li>
-                        <li>Spécialisation : leader français en RPG tactiques</li>
-                        <li>Diversité : sous-traitance graphique, technique et design</li>
-                        <li>Localisation : pôle technologique lyonnais dynamique</li>
-                        <li>Portfolio prestigieux : jeux réussis et partenaires de qualité</li>
-                    </ul>
-
-                    <h3>🎯 Profil Idéal</h3>
-                    <p>Candidat avec :</p>
-                    <ul class="culture-list" style="color: white;">
-                        <li>Expérience avérée en <strong>RPG tactiques</strong> ou <strong>CRPG</strong></li>
-                        <li>Portfolio technique/graphique <strong>solide et professionnel</strong></li>
-                        <li>Connaissance de la <strong>sous-traitance ou développement multi-plateforme</strong></li>
-                        <li>Compétences en <strong>PC et consoles</strong></li>
-                        <li>Adaptabilité et mentalité d'équipe</li>
-                        <li>Motivation pour rejoindre un <strong>studio majeur indépendant français</strong></li>
-                    </ul>
-
-                    <h3>📌 Recommandations</h3>
-                    <p><strong>Contactez via :</strong> Site carrières officiel ou LinkedIn (canaux privilégiés)<br>
-                    <strong>Timing :</strong> Consultez régulièrement, les offres peuvent être publiées soudainement<br>
-                    <strong>Réseau :</strong> Ayez des contacts dans la communauté gamedev française<br>
-                    <strong>Spécialisation :</strong> Plus votre profil est spécialisé en RPG tactiques, meilleures sont vos chances</p>
+                <div class="profession-card">
+                    <h4>🎭 Artiste 3D</h4>
+                    <p>Créez les modèles, textures et environnements 3D. Expertise requise en logiciels comme Maya, Blender ou 3DS Max.</p>
                 </div>
-            </section>
-        </div>
-
+                <div class="profession-card">
+                    <h4>🖼️ UI Artist</h4>
+                    <p>Concevez les interfaces utilisateur modernes et intuitives. Participation à l'expérience visuelle complète du joueur.</p>
+                </div>
+                <div class="profession-card">
+                    <h4>✏️ Concept Artist</h4>
+                    <p>Définissez l'identité visuelle et artistique des projets. Créez les concepts qui inspirent toute l'équipe de production.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SECTION LIENS UTILES -->
+        <section>
+            <h2>🔗 Liens Utiles</h2>
+            <div class="links-grid">
+                <div class="link-card">
+                    <a href="https://www.artefacts-studio.fr/productions" target="_blank">
+                        <span class="icon"></span>
+                        Site Web Officiel
+                    </a>
+                    <p style="color: #888; font-size: 0.9em; margin-top: 8px;">Découvrez les productions et l'actualité du studio</p>
+                </div>
+                <div class="link-card">
+                    <a href="https://www.artefacts-studio.fr/carriere" target="_blank">
+                        <span class="icon"></span>
+                        Page Carrière
+                    </a>
+                    <p style="color: #888; font-size: 0.9em; margin-top: 8px;">Postes ouverts et informations de recrutement</p>
+                </div>
+                <div class="link-card">
+                    <a href="https://store.steampowered.com/curator/601026" target="_blank">
+                        <span class="icon"></span>
+                        Curator Steam
+                    </a>
+                    <p style="color: #888; font-size: 0.9em; margin-top: 8px;">Jeux du studio sur la plateforme Steam</p>
+                </div>
+                <div class="link-card">
+                    <a href="https://www.linkedin.com/company/artefacts-studio/" target="_blank">
+                        <span class="icon"></span>
+                        LinkedIn
+                    </a>
+                    <p style="color: #888; font-size: 0.9em; margin-top: 8px;">Rejoignez la communauté professionnelle</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SECTION VERDICT -->
+        <section>
+            <h2>🏆 Verdict</h2>
+            <div class="verdict-box">
+                <div class="verdict-content">
+                    <p>
+                        <strong>Artefacts Studio</strong> est un studio français établi depuis 2003, basé à Villeurbanne avec une équipe de 75 collaborateurs. En tant que studio d'édition de jeux électroniques, il bénéficie de plus de deux décennies d'expérience dans l'industrie vidéoludique.
+                    </p>
+                    <p>
+                        Le studio propose diverses opportunités de carrière pour les professionnels des jeux vidéo, couvrant les disciplines clés telles que le game design, la programmation, l'art 3D, la conception d'interfaces et le concept art.
+                    </p>
+                    <p>
+                        Pour postuler ou en savoir plus sur les opportunités actuelles, consultez directement la page carrière officielle du studio. Vous pouvez également découvrir leurs productions via Steam et rester informé de leur actualité sur LinkedIn.
+                    </p>
+                    <p style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #533483;">
+                        <strong>✨ Recommandation:</strong> Studio reconnu avec une solide expérience. Consultez les offres actuelles pour trouver un poste correspondant à votre profil.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
         <footer>
-            <p>&copy; 2024 - Fiche Informative Artefacts Studio | Tous droits réservés</p>
-            <p style="margin-top: 10px; font-size: 0.9em;">Information à jour au moment de la création de cette fiche</p>
+            <p>Fiche Studio • Artefacts Studio © 2003-2024 | Informations mises à jour automatiquement</p>
         </footer>
     </div>
 </body>
