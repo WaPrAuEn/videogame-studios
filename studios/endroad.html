@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endroad - Studio Indépendant de Jeux Vidéo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 3px solid #e94560;
+            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
+        }
+        
+        h1 {
+            font-size: 3em;
+            color: #e94560;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .subtitle {
+            font-size: 1.1em;
+            color: #a0a0a0;
+            margin-bottom: 5px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        section {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #e94560;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        h2 {
+            font-size: 2em;
+            color: #e94560;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        h2:before {
+            content: '▶';
+            margin-right: 15px;
+            font-size: 0.8em;
+        }
+        
+        h3 {
+            color: #ffa500;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .info-box {
+            background: rgba(233, 69, 96, 0.1);
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 3px solid #e94560;
+        }
+        
+        .info-box strong {
+            color: #ffa500;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .info-box p {
+            color: #c0c0c0;
+        }
+        
+        .game-card {
+            background: rgba(233, 69, 96, 0.15);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(233, 69, 96, 0.4);
+        }
+        
+        .game-card h4 {
+            color: #e94560;
+            font-size: 1.3em;
+            margin-bottom: 8px;
+        }
+        
+        .metier-card {
+            background: rgba(255, 165, 0, 0.05);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #ffa500;
+        }
+        
+        .metier-card h4 {
+            color: #ffa500;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .difficulty {
+            display: inline-block;
+            padding: 5px 12px;
+            background: rgba(233, 69, 96, 0.3);
+            color: #e94560;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-left: 10px;
+        }
+        
+        .difficulty.moyen {
+            background: rgba(255, 165, 0, 0.3);
+            color: #ffa500;
+        }
+        
+        .difficulty.eleve {
+            background: rgba(76, 175, 80, 0.3);
+            color: #4caf50;
+        }
+        
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        ul li {
+            margin-bottom: 8px;
+            color: #c0c0c0;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .link-button {
+            display: inline-block;
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #e94560 0%, #ff6b7a 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: 600;
+        }
+        
+        .link-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(233, 69, 96, 0.4);
+        }
+        
+        .verdict {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(255, 165, 0, 0.1) 100%);
+            border-left: 4px solid #4caf50;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        
+        .verdict h2:before {
+            content: '✓';
+        }
+        
+        .verdict h2 {
+            color: #4caf50;
+        }
+        
+        .verdict-text {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 15px;
+            border-left: 3px solid #ffa500;
+        }
+        
+        strong {
+            color: #ffa500;
+        }
+        
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            section {
+                padding: 20px;
+            }
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid rgba(233, 69, 96, 0.3);
+            margin-top: 40px;
+            color: #a0a0a0;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ENDROAD</h1>
+        <p class="subtitle">Studio Indépendant de Développement et Édition de Jeux Vidéo</p>
+        <p class="subtitle">Nantes, France</p>
+    </header>
+    
+    <div class="container">
+        <!-- IDENTITÉ -->
+        <section>
+            <h2>Identité du Studio</h2>
+            <div class="grid-2">
+                <div class="info-box">
+                    <strong>📍 Localisation</strong>
+                    <p>Nantes, France</p>
+                </div>
+                <div class="info-box">
+                    <strong>📅 Année de Fondation</strong>
+                    <p>2017</p>
+                </div>
+                <div class="info-box">
+                    <strong>👥 Taille de l'Équipe</strong>
+                    <p>12 salariés</p>
+                </div>
+                <div class="info-box">
+                    <strong>🎮 Type de Studio</strong>
+                    <p>Studio indépendant (Développement & Édition)</p>
+                </div>
+            </div>
+            
+            <h3>Philosophie & Culture</h3>
+            <p>Endroad est un <strong>studio indépendant nantais fondé par quatre associés</strong>, spécialisé dans la création de jeux <strong>innovants, audacieux et exploratoires</strong>. Le studio se distingue par son approche "off the beaten track", cherchant constamment à explorer de nouveaux territoires créatifs et narratifs.</p>
+        </section>
+        
+        <!-- JEUX NOTABLES -->
+        <section>
+            <h2>Jeux Notables</h2>
+            
+            <div class="game-card">
+                <h4>FallBack</h4>
+                <p>Un des jeux phares du studio, représentant l'approche innovante et exploratoire d'Endroad. Le titre démontre l'engagement du studio pour des expériences de jeu originales et mémorables.</p>
+            </div>
+            
+            <div class="game-card">
+                <h4>Goldorak</h4>
+                <p>Une adaptation du célèbre titre, mettant en avant les compétences du studio en matière d'adaptation et de développement 3D. Ce projet illustre la capacité d'Endroad à travailler sur des propriétés reconnues tout en conservant sa vision créative.</p>
+            </div>
+        </section>
+        
+        <!-- PAR MÉTIER -->
+        <section>
+            <h2>Opportunités par Métier</h2>
+            
+            <div class="metier-card">
+                <h4>Game Designer <span class="difficulty moyen">Difficulté Moyenne</span></h4>
+                <p><strong>Demande:</strong> Moyen</p>
+                <p><strong>Profil Recherché:</strong> Designers avec un focus sur les <strong>idées innovantes et narratives</strong>. Endroad valorise les créatifs capables de concevoir des expériences originales et narrativement riches.</p>
+                <p><strong>Conseil de candidature:</strong> Mettez en avant votre passion pour les jeux narratifs indépendants et votre portfolio d'idées originales.</p>
+            </div>
+            
+            <div class="metier-card">
+                <h4>Programmeur <span class="difficulty eleve">Demande Élevée</span></h4>
+                <p><strong>Demande:</strong> Élevée</p>
+                <p><strong>Profil Recherché:</strong> Programmeurs solides dans l'activité informatique générale (6201Z). C'est un des postes les plus demandés par le studio.</p>
+                <ul>
+                    <li>Excellentes compétences en développement multi-platformes</li>
+                    <li>Expérience en optimisation et architecture logicielle</li>
+                    <li>Capacité à travailler dans une petite équipe autonome</li>
+                </ul>
+                <p><strong>Conseil de candidature:</strong> Démontrez une expertise technique solide et montrez des projets où vous avez résolu des défis de programmation complexes.</p>
+            </div>
+            
+            <div class="metier-card">
+                <h4>Artiste 3D <span class="difficulty moyen">Difficulté Moyenne</span></h4>
+                <p><strong>Demande:</strong> Moyen</p>
+                <p><strong>Profil Recherché:</strong> Artistes 3D compétents. Les adaptations comme Goldorak impliquent des travaux 3D conséquents.</p>
+                <ul>
+                    <li>Maîtrise des logiciels 3D (Maya, Blender, etc.)</li>
+                    <li>Expérience en modélisation, texturing et rigging</li>
+                    <li>Sensibilité à l'esthétique des projets d'adaptation</li>
+                </ul>
+                <p><strong>Conseil de candidature:</strong> Présentez un portfolio robuste montrant vos réalisations 3D et votre capacité à adapter des styles visuels existants.</p>
+            </div>
+            
+            <div class="metier-card">
+                <h4>UI Artist <span class="difficulty moyen">Difficulté Moyenne</span></h4>
+                <p><strong>Demande:</strong> Moyen</p>
+                <p><strong>Profil Recherché:</strong> Designers UI/UX créatifs capable de créer des interfaces innovantes et accessibles.</p>
+                <ul>
+                    <li>Compétences en design d'interface utilisateur</li>
+                    <li>Connaissance des engines de jeu (Unity, Unreal)</li>
+                    <li>Attention particulière à l'expérience utilisateur</li>
+                </ul>
+                <p><strong>Conseil de candidature:</strong> Montrez des interfaces que vous avez créées et explicitez votre processus de design.</p>
+            </div>
+            
+            <div class="metier-card">
+                <h4>Concept Artist <span class="difficulty eleve">Demande Élevée</span></h4>
+                <p><strong>Demande:</strong> Élevée</p>
+                <p><strong>Profil Recherché:</strong> Concept artists exceptionnels capable de conceptualiser des idées <strong>daring et innovantes</strong>. C'est un profil clé pour Endroad.</p>
+                <ul>
+                    <li>Fort portfolio montrant des concepts visuels originaux</li>
+                    <li>Maîtrise des techniques de concept art traditionnel et digital</li>
+                    <li>Capacité à développer des univers visuels cohérents et percutants</li>
+                </ul>
+                <p><strong>Conseil de candidature:</strong> Présentez votre portfolio d'idées les plus innovantes et audacieuses. C'est exactement ce que recherche Endroad.</p>
+            </div>
+        </section>
+        
+        <!-- RECRUTEMENT -->
+        <section>
+            <h2>Recrutement & Contact</h2>
+            <p><strong>Statut des postes ouverts:</strong> Non spécifié</p>
+            <p style="margin-top: 15px; color: #ffa500;">Consultez directement Endroad pour connaître les opportunités actuelles:</p>
+            
+            <h3>Recommandation Prioritaire</h3>
+            <div class="info-box">
+                <strong>💡 Stratégie de Candidature Optimale</strong>
+                <p>Contactez directement <strong>Florian Le Gouriellec</strong> (PDG et co-fondateur) via LinkedIn. Cette approche directe est recommandée pour un petit studio indépendant où les décisions sont prises rapidement par les dirigeants.</p>
+            </div>
+        </section>
+        
+        <!-- LIENS UTILES -->
+        <section>
+            <h2>Liens Utiles</h2>
+            <div class="links-grid">
+                <a href="https://www.endroad.fr" class="link-button">🌐 Site Web</a>
+                <a href="https://store.steampowered.com/developer/endroad" class="link-button">🎮 Steam</a>
+                <a href="https://fr.linkedin.com/company/endroad" class="link-button">💼 LinkedIn</a>
+            </div>
+        </section>
+        
+        <!-- VERDICT -->
+        <section class="verdict">
+            <h2>Verdict & Conseils</h2>
+            
+            <h3 style="color: #4caf50; margin-top: 0;">Difficultés & Attraits</h3>
+            <div class="verdict-text">
+                <p><strong>Niveau de difficulté:</strong> Moyen</p>
+                <ul style="margin-top: 10px;">
+                    <li><strong>Facteurs positifs:</strong> Petit studio (12 personnes) = équipe soudée, projets variés, responsabilités plus larges</li>
+                    <li><strong>Facteurs limitants:</strong> Studio indépendant = budget limité, moins de visibilité que les studios AAA, exigences polyvalentes</li>
+                </ul>
+            </div>
+            
+            <h3 style="color: #4caf50; margin-top: 20px;">Conseils pour Candidater</h3>
+            <div class="verdict-text">
+                <ul>
+                    <li>✓ <strong>Portfolio innovant obligatoire:</strong> Endroad cherche des talents qui pensent "hors des sentiers battus"</li>
+                    <li>✓ <strong>Montrez votre passion:</strong> Pour les jeux narratifs, l'indépendant, les projets exploratoires</li>
+                    <li>✓ <strong>Flexibilité:</strong> Dans une petite équipe, il faut être polyvalent et adaptable</li>
+                    <li>✓ <strong>Contactez Florian Le Gouriellec sur LinkedIn:</strong> C'est le PDG, il prend les décisions RH directement</li>
+                    <li>✓ <strong>Faites référence à leur philosophie:</strong> Montrez que vous connaissez Endroad et ses jeux (FallBack, Goldorak)</li>
+                </ul>
+            </div>
+            
+            <h3 style="color: #4caf50; margin-top: 20px;">Profils Prioritaires</h3>
+            <div class="verdict-text">
+                <p><strong>Postes avec demande élevée:</strong></p>
+                <ul>
+                    <li>🎨 <strong>Concept Artist</strong> - Pour développer des univers audacieux</li>
+                    <li>💻 <strong>Programmeur</strong> - Infrastructure technique essentielle</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Résumé:</strong> Endroad est un studio de qualité pour qui cherche une expérience dans l'indépendant français avec une vraie liberté créative. L'équipe est petite mais motivée, et les dirigeants sont accessibles. À recommander pour les candidats créatifs et passionnés.</p>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>© 2024 Fiche Studio Endroad | Informations à jour pour l'année 2024</p>
+    </footer>
+</body>
+</html>
