@@ -8,5 +8,6 @@
 - [Duper Games](studios/duper-games.html) — Montpellier, France
 - [Motion Twin](studios/motion-twin.html) — Bordeaux, France — Studio de développement indépendant
 - [Playtouch](studios/playtouch.html) — Port Louis, Île Maurice
+- [Sandfall Interactive](studios/sandfall-interactive.html) — Montpellier, France
 - [Twin Sails Interactive](studios/twin-sails-interactive.html) — Paris, France
 - [Ubisoft](studios/ubisoft.html) — Saint-Mandé, France
