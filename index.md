@@ -26,6 +26,7 @@
 - [Carpool Studio](studios/carpool-studio.html) — Montpellier et Paris, France
 - [CD Projekt Red](studios/cd-projekt-red.html) — Varsovie, Pologne
 - [Celsiusonline](studios/celsiusonline.html) — 
+- [Cinesite Montréal](studios/cinesite-montreal.html) — Montréal, Canada
 - [Critical Hit Games](studios/critical-hit-games.html) — Wrocław, Pologne
 - [Cyanide Studio](studios/cyanide-studio.html) — Nanterre, France
 - [Dear Villagers](studios/dear-villagers.html) — Montpellier, France
