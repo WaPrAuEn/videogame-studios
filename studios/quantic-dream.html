@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantic Dream - Studio de Jeux Vidéo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #e0e0e0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 3px solid #00d4ff;
+            box-shadow: 0 4px 6px rgba(0, 212, 255, 0.2);
+        }
+
+        header h1 {
+            font-size: 3em;
+            color: #00d4ff;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #888;
+        }
+
+        section {
+            background: rgba(255, 255, 255, 0.05);
+            margin-bottom: 30px;
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid #00d4ff;
+            backdrop-filter: blur(10px);
+        }
+
+        section h2 {
+            color: #00d4ff;
+            font-size: 2em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        section h2::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 30px;
+            background: #00d4ff;
+            border-radius: 2px;
+        }
+
+        .identite-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .identite-item {
+            background: rgba(0, 212, 255, 0.1);
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .identite-item h3 {
+            color: #00d4ff;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .identite-item p {
+            color: #b0b0b0;
+        }
+
+        .jeux-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .jeu-card {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 100, 150, 0.05) 100%);
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid rgba(0, 212, 255, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .jeu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 212, 255, 0.3);
+        }
+
+        .jeu-card h3 {
+            color: #00d4ff;
+            margin-bottom: 8px;
+            font-size: 1.3em;
+        }
+
+        .jeu-card p {
+            color: #888;
+            font-size: 0.95em;
+        }
+
+        .metier-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .metier-card {
+            background: rgba(0, 212, 255, 0.08);
+            padding: 25px;
+            border-radius: 6px;
+            border: 2px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .metier-card h3 {
+            color: #00d4ff;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .metier-card h3::before {
+            content: '✓';
+            color: #00ff00;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .metier-card ul {
+            list-style: none;
+            margin-bottom: 15px;
+        }
+
+        .metier-card li {
+            color: #b0b0b0;
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .metier-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #00d4ff;
+        }
+
+        .metier-card .conseil {
+            background: rgba(255, 215, 0, 0.1);
+            padding: 12px;
+            border-left: 3px solid #ffd700;
+            border-radius: 4px;
+            margin-top: 15px;
+            font-size: 0.95em;
+            color: #ffd700;
+        }
+
+        .culture-section {
+            background: rgba(100, 150, 255, 0.1);
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid #6496ff;
+            margin: 20px 0;
+        }
+
+        .culture-section h3 {
+            color: #6496ff;
+            margin-bottom: 12px;
+        }
+
+        .culture-section p {
+            color: #a0a0a0;
+            line-height: 1.8;
+        }
+
+        .liens-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .lien-btn {
+            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+            color: #000;
+            padding: 15px;
+            border-radius: 6px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .lien-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 212, 255, 0.4);
+        }
+
+        .verdict-section {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.15) 0%, rgba(0, 100, 150, 0.1) 100%);
+            padding: 30px;
+            border-radius: 8px;
+            border: 2px solid rgba(0, 212, 255, 0.5);
+            margin-top: 30px;
+        }
+
+        .verdict-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .difficulte {
+            background: rgba(255, 100, 100, 0.15);
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ff6464;
+            margin: 15px 0;
+        }
+
+        .difficulte-title {
+            color: #ff6464;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .difficulte-bar {
+            background: rgba(100, 100, 100, 0.3);
+            border-radius: 4px;
+            height: 20px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+
+        .difficulte-fill {
+            background: linear-gradient(90deg, #ff6464 0%, #ff9600 100%);
+            height: 100%;
+            width: 90%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 8px;
+            color: #000;
+            font-weight: bold;
+            font-size: 0.8em;
+        }
+
+        .conseil-global {
+            background: rgba(255, 215, 0, 0.12);
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid #ffd700;
+            margin-top: 20px;
+        }
+
+        .conseil-global h3 {
+            color: #ffd700;
+            margin-bottom: 12px;
+        }
+
+        .conseil-global ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .conseil-global li {
+            color: #c0c0c0;
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .conseil-global li::before {
+            content: '★';
+            position: absolute;
+            left: 0;
+            color: #ffd700;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        .disponibilite-non {
+            color: #ff6464;
+            font-size: 0.95em;
+            font-style: italic;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(0, 212, 255, 0.2);
+            color: #00d4ff;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin: 5px 5px 5px 0;
+            border: 1px solid rgba(0, 212, 255, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            .metier-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>QUANTIC DREAM</h1>
+        <p>Studio de Développement de Jeux Vidéo Narratifs</p>
+    </header>
+
+    <div class="container">
+        <!-- SECTION IDENTITÉ -->
+        <section>
+            <h2>Identité du Studio</h2>
+            <div class="identite-grid">
+                <div class="identite-item">
+                    <h3>📍 Localisation</h3>
+                    <p>Paris, France</p>
+                </div>
+                <div class="identite-item">
+                    <h3>📅 Fondée en</h3>
+                    <p>1997</p>
+                </div>
+                <div class="identite-item">
+                    <h3>🎮 Type de Studio</h3>
+                    <p>Studio de Développement d'Aventures Narratives & Motion-Capture</p>
+                </div>
+                <div class="identite-item">
+                    <h3>🤝 Éditeurs Partenaires</h3>
+                    <p>Eidos Interactive</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION JEUX NOTABLES -->
+        <section>
+            <h2>Jeux Notables</h2>
+            <div class="jeux-grid">
+                <div class="jeu-card">
+                    <h3>The Nomad Soul</h3>
+                    <p>1999</p>
+                    <p>Premier jeu du studio, pionnnier en jeu narratif et monde immersif.</p>
+                </div>
+                <div class="jeu-card">
+                    <h3>Fahrenheit</h3>
+                    <p>2005</p>
+                    <p>Révolution dans le genre du jeu d'aventure narrative avec choix interactifs.</p>
+                </div>
+                <div class="jeu-card">
+                    <h3>Heavy Rain</h3>
+                    <p>2010</p>
+                    <p>Masterpiece du interactive storytelling. Expérience cinématographique intense.</p>
+                </div>
+                <div class="jeu-card">
+                    <h3>Beyond: Two Souls</h3>
+                    <p>2013</p>
+                    <p>Drame narratif épique avec Willem Dafoe et Ellen Page (Elliot Page).</p>
+                </div>
+                <div class="jeu-card">
+                    <h3>Detroit: Become Human</h3>
+                    <p>2018</p>
+                    <p>Chef-d'œuvre de la narration interactive avec trois personnages et multiples finales.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION CULTURE -->
+        <section>
+            <h2>Culture & Spécialisation</h2>
+            <div class="culture-section">
+                <h3>Vision Créative</h3>
+                <p>Quantic Dream est spécialisé dans la création de jeux narratifs émotionnels proches du cinéma. Le studio excelle dans l'utilisation avancée de la technologie motion-capture, offrant une vision innovante en 3D et un storytelling interactif sans égal. David Cage, fondateur et directeur créatif, impose une philosophie où le joueur devient acteur d'une histoire complexe et nuancée.</p>
+            </div>
+            <div class="culture-section">
+                <h3>Points Forts</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 8px 0; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #00d4ff;">→</span> Motion-capture de pointe</li>
+                    <li style="padding: 8px 0; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #00d4ff;">→</span> Narration émotionnelle et cinématographique</li>
+                    <li style="padding: 8px 0; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #00d4ff;">→</span> Gameplay basé sur les choix et les conséquences</li>
+                    <li style="padding: 8px 0; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #00d4ff;">→</span> Graphiques de haute qualité</li>
+                    <li style="padding: 8px 0; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #00d4ff;">→</span> Jeux primés internationalement</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SECTION PAR MÉTIER -->
+        <section>
+            <h2>Recrutement par Métier</h2>
+            <div class="metier-grid">
+                <div class="metier-card">
+                    <h3>Game Designer</h3>
+                    <ul>
+                        <li>Concevoir des systèmes de choix narratifs</li>
+                        <li>Structurer la progression émotionnelle</li>
+                        <li>Créer des branches narratives complexes</li>
+                        <li>Équilibre entre cinéma et gameplay</li>
+                    </ul>
+                    <div class="conseil">
+                        💡 Démonter votre compréhension des jeux Quantic Dream, présentez des designs de narratives interactives innovantes avec un focus sur les choix conséquents.
+                    </div>
+                </div>
+
+                <div class="metier-card">
+                    <h3>Programmeur</h3>
+                    <ul>
+                        <li>Moteurs de jeu (Unreal Engine)</li>
+                        <li>Systèmes de choix et branchement narratif</li>
+                        <li>Optimisation motion-capture</li>
+                        <li>Architecture logicielle avancée</li>
+                    </ul>
+                    <div class="conseil">
+                        💡 Exhibez une expérience en systèmes narratifs et en optimisation graphique. Montrez du code pour des systèmes de décisions complexes.
+                    </div>
+                </div>
+
+                <div class="metier-card">
+                    <h3>Artiste 3D</h3>
+                    <ul>
+                        <li>Modélisation haute polygonn</li>
+                        <li>Animation motion-capture</li>
+                        <li>Rendu photoréaliste</li>
+                        <li>Caractères et environnements émotionnels</li>
+                    </ul>
+                    <div class="conseil">
+                        💡 Portfolio d'œuvres 3D réalistes avec motion-capture. Mettez en avant une sensibilité cinématographique dans vos créations.
+                    </div>
+                </div>
+
+                <div class="metier-card">
+                    <h3>UI/UX Artist</h3>
+                    <ul>
+                        <li>Interfaces narratives épurées</li>
+                        <li>Design discret et immersif</li>
+                        <li>Navigation intuitive dans les choix</li>
+                        <li>Feedback visuel et sonore</li>
+                    </ul>
+                    <div class="conseil">
+                        💡 Présentez des UI cinématographiques et non-intrusives. Montrez comment intégrer l'interface dans l'univers narratif.
+                    </div>
+                </div>
+
+                <div class="metier-card">
+                    <h3>Concept Artist</h3>
+                    <ul>
+                        <li>Univers visuels dystopiques et futurs</li>
+                        <li>Design de personnages photoréalistes</li>
+                        <li>Ambiance cinématographique</li>
+                        <li>Storyboards et direction artistique</li>
+                    </ul>
+                    <div class="conseil">
+                        💡 Portfolio d'concepts photoréalistes avec une forte direction artistique. Montrez une compréhension du cinéma et de la narration visuelle.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION RECRUTEMENT -->
+        <section>
+            <h2>Recrutement & Opportunités</h2>
+            <div style="background: rgba(255, 100, 100, 0.12); padding: 20px; border-radius: 6px; border-left: 4px solid #ff6464; margin: 20px 0;">
+                <p class="disponibilite-non">⚠️ Postes ouverts : Non spécifiés (consultez directement les canaux officiels)</p>
+                <p class="disponibilite-non">⚠️ Email recrutement : Non disponible</p>
+                <p class="disponibilite-non">⚠️ Site carrières : Non disponible</p>
+            </div>
+            <p style="margin-top: 20px; color: #b0b0b0;">Consultez régulièrement le site officiel et les réseaux sociaux de Quantic Dream pour les opportunités de recrutement. Le studio recrute selon les besoins de ses projets.</p>
+        </section>
+
+        <!-- SECTION LIENS UTILES -->
+        <section>
+            <h2>Liens Utiles</h2>
+            <div class="liens-grid">
+                <a href="https://www.quanticdream.com/fr" class="lien-btn">🌐 Site Officiel</a>
+                <a href="https://www.linkedin.com/company/quantic-dream/" class="lien-btn">💼 LinkedIn</a>
+                <a href="https://www.quanticdream.com/fr" class="lien-btn">📧 Contact</a>
+            </div>
+        </section>
+
+        <!-- SECTION VERDICT -->
+        <section class="verdict-section">
+            <h2>Verdict & Conseils Finaux</h2>
+            
+            <div class="difficulte">
+                <div class="difficulte-title">Niveau de Difficulté de Recrutement</div>
+                <div class="difficulte-bar">
+                    <div class="difficulte-fill">TRÈS ÉLEVÉE (5/5)</div>
+                </div>
+                <p style="margin-top: 12px; color: #ff9600;">Quantic Dream est un studio prestigieux et reconnu mondialement. La concurrence est féroce, les candidats doivent être exceptionnels.</p>
+            </div>
+
+            <div class="conseil-global">
+                <h3>Conseils pour Candidater avec Succès</h3>
+                <ul>
+                    <li>Créer un portfolio spécialisé en motion-capture, narration interactive ou expérience cinéma/vidéo</li>
+                    <li>Démontrer une passion authentique pour les jeux de David Cage et comprendre sa vision créative</li>
+                    <li>Mettre en avant des compétences avancées en 3D, storytelling interactif et systèmes narratifs</li>
+                    <li>Présenter des projets personnel montrant une sensibilité cinématographique</li>
+                    <li>Maitriser les outils industrie : Unreal Engine, Maya, Substance, etc.</li>
+                    <li>Démontrer une compréhension profonde de l'émotionnel et de la narration interactive</li>
+                    <li>Envoyer
