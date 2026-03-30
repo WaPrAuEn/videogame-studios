@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giant Animation Studios - Fiche Recrutement</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #0f3460 0%, #533483 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+        
+        .section {
+            background: white;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-header {
+            background: linear-gradient(135deg, #0f3460 0%, #533483 100%);
+            color: white;
+            padding: 20px 25px;
+            font-size: 1.6em;
+            font-weight: bold;
+            border-left: 5px solid #00d4ff;
+        }
+        
+        .section-content {
+            padding: 30px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .info-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #0f3460;
+        }
+        
+        .info-card-label {
+            font-weight: bold;
+            color: #0f3460;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        
+        .info-card-value {
+            font-size: 1.1em;
+            color: #333;
+        }
+        
+        .métier-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .métier-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-top: 4px solid #00d4ff;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .métier-titre {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #0f3460;
+            margin-bottom: 10px;
+        }
+        
+        .métier-demande {
+            font-size: 0.95em;
+            margin-bottom: 8px;
+        }
+        
+        .demande-élevée {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        .demande-moyenne {
+            color: #f39c12;
+            font-weight: bold;
+        }
+        
+        .demande-basse {
+            color: #95a5a6;
+            font-weight: bold;
+        }
+        
+        .bar-container {
+            background: #ecf0f1;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+        
+        .bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+        
+        .bar-élevé {
+            background: linear-gradient(90deg, #e74c3c, #c0392b);
+            width: 85%;
+        }
+        
+        .bar-moyen {
+            background: linear-gradient(90deg, #f39c12, #e67e22);
+            width: 60%;
+        }
+        
+        .bar-bas {
+            background: linear-gradient(90deg, #95a5a6, #7f8c8d);
+            width: 30%;
+        }
+        
+        .texte-justifié {
+            text-align: justify;
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .liste {
+            list-style: none;
+            margin: 15px 0;
+        }
+        
+        .liste li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #555;
+        }
+        
+        .liste li:before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            color: #0f3460;
+            font-weight: bold;
+        }
+        
+        .liens-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .lien-bouton {
+            background: linear-gradient(135deg, #0f3460 0%, #533483 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: block;
+            border: 2px solid transparent;
+        }
+        
+        .lien-bouton:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #533483 0%, #0f3460 100%);
+        }
+        
+        .lien-désactivé {
+            background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+            cursor: not-allowed;
+        }
+        
+        .lien-désactivé:hover {
+            transform: none;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .verdict-content {
+            background: linear-gradient(135deg, #fff9e6 0%, #ffe6cc 100%);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #f39c12;
+            margin-top: 15px;
+        }
+        
+        .verdict-titre {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #d68910;
+            margin-bottom: 15px;
+        }
+        
+        .verdict-text {
+            color: #555;
+            margin-bottom: 10px;
+        }
+        
+        .difficulté-indicator {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .difficulté-label {
+            font-weight: bold;
+            color: #0f3460;
+        }
+        
+        .difficulté-stars {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .star {
+            color: #f39c12;
+            font-size: 1.3em;
+        }
+        
+        .star.empty {
+            color: #ecf0f1;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #bbb;
+            margin-top: 30px;
+            font-size: 0.9em;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #0f3460;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .métier-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 Giant Animation Studios</h1>
+            <p>Studio d'Animation CG Indépendant - Dublin & Barcelona</p>
+        </header>
+        
+        <!-- Section Identité -->
+        <div class="section">
+            <div class="section-header">📋 Identité du Studio</div>
+            <div class="section-content">
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-card-label">📍 Localisation</div>
+                        <div class="info-card-value">Dublin (Irlande) & Barcelona (Espagne)</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-label">📅 Année de Fondation</div>
+                        <div class="info-card-value">2011</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-label">🏢 Type de Studio</div>
+                        <div class="info-card-value">Studio d'Animation CG Indépendant</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-label">🎯 Spécialités</div>
+                        <div class="info-card-value">TV • Films • Jeux Vidéo</div>
+                    </div>
+                </div>
+                
+                <div class="texte-justifié">
+                    <p><strong>Giant Animation Studios</strong> est un studio d'animation CG indépendant établi depuis 2011, opérant depuis ses locaux à <span class="highlight">Dublin</span> et <span class="highlight">Barcelona</span>. Le studio se distingue par son équipe diversifiée composée d'artistes primés, de vétérans de production et d'experts techniques. Leur mission centrale est la création d'histoires intemporelles, de personnages inoubliables et d'animation de qualité exceptionnelle.</p>
+                </div>
+                
+                <div style="margin-top: 20px;">
+                    <p style="font-weight: bold; margin-bottom: 10px;">🌟 Points Forts du Studio:</p>
+                    <ul class="liste">
+                        <li>Expertise en animation CG pour plusieurs médiums (TV, films, jeux)</li>
+                        <li>Équipe d'artistes primés et vétérans expérimentés</li>
+                        <li>Compétences techniques avancées en production</li>
+                        <li>Présence internationale avec deux studios</li>
+                        <li>Engagement vers l'excellence artistique</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section Jeux Notables -->
+        <div class="section">
+            <div class="section-header">🎮 Jeux et Projets Notables</div>
+            <div class="section-content">
+                <div style="background: #f0f4f8; padding: 20px; border-radius: 10px; text-align: center;">
+                    <p style="color: #666; font-size: 1.05em;">
+                        <span class="highlight">Données non spécifiées</span> - Le studio ne communique pas publiquement sur ses jeux spécifiques.
+                    </p>
+                    <p style="color: #888; font-size: 0.95em; margin-top: 10px;">
+                        Focus documenté sur l'<strong>animation pour jeux vidéo</strong> en tant que prestataire d'animation CG.
+                    </p>
+                </div>
+                
+                <div style="margin-top: 20px;">
+                    <p style="font-weight: bold; margin-bottom: 10px;">💡 Note Importante:</p>
+                    <p style="color: #555;">Giant Animation Studios fonctionne principalement comme <strong>studio d'animation externalisée</strong> pour des projets TV, films et jeux. Le studio ne publie pas de jeux propres mais fournit des services d'animation CG haute qualité aux éditeurs.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section Recrutement -->
+        <div class="section">
+            <div class="section-header">💼 Recrutement et Candidatures</div>
+            <div class="section-content">
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-card-label">📧 Email Recrutement</div>
+                        <div class="info-card-value">Non spécifié</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-label">💼 Postes Ouverts</div>
+                        <div class="info-card-value">Non documentés</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-label">🌐 Page Carrières</div>
+                        <div class="info-card-value">Non spécifiée</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-label">👥 Taille Équipe</div>
+                        <div class="info-card-value">Non documentée</div>
+                    </div>
+                </div>
+                
+                <div style="background: #fff3cd; padding: 20px; border-radius: 10px; margin-top: 20px; border-left: 4px solid #f39c12;">
+                    <p style="font-weight: bold; color: #d68910; margin-bottom: 10px;">⚠️ Conseil pour les Candidatures:</p>
+                    <ul class="liste">
+                        <li>Consulter le <strong>site officiel</strong> pour les informations de recrutement actualisées</li>
+                        <li>Préparer un <strong>portfolio CG de haute qualité</strong></li>
+                        <li>Mettre en avant l'<strong>expérience en TV, films et/ou jeux</strong></li>
+                        <li>Démontrer une expertise en <strong>animation 3D</strong></li>
+                        <li>Contacter directement via le site web pour les opportunités</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section Liens Utiles -->
+        <div class="section">
+            <div class="section-header">🔗 Liens Utiles</div>
+            <div class="section-content">
+                <div class="liens-grid">
+                    <a href="https://animationireland.com/studios/giant-animation-studios/" class="lien-bouton" target="_blank">🌐 Site Web Principal</a>
+                    <a href="#" class="lien-bouton lien-désactivé" title="Non spécifié">💼 LinkedIn (Non spécifié)</a>
+                    <a href="#" class="lien-bouton lien-désactivé" title="Non spécifié">🎮 Page Steam (Non spécifié)</a>
+                    <a href="#" class="lien-bouton lien-désactivé" title="Non spécifié">📧 Email Recrutement (Non spécifié)</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section Par Métier -->
+        <div class="section">
+            <div class="section-header">👨‍💼 Analyse Par Métier</div>
+            <div class="section-content">
+                <div class="métier-grid">
+                    <!-- Game Designer -->
+                    <div class="métier-card">
+                        <div class="métier-titre">🎮 Game Designer</div>
+                        <div class="métier-demande">
+                            Demande: <span class="demande-moyenne">MOYEN</span>
+                        </div>
+                        <div class="bar-container">
+                            <div class="bar-fill bar-moyen"></div>
+                        </div>
+                        <p style="margin-top: 12px; font-size: 0.9em; color: #666;">
+                            Focus sur l'animation pour jeux mentionné. Game Design moins central que l'animation elle-même.
+                        </p>
+                    </div>
+                    
+                    <!-- Programmeur -->
+                    <div class="métier-card">
+                        <div class="métier-titre">💻 Programmeur</div>
+                        <div class="métier-demande">
+                            Demande: <span class="demande-moyenne">MOYEN</span>
+                        </div>
+                        <div class="bar-container">
+                            <div class="bar-fill bar-moyen"></div>
+                        </div>
+                        <p style="margin-top: 12px; font-size: 0.9em; color: #666;">
+                            Experts techniques importants. Pipeline et tools pour production animation.
+                        </p>
+                    </div>
+                    
+                    <!-- Artiste 3D -->
+                    <div class="métier-card">
+                        <div class="métier-titre">🎨 Artiste 3D</div>
+                        <div class="métier-demande">
+                            Demande: <span class="demande-élevée">ÉLEVÉE</span>
+                        </div>
+                        <div class="bar-container">
+                            <div class="bar-fill bar-élevé"></div>
+                        </div>
+                        <p style="margin-top: 12px; font-size: 0.9em; color: #666;">
+                            Studio CG animation - rôle central. Modélisation, rigging, animation 3D essentiels.
+                        </p>
+                    </div>
+                    
+                    <!-- UI Artist -->
+                    <div class="métier-card">
+                        <div class="métier-titre">🖼️ UI Artist</div>
+                        <div class="métier-demande">
+                            Demande: <span class="demande-moyenne">MOYEN</span>
+                        </div>
+                        <div class="bar-container">
+                            <div class="bar-fill bar-moyen"></div>
+                        </div>
+                        <p style="margin-top: 12px; font-size: 0.9em; color: #666;">
+                            Design d'interface moins critique que l'animation. Demande ponctuelle selon projets.
+                        </p>
+                    </div>
+                    
+                    <!-- Concept Artist -->
+                    <div class="métier-card">
+                        <div class="métier-titre">🎭 Concept Artist</div>
+                        <div class="métier-demande">
+                            Demande: <span class="demande-élevée">ÉLEVÉE</span>
+                        </div>
+                        <div class="bar-container">
+                            <div class="bar-fill bar-élevé"></div>
+                        </div>
+                        <p style="margin-top: 12px; font-size: 0.9em; color: #666;">
+                            Design de personnages et mondes importants pour histoires intemporelles.
+                        </p>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 30px; background: #f0f4f8; padding: 20px; border-radius: 10px;">
+                    <p style="font-weight: bold; color: #0f3460; margin-bottom: 12px;">📊 Synthèse des Demandes:</p>
+                    <ul class="liste">
+                        <li><strong>Très Demandé:</strong> Artiste 3D, Concept Artist</li>
+                        <li><strong>Demande Moyenne:</strong> Game Designer, Programmeur, UI Artist</li>
+                        <li><strong>Profil Idéal:</strong> Expertise CG, portfolio animation TV/films/jeux, niveau artistic élevé</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section Verdict -->
+        <div class="section">
+            <div class="section-header">🎯 Verdict et Recommandations</div>
+            <div class="section-content">
+                <div class="verdict-content">
+                    <div class="verdict-titre">Analyse Globale</div>
+                    
+                    <div class="verdict-text">
+                        <strong>Giant Animation Studios</strong> est un studio d'animation CG établi et respecté depuis 2011, opérant avec une présence internationale (Dublin et Barcelona). Le studio se caractérise par une équipe de talent primés et vétérans, proposant des services d'animation de haute qualité pour TV, films et jeux.
+                    </div>
+                    
+                    <div class="verdict-text">
+                        <strong>Points Clés:</strong>
+                    </div>
+                    <ul class="liste">
+                        <li>Studio établi avec 13+ années d'expérience</li>
