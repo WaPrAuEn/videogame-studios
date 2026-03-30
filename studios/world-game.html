@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Game - Studio de Jeux Vidéo Mobile à Impact</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        
+        header h1 {
+            color: #667eea;
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        header p {
+            color: #666;
+            font-size: 1.1em;
+            margin: 5px 0;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin: 5px 5px 0 0;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        
+        .badge.location {
+            background: #764ba2;
+        }
+        
+        .badge.founded {
+            background: #f093fb;
+        }
+        
+        section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        section h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        section h3 {
+            color: #764ba2;
+            font-size: 1.5em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .info-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .info-card strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        
+        .info-card p {
+            color: #555;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .link-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .link-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6);
+        }
+        
+        .link-button.secondary {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
+        }
+        
+        .link-button.secondary:hover {
+            box-shadow: 0 8px 20px rgba(245, 87, 108, 0.6);
+        }
+        
+        .job-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .job-card {
+            background: linear-gradient(135deg, #f093fb15 0%, #f5576c15 100%);
+            padding: 25px;
+            border-radius: 10px;
+            border-top: 5px solid #f5576c;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(245, 87, 108, 0.2);
+        }
+        
+        .job-card h4 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        
+        .job-card .status {
+            background: #f5576c;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            display: inline-block;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+        
+        .verdict {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .verdict h2 {
+            color: white;
+            border-bottom-color: white;
+            margin-bottom: 20px;
+        }
+        
+        .verdict p {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .rating {
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+        
+        .star {
+            color: #ffd700;
+            margin: 0 3px;
+        }
+        
+        .culture-highlight {
+            background: #667eea;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #f5576c;
+        }
+        
+        .culture-highlight strong {
+            display: block;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+        
+        .empty-state {
+            background: #f0f0f0;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            color: #999;
+            font-style: italic;
+        }
+        
+        footer {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            section h2 {
+                font-size: 1.5em;
+            }
+            
+            .info-grid, .job-grid, .links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 World Game</h1>
+            <p>Studio de Jeux Vidéo Mobile à Impact</p>
+            <div>
+                <span class="badge location">📍 Paris, France</span>
+                <span class="badge founded">📅 Fondé en 2016</span>
+                <span class="badge">👥 21 collaborateurs</span>
+                <span class="badge">📱 Mobile Gaming</span>
+            </div>
+        </header>
+        
+        <section>
+            <h2>🏢 Identité du Studio</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <strong>Localisation</strong>
+                    <p>Paris, France</p>
+                </div>
+                <div class="info-card">
+                    <strong>Année de Fondation</strong>
+                    <p>2016</p>
+                </div>
+                <div class="info-card">
+                    <strong>Taille de l'Équipe</strong>
+                    <p>21 collaborateurs</p>
+                </div>
+                <div class="info-card">
+                    <strong>Spécialité</strong>
+                    <p>Studio de jeux vidéo mobile à impact</p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>🌟 Culture & Valeurs</h2>
+            <div class="culture-highlight">
+                <strong>Mission Unique</strong>
+                <p>World Game se distingue par son approche innovante du développement de jeux vidéo à impact. Le studio analyse le comportement des joueurs via un logiciel propriétaire pour déduire les comportements réels, créant ainsi des expériences de jeu qui transcendent le simple divertissement.</p>
+            </div>
+            <p>L'équipe de World Game est passionnée par la création de jeux mobiles qui ont une véritable signification et un impact positif sur la vie de leurs joueurs. Cette philosophie guide chaque décision créative et technique du studio.</p>
+        </section>
+        
+        <section>
+            <h2>🎯 Jeux Notables</h2>
+            <div class="empty-state">
+                Aucun jeu spécifique communiqué pour le moment. Découvrez les projets du studio en visitant leur site web officiel.
+            </div>
+        </section>
+        
+        <section>
+            <h2>💼 Par Métier</h2>
+            
+            <div class="job-grid">
+                <div class="job-card">
+                    <h4>🎨 Game Designer</h4>
+                    <p>Concepteur de jeux mobiles innovants à impact.</p>
+                    <div class="status">Non communiqué</div>
+                </div>
+                
+                <div class="job-card">
+                    <h4>💻 Programmeur</h4>
+                    <p>Développeur pour jeux mobiles et outils d'analyse propriétaires.</p>
+                    <div class="status">Non communiqué</div>
+                </div>
+                
+                <div class="job-card">
+                    <h4>🎭 Artiste 3D</h4>
+                    <p>Créateur d'assets 3D pour environnements mobiles.</p>
+                    <div class="status">Non communiqué</div>
+                </div>
+                
+                <div class="job-card">
+                    <h4>🖼️ UI Artist</h4>
+                    <p>Designer d'interfaces utilisateur pour jeux mobiles.</p>
+                    <div class="status">Non communiqué</div>
+                </div>
+                
+                <div class="job-card">
+                    <h4>🖌️ Concept Artist</h4>
+                    <p>Artiste concepteur pour la direction visuelle des projets.</p>
+                    <div class="status">Non communiqué</div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 30px;">
+                <h3>📧 Rejoindre World Game</h3>
+                <p>Les postes ouverts ne sont pas actuellement documentés, mais vous pouvez contacter l'équipe recrutement :</p>
+                <a href="mailto:hello@world.game" class="link-button secondary" style="display: inline-block; margin-top: 15px;">
+                    ✉️ hello@world.game
+                </a>
+            </div>
+        </section>
+        
+        <section>
+            <h2>🔗 Liens Utiles</h2>
+            <div class="links-grid">
+                <a href="https://www.world.game" class="link-button" target="_blank">🌐 Site Web Officiel</a>
+                <a href="https://www.linkedin.com/company/worldgamestudio/" class="link-button secondary" target="_blank">💼 Page LinkedIn</a>
+                <a href="mailto:hello@world.game" class="link-button" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);">✉️ Email Recrutement</a>
+            </div>
+        </section>
+        
+        <section>
+            <h2>📊 Difficulté d'Accès</h2>
+            <div class="info-card" style="text-align: center; border: none;">
+                <strong style="display: inline; margin: 0;">Niveau de Difficulté</strong>
+                <p style="font-size: 2em; margin-top: 10px;">
+                    <span class="star">⭐</span>
+                    <span class="star">⭐</span>
+                    <span class="star">⭐</span>
+                    <span style="color: #ddd;">⭐</span>
+                    <span style="color: #ddd;">⭐</span>
+                </p>
+                <p style="font-size: 0.9em; margin-top: 10px; color: #666;">Information non communiquée - Référez-vous aux annonces ou contactez directement.</p>
+            </div>
+        </section>
+        
+        <div class="verdict">
+            <h2>✨ Verdict Final</h2>
+            <p>World Game est un studio parisien jeune et dynamique, fondé en 2016, qui se positionne comme acteur innovant du jeu vidéo mobile à impact. Avec une équipe de 21 collaborateurs, le studio développe une approche unique en analysant les comportements des joueurs pour créer des expériences significatives.</p>
+            <p>Le studio représente une opportunité intéressante pour les créatifs passionnés par l'impact social du jeu vidéo et souhaitant rejoindre une équipe de taille humaine dans un secteur en pleine expansion.</p>
+            <p style="font-weight: bold; margin-top: 25px;">🎯 À Retenir : Un studio à impact avec une philosophie créative unique, basé à Paris.</p>
+        </div>
+        
+        <footer>
+            <p>Fiche d'information sur World Game Studio - Mise à jour 2024</p>
+            <p>Pour des informations actualisées, consultez directement le site officiel ou contactez l'équipe.</p>
+        </footer>
+    </div>
+</body>
+</html>
