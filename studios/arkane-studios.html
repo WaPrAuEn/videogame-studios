@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arkane Studios - Fiche Complète</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #0f3460 0%, #533483 100%);
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 3em;
+            color: #00d4ff;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0, 212, 255, 0.3);
+        }
+        
+        header p {
+            font-size: 1.2em;
+            color: #b0b0b0;
+        }
+        
+        .logo-area {
+            margin-bottom: 20px;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.2);
+            border-color: rgba(0, 212, 255, 0.5);
+        }
+        
+        .card h2 {
+            color: #00d4ff;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            border-bottom: 2px solid #533483;
+            padding-bottom: 10px;
+        }
+        
+        .card h3 {
+            color: #00d4ff;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        
+        .info-line {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+        }
+        
+        .info-label {
+            font-weight: 600;
+            color: #00d4ff;
+        }
+        
+        .info-value {
+            text-align: right;
+            color: #d0d0d0;
+        }
+        
+        .section-full {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .section-full h2 {
+            color: #00d4ff;
+            margin-bottom: 20px;
+            font-size: 2em;
+            border-bottom: 3px solid #533483;
+            padding-bottom: 10px;
+        }
+        
+        .job-role {
+            background: rgba(83, 52, 131, 0.2);
+            border-left: 4px solid #00d4ff;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        
+        .job-role h3 {
+            color: #00d4ff;
+            margin-bottom: 10px;
+        }
+        
+        .difficulty {
+            display: inline-block;
+            background: #533483;
+            color: #00d4ff;
+            padding: 5px 12px;
+            border-radius: 20px;
+            margin-top: 10px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+        
+        .stars {
+            color: #ffd700;
+            font-size: 1.1em;
+            margin-left: 10px;
+        }
+        
+        .game-card {
+            background: rgba(83, 52, 131, 0.3);
+            border: 1px solid #00d4ff;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        
+        .game-card h3 {
+            color: #00d4ff;
+            margin-bottom: 8px;
+        }
+        
+        .link-list {
+            list-style: none;
+        }
+        
+        .link-list li {
+            margin-bottom: 12px;
+            padding: 10px;
+            background: rgba(0, 212, 255, 0.05);
+            border-radius: 5px;
+            border-left: 3px solid #00d4ff;
+        }
+        
+        .link-list a {
+            color: #00d4ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            word-break: break-all;
+        }
+        
+        .link-list a:hover {
+            color: #00ffff;
+            text-decoration: underline;
+        }
+        
+        .verdict-box {
+            background: linear-gradient(135deg, rgba(83, 52, 131, 0.4) 0%, rgba(0, 212, 255, 0.1) 100%);
+            border: 2px solid #00d4ff;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .verdict-box h2 {
+            color: #00d4ff;
+            margin-bottom: 15px;
+        }
+        
+        .verdict-content {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .verdict-content h3 {
+            color: #00d4ff;
+            margin-bottom: 10px;
+        }
+        
+        .verdict-content ul {
+            margin-left: 20px;
+        }
+        
+        .verdict-content li {
+            margin-bottom: 8px;
+        }
+        
+        .highlight {
+            color: #00ffff;
+            font-weight: 600;
+        }
+        
+        .difficulty-high {
+            color: #ff4444;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #808080;
+            border-top: 1px solid rgba(0, 212, 255, 0.1);
+            margin-top: 40px;
+        }
+        
+        .culture-box {
+            background: rgba(0, 212, 255, 0.1);
+            border-left: 4px solid #00d4ff;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #533483;
+            color: #00d4ff;
+            padding: 6px 12px;
+            border-radius: 15px;
+            margin-right: 8px;
+            margin-top: 10px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-area">
+                <h1>🎮 ARKANE STUDIOS</h1>
+                <p>Créateurs d'expériences immersives révolutionnaires</p>
+            </div>
+        </header>
+        
+        <section class="section-full">
+            <h2>Identité du Studio</h2>
+            <div class="grid">
+                <div class="card">
+                    <h2>Informations Générales</h2>
+                    <div class="info-line">
+                        <span class="info-label">Localisation:</span>
+                        <span class="info-value">Lyon, France 🇫🇷</span>
+                    </div>
+                    <div class="info-line">
+                        <span class="info-label">Fondation:</span>
+                        <span class="info-value">1999</span>
+                    </div>
+                    <div class="info-line">
+                        <span class="info-label">Taille de l'équipe:</span>
+                        <span class="info-value">250 collaborateurs</span>
+                    </div>
+                    <div class="info-line">
+                        <span class="info-label">Type:</span>
+                        <span class="info-value">Studio de Développement</span>
+                    </div>
+                    <div class="info-line">
+                        <span class="info-label">Éditeur Principal:</span>
+                        <span class="info-value">Bethesda</span>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h2>Culture & Philosophie</h2>
+                    <div class="culture-box">
+                        <p><span class="highlight">Focus sur l'immersion:</span> Arkane Studios se distingue par sa création de jeux immersifs offrant un gameplay unique et innovant.</p>
+                        <p style="margin-top: 10px;"><span class="highlight">Innovation constante:</span> L'équipe privilégie les expériences narratives et l'immersion du joueur au cœur de chaque projet.</p>
+                        <p style="margin-top: 10px;"><span class="highlight">Qualité AAA:</span> Réputé comme studio sélectif avec des standards élevés de production.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section-full">
+            <h2>Jeux Notables</h2>
+            <div class="game-card">
+                <h3>🎯 Deathloop</h3>
+                <p><strong>Genre:</strong> Jeu de tir à la première personne immersif</p>
+                <p><strong>Plateforme:</strong> PC, PlayStation 5</p>
+                <p><strong>Caractéristiques:</strong> Gameplay unique basé sur les boucles temporelles, environnements détaillés et immersifs, narration forte.</p>
+                <div class="badge">Immersif</div>
+                <div class="badge">Innovation</div>
+                <div class="badge">Narratif</div>
+            </div>
+        </section>
+        
+        <section class="section-full">
+            <h2>Opportunités de Recrutement</h2>
+            <p style="margin-bottom: 20px;">Arkane Studios recrute régulièrement des talents pour ses projets ambitieux. La difficulté d'accès est <span class="difficulty-high">ÉLEVÉE</span> en raison de la réputation selective du studio AAA et des standards de qualité exigeants.</p>
+            
+            <div class="job-role">
+                <h3>🎮 Game Designer</h3>
+                <p><strong>Niveau de demande:</strong> <span class="stars">★★★★★</span> Élevé</p>
+                <p><strong>Spécialisation requise:</strong> Gameplay spécifique et immersif</p>
+                <p><strong>Profil idéal:</strong> Designer avec expérience en création de systèmes de gameplay innovants, capable de concevoir des mécaniques immersives et narratives.</p>
+                <div class="difficulty">Difficulté: Très Élevée</div>
+            </div>
+            
+            <div class="job-role">
+                <h3>💻 Programmeur</h3>
+                <p><strong>Niveau de demande:</strong> <span class="stars">★★★★☆</span> Moyen à Élevé</p>
+                <p><strong>Contexte:</strong> Projets AAA avec technologies avancées</p>
+                <p><strong>Profil idéal:</strong> Programmeur avec expertise en moteurs de jeu modernes (Unreal Engine), optimisation performance et systèmes temps réel.</p>
+                <div class="difficulty">Difficulté: Élevée</div>
+            </div>
+            
+            <div class="job-role">
+                <h3>🎨 Artiste 3D</h3>
+                <p><strong>Niveau de demande:</strong> <span class="stars">★★★★★</span> Élevé</p>
+                <p><strong>Spécialisation:</strong> Environnements détaillés et atmosphériques</p>
+                <p><strong>Profil idéal:</strong> Artiste capable de créer des environnements riches et immersifs similaires à ceux de Deathloop, maîtrisant modélisation et texturing haute définition.</p>
+                <div class="difficulty">Difficulté: Très Élevée</div>
+            </div>
+            
+            <div class="job-role">
+                <h3>🖼️ UI Artist</h3>
+                <p><strong>Niveau de demande:</strong> <span class="stars">★★★☆☆</span> Moyen</p>
+                <p><strong>Focus:</strong> Interfaces immersives et ergonomiques</p>
+                <p><strong>Profil idéal:</strong> Designer d'interfaces avec expérience en UX/UI pour jeux, capable de créer des interfaces épurées et intuitives s'intégrant parfaitement à l'univers.</p>
+                <div class="difficulty">Difficulté: Élevée</div>
+            </div>
+            
+            <div class="job-role">
+                <h3>✏️ Concept Artist</h3>
+                <p><strong>Niveau de demande:</strong> <span class="stars">★★★★★</span> Élevé</p>
+                <p><strong>Spécialisation:</strong> Concepts originaux et innovants</p>
+                <p><strong>Profil idéal:</strong> Artist doté d'une forte vision créative, capable de concevoir des mondes uniques et des concepts visuels distinctifs alignés avec la philosophie immersive du studio.</p>
+                <div class="difficulty">Difficulté: Très Élevée</div>
+            </div>
+        </section>
+        
+        <section class="section-full">
+            <h2>Liens Utiles & Ressources</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>🌐 Sites & Plateformes</h3>
+                    <ul class="link-list">
+                        <li>
+                            <strong>Site Officiel:</strong><br>
+                            <a href="https://www.arkane-studios.com/fr" target="_blank">https://www.arkane-studios.com/fr</a>
+                        </li>
+                        <li>
+                            <strong>Page Carrières (Lyon):</strong><br>
+                            <a href="https://www.arkane-studios.com/fr/lyon" target="_blank">https://www.arkane-studios.com/fr/lyon</a>
+                        </li>
+                        <li>
+                            <strong>Postes Ouverts:</strong><br>
+                            <a href="https://www.arkane-studios.com/fr/lyon" target="_blank">Consulter le site Lyon</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>🎮 Communauté & Jeux</h3>
+                    <ul class="link-list">
+                        <li>
+                            <strong>Steam (Profil Développeur):</strong><br>
+                            <a href="https://store.steampowered.com/developer/ArkaneStudios" target="_blank">https://store.steampowered.com/developer/ArkaneStudios</a>
+                        </li>
+                        <li>
+                            <strong>LinkedIn (Arkane Studios):</strong><br>
+                            <a href="https://www.linkedin.com/company/arkane-studios/people/" target="_blank">https://www.linkedin.com/company/arkane-studios/people/</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section class="verdict-box">
+            <h2>⚖️ VERDICT & RECOMMANDATIONS</h2>
+            
+            <div class="verdict-content">
+                <h3>🎯 Profil d'Accès</h3>
+                <p><strong>Difficulté Globale:</strong> <span class="difficulty-high">★★★★★ TRÈS ÉLEVÉE (5/5)</span></p>
+                <p style="margin-top: 10px;">Arkane Studios est un studio AAA avec une réputation sélective. L'accès est réservé aux candidats expérimentés et dotés de portfolios exceptionnels.</p>
+            </div>
+            
+            <div class="verdict-content">
+                <h3>✅ Forces pour une Candidature</h3>
+                <ul>
+                    <li><span class="highlight">Portfolio immersif:</span> Mettez l'accent sur des projets démontrant une compréhension profonde de l'immersion et du gameplay innovant</li>
+                    <li><span class="highlight">Expérience narrative:</span> Priorisez les jeux avec des histoires fortes et des mondes cohérents</li>
+                    <li><span class="highlight">Technique AAA:</span> Démontrez une maîtrise de technologies et outils utilisés dans l'industrie AAA moderne</li>
+                    <li><span class="highlight">Analyse de Deathloop:</span> Étudiez ce jeu phare pour comprendre la philosophie et les valeurs du studio</li>
+                    <li><span class="highlight">Contact direct:</span> Privilégiez le site carrières Lyon pour les candidatures ciblées et pertinentes</li>
+                </ul>
+            </div>
+            
+            <div class="verdict-content">
+                <h3>🚀 Conseils de Candidature</h3>
+                <ul>
+                    <li><strong>1. Recherche approfondie:</strong> Familiarisez-vous avec tous les jeux Arkane (Dishonored, Prey, Deathloop) pour comprendre leur évolution</li>
+                    <li><strong>2. Portfolio ciblé:</strong> Adaptez votre portfolio pour démontrer une compréhension des mécaniques immersives du studio</li>
+                    <li><strong>3. Lettre motivée:</strong> Expliquez comment votre vision créative s'aligne avec la philosophie d'immersion d'Arkane</li>
+                    <li><strong>4. Candidature officielle:</strong> Utilisez le site des carrières Lyon: https://www.arkane-studios.com/fr/lyon</li>
+                    <li><strong>5. Networking:</strong> Connectez-vous sur LinkedIn avec l'équipe Arkane et participez à la communauté gaming</li>
+                    <li><strong>6. Diversité des compétences:</strong> Montrez une capacité à collaborer dans un environnement multidisciplinaire AAA</li>
+                </ul>
+            </div>
+            
+            <div class="verdict-content">
+                <h3>🎓 Formation Recommandée</h3>
+                <ul>
+                    <li>Masters spécialisés en Game Design ou Programmation Jeux Vidéo</li>
+                    <li>Expertise avérée en Unreal Engine 4/5</li>
+                    <li>Expérience préalable dans des studios AAA ou projets AAA-quality</li>
+                    <li>Portfolio avec 2-3 projets professionnels/amateurs de haut niveau</li>
+                    <li>Certifications pertinentes (Unreal Certification, etc.)</li>
+                </ul>
+            </div>
+            
+            <div class="verdict-content" style="background: rgba(0, 212, 255, 0.1); border: 2px solid #00ffff;">
+                <h3 style="color: #00ffff;">🏆 Résumé Final</h3>
+                <p><strong>Arkane Studios</strong> est une excellente opportunité pour les professionnels confirmés du jeu vidéo. Le studio recherche des talents exceptionnels capables de contribuer à des projets immersifs de haut niveau. <span class="highlight">La concurrence est féroce</span>, mais une candidature bien préparée, avec un portfolio convaincant et une compréhension profonde de la vision créative du studio, peut vraiment faire la différence.</p>
+                <p style="margin-top: 10px;"><strong>Contactez le studio via le site officiel des carrières Lyon pour maximiser vos chances.</strong></p>
+            </div>
+        </section>
+        
+        <footer>
+            <p>Fiche Studio - Arkane Studios | Mise à jour 2024 | Source: arkane-studios.com</p>
+        </footer>
+    </div>
+</body>
+</html>
