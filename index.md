@@ -72,6 +72,7 @@
 - [Studio Wildcard](studios/studio-wildcard.html) — Redmond, États-Unis
 - [TapNation](studios/tapnation.html) — Paris, France
 - [Team Cherry](studios/team-cherry.html) — Adélaïde, Australie
+- [The Wall Productions](studios/the-wall-productions.html) — Inconnu, Inconnu
 - [The Yard VFX](studios/the-yard-vfx.html) — Montpellier, France
 - [Tin Can Studio](studios/tin-can-studio.html) — Lyon, France
 - [Tronatic Studio](studios/tronatic-studio.html) — Saint Avertin (Tours), France
