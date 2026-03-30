@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubisoft Bordeaux - Studio de Développement de Jeux Vidéo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #000000 0%, #1a1a2e 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 4px solid #ffd700;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #ffd700;
+            margin-bottom: 5px;
+        }
+
+        header .tagline {
+            font-size: 1em;
+            color: #aaa;
+            font-style: italic;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .section h2 {
+            color: #000000;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #ffd700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .info-item {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #ffd700;
+        }
+
+        .info-item strong {
+            color: #000000;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .info-item span {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .jeux-notables {
+            background: #fff9e6;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        .jeux-notables p {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .jeux-notables .jeu {
+            background: white;
+            padding: 12px;
+            margin: 10px 0;
+            border-left: 4px solid #ffd700;
+            border-radius: 3px;
+        }
+
+        .recrutement-status {
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .recrutement-status.actif {
+            background: #d4edda;
+            border: 2px solid #28a745;
+            color: #155724;
+        }
+
+        .recrutement-status.inactif {
+            background: #f8d7da;
+            border: 2px solid #dc3545;
+            color: #721c24;
+        }
+
+        .recrutement-status strong {
+            font-size: 1.1em;
+        }
+
+        .liens-utiles {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .lien {
+            display: inline-block;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #000000 0%, #1a1a2e 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            border: 2px solid #ffd700;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .lien:hover {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #000;
+            transform: translateX(5px);
+        }
+
+        .metiers-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .metier-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            border-top: 5px solid #ffd700;
+            transition: all 0.3s ease;
+        }
+
+        .metier-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .metier-card h3 {
+            color: #000000;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .metier-card .disponible {
+            color: #28a745;
+            font-weight: bold;
+            font-size: 0.9em;
+            display: inline-block;
+            background: #d4edda;
+            padding: 5px 10px;
+            border-radius: 3px;
+            margin-bottom: 15px;
+        }
+
+        .metier-card ul {
+            list-style: none;
+            margin: 15px 0;
+        }
+
+        .metier-card li {
+            padding: 8px 0;
+            color: #666;
+            border-bottom: 1px solid #eee;
+        }
+
+        .metier-card li:last-child {
+            border-bottom: none;
+        }
+
+        .metier-card li:before {
+            content: "▸ ";
+            color: #ffd700;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .verdict {
+            background: linear-gradient(135deg, #000000 0%, #1a1a2e 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 3px solid #ffd700;
+            margin-bottom: 40px;
+        }
+
+        .verdict h2 {
+            color: #ffd700;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .verdict-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .verdict-item {
+            background: rgba(255, 215, 0, 0.1);
+            padding: 20px;
+            border-radius: 5px;
+            border-left: 4px solid #ffd700;
+        }
+
+        .verdict-item h3 {
+            color: #ffd700;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .verdict-item p {
+            color: #ddd;
+            line-height: 1.8;
+        }
+
+        .difficulte {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+            background: rgba(255, 215, 0, 0.15);
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .difficulte-label {
+            font-weight: bold;
+            color: #ffd700;
+            min-width: 120px;
+            font-size: 1.1em;
+        }
+
+        .difficulte-bar {
+            flex-grow: 1;
+            height: 25px;
+            background: #333;
+            border-radius: 5px;
+            overflow: hidden;
+            border: 2px solid #ffd700;
+        }
+
+        .difficulte-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ffd700 0%, #ff6b6b 100%);
+            width: 70%;
+        }
+
+        .difficulte-valeur {
+            color: #ffd700;
+            font-weight: bold;
+            min-width: 50px;
+            text-align: right;
+            font-size: 1.1em;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            background: #ffd700;
+            color: #000;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        .footer {
+            text-align: center;
+            color: #aaa;
+            padding: 20px;
+            border-top: 2px solid #ffd700;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .metiers-container {
+                grid-template-columns: 1fr;
+            }
+
+            .verdict-content {
+                grid-template-columns: 1fr;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            .section h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Ubisoft Bordeaux</h1>
+            <p>Studio de Développement de Jeux Vidéo</p>
+            <span class="tagline">Créativité, Innovation et Expertise Technique</span>
+        </header>
+
+        <div class="main-content">
+            <section class="section">
+                <h2>📍 Identité du Studio</h2>
+                
+                <div class="info-grid">
+                    <div class="info-item">
+                        <strong>Localisation</strong>
+                        <span>Bordeaux, France</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Fondation</strong>
+                        <span>2017</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Taille</strong>
+                        <span>50+ employés</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Type</strong>
+                        <span>Développeur</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Editeur</strong>
+                        <span>Ubisoft</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Statut</strong>
+                        <span>Actif & En Croissance</span>
+                    </div>
+                </div>
+
+                <div style="margin-top: 20px;">
+                    <h3 style="color: #000; margin-bottom: 10px; font-size: 1.1em;">Spécialités & Domaines</h3>
+                    <div>
+                        <span class="badge">Développement Jeux</span>
+                        <span class="badge">Expertise Technique</span>
+                        <span class="badge">Créativité</span>
+                        <span class="badge">Innovation</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>🎯 Jeux Notables</h2>
+                
+                <div class="jeux-notables">
+                    <p>Ubisoft Bordeaux a participé au développement de titres Ubisoft. Le studio continue d'être impliqué dans des projets stratégiques au sein du groupe.</p>
+                    <div class="jeu">
+                        <strong>🎮 Projets Ubisoft Confidentiels</strong>
+                        <p style="font-size: 0.9em; color: #999; margin-top: 5px;">En développement - Détails à venir</p>
+                    </div>
+                </div>
+
+                <div class="recrutement-status inactif">
+                    <strong>⚠️ Postes Actuellement Non Disponibles</strong>
+                    <p style="margin-top: 10px; font-size: 0.95em;">Consultez régulièrement les portails de recrutement Ubisoft pour les nouvelles opportunités.</p>
+                </div>
+            </section>
+        </div>
+
+        <section class="section" style="margin-bottom: 40px;">
+            <h2>🔗 Liens Utiles & Contact</h2>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px;">
+                <div>
+                    <h3 style="color: #000; font-size: 1.1em; margin-bottom: 15px;">📧 Recrutement</h3>
+                    <p style="color: #666; margin-bottom: 15px;">Les adresses de contact spécifiques au studio ne sont pas disponibles publiquement. Utilisez les canaux Ubisoft globaux.</p>
+                </div>
+                <div>
+                    <h3 style="color: #000; font-size: 1.1em; margin-bottom: 15px;">🌐 Portails & Réseaux</h3>
+                    <div class="liens-utiles">
+                        <a href="https://www.ubisoft.com/fr-fr/" target="_blank" class="lien">Site Web Ubisoft</a>
+                        <a href="https://store.steampowered.com/developer/ubisoft" target="_blank" class="lien">Steam Ubisoft</a>
+                        <a href="https://www.linkedin.com/company/ubisoft/" target="_blank" class="lien">LinkedIn Ubisoft</a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: #fff3cd; padding: 15px; border-radius: 5px; margin-top: 20px; border-left: 4px solid #ffc107;">
+                <strong style="color: #856404;">💡 Conseil de Recrutement</strong>
+                <p style="color: #856404; margin-top: 10px;">Postulez via les portails de carrière Ubisoft globaux. Mettez l'accent sur votre portfolio, votre expérience en développement de jeux vidéo et vos compétences techniques. Les studios Ubisoft recherchent des talents passionnés et polyvalents.</p>
+            </div>
+        </section>
+
+        <h2 style="color: white; text-align: center; margin-bottom: 30px; font-size: 2em; text-transform: uppercase; letter-spacing: 1px;">👨‍💼 Opportunités par Métier</h2>
+
+        <div class="metiers-container">
+            <div class="metier-card">
+                <h3>🎮 Game Designer</h3>
+                <span class="disponible">✓ Recherché</span>
+                <p style="color: #666; margin-bottom: 15px;">Conception et design de mécanique de jeu innovante.</p>
+                <ul>
+                    <li>Design de gameplay</li>
+                    <li>Équilibrage de jeu</li>
+                    <li>Narration & Worldbuilding</li>
+                    <li>Prototypage rapide</li>
+                    <li>Documentation GDD</li>
+                </ul>
+            </div>
+
+            <div class="metier-card">
+                <h3>💻 Programmeur</h3>
+                <span class="disponible">✓ Recherché</span>
+                <p style="color: #666; margin-bottom: 15px;">Développement technique et architecture de jeu.</p>
+                <ul>
+                    <li>C++, C#, Python</li>
+                    <li>Moteur Unreal/Unity</li>
+                    <li>Optimisation performance</li>
+                    <li>Systèmes de jeu</li>
+                    <li>Debugging & Tests</li>
+                </ul>
+            </div>
+
+            <div class="metier-card">
+                <h3>🎨 Artiste 3D</h3>
+                <span class="disponible">✓ Recherché</span>
+                <p style="color: #666; margin-bottom: 15px;">Création d'assets visuels de haute qualité.</p>
+                <ul>
+                    <li>Modélisation 3D</li>
+                    <li>Texturing & Shading</li>
+                    <li>Animation</li>
+                    <li>Blender, Maya, 3DS Max</li>
+                    <li>Optimisation engine</li>
+                </ul>
+            </div>
+
+            <div class="metier-card">
+                <h3>🎭 UI Artist</h3>
+                <span class="disponible">✓ Recherché</span>
+                <p style="color: #666; margin-bottom: 15px;">Design d'interfaces utilisateur intuitives.</p>
+                <ul>
+                    <li>Design UX/UI</li>
+                    <li>Wireframing</li>
+                    <li>Prototypage interactif</li>
+                    <li>Design systems</li>
+                    <li>Feedback utilisateur</li>
+                </ul>
+            </div>
+
+            <div class="metier-card">
+                <h3>🖼️ Concept Artist</h3>
+                <span class="disponible">✓ Recherché</span>
+                <p style="color: #666; margin-bottom: 15px;">Création visuelle et direction artistique.</p>
+                <ul>
+                    <li>Character Design</li>
+                    <li>Environment Design</li>
+                    <li>Digital Painting</li>
+                    <li>Art Direction</li>
+                    <li>Visual Development</li>
+                </ul>
+            </div>
+
+            <div class="metier-card">
+                <h3>⚙️ Autres Rôles</h3>
+                <span class="disponible">✓ Variables</span>
+                <p style="color: #666; margin-bottom: 15px;">Autres postes dans la production de jeux.</p>
+                <ul>
+                    <li>Level Designer</li>
+                    <li>QA Tester</li>
+                    <li>Producer</li>
+                    <li>Sound Designer</li>
+                    <li>Technical Artist</li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="verdict">
+            <h2>⭐ Verdict Final</h2>
+            
+            <div class="verdict-content">
+                <div class="verdict-item">
+                    <h3>✅ Points Positifs</h3>
+                    <p>
+                        ✓ Studio Ubisoft reconnu mondialement<br>
+                        ✓ Infrastructure technique solide<br>
+                        ✓ Environnement créatif et innovant<br>
+                        ✓ Opportunités de carrière variées<br>
+                        ✓ Localisation en France (Bordeaux)<br>
+                        ✓ En croissance depuis sa fondation en 2017
+                    </p>
+                </div>
+
+                <div class="verdict-item">
+                    <h3>⚠️ À Considérer</h3>
+                    <p>
+                        ⚠ Actuellement pas de postes annoncés publiquement<br>
+                        ⚠ Difficulté de recrutement élevée (studio Ubisoft)<br>
+                        ⚠ Forte compétitivité<br>
+                        ⚠ Détails limités sur les jeux en développement<br>
+                        ⚠ Démarches via canaux Ubisoft globaux uniquement
+                    </p>
+                </div>
+            </div>
+
+            <div class="difficulte">
+                <span class="difficulte-label">Difficulté</span>
+                <div class="difficulte-bar">
+                    <div class="difficulte-fill"></div>
+                </div>
+                <span class="difficulte-valeur">7/10</span>
+            </div>
+
+            <div style="margin-top: 30px; padding: 20px; background: rgba(255, 215, 0, 0.1); border-radius: 5px; border-left: 4px solid #ffd700;">
+                <h3 style="color: #ffd700; margin-bottom: 15px;">🎯 Recommandation</h3>
+                <p style="color: #ddd; line-height: 1.8;">
+                    Ubisoft Bordeaux est un excellent choix pour les développeurs ambitieux cherchant à rejoindre un studio de prestige. Le studio offre des opportunités variées pour tous les métiers du jeu vidéo. Pour maximiser vos chances : construisez un portfolio solide et impressionnant, démontrez votre expérience en développement de jeux, pos
