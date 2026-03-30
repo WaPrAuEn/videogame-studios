@@ -30,6 +30,7 @@
 - [Cyanide Studio](studios/cyanide-studio.html) — Nanterre, France
 - [Dear Villagers](studios/dear-villagers.html) — Montpellier, France
 - [DIGIC Pictures](studios/digic-pictures.html) — Budapest, Hongrie
+- [Dodge Roll](studios/dodge-roll.html) — Fairfax, USA
 - [Douze Dixièmes](studios/douze-dixiemes.html) — Saint Ouen, France
 - [Duper Games](studios/duper-games.html) — Montpellier, France
 - [Eden Games](studios/eden-games.html) — Lyon, France
