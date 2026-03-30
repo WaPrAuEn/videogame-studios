@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rockstar Games - Fiche Complète</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(90deg, #000 0%, #1a1a2e 50%, #000 100%);
+            border-bottom: 3px solid #ff4444;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(255, 68, 68, 0.3);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            color: #ffffff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            margin-bottom: 10px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: #ff4444;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background: rgba(30, 40, 60, 0.8);
+            border: 1px solid #2a3f5f;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(255, 68, 68, 0.2);
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #ff4444;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #ff4444;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            color: #66bb6a;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        h4 {
+            font-size: 1.2em;
+            color: #64b5f6;
+            margin-top: 20px;
+            margin-bottom: 12px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, rgba(255, 68, 68, 0.1) 0%, rgba(100, 181, 246, 0.1) 100%);
+            border-left: 4px solid #ff4444;
+            padding: 20px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            border-left-color: #64b5f6;
+            background: linear-gradient(135deg, rgba(100, 181, 246, 0.15) 0%, rgba(255, 68, 68, 0.15) 100%);
+        }
+
+        .info-label {
+            font-weight: 700;
+            color: #ff4444;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        .info-value {
+            font-size: 1.1em;
+            color: #ffffff;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 12px;
+            padding-left: 8px;
+        }
+
+        ul li:before {
+            content: "▶ ";
+            color: #ff4444;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .game-item {
+            background: linear-gradient(135deg, #1a2a4a 0%, #0f1f3a 100%);
+            border: 1px solid #ff4444;
+            padding: 15px;
+            border-radius: 4px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .game-item:hover {
+            background: linear-gradient(135deg, #ff4444 0%, #bb3333 100%);
+            box-shadow: 0 6px 20px rgba(255, 68, 68, 0.4);
+        }
+
+        .game-item p {
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        .job-category {
+            background: linear-gradient(90deg, rgba(255, 68, 68, 0.05) 0%, rgba(100, 181, 246, 0.05) 100%);
+            border-left: 5px solid #66bb6a;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .difficulty-meter {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .difficulty-bar {
+            flex: 1;
+            height: 25px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .difficulty-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #66bb6a 0%, #ff4444 100%);
+            border-radius: 12px;
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: bold;
+            font-size: 0.85em;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .link-item {
+            display: block;
+            background: linear-gradient(135deg, rgba(255, 68, 68, 0.1) 0%, rgba(100, 181, 246, 0.1) 100%);
+            border: 1px solid #ff4444;
+            padding: 15px;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .link-item:hover {
+            background: linear-gradient(135deg, #ff4444 0%, #bb3333 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 68, 68, 0.3);
+        }
+
+        .verdict-box {
+            background: linear-gradient(135deg, rgba(102, 187, 106, 0.15) 0%, rgba(255, 68, 68, 0.15) 100%);
+            border: 2px solid #66bb6a;
+            padding: 30px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .verdict-box strong {
+            color: #66bb6a;
+        }
+
+        .advice-box {
+            background: linear-gradient(135deg, rgba(100, 181, 246, 0.15) 0%, rgba(102, 187, 106, 0.15) 100%);
+            border-left: 4px solid #64b5f6;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .advice-box h5 {
+            color: #64b5f6;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .culture-item {
+            display: flex;
+            align-items: flex-start;
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+
+        .culture-icon {
+            color: #ff4444;
+            font-size: 1.5em;
+            margin-right: 15px;
+            min-width: 30px;
+        }
+
+        .culture-text h4 {
+            margin-top: 0;
+        }
+
+        footer {
+            background: #000;
+            border-top: 3px solid #ff4444;
+            padding: 30px;
+            text-align: center;
+            margin-top: 60px;
+            color: #888;
+        }
+
+        .rating-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff4444 0%, #bb3333 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 5px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .games-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-content">
+        <h1>🎮 ROCKSTAR GAMES</h1>
+        <p class="subtitle">Studio Légendaire des Jeux Vidéo AAA</p>
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- IDENTITÉ -->
+    <section>
+        <h2>📋 Identité du Studio</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-label">Localisation</div>
+                <div class="info-value">New York, États-Unis</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">Fondation</div>
+                <div class="info-value">1998</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">Effectifs</div>
+                <div class="info-value">Plus de 1000 employés</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">Type</div>
+                <div class="info-value">Développeur & Éditeur (Réseau de Studios)</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">Société Mère</div>
+                <div class="info-value">Take-Two Interactive</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">Année de Fondation</div>
+                <div class="info-value">Entreprise depuis 25+ ans</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JEUX NOTABLES -->
+    <section>
+        <h2>🎯 Franchises et Jeux Notables</h2>
+        <p style="margin-bottom: 20px;">Rockstar Games est reconnue mondialement pour ses créations emblématiques et révolutionnaires :</p>
+        <div class="games-grid">
+            <div class="game-item">
+                <strong>Grand Theft Auto V</strong>
+                <p>Jeu phénomène, succès commercial record</p>
+            </div>
+            <div class="game-item">
+                <strong>Red Dead Redemption</strong>
+                <p>Série western immersive et narrative</p>
+            </div>
+            <div class="game-item">
+                <strong>Grand Theft Auto</strong>
+                <p>Franchise éponyme fondatrice</p>
+            </div>
+            <div class="game-item">
+                <strong>Max Payne</strong>
+                <p>Série de jeu d'action culte</p>
+            </div>
+            <div class="game-item">
+                <strong>Bully</strong>
+                <p>Simulation école immersive</p>
+            </div>
+            <div class="game-item">
+                <strong>L.A. Noire</strong>
+                <p>Détective noir révolutionnaire</p>
+            </div>
+            <div class="game-item">
+                <strong>Midnight Club</strong>
+                <p>Franchise de courses automobiles</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CULTURE & VALEURS -->
+    <section>
+        <h2>🌟 Culture et Valeurs</h2>
+        <p style="margin-bottom: 25px;">Rockstar Games est un studio connu pour son environnement <strong>ambitieux, immersif et provocateur</strong> :</p>
+        
+        <div class="culture-item">
+            <div class="culture-icon">🎬</div>
+            <div class="culture-text">
+                <h4>Narration Cinématographique</h4>
+                <p>Focus sur des histoires complexes, dialogues sophistiqués et mise en scène de qualité hollywoodienne</p>
+            </div>
+        </div>
+
+        <div class="culture-item">
+            <div class="culture-icon">🌍</div>
+            <div class="culture-text">
+                <h4>Mondes Ouverts Avancés</h4>
+                <p>Création d'univers immensément détaillés, vivants et interactifs avec une liberté totale du joueur</p>
+            </div>
+        </div>
+
+        <div class="culture-item">
+            <div class="culture-icon">⚙️</div>
+            <div class="culture-text">
+                <h4>Innovation Technique</h4>
+                <p>Utilisation du moteur propriétaire RAGE, technologies cutting-edge, repoussement des limites techniques</p>
+            </div>
+        </div>
+
+        <div class="culture-item">
+            <div class="culture-icon">🔥</div>
+            <div class="culture-text">
+                <h4>Rythme Intense et Exigeant</h4>
+                <p>Environnement de travail dynamique avec des standards élevés et des délais serrés. Passion requise pour exceller.</p>
+            </div>
+        </div>
+
+        <div class="culture-item">
+            <div class="culture-icon">💡</div>
+            <div class="culture-text">
+                <h4>Provocation Créative</h4>
+                <p>Pas de peur de repousser les limites, créativité sans compromis, mais toujours au service de la narration</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MÉTIERS ET DIFFICULTÉS -->
+    <section>
+        <h2>💼 Postes et Niveaux de Difficulté de Recrutement</h2>
+        <p style="margin-bottom: 30px;">Rockstar Games est un <strong>studio AAA prestigieux</strong> avec des exigences très élevées. Voici les principaux postes :</p>
+
+        <!-- Game Designer -->
+        <div class="job-category">
+            <h4>🎮 Game Designer</h4>
+            <div class="difficulty-meter">
+                <span style="min-width: 100px;">Difficulté :</span>
+                <div class="difficulty-bar">
+                    <div class="difficulty-fill" style="width: 90%;">5/5</div>
+                </div>
+            </div>
+            <p style="margin: 15px 0;"><strong>Exigences :</strong></p>
+            <ul>
+                <li>Expertise en conception de mondes ouverts complexes</li>
+                <li>Expérience avancée en narration interactive et game design système</li>
+                <li>Compréhension profonde des mécaniques de jeu AAA</li>
+                <li>Portfolio avec projets majeurs (idéalement GTA-like ou monde ouvert)</li>
+                <li>Maîtrise des outils de prototypage (Unreal, Unity)</li>
+            </ul>
+            <p style="color: #ff9999; font-weight: 600; margin-top: 15px;">Très difficile : Studio de légende, crunch connu, exigences créatives extraordinaires</p>
+        </div>
+
+        <!-- Programmeur -->
+        <div class="job-category">
+            <h4>💻 Programmeur</h4>
+            <div class="difficulty-meter">
+                <span style="min-width: 100px;">Difficulté :</span>
+                <div class="difficulty-bar">
+                    <div class="difficulty-fill" style="width: 95%;">5/5</div>
+                </div>
+            </div>
+            <p style="margin: 15px 0;"><strong>Exigences :</strong></p>
+            <ul>
+                <li>C++ avancé et architecture logicielle robuste</li>
+                <li>Expérience avec moteurs propriétaires ou RAGE</li>
+                <li>Optimisation performance sur consoles et PC</li>
+                <li>Compréhension des systèmes complexes (IA, physique, réseaux)</li>
+                <li>Expérience en production AAA multi-plateforme</li>
+                <li>Capacité à travailler sur du code legacy massif</li>
+            </ul>
+            <p style="color: #ff9999; font-weight: 600; margin-top: 15px;">Extrêmement difficile : Moteur propriétaire complexe, défis techniques majeurs, standards de qualité exceptionnels</p>
+        </div>
+
+        <!-- Artiste 3D -->
+        <div class="job-category">
+            <h4>🎨 Artiste 3D</h4>
+            <div class="difficulty-meter">
+                <span style="min-width: 100px;">Difficulté :</span>
+                <div class="difficulty-bar">
+                    <div class="difficulty-fill" style="width: 90%;">5/5</div>
+                </div>
+            </div>
+            <p style="margin: 15px 0;"><strong>Exigences :</strong></p>
+            <ul>
+                <li>Modélisation 3D haute-poly avec Blender, Maya ou 3DS Max</li>
+                <li>Texturing PBR professionnel et matériaux complexes</li>
+                <li>Animation complexe : rigging, animation de personnages et créatures</li>
+                <li>Capture de mouvement et intégration motion-capture</li>
+                <li>Optimisation pour jeux temps-réel (LOD, UV unwrapping)</li>
+                <li>Portfolio montrant un niveau de détail immersif</li>
+            </ul>
+            <p style="color: #ff9999; font-weight: 600; margin-top: 15px;">Très difficile : Standards visuels extrêmement élevés, détails immersifs demandés, processus artistique rigoureux</p>
+        </div>
+
+        <!-- UI Artist -->
+        <div class="job-category">
+            <h4>🖼️ UI/UX Artist</h4>
+            <div class="difficulty-meter">
+                <span style="min-width: 100px;">Difficulté :</span>
+                <div class="difficulty-bar">
+                    <div class="difficulty-fill" style="width: 70%;">4/5</div>
+                </div>
+            </div>
+            <p style="margin: 15px 0;"><strong>Exigences :</strong></p>
+            <ul>
+                <li>Design UI/UX sophistiqué pour jeux complexes</li>
+                <li>Connaissance de l'implémentation en moteur (Unreal, Unity, ou RAGE)</li>
+                <li>Animation UI fluide et responsive</li>
+                <li>Design cinématique intégré à l'atmosphère du jeu</li>
+                <li>Maîtrise de Figma, Photoshop, After Effects</li>
+                <li>Expérience sur jeux AAA avec interfaces avancées</li>
+            </ul>
+            <p style="color: #ffbb77; font-weight: 600; margin-top: 15px;">Difficile : Standards AAA élevés, UI immersives et cinématographiques requises</p>
+        </div>
+
+        <!-- Concept Artist -->
+        <div class="job-category">
+            <h4>🖌️ Concept Artist</h4>
+            <div class="difficulty-meter">
+                <span style="min-width: 100px;">Difficulté :</span>
+                <div class="difficulty-bar">
+                    <div class="difficulty-fill" style="width: 75%;">4/5</div>
+                </div>
+            </div>
+            <p style="margin: 15px 0;"><strong>Exigences :</strong></p>
+            <ul>
+                <li>Illustration digitale excellente avec Photoshop, Procreate</li>
+                <li>Design de personnages, environnements et véhicules iconiques</li>
+                <li>Compréhension du style visuel Rockstar (réalisme immersif)</li>
+                <li>Recherche historique et contextuelle approfondie</li>
+                <li>Capacité à définir l'identité visuelle de franchises</li>
+                <li>Portfolio montrant des designs de qualité cinématographique</li>
+            </ul
