@@ -50,6 +50,7 @@
 - [Giant Animation Studios](studios/giant-animation-studios.html) — Dublin (et Barcelona), Irlande (et Espagne)
 - [Glitchr Studio](studios/glitchr-studio.html) — Bordeaux, France
 - [Guerrilla Games](studios/guerrilla-games.html) — Amsterdam, Pays-Bas
+- [Guru Studio](studios/guru-studio.html) — Toronto, Canada
 - [Hawkswell](studios/hawkswell.html) — Paris, France
 - [Homo Ludens](studios/homo-ludens.html) — Paris, France
 - [Honikou Games](studios/honikou-games.html) — Marseille, France
