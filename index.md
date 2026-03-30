@@ -8,6 +8,7 @@
 - [BlueTwelve Studio](studios/bluetwelve-studio.html) — Montpellier, France
 - [Build The Light](studios/build-the-light.html) — Montpellier, France
 - [CD Projekt Red](studios/cd-projekt-red.html) — Varsovie, Pologne
+- [Dear Villagers](studios/dear-villagers.html) — Montpellier, France
 - [Duper Games](studios/duper-games.html) — Montpellier, France
 - [Illogic Studios](studios/illogic-studios.html) — Montpellier, France
 - [Inti Creates](studios/inti-creates.html) — Ichikawa (Chiba) et Nagoya, Japon
