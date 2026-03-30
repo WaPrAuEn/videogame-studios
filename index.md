@@ -37,6 +37,7 @@
 - [Manufacture 43](studios/manufacture-43.html) — Bordeaux, France
 - [Mikros Animation](studios/mikros-animation.html) — Paris, France
 - [Motion Twin](studios/motion-twin.html) — Bordeaux, France — Studio de développement indépendant
+- [Nintendo France](studios/nintendo-france.html) — Courbevoie, France
 - [nWave Studios](studios/nwave-studios.html) — Bruxelles, Belgique
 - [Omega Force](studios/omega-force.html) — Ashikaga, Japon
 - [Playtouch](studios/playtouch.html) — Port Louis, Île Maurice
