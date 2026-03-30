@@ -77,6 +77,7 @@
 - [Ocellus Studio](studios/ocellus-studio.html) — Lyon, France
 - [Old Skull Games](studios/old-skull-games.html) — Villeurbanne, France
 - [Omega Force](studios/omega-force.html) — Ashikaga, Japon
+- [Overboy](studios/overboy.html) — Verlinghem, France
 - [Pixar Animation Studios](studios/pixar-animation-studios.html) — Emeryville, États-Unis
 - [PIXEL TROUBADOURS](studios/pixel-troubadours.html) — Paris, France
 - [Plane Toast](studios/plane-toast.html) — Montpellier, France
