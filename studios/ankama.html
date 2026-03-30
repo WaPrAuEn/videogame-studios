@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ankama - Studio de Jeux Vidéo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+        
+        .header-badge {
+            display: inline-block;
+            background: #667eea;
+            padding: 8px 20px;
+            border-radius: 25px;
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 0.95em;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        section {
+            margin-bottom: 50px;
+        }
+        
+        section h2 {
+            font-size: 2.2em;
+            color: #1a1a2e;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 4px solid #667eea;
+            display: inline-block;
+        }
+        
+        .identity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .identity-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .identity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+        }
+        
+        .identity-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .identity-card p {
+            font-size: 1.05em;
+            color: #555;
+        }
+        
+        .games-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .game-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+        
+        .game-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .game-card p {
+            font-size: 1em;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+        
+        .job-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .job-card {
+            background: #f8f9fa;
+            border: 2px solid #667eea;
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .job-card:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        .job-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .job-card:hover h3 {
+            color: white;
+        }
+        
+        .job-card ul {
+            list-style: none;
+            margin-bottom: 15px;
+        }
+        
+        .job-card li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .job-card li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .job-card:hover li:before {
+            color: white;
+        }
+        
+        .links-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .link-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1.05em;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .link-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+        
+        .recruitment-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+            margin: 30px 0;
+        }
+        
+        .recruitment-section h3 {
+            color: #1a1a2e;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        
+        .difficulty-meter {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .difficulty-bar {
+            flex: 1;
+            height: 12px;
+            background: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .difficulty-fill {
+            height: 100%;
+            width: 60%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+        }
+        
+        .difficulty-text {
+            font-weight: bold;
+            color: #1a1a2e;
+        }
+        
+        .verdict {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 35px;
+            border-radius: 12px;
+            margin-top: 30px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .verdict h3 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+        
+        .verdict p {
+            font-size: 1.05em;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+        
+        .verdict ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .verdict li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .verdict li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        footer {
+            background: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            border-top: 3px solid #667eea;
+        }
+        
+        .culture-box {
+            background: #e7f3ff;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #1a1a2e;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2em;
+            }
+            
+            section h2 {
+                font-size: 1.7em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ANKAMA</h1>
+            <p>Studio de Jeux Vidéo Indépendant</p>
+            <div class="header-badge">🎮 Fondé en 2001 | 500 Collaborateurs | Roubaix, France</div>
+        </header>
+        
+        <div class="content">
+            <!-- Section Identité -->
+            <section>
+                <h2>Identité du Studio</h2>
+                <div class="identity-grid">
+                    <div class="identity-card">
+                        <h3>📍 Localisation</h3>
+                        <p>Roubaix, France</p>
+                    </div>
+                    <div class="identity-card">
+                        <h3>📅 Fondation</h3>
+                        <p>2001</p>
+                    </div>
+                    <div class="identity-card">
+                        <h3>👥 Taille</h3>
+                        <p>500 collaborateurs</p>
+                    </div>
+                    <div class="identity-card">
+                        <h3>🏢 Type</h3>
+                        <p>Studio de Développement</p>
+                    </div>
+                    <div class="identity-card">
+                        <h3>🎯 Éditeur</h3>
+                        <p>Indépendant (Transmédia)</p>
+                    </div>
+                    <div class="identity-card">
+                        <h3>🌍 Univers</h3>
+                        <p>Krosmoz (Multimédia)</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Jeux Notables -->
+            <section>
+                <h2>Jeux Notables</h2>
+                <div class="games-container">
+                    <div class="game-card">
+                        <h3>⚔️ Dofus</h3>
+                        <p>MMORPG stratégique au tour par tour avec un univers riche et des combats tactiques. L'un des fleurons d'Ankama avec une communauté mondiale impressionnante. Disponible sur PC, navigateur et mobiles.</p>
+                    </div>
+                    <div class="game-card">
+                        <h3>🌟 Wakfu</h3>
+                        <p>MMORPG d'action-aventure innovant avec un système d'alignement unique. Adaptation en série d'animation primée. Univers immersif et gameplay dynamique dans le monde de Krosmoz.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Culture -->
+            <section>
+                <h2>Culture & Vision</h2>
+                <div class="culture-box">
+                    <strong>Stratégie Transmédia Unique :</strong> Ankama ne se limite pas aux jeux vidéo. L'univers Krosmoz s'étend à travers les jeux (Dofus, Wakfu), les mangas, les séries d'animation (Wakfu a eu une adaptation Netflix), les produits dérivés et bien plus. Une immersion multi-plateformes pour les fans de l'univers.
+                </div>
+                <p>Ankama est reconnue pour :</p>
+                <ul style="margin-top: 15px; padding-left: 25px; list-style: disc;">
+                    <li><strong>Création narrative riche :</strong> Univers Krosmoz profonds et cohérents</li>
+                    <li><strong>Innovation gameplay :</strong> Systèmes de combat tactiques et stratégiques</li>
+                    <li><strong>Communauté passionnée :</strong> Engagement fort des joueurs</li>
+                    <li><strong>Excellence artistique :</strong> Art distinctif et identitaire</li>
+                    <li><strong>Indépendance créative :</strong> Liberté pour explorer des idées originales</li>
+                </ul>
+            </section>
+
+            <!-- Section Jeux Vidéo -->
+            <section>
+                <h2>Opportunités par Métier</h2>
+                
+                <div class="job-grid">
+                    <div class="job-card">
+                        <h3>🎮 Game Designer</h3>
+                        <ul>
+                            <li>Conception de mécaniques MMORPG</li>
+                            <li>Équilibrage gameplay et progression</li>
+                            <li>Design de contenu narratif</li>
+                            <li>Systèmes de combat et tactiques</li>
+                            <li>Évolution de contenu existant</li>
+                        </ul>
+                        <p><strong>Focus :</strong> MMORPGs (Dofus, Wakfu)</p>
+                    </div>
+                    
+                    <div class="job-card">
+                        <h3>💻 Programmeur</h3>
+                        <ul>
+                            <li>Développement backend serveur</li>
+                            <li>Architecture client-serveur</li>
+                            <li>Optimisation performances</li>
+                            <li>Ports consoles et mobiles</li>
+                            <li>Outils de développement</li>
+                        </ul>
+                        <p><strong>Focus :</strong> Jeux en ligne et multi-plateforme</p>
+                    </div>
+                    
+                    <div class="job-card">
+                        <h3>🎨 Artiste 3D</h3>
+                        <ul>
+                            <li>Modélisation personnages/environnements</li>
+                            <li>Rigging et animation</li>
+                            <li>Animation série Wakfu (collaborations)</li>
+                            <li>Produits dérivés (figurines, statues)</li>
+                            <li>Cinématiques de jeu</li>
+                        </ul>
+                        <p><strong>Focus :</strong> Univers Krosmoz immersif</p>
+                    </div>
+                    
+                    <div class="job-card">
+                        <h3>🖼️ UI Artist</h3>
+                        <ul>
+                            <li>Design d'interfaces de jeu</li>
+                            <li>UX/UI jeux en ligne</li>
+                            <li>Iconographie et ergonomie</li>
+                            <li>Adaptation multi-plateforme</li>
+                            <li>Cohérence visuelle Krosmoz</li>
+                        </ul>
+                        <p><strong>Focus :</strong> Interfaces immersives et fluides</p>
+                    </div>
+                    
+                    <div class="job-card">
+                        <h3>🌈 Concept Artist</h3>
+                        <ul>
+                            <li>Design créatif univers Krosmoz</li>
+                            <li>Concept art personnages/créatures</li>
+                            <li>Environnements et worldbuilding</li>
+                            <li>Direction artistique transmédia</li>
+                            <li>Communication visuelle créative</li>
+                        </ul>
+                        <p><strong>Focus :</strong> Identité visuelle Ankama</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Recrutement -->
+            <section>
+                <h2>Recrutement & Candidature</h2>
+                <div class="recruitment-section">
+                    <h3>🚀 Comment Postuler</h3>
+                    <p>Ankama recrute activement pour ses projets MMORPG et transmédia. Consultez les offres disponibles directement sur le portail de recrutement :</p>
+                    <div class="links-container" style="margin-top: 20px;">
+                        <a href="https://recrutement.ankama.com/" class="link-button" target="_blank">Portail Recrutement</a>
+                        <a href="https://www.ankama.com/fr" class="link-button" target="_blank">Site Principal</a>
+                        <a href="https://www.linkedin.com/company/ankama/" class="link-button" target="_blank">LinkedIn Ankama</a>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 30px;">
+                    <h3 style="color: #1a1a2e; margin-bottom: 15px;">📋 Niveau de Difficulté</h3>
+                    <div class="difficulty-meter">
+                        <span style="min-width: 100px;"><strong>Difficulté :</strong></span>
+                        <div class="difficulty-bar">
+                            <div class="difficulty-fill"></div>
+                        </div>
+                        <span class="difficulty-text">Moyenne (3/5)</span>
+                    </div>
+                    <p style="margin-top: 15px; color: #555; font-size: 0.95em;">
+                        <strong>Contexte :</strong> Studio établi et réputé avec 500 collaborateurs. La compétition est présente mais le focus créatif transmédia offre des opportunités uniques pour les candidats passionnés par l'univers Krosmoz.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section Conseils -->
+            <section>
+                <h2>Conseils pour Candidater</h2>
+                <div style="background: #f0f7ff; padding: 25px; border-radius: 10px; border-left: 5px solid #667eea;">
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 12px 0; padding-left: 30px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #667eea; font-weight: bold; font-size: 1.3em;">⭐</span>
+                            <strong>Mettez en avant votre portfolio créatif :</strong> Cas d'école, projets personnels, collaborations. Montre votre capacité à créer dans l'univers Krosmoz.
+                        </li>
+                        <li style="padding: 12px 0; padding-left: 30px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #667eea; font-weight: bold; font-size: 1.3em;">⭐</span>
+                            <strong>Démontrez une connaissance de Krosmoz :</strong> Faites preuve de familiarité avec Dofus et Wakfu. Les références à l'univers sont très appréciées.
+                        </li>
+                        <li style="padding: 12px 0; padding-left: 30px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #667eea; font-weight: bold; font-size: 1.3em;">⭐</span>
+                            <strong>Soyez passionné par le transmédia :</strong> Ankama valorise les candidats ayant une vision multi-plateforme (jeux, animation, produits dérivés).
+                        </li>
+                        <li style="padding: 12px 0; padding-left: 30px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #667eea; font-weight: bold; font-size: 1.3em;">⭐</span>
+                            <strong>Consultez https://recrutement.ankama.com :</strong> Toutes les informations détaillées, offres spécifiques et processus de candidature y sont disponibles.
+                        </li>
+                        <li style="padding: 12px 0; padding-left: 30px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #667eea; font-weight: bold; font-size: 1.3em;">⭐</span>
+                            <strong>Engagez-vous avec la communauté :</strong> Participez aux forums, aux événements Ankama. Montrez votre passion pour leurs univers.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Section Liens Utiles -->
+            <section>
