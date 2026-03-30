@@ -81,6 +81,7 @@
 - [Mikros Animation](studios/mikros-animation.html) — Paris, France
 - [Misty Whale](studios/misty-whale.html) — Non spécifiée, Non spécifié
 - [Motion Twin](studios/motion-twin.html) — Bordeaux, France — Studio de développement indépendant
+- [Naughty Dog](studios/naughty-dog.html) — Santa Monica, États-Unis
 - [Nintendo Co., Ltd.](studios/nintendo-co.,-ltd..html) — Kyoto, Japon
 - [Nintendo France](studios/nintendo-france.html) — Courbevoie, France
 - [nWave Studios](studios/nwave-studios.html) — Bruxelles, Belgique
