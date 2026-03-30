@@ -73,6 +73,7 @@
 - [Playtouch](studios/playtouch.html) — Port Louis, Île Maurice
 - [Playwing](studios/playwing.html) — Bordeaux, France
 - [PowerZ](studios/powerz.html) — Paris, France
+- [Quantic Dream](studios/quantic-dream.html) — Paris, France
 - [Reenbow](studios/reenbow.html) — Paris, France
 - [Sandfall Interactive](studios/sandfall-interactive.html) — Montpellier, France
 - [Semiwork](studios/semiwork.html) — Uppsala, Suède
