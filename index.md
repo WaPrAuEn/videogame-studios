@@ -6,6 +6,7 @@
 
 - [3DDDGames](studios/3dddgames.html) — Inconnu, Inconnu
 - [505 Games France](studios/505-games-france.html) — Francheville, France
+- [52 Entertainment](studios/52-entertainment.html) — Paris, France
 - [Abrakam](studios/abrakam.html) — Liège, Belgique
 - [Alt Shift](studios/alt-shift.html) — Montpellier, France
 - [Ankama](studios/ankama.html) — Roubaix, France
