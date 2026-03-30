@@ -52,6 +52,7 @@
 - [Hot Chili Games](studios/hot-chili-games.html) — Montpellier, France
 - [Iconik](studios/iconik.html) — La Ciotat, France
 - [Idea Factory](studios/idea-factory.html) — Tokyo, Japon
+- [Ikigai - Games for Citizens](studios/ikigai---games-for-citizens.html) — Paris, France
 - [Illogic Studios](studios/illogic-studios.html) — Montpellier, France
 - [Illumination Studios Paris (anciennement Illumination Mac Guff)](studios/illumination-studios-paris-(anciennement-illumination-mac-guff).html) — Paris, France
 - [Inti Creates](studios/inti-creates.html) — Ichikawa (Chiba) et Nagoya, Japon
