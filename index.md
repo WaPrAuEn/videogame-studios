@@ -23,6 +23,7 @@
 - [CD Projekt Red](studios/cd-projekt-red.html) — Varsovie, Pologne
 - [Celsiusonline](studios/celsiusonline.html) — 
 - [Critical Hit Games](studios/critical-hit-games.html) — Wrocław, Pologne
+- [Cyanide Studio](studios/cyanide-studio.html) — Nanterre, France
 - [Dear Villagers](studios/dear-villagers.html) — Montpellier, France
 - [DIGIC Pictures](studios/digic-pictures.html) — Budapest, Hongrie
 - [Duper Games](studios/duper-games.html) — Montpellier, France
