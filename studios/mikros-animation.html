@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mikros Animation - Fiche Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+            color: white;
+            padding: 50px 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin: 10px 0;
+        }
+        
+        .header-badge {
+            display: inline-block;
+            background: #e94560;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            margin: 10px 5px;
+            font-weight: bold;
+        }
+        
+        section {
+            background: white;
+            margin-bottom: 30px;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #0f3460;
+        }
+        
+        section h2 {
+            color: #0f3460;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #e94560;
+            padding-bottom: 10px;
+        }
+        
+        section h3 {
+            color: #1a1a2e;
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .identity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .identity-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #e94560;
+        }
+        
+        .identity-card strong {
+            color: #0f3460;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+            text-transform: uppercase;
+        }
+        
+        .identity-card p {
+            color: #333;
+            font-size: 1.05em;
+        }
+        
+        .job-category {
+            background: linear-gradient(135deg, #f9f9f9 0%, #f0f0f0 100%);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #0f3460;
+        }
+        
+        .job-title {
+            color: #0f3460;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 12px;
+        }
+        
+        .demand-bar {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .demand-label {
+            min-width: 80px;
+            font-weight: bold;
+            color: #1a1a2e;
+        }
+        
+        .demand-level {
+            flex: 1;
+            height: 25px;
+            background: #e0e0e0;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .demand-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #e94560 0%, #ff6b6b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+            color: white;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+        
+        .demand-fill.low {
+            width: 33%;
+        }
+        
+        .demand-fill.medium {
+            width: 66%;
+        }
+        
+        .demand-fill.high {
+            width: 100%;
+        }
+        
+        .notes {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+            margin-top: 15px;
+            color: #856404;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .link-card {
+            background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(233, 69, 96, 0.3);
+        }
+        
+        .link-card a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .link-card strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #e94560;
+            font-size: 1.1em;
+        }
+        
+        .link-card p {
+            color: #c3cfe2;
+            font-size: 0.9em;
+        }
+        
+        .verdict {
+            background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .verdict h3 {
+            color: #e94560;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        
+        .verdict-score {
+            font-size: 2em;
+            color: #e94560;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .verdict-text {
+            font-size: 1.1em;
+            color: #c3cfe2;
+            margin-bottom: 20px;
+        }
+        
+        .verdict-tips {
+            text-align: left;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .verdict-tips li {
+            margin-bottom: 10px;
+            color: #c3cfe2;
+        }
+        
+        .culture-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .culture-item {
+            background: linear-gradient(135deg, #e94560 0%, #ff6b6b 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .recruitment-box {
+            background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .recruitment-box a {
+            display: inline-block;
+            background: #e94560;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            margin: 10px 5px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        
+        .recruitment-box a:hover {
+            background: #ff6b6b;
+        }
+        
+        .email-link {
+            color: #e94560;
+            text-decoration: none;
+            font-weight: bold;
+            word-break: break-all;
+        }
+        
+        .email-link:hover {
+            text-decoration: underline;
+        }
+        
+        .footer {
+            text-align: center;
+            color: #c3cfe2;
+            margin-top: 40px;
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>🎬 MIKROS ANIMATION</h1>
+            <p>Studio d'Animation CG Haut de Gamme</p>
+            <div style="margin-top: 20px;">
+                <div class="header-badge">📍 Paris, France</div>
+                <div class="header-badge">📅 Depuis 1985</div>
+                <div class="header-badge">🎥 Longs Métrages & Séries</div>
+                <div class="header-badge">🏆 Rodeo FX (Maison Mère)</div>
+            </div>
+        </header>
+
+        <!-- Section Identité -->
+        <section>
+            <h2>📋 Identité du Studio</h2>
+            <div class="identity-grid">
+                <div class="identity-card">
+                    <strong>📍 Localisation</strong>
+                    <p>Paris, France</p>
+                </div>
+                <div class="identity-card">
+                    <strong>📅 Fondation</strong>
+                    <p>1985</p>
+                </div>
+                <div class="identity-card">
+                    <strong>🏢 Secteur</strong>
+                    <p>Animation CG Cinéma & Télévision</p>
+                </div>
+                <div class="identity-card">
+                    <strong>🏛️ Maison Mère</strong>
+                    <p>Rodeo FX (anciennement Technicolor Creative Studios)</p>
+                </div>
+                <div class="identity-card">
+                    <strong>🎬 Spécialité</strong>
+                    <p>Longs Métrages et Séries Animées</p>
+                </div>
+                <div class="identity-card">
+                    <strong>👥 Type de Postes</strong>
+                    <p>Juniors & Seniors</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Culture -->
+        <section>
+            <h2>🌟 Culture d'Entreprise</h2>
+            <p>Mikros Animation cultive un environnement inspirant autour de valeurs fondamentales :</p>
+            <div class="culture-items">
+                <div class="culture-item">🎨 Passion pour l'Animation CG</div>
+                <div class="culture-item">💡 Créativité sans Limites</div>
+                <div class="culture-item">🤝 Collaboration Étroite</div>
+                <div class="culture-item">⭐ Excellence Technique</div>
+                <div class="culture-item">🌍 Mobilité Internationale</div>
+                <div class="culture-item">🏳️‍🌈 Environnement Inclusif</div>
+            </div>
+        </section>
+
+        <!-- Section Recrutement -->
+        <section>
+            <h2>💼 Recrutement et Opportunités</h2>
+            <p>Mikros Animation recrute régulièrement des talents motivés à tous les niveaux d'expérience :</p>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li><strong>Jeunes diplômés :</strong> Bienvenue ! Des opportunités existent pour débuter votre carrière en animation CG.</li>
+                <li><strong>Professionnels expérimentés :</strong> Rejoignez une équipe de haut niveau travaillant sur des projets de prestige.</li>
+                <li><strong>Portfolios :</strong> Privilégiez les projets stylisés et démontrant votre passion pour l'animation.</li>
+            </ul>
+            
+            <div class="recruitment-box">
+                <h3 style="color: #e94560; margin-bottom: 15px;">📬 Contact Recrutement</h3>
+                <p style="margin-bottom: 15px;">Email :</p>
+                <a href="mailto:recruitment_prs@mikrosanimation.com" class="email-link">recruitment_prs@mikrosanimation.com</a>
+                <p style="margin-top: 20px;">Consulter les offres d'emploi :</p>
+                <a href="https://www.mikrosanimation.com/fr/equipes-et-culture/" target="_blank">🔗 Page Carrières</a>
+                <a href="https://www.mikrosanimation.com/fr/" target="_blank">🔗 Site Principal</a>
+            </div>
+        </section>
+
+        <!-- Section Par Métier -->
+        <section>
+            <h2>💻 Opportunités par Métier</h2>
+            
+            <div class="job-category">
+                <div class="job-title">🎮 Game Designer</div>
+                <div class="demand-bar">
+                    <div class="demand-label">Demande</div>
+                    <div class="demand-level">
+                        <div class="demand-fill low">⭐</div>
+                    </div>
+                </div>
+                <p><strong>Intérêt : FAIBLE</strong></p>
+                <p>Mikros Animation est spécialisé dans l'animation CG pour le cinéma et la télévision, non dans le développement de jeux vidéo. Les postes de Game Designer y sont très limités.</p>
+                <div class="notes">
+                    <strong>📌 Note :</strong> À moins de chercher un studio de jeux, ne postulez pas en tant que Game Designer. Cependant, si Rodeo FX développe des outils CG propriétaires, quelques postes design peuvent exister.
+                </div>
+            </div>
+
+            <div class="job-category">
+                <div class="job-title">⚙️ Programmeur</div>
+                <div class="demand-bar">
+                    <div class="demand-label">Demande</div>
+                    <div class="demand-level">
+                        <div class="demand-fill medium">⭐⭐</div>
+                    </div>
+                </div>
+                <p><strong>Intérêt : MOYEN</strong></p>
+                <p>Les opportunités de programmeur existent principalement pour développer et maintenir des outils CG internes. Expertise requise en C++, Python, et pipelines de production animation.</p>
+                <div class="notes">
+                    <strong>📌 Conseils :</strong> Mettez en avant vos compétences en outils VFX/animation (Maya, Houdini, RenderMan). L'expérience en pipelines de production est très valorisée.
+                </div>
+            </div>
+
+            <div class="job-category">
+                <div class="job-title">🎨 Artiste 3D</div>
+                <div class="demand-bar">
+                    <div class="demand-label">Demande</div>
+                    <div class="demand-level">
+                        <div class="demand-fill high">⭐⭐⭐</div>
+                    </div>
+                </div>
+                <p><strong>Intérêt : ÉLEVÉ</strong></p>
+                <p>C'est le cœur du métier de Mikros Animation ! Les postes d'Artiste 3D sont régulièrement ouverts (modeling, texturing, rigging, animation, lighting, compositing).</p>
+                <div class="notes">
+                    <strong>📌 Conseils :</strong> Portfolio riche avec projets CG complets. Maîtrise de Maya, Blender ou Houdini indispensable. Montrez votre passion pour l'animation, les éclairages cinématographiques et les finitions haute résolution.
+                </div>
+            </div>
+
+            <div class="job-category">
+                <div class="job-title">🖼️ UI Artist</div>
+                <div class="demand-bar">
+                    <div class="demand-label">Demande</div>
+                    <div class="demand-level">
+                        <div class="demand-fill medium">⭐⭐</div>
+                    </div>
+                </div>
+                <p><strong>Intérêt : MOYEN</strong></p>
+                <p>Bien que moins central que l'artiste 3D, les UI Artists sont nécessaires pour les interfaces des séries animées et certains éléments visuels des longs métrages.</p>
+                <div class="notes">
+                    <strong>📌 Conseils :</strong> Démontrez vos skills en After Effects, motion design et animation d'interfaces. Expérience avec des studios d'animation française est un plus.
+                </div>
+            </div>
+
+            <div class="job-category">
+                <div class="job-title">✏️ Concept Artist</div>
+                <div class="demand-bar">
+                    <div class="demand-label">Demande</div>
+                    <div class="demand-level">
+                        <div class="demand-fill high">⭐⭐⭐</div>
+                    </div>
+                </div>
+                <p><strong>Intérêt : ÉLEVÉ</strong></p>
+                <p>Les Concept Artists sont très recherchés pour poser les fondations créatives des productions. Design de personnages, d'environnements, de véhicules, etc.</p>
+                <div class="notes">
+                    <strong>📌 Conseils :</strong> Portfolio impressionnant avec dessins originaux et explorations stylistiques. Prouvez votre capacité à itérer rapidement et à respecter des directions artistiques. Connaissance de Photoshop, Procreate ou Clip Studio Paint requise.
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Liens Utiles -->
+        <section>
+            <h2>🔗 Liens Utiles</h2>
+            <div class="links-grid">
+                <div class="link-card">
+                    <a href="https://www.mikrosanimation.com/fr/" target="_blank">
+                        <strong>🏠 Site Principal</strong>
+                        <p>Découvrez les projets, l'équipe et la vision de Mikros Animation</p>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://www.mikrosanimation.com/fr/equipes-et-culture/" target="_blank">
+                        <strong>👥 Page Carrières</strong>
+                        <p>Consultez les offres d'emploi et en savoir plus sur la culture</p>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="mailto:recruitment_prs@mikrosanimation.com">
+                        <strong>📧 Email Recrutement</strong>
+                        <p>recruitment_prs@mikrosanimation.com</p>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://www.rodeofx.com/" target="_blank">
+                        <strong>🎬 Rodeo FX</strong>
+                        <p>Maison mère - Studios VFX et Animation mondiaux</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Verdict -->
+        <section class="verdict">
+            <h2 style="color: white; border-bottom: 3px solid #e94560;">🏆 VERDICT FINAL</h2>
+            
+            <div class="verdict-score">Difficulté : 3/5 (MOYENNE)</div>
+            
+            <div class="verdict-text">
+                <p><strong>Mikros Animation est une excellente opportunité</strong> pour les candidats passionnés par l'animation CG de haut niveau. Le studio recrute régulièrement et accueille aussi bien les juniors que les seniors.</p>
+            </div>
+
+            <div style="background: rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 8px; margin: 20px 0;">
+                <h3 style="color: #e94560; margin-bottom: 15px; text-align: left;">✅ Points Forts</h3>
+                <ul style="text-align: left; color: #c3cfe2;">
+                    <li>Studio français de prestige travaillant sur des productions cinématographiques de haut calibre</li>
+                    <li>Maison mère solide (Rodeo FX) offrant opportunités internationales</li>
+                    <li>Culture inclusive, collaborative et tournée vers l'excellence</li>
+                    <li>Opportunités nombreuses pour Artistes 3D et Concept Artists</li>
+                    <li>Accessibilité pour jeunes diplômés motivés</li>
+                    <li>Environnement créatif et techniquement stimulant</li>
+                </ul>
+            </div>
+
+            <div style="background: rgba(255,
