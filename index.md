@@ -80,6 +80,7 @@
 - [Polymorph Games](studios/polymorph-games.html) — Non spécifié dans les résultats, Non spécifié dans les résultats
 - [PowerZ](studios/powerz.html) — Paris, France
 - [Quantic Dream](studios/quantic-dream.html) — Paris, France
+- [Rainmaker Entertainment](studios/rainmaker-entertainment.html) — Vancouver, Canada
 - [Reenbow](studios/reenbow.html) — Paris, France
 - [Sandfall Interactive](studios/sandfall-interactive.html) — Montpellier, France
 - [Semiwork](studios/semiwork.html) — Uppsala, Suède
