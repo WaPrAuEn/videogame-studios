@@ -54,6 +54,7 @@
 - [Ishtar Games](studios/ishtar-games.html) — Lille/Bordeaux, France
 - [istargames](studios/istargames.html) — 
 - [Kojima Productions](studios/kojima-productions.html) — Tokyo, Japon
+- [La Moutarde](studios/la-moutarde.html) — Montpellier, France
 - [Loomio](studios/loomio.html) — Levallois-Perret, France
 - [Ludogram](studios/ludogram.html) — Lille, France
 - [Magic Design Studios](studios/magic-design-studios.html) — Montpellier, France
