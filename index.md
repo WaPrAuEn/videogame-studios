@@ -21,6 +21,7 @@
 - [Build The Light](studios/build-the-light.html) — Montpellier, France
 - [Carpool Studio](studios/carpool-studio.html) — Montpellier et Paris, France
 - [CD Projekt Red](studios/cd-projekt-red.html) — Varsovie, Pologne
+- [Celsiusonline](studios/celsiusonline.html) — 
 - [Critical Hit Games](studios/critical-hit-games.html) — Wrocław, Pologne
 - [Dear Villagers](studios/dear-villagers.html) — Montpellier, France
 - [DIGIC Pictures](studios/digic-pictures.html) — Budapest, Hongrie
