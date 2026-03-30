@@ -17,6 +17,7 @@
 - [CD Projekt Red](studios/cd-projekt-red.html) — Varsovie, Pologne
 - [Critical Hit Games](studios/critical-hit-games.html) — Wrocław, Pologne
 - [Dear Villagers](studios/dear-villagers.html) — Montpellier, France
+- [DIGIC Pictures](studios/digic-pictures.html) — Budapest, Hongrie
 - [Duper Games](studios/duper-games.html) — Montpellier, France
 - [Fortiche Production](studios/fortiche-production.html) — Paris, France
 - [Game Freak, Inc.](studios/game-freak,-inc..html) — Tokyo, Japon
