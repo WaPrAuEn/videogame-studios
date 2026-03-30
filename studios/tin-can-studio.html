@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tin Can Studio - Fiche de Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            border-bottom: 5px solid #667eea;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-icon {
+            font-size: 1.3em;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .info-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .info-card-title {
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .info-card-content {
+            color: #555;
+            font-size: 1.05em;
+        }
+        
+        .status-open {
+            background: #d4edda;
+            border-left-color: #28a745;
+            color: #155724;
+        }
+        
+        .status-closed {
+            background: #f8d7da;
+            border-left-color: #dc3545;
+            color: #721c24;
+        }
+        
+        .status-neutral {
+            background: #e2e3e5;
+            border-left-color: #6c757d;
+            color: #383d41;
+        }
+        
+        .job-position {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid #dc3545;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .job-title {
+            font-weight: 700;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+        
+        .job-status {
+            background: #dc3545;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .link-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+        
+        .link-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .verdict {
+            background: linear-gradient(135deg, #fff5e6 0%, #ffe6cc 100%);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 5px solid #ff9800;
+            margin-top: 20px;
+        }
+        
+        .verdict-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #e65100;
+            margin-bottom: 15px;
+        }
+        
+        .verdict-difficulty {
+            background: #ffebee;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            border-left: 4px solid #f44336;
+        }
+        
+        .difficulty-level {
+            font-weight: 700;
+            color: #c62828;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        
+        .verdict-content {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .verdict-advice {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #4caf50;
+            color: #2e7d32;
+        }
+        
+        .advice-title {
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .empty-list {
+            color: #999;
+            font-style: italic;
+            padding: 20px;
+            text-align: center;
+            background: #f5f5f5;
+            border-radius: 6px;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .tag {
+            background: #667eea;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+        
+        .tag-eco {
+            background: #4caf50;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .job-position {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎮 Tin Can Studio</h1>
+            <p>Studio Indépendant - Lyon, France</p>
+        </div>
+        
+        <div class="content">
+            <!-- Section Identité -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">📋</span>
+                    Identité du Studio
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-card-title">Localisation</div>
+                        <div class="info-card-content">Lyon, France</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-title">Année de Fondation</div>
+                        <div class="info-card-content">2019</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-title">Type de Studio</div>
+                        <div class="info-card-content">Indépendant</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-title">Taille de l'Équipe</div>
+                        <div class="info-card-content">1 salarié</div>
+                    </div>
+                </div>
+                <div class="tags">
+                    <span class="tag tag-eco">🌱 Sensibilisé aux enjeux environnementaux</span>
+                </div>
+            </div>
+            
+            <!-- Section Jeux Notables -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">🎯</span>
+                    Jeux Notables
+                </div>
+                <div class="empty-list">
+                    Aucun jeu publié actuellement disponible dans notre base de données.
+                </div>
+            </div>
+            
+            <!-- Section Recrutement -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">💼</span>
+                    Recrutement & Postes Ouverts
+                </div>
+                <div class="info-card status-closed">
+                    <div class="info-card-title">Statut de Recrutement</div>
+                    <div class="info-card-content">Aucun poste ouvert actuellement</div>
+                </div>
+                <p style="color: #666; margin-top: 15px;">
+                    Tin Can Studio est un micro-studio avec une équipe très réduite. 
+                    Les opportunités d'emploi sont extrêmement limitées.
+                </p>
+            </div>
+            
+            <!-- Section Par Métier -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">👨‍💼</span>
+                    Opportunités par Métier
+                </div>
+                
+                <div class="job-position">
+                    <span class="job-title">Game Designer</span>
+                    <span class="job-status">Fermé</span>
+                </div>
+                
+                <div class="job-position">
+                    <span class="job-title">Programmeur</span>
+                    <span class="job-status">Fermé</span>
+                </div>
+                
+                <div class="job-position">
+                    <span class="job-title">Artiste 3D</span>
+                    <span class="job-status">Fermé</span>
+                </div>
+                
+                <div class="job-position">
+                    <span class="job-title">UI Artist</span>
+                    <span class="job-status">Fermé</span>
+                </div>
+                
+                <div class="job-position">
+                    <span class="job-title">Concept Artist</span>
+                    <span class="job-status">Fermé</span>
+                </div>
+            </div>
+            
+            <!-- Section Liens Utiles -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">🔗</span>
+                    Liens Utiles
+                </div>
+                <div class="links-grid">
+                    <a href="https://tin-can-studio.com/fr/" class="link-button" target="_blank">
+                        🌐 Site Web Officiel
+                    </a>
+                    <a href="https://store.steampowered.com/developer/TinCanStudio" class="link-button" target="_blank">
+                        🎮 Page Steam
+                    </a>
+                    <a href="https://www.linkedin.com/company/tincanstudio/" class="link-button" target="_blank">
+                        💼 LinkedIn
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Section Verdict -->
+            <div class="section">
+                <div class="verdict">
+                    <div class="verdict-title">⚠️ Verdict & Recommandations</div>
+                    
+                    <div class="verdict-difficulty">
+                        <div class="difficulty-level">Difficulté : Très Élevée</div>
+                        <div style="font-size: 0.9em; color: #d32f2f;">
+                            Micro-studio avec 1 salarié - Opportunités quasi inexistantes
+                        </div>
+                    </div>
+                    
+                    <div class="verdict-content">
+                        <p>
+                            <strong>Situation :</strong> Tin Can Studio est un micro-studio indépendant basé à Lyon, 
+                            fondé en 2019. Avec seulement 1 salarié, c'est l'un des plus petits studios de jeux vidéo. 
+                            Aucun poste n'est actuellement ouvert, et aucune offre d'emploi disponible sur 5 années 
+                            consultées.
+                        </p>
+                        <p style="margin-top: 10px;">
+                            <strong>Profil du studio :</strong> Le studio est sensibilisé aux enjeux environnementaux 
+                            du secteur vidéoludique, ce qui démontre une volonté de développement responsable.
+                        </p>
+                    </div>
+                    
+                    <div class="verdict-advice">
+                        <div class="advice-title">💡 Notre Conseil</div>
+                        <p>
+                            <strong>Contacter directement Clément Marchand (CEO)</strong> via sa fiche LinkedIn. 
+                            Étant donné la très petite taille du studio, les recrutements se font probablement de 
+                            manière informelle et relationnelle. Une approche directe et personnalisée auprès du 
+                            fondateur reste votre meilleure chance d'opportunité.
+                        </p>
+                        <p style="margin-top: 10px;">
+                            <strong>Expectations :</strong> Attendez-vous à une disponibilité limitée et à une 
+                            réponse incertaine. Les micro-studios de cette taille cherchent rarement à embaucher 
+                            de nouveaux membres d'équipe.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
