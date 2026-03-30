@@ -42,6 +42,7 @@
 - [Shiro Games](studios/shiro-games.html) — Bordeaux, France
 - [Sirene Games](studios/sirene-games.html) — Aucamville, France
 - [Sirène Rouge Games](studios/sirene-rouge-games.html) — Lyon, France
+- [Sköll Studio](studios/sköll-studio.html) — Metz, France
 - [Studio Wildcard](studios/studio-wildcard.html) — Redmond, États-Unis
 - [Team Cherry](studios/team-cherry.html) — Adélaïde, Australie
 - [The Yard VFX](studios/the-yard-vfx.html) — Montpellier, France
