@@ -14,6 +14,7 @@
 - [BlueTwelve Studio](studios/bluetwelve-studio.html) — Montpellier, France
 - [Build The Light](studios/build-the-light.html) — Montpellier, France
 - [CD Projekt Red](studios/cd-projekt-red.html) — Varsovie, Pologne
+- [Critical Hit Games](studios/critical-hit-games.html) — Wrocław, Pologne
 - [Dear Villagers](studios/dear-villagers.html) — Montpellier, France
 - [Duper Games](studios/duper-games.html) — Montpellier, France
 - [Fortiche Production](studios/fortiche-production.html) — Paris, France
