@@ -69,6 +69,7 @@
 - [Old Skull Games](studios/old-skull-games.html) — Villeurbanne, France
 - [Omega Force](studios/omega-force.html) — Ashikaga, Japon
 - [Pixar Animation Studios](studios/pixar-animation-studios.html) — Emeryville, États-Unis
+- [PIXEL TROUBADOURS](studios/pixel-troubadours.html) — Paris, France
 - [Plane Toast](studios/plane-toast.html) — Montpellier, France
 - [Playtouch](studios/playtouch.html) — Port Louis, Île Maurice
 - [Playwing](studios/playwing.html) — Bordeaux, France
