@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Freak, Inc. - Fiche Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            border-bottom: 4px solid #f39c12;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+            margin: 5px 0;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 1.8em;
+            color: #1a1a2e;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #f39c12;
+            display: inline-block;
+        }
+        
+        .identity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .identity-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .identity-card strong {
+            color: #1a1a2e;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .identity-card p {
+            color: #333;
+            font-size: 1.1em;
+        }
+        
+        .games-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .game-card {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border-top: 4px solid #e74c3c;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(231, 76, 60, 0.2);
+        }
+        
+        .game-card h3 {
+            color: #c0392b;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+        
+        .game-card p {
+            color: #333;
+            font-size: 0.95em;
+        }
+        
+        .recruitment-info {
+            background: #ffe5e5;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+            margin-top: 20px;
+        }
+        
+        .recruitment-info p {
+            color: #333;
+            margin: 10px 0;
+            font-size: 1em;
+        }
+        
+        .status-unavailable {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .link-card {
+            background: linear-gradient(135deg, #e0f7fa 0%, #80deea 100%);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border-bottom: 3px solid #00acc1;
+            transition: all 0.3s ease;
+        }
+        
+        .link-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 172, 193, 0.2);
+        }
+        
+        .link-card strong {
+            display: block;
+            color: #00695c;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 1px;
+        }
+        
+        .link-card a {
+            color: #0097a7;
+            text-decoration: none;
+            font-weight: bold;
+            word-break: break-all;
+        }
+        
+        .link-card a:hover {
+            color: #006064;
+            text-decoration: underline;
+        }
+        
+        .unavailable-link {
+            color: #999;
+            font-style: italic;
+        }
+        
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .job-card {
+            background: linear-gradient(135deg, #f0f4c3 0%, #dcedc8 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #9ccc65;
+            text-align: center;
+        }
+        
+        .job-card h3 {
+            color: #558b2f;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .job-status {
+            display: inline-block;
+            background: #ff9800;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+        
+        .verdict {
+            background: linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 100%);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid #2e7d32;
+            margin-top: 20px;
+        }
+        
+        .verdict h3 {
+            color: #1b5e20;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .verdict p {
+            color: #333;
+            line-height: 1.7;
+            margin: 10px 0;
+        }
+        
+        .culture-section {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #7b1fa2;
+            margin-top: 20px;
+        }
+        
+        .culture-section p {
+            color: #333;
+            line-height: 1.8;
+            margin: 10px 0;
+        }
+        
+        .footer {
+            background: #f5f5f5;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+            border-top: 1px solid #ddd;
+        }
+        
+        .highlight {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 25px;
+            }
+            
+            .section-title {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎮 Game Freak, Inc.</h1>
+            <p>Studio de Développement de Jeux Vidéo</p>
+            <p>Tokyo, Japon</p>
+        </div>
+        
+        <div class="content">
+            <!-- SECTION IDENTITÉ -->
+            <section>
+                <h2 class="section-title">📋 Identité du Studio</h2>
+                <div class="identity-grid">
+                    <div class="identity-card">
+                        <strong>Localisation</strong>
+                        <p>Tokyo, Japon</p>
+                    </div>
+                    <div class="identity-card">
+                        <strong>Année de Fondation</strong>
+                        <p>1989</p>
+                    </div>
+                    <div class="identity-card">
+                        <strong>Taille de l'Équipe</strong>
+                        <p>118 collaborateurs</p>
+                    </div>
+                    <div class="identity-card">
+                        <strong>Type d'Entreprise</strong>
+                        <p>Développeur de Jeux Vidéo</p>
+                    </div>
+                    <div class="identity-card">
+                        <strong>Éditeurs Partenaires</strong>
+                        <p>Nintendo, Namco, Sega</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SECTION JEUX NOTABLES -->
+            <section>
+                <h2 class="section-title">🎯 Jeux Notables</h2>
+                <div class="games-list">
+                    <div class="game-card">
+                        <h3>Pokémon (Série Principale)</h3>
+                        <p>Franchise phare et principale créations du studio, leader incontesté des jeux RPG.</p>
+                    </div>
+                    <div class="game-card">
+                        <h3>Pokémon Rouge et Vert</h3>
+                        <p>Titres originaux qui ont lancé le phénomène mondial Pokémon en 1996.</p>
+                    </div>
+                    <div class="game-card">
+                        <h3>Pokémon Stadium</h3>
+                        <p>Spin-off révolutionnaire proposant des combats en 3D sur Nintendo 64.</p>
+                    </div>
+                    <div class="game-card">
+                        <h3>Pokémon Stadium 2</h3>
+                        <p>Suite du succès avec des améliorations et du contenu additionnel.</p>
+                    </div>
+                    <div class="game-card">
+                        <h3>Mario & Yoshi</h3>
+                        <p>Titre classique des débuts du studio sur Nintendo Entertainment System.</p>
+                    </div>
+                    <div class="game-card">
+                        <h3>Mendel Palace & Quinty</h3>
+                        <p>Jeux d'arcade originaux montrant les débuts créatifs du studio.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SECTION RECRUTEMENT -->
+            <section>
+                <h2 class="section-title">💼 Recrutement</h2>
+                <div class="recruitment-info">
+                    <p><strong>Postes Ouverts :</strong> <span class="status-unavailable">Non disponible</span></p>
+                    <p><strong>Email Recrutement :</strong> <span class="status-unavailable">Non disponible</span></p>
+                    <p><strong>Site Carrières :</strong> <span class="status-unavailable">Non disponible</span></p>
+                    <p style="margin-top: 20px; font-style: italic; color: #666;">
+                        Actuellement, Game Freak ne propose pas de postes ouverts publiquement annoncés. 
+                        Il est recommandé de consulter régulièrement leur site officiel ou les plateformes 
+                        de recrutement japonaises pour des opportunités futures.
+                    </p>
+                </div>
+            </section>
+            
+            <!-- SECTION LIENS UTILES -->
+            <section>
+                <h2 class="section-title">🔗 Liens Utiles</h2>
+                <div class="links-grid">
+                    <div class="link-card">
+                        <strong>Site Web Officiel</strong>
+                        <a href="https://gamefreak.co.jp" target="_blank">gamefreak.co.jp</a>
+                    </div>
+                    <div class="link-card">
+                        <strong>Steam</strong>
+                        <span class="unavailable-link">Non applicable</span>
+                    </div>
+                    <div class="link-card">
+                        <strong>LinkedIn</strong>
+                        <span class="unavailable-link">Non disponible</span>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SECTION PAR MÉTIER -->
+            <section>
+                <h2 class="section-title">👨‍💼 Postes par Métier</h2>
+                <div class="jobs-grid">
+                    <div class="job-card">
+                        <h3>Game Designer</h3>
+                        <p style="color: #666; margin-bottom: 15px;">Conception de jeux</p>
+                        <span class="job-status">Non spécifié</span>
+                    </div>
+                    <div class="job-card">
+                        <h3>Programmeur</h3>
+                        <p style="color: #666; margin-bottom: 15px;">Développement logiciel</p>
+                        <span class="job-status">Non spécifié</span>
+                    </div>
+                    <div class="job-card">
+                        <h3>Artiste 3D</h3>
+                        <p style="color: #666; margin-bottom: 15px;">Modélisation 3D</p>
+                        <span class="job-status">Non spécifié</span>
+                    </div>
+                    <div class="job-card">
+                        <h3>UI Artist</h3>
+                        <p style="color: #666; margin-bottom: 15px;">Design d'interface</p>
+                        <span class="job-status">Non spécifié</span>
+                    </div>
+                    <div class="job-card">
+                        <h3>Concept Artist</h3>
+                        <p style="color: #666; margin-bottom: 15px;">Art concept et design</p>
+                        <span class="job-status">Non spécifié</span>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SECTION CULTURE -->
+            <section>
+                <h2 class="section-title">🌟 Culture Studio</h2>
+                <div class="culture-section">
+                    <p>
+                        <strong>Game Freak</strong> est un studio fondé par des <span class="highlight">passionnés de jeux vidéo</span> 
+                        qui a transformé l'industrie. Le studio place en priorité l'<span class="highlight">innovation</span> et 
+                        la <span class="highlight">création de franchises originales</span> qui transcendent les frontières.
+                    </p>
+                    <p>
+                        Au-delà du phénomène Pokémon, Game Freak démontre une volonté constante d'explorer de nouveaux univers 
+                        créatifs et de repousser les limites du possible dans le domaine vidéoludique. 
+                        Cette philosophie a permis au studio de devenir l'une des plus influentes et respectées 
+                        entreprises du secteur.
+                    </p>
+                </div>
+            </section>
+            
+            <!-- SECTION VERDICT -->
+            <section>
+                <h2 class="section-title">✅ Verdict</h2>
+                <div class="verdict">
+                    <h3>Synthèse Générale</h3>
+                    <p>
+                        <strong>Game Freak, Inc.</strong> est un studio de développement de jeux vidéo de <strong>calibre mondial</strong> 
+                        basé à Tokyo, au Japon. Fondé en 1989, il compte actuellement <strong>118 collaborateurs</strong> et a marqué l'histoire 
+                        du jeu vidéo en créant la franchise <strong>Pokémon</strong>, l'une des plus lucratives et influentes de tous les temps.
+                    </p>
+                    <p>
+                        Le studio travaille en partenariat étroit avec <strong>Nintendo</strong>, Namco et Sega, ce qui témoigne de son 
+                        importance stratégique dans l'industrie. Son portefeuille de jeux couvre diverses générations de consoles, 
+                        de l'NES à la Nintendo Switch, démontrant une expertise technique solide et durable.
+                    </p>
+                    <p>
+                        <strong>Point Fort :</strong> Culture d'innovation et création de franchises iconiques
+                    </p>
+                    <p>
+                        <strong>À Noter :</strong> Aucun poste n'est actuellement annoncé publiquement. Les candidats intéressés 
+                        doivent rester attentifs aux annonces sur le site officiel ou les plateformes de recrutement spécialisées.
+                    </p>
+                </div>
+            </section>
+        </div>
+        
+        <div class="footer">
+            <p>Fiche Studio - Game Freak, Inc. | Mise à jour : 2024 | Information compilée à titre informatif</p>
+        </div>
+    </div>
+</body>
+</html>
