@@ -60,4 +60,5 @@
 - [Twin Sails Interactive](studios/twin-sails-interactive.html) — Paris, France
 - [Ubisoft Montpellier](studios/ubisoft-montpellier.html) — Montpellier, France
 - [Ubisoft](studios/ubisoft.html) — Saint-Mandé, France
+- [Umeshu Lovers](studios/umeshu-lovers.html) — Toulouse, France
 - [Xeno Bits](studios/xeno-bits.html) — Bordeaux, France
