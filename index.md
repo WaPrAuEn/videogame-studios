@@ -60,6 +60,7 @@
 - [Tronatic Studio](studios/tronatic-studio.html) — Saint Avertin (Tours), France
 - [Twin Sails Interactive](studios/twin-sails-interactive.html) — Paris, France
 - [Ubisoft Annecy](studios/ubisoft-annecy.html) — Annecy, France
+- [Ubisoft Bordeaux](studios/ubisoft-bordeaux.html) — Bordeaux, France
 - [Ubisoft Montpellier](studios/ubisoft-montpellier.html) — Montpellier, France
 - [Ubisoft](studios/ubisoft.html) — Saint-Mandé, France
 - [Umeshu Lovers](studios/umeshu-lovers.html) — Toulouse, France
