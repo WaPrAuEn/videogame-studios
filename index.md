@@ -83,6 +83,7 @@
 - [Ocellus Studio](studios/ocellus-studio.html) — Lyon, France
 - [Old Skull Games](studios/old-skull-games.html) — Villeurbanne, France
 - [Omega Force](studios/omega-force.html) — Ashikaga, Japon
+- [OPT Studio](studios/opt-studio.html) — Paris, France
 - [Overboy](studios/overboy.html) — Verlinghem, France
 - [Pinpin Team](studios/pinpin-team.html) — Paris, France
 - [Pixar Animation Studios](studios/pixar-animation-studios.html) — Emeryville, États-Unis
