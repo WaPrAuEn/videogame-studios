@@ -61,6 +61,7 @@
 - [Skydance Interactive](studios/skydance-interactive.html) — Malibu, États-Unis
 - [Square Enix](studios/square-enix.html) — Tokyo, Japon
 - [Studio Black Flag](studios/studio-black-flag.html) — Bordeaux, France
+- [Studio Nyx](studios/studio-nyx.html) — Angoulême, France
 - [Studio Wildcard](studios/studio-wildcard.html) — Redmond, États-Unis
 - [TapNation](studios/tapnation.html) — Paris, France
 - [Team Cherry](studios/team-cherry.html) — Adélaïde, Australie
