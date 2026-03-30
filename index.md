@@ -39,6 +39,7 @@
 - [Elia Games](studios/elia-games.html) — Saint-Gély-du-Fesc, France
 - [Elseware Experience](studios/elseware-experience.html) — Dinard, France
 - [Endroad](studios/endroad.html) — Nantes, France
+- [Escale](studios/escale.html) — Paris, France
 - [Eugen Systems](studios/eugen-systems.html) — Paris, France
 - [Evil Empire](studios/evil-empire.html) — Lyon, France
 - [Fortiche Production](studios/fortiche-production.html) — Paris, France
