@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mangoo Games (Green Panda Games) - Studio Ubisoft Paris</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2d3436 0%, #636e72 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #55efc4 0%, #74b9ff 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            font-weight: bold;
+            color: white;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+            color: #55efc4;
+        }
+        
+        .header-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            font-size: 0.95em;
+        }
+        
+        .info-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .info-item strong {
+            color: #55efc4;
+        }
+        
+        .content {
+            padding: 50px 40px;
+        }
+        
+        section {
+            margin-bottom: 50px;
+        }
+        
+        h2 {
+            color: #2d3436;
+            font-size: 2em;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+        
+        h3 {
+            color: #667eea;
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .identite-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+        
+        .identite-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .identite-card strong {
+            color: #2d3436;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .jeux-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+        
+        .jeu-card {
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .jeu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+        }
+        
+        .jeu-card h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .jeu-card p {
+            color: #636e72;
+            font-size: 0.95em;
+        }
+        
+        .recrutement-section {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 5px solid #55efc4;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+        
+        .link-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .link-btn:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .link-icon {
+            font-size: 1.3em;
+        }
+        
+        .metiers-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+        
+        .metier-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .metier-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
+        }
+        
+        .metier-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+        }
+        
+        .metier-header h4 {
+            font-size: 1.2em;
+            margin-bottom: 8px;
+        }
+        
+        .demande {
+            display: inline-block;
+            padding: 5px 12px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+        
+        .demande.élevé {
+            background: #ff7675;
+        }
+        
+        .demande.moyen {
+            background: #fdcb6e;
+        }
+        
+        .demande.faible {
+            background: #6c5ce7;
+        }
+        
+        .metier-body {
+            padding: 20px;
+        }
+        
+        .metier-body p {
+            color: #636e72;
+            margin-bottom: 12px;
+            font-size: 0.95em;
+        }
+        
+        .verdict-section {
+            background: linear-gradient(135deg, #55efc4 0%, #74b9ff 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+        
+        .verdict-section h2 {
+            color: white;
+            border-bottom-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .verdict-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+        
+        .verdict-item {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .verdict-item strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        
+        .conseil-box {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid white;
+        }
+        
+        .conseil-box strong {
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        footer {
+            background: #2d3436;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9em;
+        }
+        
+        .highlight {
+            color: #667eea;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 40px 20px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .header-info {
+                gap: 15px;
+                font-size: 0.85em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-section">
+                <div class="logo">🎮</div>
+                <div>
+                    <h1>Mangoo Games</h1>
+                    <p class="subtitle">Green Panda Games - Filiale Ubisoft</p>
+                </div>
+            </div>
+            <div class="header-info">
+                <div class="info-item"><strong>📍 Localisation:</strong> Paris, France</div>
+                <div class="info-item"><strong>📅 Fondée:</strong> 2013</div>
+                <div class="info-item"><strong>👥 Effectif:</strong> 51-200 salariés</div>
+                <div class="info-item"><strong>📱 Spécialité:</strong> Jeux Mobiles F2P</div>
+            </div>
+        </header>
+
+        <div class="content">
+            <!-- Section Identité -->
+            <section>
+                <h2>Identité du Studio</h2>
+                <div class="identite-grid">
+                    <div class="identite-card">
+                        <strong>Type de Studio</strong>
+                        Développement et édition de jeux mobiles spécialisé en jeux idle et hyper casual free-to-play.
+                    </div>
+                    <div class="identite-card">
+                        <strong>Édition & Rachat</strong>
+                        Racheté à <span class="highlight">70% par Ubisoft en 2019</span> avec option d'acquisition à 100%.
+                    </div>
+                    <div class="identite-card">
+                        <strong>Portfolio</strong>
+                        Plus de <span class="highlight">55 jeux mobiles</span> développés avec <span class="highlight">85 millions de téléchargements</span> cumulés.
+                    </div>
+                    <div class="identite-card">
+                        <strong>Culture d'Entreprise</strong>
+                        Équipe dynamique parisienne spécialisée dans les jeux mobiles F2P, bénéficiant du réseau et des ressources Ubisoft.
+                    </div>
+                    <div class="identite-card">
+                        <strong>Expertise</strong>
+                        Maîtrise des mécaniques idle games et hyper casual, optimisation monétisation F2P, et développement mobile performant.
+                    </div>
+                    <div class="identite-card">
+                        <strong>Avantage Compétitif</strong>
+                        Réseau Ubisoft, expertise mobile éprouvée, équipe expérimentée dans les jeux addictifs et rentables.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Jeux Notables -->
+            <section>
+                <h2>Portfolio de Jeux</h2>
+                <p style="color: #636e72; margin-bottom: 25px;">Mangoo Games a développé plus de 55 jeux mobiles free-to-play specialisé en jeux idle et hyper casual, accumulant 85 millions de téléchargements.</p>
+                <div class="jeux-container">
+                    <div class="jeu-card">
+                        <h4>🎯 Jeux Idle Games</h4>
+                        <p>Spécialisation dans les mécaniques idle avec progression continue, système de prestige, et monétisation sophistiquée.</p>
+                    </div>
+                    <div class="jeu-card">
+                        <h4>⚡ Hyper Casual</h4>
+                        <p>Jeux simples, addictifs et hautement monétisables avec des mécaniques épurées et UX intuitive.</p>
+                    </div>
+                    <div class="jeu-card">
+                        <h4>📊 Free-to-Play</h4>
+                        <p>Expertise complète dans la monétisation F2P : publicités, achats intégrés, battle pass, événements limités.</p>
+                    </div>
+                    <div class="jeu-card">
+                        <h4>📱 Mobile-First</h4>
+                        <p>Optimisation pour tous les appareils mobiles iOS et Android avec focus sur la rétention et l'engagement.</p>
+                    </div>
+                    <div class="jeu-card">
+                        <h4>🌍 Portfolio Diversifié</h4>
+                        <p>Plus de 55 titres permettant une compréhension approfondie des tendances et mécaniques populaires.</p>
+                    </div>
+                    <div class="jeu-card">
+                        <h4>💰 Jeux Rentables</h4>
+                        <p>Accent sur les jeux à fort potentiel de monétisation avec cycles de vie longs et communautés engagées.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Recrutement -->
+            <section>
+                <h2>Recrutement</h2>
+                <div class="recrutement-section">
+                    <h3>Postes Ouverts</h3>
+                    <p style="color: #333; margin-bottom: 20px;">Mangoo Games recrute régulièrement pour renforcer ses équipes de développement. Consultez les offres d'emploi actuelles et rejoignez une équipe dynamique au sein du groupe Ubisoft.</p>
+                    
+                    <h3>Contacts Recrutement</h3>
+                    <p style="color: #333; margin-bottom: 20px;">
+                        <strong>Email Recrutement:</strong> Disponible sur la plateforme de candidature<br>
+                        <strong>Site Carrières:</strong> <a href="https://greenpandagames.com/jobs" style="color: #667eea; text-decoration: none; font-weight: 600;">https://greenpandagames.com/jobs</a>
+                    </p>
+                </div>
+
+                <h3 style="margin-top: 35px;">Liens Utiles</h3>
+                <div class="links-grid">
+                    <a href="https://greenpandagames.com/" class="link-btn" target="_blank">
+                        <span class="link-icon">🌐</span>
+                        <span>Site Web</span>
+                    </a>
+                    <a href="https://greenpandagames.com/jobs" class="link-btn" target="_blank">
+                        <span class="link-icon">💼</span>
+                        <span>Offres d'Emploi</span>
+                    </a>
+                    <a href="https://www.linkedin.com/company/green-panda-games/about/" class="link-btn" target="_blank">
+                        <span class="link-icon">💼</span>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://www.ubisoft.com/" class="link-btn" target="_blank">
+                        <span class="link-icon">🎮</span>
+                        <span>Groupe Ubisoft</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Section Par Métier -->
+            <section>
+                <h2>Opportunités par Métier</h2>
+                
+                <div class="metiers-container">
+                    <!-- Game Designer -->
+                    <div class="metier-card">
+                        <div class="metier-header">
+                            <h4>Game Designer</h4>
+                            <span class="demande moyen">Demande: Moyen</span>
+                        </div>
+                        <div class="metier-body">
+                            <p><strong>Focus Principal:</strong> Conception de jeux idle et mobile</p>
+                            <p><strong>Profil Recherché:</strong> Expérience en design F2P, compréhension des mécaniques addictives, data-driven design.</p>
+                            <p><strong>Opportunités Ubisoft:</strong> Progression possible vers les grands projets du groupe avec visibilité accrue.</p>
+                            <p><strong>Conseil:</strong> Montrer portfolio de jeux mobiles, expérience avec analytics et monétisation.</p>
+                        </div>
+                    </div>
+
+                    <!-- Programmeur -->
+                    <div class="metier-card">
+                        <div class="metier-header">
+                            <h4>Programmeur / Développeur</h4>
+                            <span class="demande élevé">Demande: Élevée</span>
+                        </div>
+                        <div class="metier-body">
+                            <p><strong>Focus Principal:</strong> Développement jeux mobiles, optimisation, architecture</p>
+                            <p><strong>Compétences Clés:</strong> Unity/Unreal Engine, C#, optimisation mobile, backend F2P.</p>
+                            <p><strong>Équipe Tech:</strong> Équipe technique solide avec standard Ubisoft.</p>
+                            <p><strong>Conseil:</strong> Mettre en avant expérience mobile, démos de jeux performants.</p>
+                        </div>
+                    </div>
+
+                    <!-- Artiste 3D -->
+                    <div class="metier-card">
+                        <div class="metier-header">
+                            <h4>Artiste 3D</h4>
+                            <span class="demande faible">Demande: Faible</span>
+                        </div>
+                        <div class="metier-body">
+                            <p><strong>Priorité:</strong> Focus 2D/Hyper Casual plutôt que 3D complexe</p>
+                            <p><strong>Opportunités Limitées:</strong> Jeux mobiles privilégient la légèreté et le 2D.</p>
+                            <p><strong>Alternative:</strong> Postuler pour projets Ubisoft plus ambitieux en 3D.</p>
+                            <p><strong>Conseil:</strong> Montrer travail 2D optimisé, connaissance contraintes mobile.</p>
+                        </div>
+                    </div>
+
+                    <!-- UI Artist -->
+                    <div class="metier-card">
+                        <div class="metier-header">
+                            <h4>UI/UX Artist</h4>
+                            <span class="demande élevé">Demande: Élevée</span>
+                        </div>
+                        <div class="metier-body">
+                            <p><strong>Focus Principal:</strong> Interface et UX pour jeux mobiles F2P</p>
+                            <p><strong>Compétences Clés:</strong> Design UI/UX, animation interface, responsive design mobile.</p>
+                            <p><strong>Impact Direct:</strong> Critique pour monétisation et rétention des joueurs.</p>
+                            <p><strong>Conseil:</strong> Portfolio UI mobile F2P, cas de monétisation réussis.</p>
+                        </div>
+                    </div>
+
+                    <!-- Concept Artist -->
+                    <div class="metier-card">
+                        <div class="metier-header">
+                            <h4>Concept Artist</h4>
+                            <span class="demande moyen">Demande: Moyen</span>
+                        </div>
+                        <div class="metier-body">
+                            <p><strong>Focus Principal:</strong> Concepts pour idle games et assets mobiles</p>
+                            <p><strong>Style Recherché:</strong> Art stylisé et épuré, adaptation contraintes mobile.</p>
+                            <p><strong>Opportunités:</strong> Évolution possible au sein des projets Ubisoft.</p>
+                            <p><strong>Conseil:</strong> Montrer concepts mobile optimisés, palette couleurs attrayante.</p>
+                        </div>
+                    </div>
+
+                    <!-- Spécialiste F2P -->
+                    <div class="metier-card">
+                        <div class="metier-header">
+                            <h4>Spécialiste F2P / Économiste</h4>
+                            <span class="demande moyen">Demande: Moyen</span>
+                        </div>
+                        <div class="metier-body">
+                            <p><strong>Focus Principal:</strong> Monétisation, économie de jeu, A/B testing</p>
+                            <p><strong>Compétences:</strong> Analytics, data science, design monétisation.</p>
+                            <p><strong>Valeur Clé:</strong> Optim
