@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ikigai - Games for Citizens | Fiche Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .identity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .identity-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .identity-card strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .identity-card p {
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .games-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .game-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 25px;
+            border-radius: 8px;
+            border: 2px solid #667eea;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+        }
+
+        .game-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .game-card p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .recruitment-info {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+            margin-bottom: 20px;
+        }
+
+        .recruitment-info strong {
+            color: #856404;
+        }
+
+        .recruitment-info p {
+            color: #856404;
+            margin: 8px 0;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .link-button {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            text-align: center;
+            transition: background 0.3s;
+            font-weight: 500;
+        }
+
+        .link-button:hover {
+            background: #764ba2;
+        }
+
+        .link-button.inactive {
+            background: #ccc;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .professions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .profession-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            border-top: 4px solid #667eea;
+        }
+
+        .profession-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .demand-level {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .demand-high {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .demand-medium {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .profession-card p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .verdict {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 30px;
+            border-radius: 8px;
+            border: 2px solid #667eea;
+        }
+
+        .verdict h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .verdict-points {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .verdict-points li {
+            color: #333;
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .verdict-points li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .verdict-conclusion {
+            color: #764ba2;
+            font-size: 1.05em;
+            font-weight: 600;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #667eea;
+        }
+
+        .culture-section {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .culture-section h4 {
+            color: #667eea;
+            margin-bottom: 12px;
+        }
+
+        .culture-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid #667eea;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .editors-section {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .editors-section h4 {
+            color: #667eea;
+            margin-bottom: 12px;
+        }
+
+        .editors-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .editor-item {
+            color: #555;
+            padding: 8px;
+            background: white;
+            border-radius: 4px;
+            border-left: 3px solid #667eea;
+            padding-left: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .identity-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .games-list {
+                grid-template-columns: 1fr;
+            }
+
+            .professions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎮 Ikigai - Games for Citizens</h1>
+            <p>Studio éducatif & Pôle de recherche en gamification</p>
+        </div>
+
+        <div class="content">
+            <!-- SECTION IDENTITÉ -->
+            <section class="section">
+                <h2>Identité du Studio</h2>
+                
+                <div class="identity-grid">
+                    <div class="identity-card">
+                        <strong>📍 Localisation</strong>
+                        <p>Paris, France</p>
+                    </div>
+                    <div class="identity-card">
+                        <strong>📅 Fondation</strong>
+                        <p>2020</p>
+                    </div>
+                    <div class="identity-card">
+                        <strong>👥 Taille</strong>
+                        <p>11 à 50 collaborateurs</p>
+                    </div>
+                    <div class="identity-card">
+                        <strong>🎯 Type</strong>
+                        <p>Studio éducatif<br>Pôle de recherche en gamification</p>
+                    </div>
+                </div>
+
+                <div class="culture-section">
+                    <h4>🌟 Culture & Valeurs</h4>
+                    <p style="margin-bottom: 12px; color: #555;">Consortium national d'intérêt général sans publicité, dédié à l'innovation pédagogique et à la gamification au service de l'enseignement et de la médiation culturelle & scientifique.</p>
+                    <div class="culture-tags">
+                        <span class="tag">Innovation Pédagogique</span>
+                        <span class="tag">Gamification Éducative</span>
+                        <span class="tag">Intérêt Général</span>
+                        <span class="tag">Jeux Gratuits</span>
+                        <span class="tag">Recherche & Médiation</span>
+                    </div>
+                </div>
+
+                <div class="editors-section">
+                    <h4>🤝 Partenaires & Éditeurs</h4>
+                    <div class="editors-list">
+                        <div class="editor-item">Sorbonne Université</div>
+                        <div class="editor-item">Université Paris-Saclay</div>
+                        <div class="editor-item">Université de Lille</div>
+                        <div class="editor-item">ENS Paris-Saclay</div>
+                        <div class="editor-item">LPNHE (Laboratoire)</div>
+                        <div class="editor-item">Inria (Laboratoire)</div>
+                        <div class="editor-item">INSPE</div>
+                        <div class="editor-item">Associations & Musées</div>
+                        <div class="editor-item">Startups EdTech</div>
+                        <div class="editor-item">Ministère Enseignement Supérieur</div>
+                        <div class="editor-item">Ministère Éducation Nationale</div>
+                        <div class="editor-item">Ministère Culture</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION JEUX NOTABLES -->
+            <section class="section">
+                <h2>🎲 Jeux Notables</h2>
+                <div class="games-list">
+                    <div class="game-card">
+                        <h3>FlashCards by Ikigai</h3>
+                        <p>Plateforme de mémorisation gamifiée combinant flashcards interactives et mécanique de progression pour l'apprentissage pédagogique.</p>
+                    </div>
+                    <div class="game-card">
+                        <h3>Rank It</h3>
+                        <p>Jeu de classement éducatif permettant aux utilisateurs de trier et d'organiser des concepts, stimulant l'apprentissage par la catégorisation.</p>
+                    </div>
+                    <div class="game-card">
+                        <h3>Masters Quiz!</h3>
+                        <p>Quiz gamifiés dynamiques avec système de progression et récompenses, conçus pour motiver l'acquisition de connaissances.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION RECRUTEMENT -->
+            <section class="section">
+                <h2>💼 Recrutement</h2>
+                <div class="recruitment-info">
+                    <p><strong>Postes Ouverts :</strong> Aucune information disponible actuellement</p>
+                    <p><strong>Email Recrutement :</strong> Non communiqué publiquement</p>
+                    <p><strong>Page Carrières :</strong> Non disponible</p>
+                </div>
+                <div style="background: #e7f3ff; padding: 20px; border-radius: 8px; border-left: 4px solid #667eea; margin-bottom: 20px;">
+                    <p style="color: #004085; line-height: 1.6;"><strong>💡 Conseil :</strong> Pour prendre contact, utilisez LinkedIn pour contacter le PDG <strong>Thomas Planques</strong>, ou accédez au site web du studio. Mettez en avant votre expérience en gamification éducative, projets open-source ou pédagogiques, et votre intérêt pour l'intérêt général et la recherche.</p>
+                </div>
+            </section>
+
+            <!-- SECTION LIENS UTILES -->
+            <section class="section">
+                <h2>🔗 Liens Utiles</h2>
+                <div class="links-grid">
+                    <a href="https://www.gfc.ikigai.games/" class="link-button" target="_blank">Site Web Officiel</a>
+                    <a href="https://www.linkedin.com/company/ikigai-games/people/" class="link-button" target="_blank">Page LinkedIn</a>
+                    <a href="#" class="link-button inactive" title="Non disponible">Steam</a>
+                    <a href="#" class="link-button inactive" title="Non disponible">Email Recrutement</a>
+                </div>
+            </section>
+
+            <!-- SECTION PAR MÉTIER -->
+            <section class="section">
+                <h2>🛠️ Analyse par Métier</h2>
+                
+                <div class="professions-grid">
+                    <div class="profession-card">
+                        <h3>Game Designer</h3>
+                        <span class="demand-level demand-high">Demande Élevée</span>
+                        <p><strong>Pourquoi :</strong> Focus intensif sur les jeux éducatifs et la gamification pédagogique. Le studio cherche des designers capables de traduire des objectifs pédagogiques en mécaniques engageantes.</p>
+                        <p><strong>À valoriser :</strong> Expérience en conception de jeux éducatifs, compréhension des théories d'apprentissage, projets de gamification pédagogique.</p>
+                    </div>
+
+                    <div class="profession-card">
+                        <h3>Programmeur</h3>
+                        <span class="demand-level demand-high">Demande Élevée</span>
+                        <p><strong>Pourquoi :</strong> Développement multiplateforme (iOS, Android, web) pour atteindre un large audience éducative. Besoin constant d'expertise technique robuste.</p>
+                        <p><strong>À valoriser :</strong> Maîtrise de Unity ou Godot, développement iOS/Android, architecture web scalable, expérience avec des plateformes éducatives.</p>
+                    </div>
+
+                    <div class="profession-card">
+                        <h3>Artiste 3D</h3>
+                        <span class="demand-level demand-medium">Demande Moyenne</span>
+                        <p><strong>Pourquoi :</strong> Priorité aux jeux éducatifs simples et accessibles. L'aspect graphique reste secondaire par rapport à l'efficacité pédagogique.</p>
+                        <p><strong>À valoriser :</strong> Capacité à créer des assets simples mais efficaces, design minimaliste et pédagogique, optimisation pour mobile.</p>
+                    </div>
+
+                    <div class="profession-card">
+                        <h3>UI Artist</h3>
+                        <span class="demand-level demand-high">Demande Élevée</span>
+                        <p><strong>Pourquoi :</strong> Interfaces pour jeux éducatifs et quizzes gamifiés. Une UI bien pensée est cruciale pour l'expérience utilisateur pédagogique.</p>
+                        <p><strong>À valoriser :</strong> Design d'interfaces intuitives, UX pour utilisateurs jeunes/étudiants, création de systèmes de design cohérents.</p>
+                    </div>
+
+                    <div class="profession-card">
+                        <h3>Concept Artist</h3>
+                        <span class="demand-level demand-medium">Demande Moyenne</span>
+                        <p><strong>Pourquoi :</strong> Thématiques scientifiques et pédagogiques spécifiques. Moins d'indicateurs sur la complexité 3D requise.</p>
+                        <p><strong>À valoriser :</strong> Expérience en illustration scientifique, capacité à vulgariser des concepts complexes visuellement, projets éducatifs antérieurs.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION VERDICT -->
+            <section class="section">
+                <div class="verdict">
+                    <h3>⭐ Verdict & Recommandations</h3>
+                    
+                    <ul class="verdict-points">
+                        <li><strong>Difficulté d'accès :</strong> Moyenne - Un profil orienté éducation/recherche est très apprécié, et le réseau du consortium est un atout</li>
+                        <li><strong>Meilleurs métiers :</strong> Game Designer, Programmeur, UI Artist - Les postes clés du développement éducatif</li>
+                        <li><strong>Culture d'entreprise :</strong> Excellente si vous êtes motivé par l'intérêt général et l'innovation pédagogique plutôt que par les profits commerciaux</li>
+                        <li><strong>Secteur prometteur :</strong> Croissance certaine de la gamification éducative et de l'EdTech en France</li>
+                        <li><strong>Contact privilégié :</strong> LinkedIn du PDG Thomas Planques ou contact via le site officiel</li>
+                    </ul>
+
+                    <p class="verdict-conclusion">
+                        ✨ Ikigai - Games for Citizens est un excellent choix pour les développeurs de jeux passionnés par l'éducation et la recherche. Mettez l'accent sur votre expérience en gamification éducative, votre intérêt pour l'intérêt général, et vos projets open-source ou pédagogiques pour maximiser vos chances.
+                    </p>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
