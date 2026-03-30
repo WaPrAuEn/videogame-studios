@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIXEL TROUBADOURS - Studio de Jeux Vidéo Indépendant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(90deg, #0f3460 0%, #16213e 100%);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 3px solid #e94560;
+            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
+        }
+        
+        h1 {
+            font-size: 3em;
+            color: #e94560;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .tagline {
+            color: #ffd700;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        section {
+            background: rgba(20, 28, 46, 0.8);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 5px solid #e94560;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        h2 {
+            color: #ffd700;
+            font-size: 2em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h2::before {
+            content: "▶";
+            color: #e94560;
+        }
+        
+        h3 {
+            color: #e94560;
+            font-size: 1.4em;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .info-card {
+            background: rgba(15, 52, 96, 0.6);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e94560;
+        }
+        
+        .info-card strong {
+            color: #ffd700;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .info-card p {
+            color: #b0b0b0;
+            font-size: 0.95em;
+        }
+        
+        .culture-text {
+            background: rgba(233, 69, 96, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #e94560;
+            font-style: italic;
+            color: #d0d0d0;
+            margin: 20px 0;
+        }
+        
+        .game-card {
+            background: rgba(15, 52, 96, 0.6);
+            padding: 25px;
+            border-radius: 8px;
+            border: 2px solid #ffd700;
+            margin: 20px 0;
+        }
+        
+        .game-card h4 {
+            color: #ffd700;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+        
+        .game-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .spec {
+            background: rgba(233, 69, 96, 0.2);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+        
+        .spec-label {
+            color: #e94560;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .job-listing {
+            background: rgba(15, 52, 96, 0.6);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #ffd700;
+        }
+        
+        .job-listing h4 {
+            color: #ffd700;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .job-details {
+            color: #b0b0b0;
+            font-size: 0.95em;
+            line-height: 1.8;
+        }
+        
+        .metier-section {
+            background: rgba(15, 52, 96, 0.4);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border: 1px solid #0f3460;
+        }
+        
+        .metier-section h4 {
+            color: #e94560;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .status-open {
+            display: inline-block;
+            background: #27ae60;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+        
+        .status-closed {
+            display: inline-block;
+            background: #7f8c8d;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .link-btn {
+            background: rgba(233, 69, 96, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #e94560;
+            color: #e94560;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+        
+        .link-btn.active {
+            background: #e94560;
+            color: white;
+            cursor: pointer;
+            opacity: 1;
+        }
+        
+        .link-btn:hover.active {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4);
+        }
+        
+        .unavailable {
+            color: #888;
+            font-style: italic;
+        }
+        
+        .verdict-box {
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.2) 0%, rgba(255, 215, 0, 0.1) 100%);
+            border: 2px solid #e94560;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 20px;
+        }
+        
+        .verdict-box h3 {
+            color: #ffd700;
+            margin-bottom: 15px;
+        }
+        
+        .difficulty-bar {
+            margin: 15px 0;
+        }
+        
+        .difficulty-label {
+            color: #ffd700;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .difficulty-meter {
+            background: rgba(0, 0, 0, 0.3);
+            height: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #e94560;
+        }
+        
+        .difficulty-fill {
+            background: linear-gradient(90deg, #e94560 0%, #ffd700 100%);
+            height: 100%;
+            width: 60%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+        
+        .advice-box {
+            background: rgba(255, 215, 0, 0.1);
+            border-left: 4px solid #ffd700;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        
+        .advice-box strong {
+            color: #ffd700;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #888;
+            border-top: 2px solid #e94560;
+            margin-top: 40px;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: rgba(233, 69, 96, 0.3);
+            color: #e94560;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin: 3px;
+            border: 1px solid #e94560;
+        }
+        
+        .highlight {
+            color: #ffd700;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.6em;
+            }
+            
+            section {
+                padding: 20px;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🎮 PIXEL TROUBADOURS 🎵</h1>
+        <p class="tagline">Studio Indépendant de Création de Jeux Vidéo</p>
+    </header>
+    
+    <div class="container">
+        <!-- SECTION IDENTITÉ -->
+        <section>
+            <h2>Identité du Studio</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <strong>📍 Localisation</strong>
+                    <p>Paris, France</p>
+                </div>
+                <div class="info-card">
+                    <strong>📅 Fondation</strong>
+                    <p>2026</p>
+                </div>
+                <div class="info-card">
+                    <strong>👥 Taille</strong>
+                    <p>Taille humaine - Studio indépendant</p>
+                </div>
+                <div class="info-card">
+                    <strong>🎯 Type</strong>
+                    <p>Studio indépendant de création de jeux vidéo</p>
+                </div>
+            </div>
+            
+            <h3>Vision & Culture</h3>
+            <div class="culture-text">
+                <strong>Proposition de valeur :</strong><br>
+                Proposer des expériences de jeu amusantes tout en suscitant une réflexion sur le réel, avec une approche privilégiant l'exploration de thématiques et d'univers originaux plutôt que des effets audiovisuels spectaculaires.
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <p><strong>Philosophy :</strong> PIXEL TROUBADOURS croit en la création de jeux qui divertissent ET inspirent, en mettant l'accent sur la substance créative plutôt que sur la surcharge audiovisuelle. Le studio explore des univers uniques et des thématiques profondément originales.</p>
+            </div>
+        </section>
+        
+        <!-- SECTION JEUX NOTABLES -->
+        <section>
+            <h2>Jeux en Développement</h2>
+            
+            <div class="game-card">
+                <h4>🎭 Tactical RPG Solo en 2,5D</h4>
+                <p style="margin-bottom: 15px;">Le premier titre du studio - un jeu ambitieux qui combine mécanique tactique et narration innovante.</p>
+                
+                <div class="game-specs">
+                    <div class="spec">
+                        <span class="spec-label">Genre</span>
+                        Tactical RPG
+                    </div>
+                    <div class="spec">
+                        <span class="spec-label">Perspective</span>
+                        2,5D
+                    </div>
+                    <div class="spec">
+                        <span class="spec-label">Moteur</span>
+                        Unity
+                    </div>
+                    <div class="spec">
+                        <span class="spec-label">Mode</span>
+                        Solo
+                    </div>
+                    <div class="spec">
+                        <span class="spec-label">Statut</span>
+                        En développement
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SECTION RECRUTEMENT -->
+        <section>
+            <h2>Recrutement & Opportunités</h2>
+            
+            <p style="margin-bottom: 20px; font-size: 1.1em;">
+                PIXEL TROUBADOURS cherche des talents passionnés en mode <span class="highlight">freelance</span> pour rejoindre le projet en cours.
+            </p>
+            
+            <h3>Postes Ouverts</h3>
+            
+            <div class="job-listing">
+                <h4>
+                    🎮 Freelance Game / Level Designer
+                    <span class="status-open">OUVERT</span>
+                </h4>
+                <div class="job-details">
+                    <strong>Type :</strong> Freelance<br>
+                    <strong>Spécialité :</strong> Conception de jeux / Conception de niveaux<br>
+                    <strong>Projet :</strong> Tactical RPG 2,5D sous Unity<br>
+                    <strong>Localisation préférée :</strong> Région parisienne (réunions en présentiel)
+                </div>
+            </div>
+            
+            <div class="job-listing">
+                <h4>
+                    🎨 Freelance Artiste 2D
+                    <span class="status-open">OUVERT</span>
+                </h4>
+                <div class="job-details">
+                    <strong>Type :</strong> Freelance<br>
+                    <strong>Spécialités :</strong> Illustration / UI<br>
+                    <strong>Projet :</strong> Tactical RPG 2,5D<br>
+                    <strong>Localisation préférée :</strong> Région parisienne (réunions en présentiel)
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 30px;">Comment Candidater ?</h3>
+            <div class="advice-box">
+                <strong>📧 Envoi des candidatures :</strong><br>
+                Contact direct via CV et portfolio<br><br>
+                <strong>📍 Préférence géographique :</strong><br>
+                Localisation dans la région parisienne pour faciliter les réunions en présentiel<br><br>
+                <strong>📈 Opportunité :</strong><br>
+                Les missions sont potentiellement prolongeables selon les besoins du projet
+            </div>
+        </section>
+        
+        <!-- SECTION PAR MÉTIER -->
+        <section>
+            <h2>Informations par Métier</h2>
+            
+            <div class="metier-section">
+                <h4>
+                    🎮 Game Designer
+                    <span class="status-open">ACTIF</span>
+                </h4>
+                <p>Le studio recherche des Game Designers freelance ayant une solide expérience pour concevoir les mécaniques et niveaux du Tactical RPG. Expérience en jeux tactiques appréciée.</p>
+            </div>
+            
+            <div class="metier-section">
+                <h4>
+                    👨‍💻 Programmeur
+                    <span class="status-closed">NON SPÉCIFIÉ</span>
+                </h4>
+                <p><span class="unavailable">Pas de poste ouvert actuellement pour ce métier - Vérifier auprès du studio</span></p>
+            </div>
+            
+            <div class="metier-section">
+                <h4>
+                    🎨 Artiste 3D
+                    <span class="status-closed">NON SPÉCIFIÉ</span>
+                </h4>
+                <p><span class="unavailable">Pas de poste ouvert actuellement pour ce métier - Vérifier auprès du studio</span></p>
+            </div>
+            
+            <div class="metier-section">
+                <h4>
+                    🖌️ UI Artist
+                    <span class="status-open">ACTIF</span>
+                </h4>
+                <p>Le studio recherche des Artistes UI/2D freelance pour travailler sur l'interface et les éléments visuels du jeu. L'expérience en jeux Unity est un plus.</p>
+            </div>
+            
+            <div class="metier-section">
+                <h4>
+                    ✨ Concept Artist
+                    <span class="status-closed">NON SPÉCIFIÉ</span>
+                </h4>
+                <p><span class="unavailable">Pas de poste ouvert actuellement pour ce métier - Vérifier auprès du studio</span></p>
+            </div>
+        </section>
+        
+        <!-- SECTION LIENS UTILES -->
+        <section>
+            <h2>Liens Utiles & Contacts</h2>
+            
+            <div class="links-grid">
+                <a href="#" class="link-btn">
+                    🌐 Site Web
+                </a>
+                <a href="#" class="link-btn">
+                    🎮 Steam
+                </a>
+                <a href="#" class="link-btn">
+                    💼 LinkedIn
+                </a>
+                <a href="#" class="link-btn">
+                    👔 Carrières
+                </a>
+            </div>
+            
+            <div style="background: rgba(233, 69, 96, 0.1); padding: 15px; border-radius: 8px; margin-top: 20px;">
+                <p>
+                    <strong>📌 Note :</strong> Les liens directs du studio ne sont pas disponibles publiquement. 
+                    <strong>Contactez via portfolio et CV</strong> en envoyant directement à PIXEL TROUBADOURS par les canaux de recrutement indépendants.
+                </p>
+            </div>
+        </section>
+        
+        <!-- SECTION VERDICT -->
+        <section>
+            <div class="verdict-box">
+                <h3>📊 Verdict & Résumé</h3>
+                
+                <h4 style="color: #ffd700; margin-top: 20px;">Profil du Studio</h4>
+                <p>
+                    PIXEL TROUBADOURS est un studio indépendant <span class="highlight">jeune et prometteur</span> basé à Paris, 
+                    actuellement en plein développement de son premier titre : un Tactical RPG en 2,5D ambitieux. Le studio privilégie la 
+                    <span class="highlight">créativité et l'innovation thématique</span> plutôt que la surcharge technique, ce qui en fait 
+                    un environnement attrayant pour les créatifs cherchant du sens.
+                </p>
+                
+                <h4 style="color: #ffd700; margin-top: 20px;">🎯 Opportunités</h4>
+                <ul style="margin-left: 20px; color: #d0d0d0;">
+                    <li>Deux postes freelance ouverts : Game/Level Designer et Artiste 2D (UI/Illustration)</li>
+                    <li>Travail sur un projet original et ambitieux</li>
+                    <li>Missions potentiellement prolongeables</li>
+                    <li>Environnement créatif privilégiant l'originalité</li>
+                    <li>Localisation parisienne pour collaboration en présentiel</li>
+                </ul>
+                
+                <h4 style="color: #ffd700; margin-top: 20px;">⚠️ Points à Considérer</h4>
+                <ul style="margin-left: 20px; color: #d0d0d0;">
+                    <li>Studio jeune (fondé en 2026) - pas d'historique de production</li>
+                    <li>Pas de site web ou présence en ligne publique établie</li>
+                    <li>Contrats en mode freelance uniquement (pas de CDI apparent)</li>
+                    <li>Premier titre en développement - risque inhérent à tout nouveau studio</li>
+                    <li>Localisation Paris exigée pour la collaboration</li>
+                </ul>
+                
+                <div class="difficulty-bar">
+                    <div class="difficulty-label">📈 Niveau de Difficulté / Exigence</div>
+                    <div class="difficulty-meter">
+                        <div class="difficulty-fill">3/5 - Modéré</div>
+                    </div>
+                    <p style="font-size: 0.9em; color: #b0b0b0; margin-top: 8px;">
+                        Expérience de <span class="highlight">plus de 10 ans</span> requise pour certains postes freelance. 
+                        Niveau de difficulté modéré, mais exigences en termes d'expertise authentique.
+                    </p>
+                </div>
+                
+                <div class="advice-box" style="margin-top: 20px;">
+                    <strong>💡 Conseil pour les Candidats :</strong><br>
+                    <strong>1. Pr
