@@ -41,6 +41,7 @@
 - [Elia Games](studios/elia-games.html) — Saint-Gély-du-Fesc, France
 - [Elseware Experience](studios/elseware-experience.html) — Dinard, France
 - [Endroad](studios/endroad.html) — Nantes, France
+- [Epic Games](studios/epic-games.html) — Cary, États-Unis
 - [EreaStudio](studios/ereastudio.html) — Non spécifié, France
 - [Escale](studios/escale.html) — Paris, France
 - [Eugen Systems](studios/eugen-systems.html) — Paris, France
