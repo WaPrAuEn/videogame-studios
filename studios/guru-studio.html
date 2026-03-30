@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guru Studio - Fiche Complète</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 1.8em;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+        
+        .section-content {
+            margin-left: 20px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .info-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .info-card-title {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        
+        .info-card-content {
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        
+        .tag.secondary {
+            background: #764ba2;
+        }
+        
+        .production-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .production-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .job-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .job-title {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+        
+        .job-status {
+            color: #666;
+            font-style: italic;
+        }
+        
+        .status-positive {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .status-negative {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        .status-neutral {
+            color: #f39c12;
+            font-weight: bold;
+        }
+        
+        .links-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .link-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        
+        .link-item a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            word-break: break-all;
+        }
+        
+        .link-item a:hover {
+            text-decoration: underline;
+            color: #764ba2;
+        }
+        
+        .verdict-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        
+        .verdict-title {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+        
+        .verdict-content {
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+        
+        .unavailable {
+            color: #e74c3c;
+            font-style: italic;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎬 Guru Studio</h1>
+            <p>Studio d'Animation Créatif - Toronto, Canada</p>
+        </div>
+        
+        <div class="content">
+            <!-- SECTION IDENTITÉ -->
+            <div class="section">
+                <h2 class="section-title">📋 Identité</h2>
+                <div class="section-content">
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <div class="info-card-title">Nom</div>
+                            <div class="info-card-content">Guru Studio</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-card-title">Localisation</div>
+                            <div class="info-card-content">Toronto, Canada</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-card-title">Fondation</div>
+                            <div class="info-card-content">2000 (24 ans d'expérience)</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-card-title">Type</div>
+                            <div class="info-card-content">Studio d'Animation</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-card-title">Spécialités</div>
+                            <div class="info-card-content">Animation 2D et 3D CGI</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-card-title">Taille</div>
+                            <div class="info-card-content"><span class="unavailable">Non disponible</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card" style="margin-top: 20px;">
+                        <div class="info-card-title">Description</div>
+                        <div class="info-card-content">
+                            Guru Studio est une entreprise de divertissement créative spécialisée dans la narration d'animation et la création de contenu de qualité pour enfants. Le studio collabore avec les plus grands éditeurs et plateformes de streaming mondiaux pour produire du contenu animé innovant et captivant.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SECTION ÉDITEURS PARTENAIRES -->
+            <div class="section">
+                <h2 class="section-title">🤝 Éditeurs et Partenaires</h2>
+                <div class="section-content">
+                    <div class="tags-container">
+                        <span class="tag">Spin Master</span>
+                        <span class="tag">Nickelodeon Jr.</span>
+                        <span class="tag">Netflix</span>
+                        <span class="tag secondary">Disney Jr.</span>
+                        <span class="tag secondary">Mattel</span>
+                        <span class="tag secondary">Moonbug Entertainment</span>
+                        <span class="tag">Sesame Workshop</span>
+                        <span class="tag">HBO Max</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SECTION PRODUCTIONS NOTABLES -->
+            <div class="section">
+                <h2 class="section-title">🎨 Productions Notables</h2>
+                <div class="section-content">
+                    <p style="margin-bottom: 15px; color: #333;">Guru Studio a développé plusieurs séries animées à succès destinées au public enfants :</p>
+                    <div class="production-grid">
+                        <div class="production-item">PAW Patrol</div>
+                        <div class="production-item">True and the Rainbow Kingdom</div>
+                        <div class="production-item">Ever After High</div>
+                        <div class="production-item">Justin Time</div>
+                        <div class="production-item">Mecha Builders</div>
+                        <div class="production-item">Pikwik Pack</div>
+                        <div class="production-item">Abby Hatcher</div>
+                        <div class="production-item">The Breadwinner (Film)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SECTION RECRUTEMENT -->
+            <div class="section">
+                <h2 class="section-title">💼 Recrutement</h2>
+                <div class="section-content">
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <div class="info-card-title">Postes Ouverts</div>
+                            <div class="info-card-content"><span class="unavailable">Non disponible</span></div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-card-title">Email Recrutement</div>
+                            <div class="info-card-content"><span class="unavailable">Non disponible</span></div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-card-title">Site Carrières</div>
+                            <div class="info-card-content"><span class="unavailable">Non disponible</span></div>
+                        </div>
+                    </div>
+                    <div class="info-card" style="margin-top: 20px;">
+                        <div class="info-card-title">💡 Conseil</div>
+                        <div class="info-card-content">
+                            <span class="unavailable">Aucune information spécifique disponible</span>. Nous vous recommandons de consulter le site officiel (gurustudio.com) et les réseaux sociaux de Guru Studio pour des informations à jour sur les opportunités de carrière.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SECTION PAR MÉTIER -->
+            <div class="section">
+                <h2 class="section-title">👨‍💼 Opportunités par Métier</h2>
+                <div class="section-content">
+                    <div class="job-section">
+                        <div class="job-title">🎮 Game Designer</div>
+                        <div class="job-status"><span class="status-negative">Non applicable</span> - Guru Studio est un studio d'animation, pas un studio de jeux vidéo.</div>
+                    </div>
+                    
+                    <div class="job-section">
+                        <div class="job-title">💻 Programmeur</div>
+                        <div class="job-status"><span class="status-negative">Non applicable</span> - Guru Studio est un studio d'animation, pas un studio de jeux vidéo.</div>
+                    </div>
+                    
+                    <div class="job-section">
+                        <div class="job-title">🎨 Artiste 3D</div>
+                        <div class="job-status"><span class="status-positive">Potentiellement intéressé</span></div>
+                        <div style="margin-top: 10px; color: #333; line-height: 1.6;">
+                            Guru Studio produit du contenu en 3D CGI et pourrait recruter des artistes 3D spécialisés en animation 3D. Les compétences en modélisation, rigging, animation et rendu 3D seraient hautement valorisées.
+                        </div>
+                    </div>
+                    
+                    <div class="job-section">
+                        <div class="job-title">🖼️ UI Artist</div>
+                        <div class="job-status"><span class="status-negative">Non applicable</span> - Guru Studio est un studio d'animation, pas un studio de jeux vidéo.</div>
+                    </div>
+                    
+                    <div class="job-section">
+                        <div class="job-title">✏️ Concept Artist</div>
+                        <div class="job-status"><span class="status-positive">Potentiellement intéressé</span></div>
+                        <div style="margin-top: 10px; color: #333; line-height: 1.6;">
+                            Guru Studio a besoin de concept artists talentueux pour le développement visuel de ses productions. Les artistes capables de créer des designs originaux, des environnements et des personnages pour le contenu enfants seraient des atouts majeurs.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SECTION LIENS UTILES -->
+            <div class="section">
+                <h2 class="section-title">🔗 Liens Utiles</h2>
+                <div class="section-content">
+                    <div class="links-container">
+                        <div class="link-item">
+                            <div class="info-card-title">Site Web</div>
+                            <a href="https://www.gurustudio.com" target="_blank">gurustudio.com</a>
+                        </div>
+                        <div class="link-item">
+                            <div class="info-card-title">Steam</div>
+                            <div class="unavailable">Non applicable</div>
+                        </div>
+                        <div class="link-item">
+                            <div class="info-card-title">LinkedIn</div>
+                            <div class="unavailable">Non disponible</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SECTION VERDICT -->
+            <div class="verdict-section">
+                <div class="verdict-title">🎯 Verdict</div>
+                <div class="verdict-content">
+                    <p style="margin-bottom: 15px;">
+                        <strong>Guru Studio</strong> est un studio d'animation établi et respecté, fondé en 2000 et basé à Toronto. Il ne s'agit pas d'un studio de jeux vidéo, mais plutôt d'une entreprise créative spécialisée dans la production de contenu animé pour enfants.
+                    </p>
+                    <p style="margin-bottom: 15px;">
+                        <strong>Adéquation :</strong> Le studio est particulièrement intéressant pour les professions d'<span class="highlight">Artiste 3D</span> et de <span class="highlight">Concept Artist</span> qui souhaitent travailler dans l'animation professionnelle. Les autres métiers de développement de jeux vidéo ne sont pas applicables.
+                    </p>
+                    <p>
+                        <strong>Recommandation :</strong> Si vous êtes un artiste animateur 3D ou concept artist passionné par la création de contenu pour enfants, Guru Studio pourrait être une excellente opportunité de carrière. Consultez régulièrement leur site officiel et leurs réseaux sociaux pour des annonces de recrutement.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Fiche informative complète - Guru Studio | Mise à jour 2024</p>
+        </div>
+    </div>
+</body>
+</html>
