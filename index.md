@@ -74,6 +74,7 @@
 - [Plane Toast](studios/plane-toast.html) — Montpellier, France
 - [Playtouch](studios/playtouch.html) — Port Louis, Île Maurice
 - [Playwing](studios/playwing.html) — Bordeaux, France
+- [Polymorph Games](studios/polymorph-games.html) — Non spécifié dans les résultats, Non spécifié dans les résultats
 - [PowerZ](studios/powerz.html) — Paris, France
 - [Quantic Dream](studios/quantic-dream.html) — Paris, France
 - [Reenbow](studios/reenbow.html) — Paris, France
