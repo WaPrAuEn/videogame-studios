@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Moutarde - Studio de Jeux Vidéo Indépendant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .logo-section {
+            margin-bottom: 20px;
+        }
+
+        .logo-section h1 {
+            font-size: 3em;
+            color: #764ba2;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            color: #667eea;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        .quick-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .info-card strong {
+            display: block;
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+
+        .info-card span {
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: #764ba2;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #667eea;
+            font-size: 1.4em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        h3:first-child {
+            margin-top: 0;
+        }
+
+        .jeu-card {
+            background: #f8f9fa;
+            border-left: 5px solid #667eea;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .jeu-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .jeu-titre {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #764ba2;
+            margin-bottom: 5px;
+        }
+
+        .jeu-annee {
+            color: #667eea;
+            font-size: 0.95em;
+            font-weight: 500;
+        }
+
+        .recrutement-status {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .recrutement-status strong {
+            color: #856404;
+        }
+
+        .metier-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .metier-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s ease;
+        }
+
+        .metier-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .metier-card h4 {
+            color: #764ba2;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .probabilite {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .liens-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .lien-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-weight: bold;
+        }
+
+        .lien-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
+        }
+
+        .verdict {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 0;
+        }
+
+        .verdict h2 {
+            color: white;
+            border-bottom-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .verdict h3 {
+            color: #ffd700;
+        }
+
+        .difficulte-badge {
+            display: inline-block;
+            background: #ffc107;
+            color: #333;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 10px 0;
+            font-size: 0.95em;
+        }
+
+        .conseil-box {
+            background: #e7f3ff;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .conseil-box strong {
+            color: #667eea;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            margin-top: 30px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .logo-section h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            h3 {
+                font-size: 1.2em;
+            }
+
+            header {
+                padding: 20px;
+            }
+
+            section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-section">
+                <h1>🎮 La Moutarde</h1>
+                <p class="tagline">Créer des jeux avec la communauté, la passion et l'amour</p>
+            </div>
+            <div class="quick-info">
+                <div class="info-card">
+                    <strong>Localisation</strong>
+                    <span>Montpellier, France</span>
+                </div>
+                <div class="info-card">
+                    <strong>Fondée en</strong>
+                    <span>2018</span>
+                </div>
+                <div class="info-card">
+                    <strong>Type</strong>
+                    <span>Studio Indépendant</span>
+                </div>
+                <div class="info-card">
+                    <strong>Taille</strong>
+                    <span>2-10 employés</span>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Section Identité -->
+            <section>
+                <h2>📍 Identité du Studio</h2>
+                <p><strong>Nom :</strong> La Moutarde</p>
+                <p><strong>Localisation :</strong> Montpellier, France</p>
+                <p><strong>Année de fondation :</strong> 2018</p>
+                <p><strong>Type :</strong> Studio indépendant</p>
+                <p><strong>Taille :</strong> 2-10 employés</p>
+                <p><strong>Éditeur :</strong> Non spécifié</p>
+                <p style="margin-top: 15px;"><strong>Philosophie :</strong> La Moutarde est un studio créatif passionné par la création de jeux vidéo. Leur vision centrale est de créer des expériences ludiques en collaboration avec la communauté, en mettant l'accent sur la passion et l'amour pour leur craft.</p>
+            </section>
+
+            <!-- Section Jeux Notables -->
+            <section>
+                <h2>🎯 Jeux Notables</h2>
+                <div class="jeu-card">
+                    <div class="jeu-titre">Old School Musical</div>
+                    <div class="jeu-annee">Sortie : 2018</div>
+                    <p style="margin-top: 10px; color: #666;">Premier titre marquant du studio, mélangé passion musicale et gameplay innovant.</p>
+                </div>
+                <div class="jeu-card">
+                    <div class="jeu-titre">Terra Memoria</div>
+                    <div class="jeu-annee">Sortie : 2024</div>
+                    <p style="margin-top: 10px; color: #666;">Dernier projet du studio, témoignant de l'évolution créative et technique de l'équipe.</p>
+                </div>
+            </section>
+
+            <!-- Section Recrutement -->
+            <section>
+                <h2>💼 Recrutement</h2>
+                <div class="recrutement-status">
+                    <strong>⚠️ Status Actuel :</strong> Aucune offre d'emploi disponible
+                </div>
+                <p><strong>Email Recrutement :</strong> Non disponible</p>
+                <p><strong>Site Carrières :</strong> Formulaire de contact disponible</p>
+                <p style="margin-top: 15px;">Bien qu'aucune position ne soit actuellement ouverte, il est possible d'exprimer votre intérêt directement auprès du studio via leur site web ou leurs réseaux sociaux.</p>
+            </section>
+
+            <!-- Section Par Métier -->
+            <section>
+                <h2>👥 Opportunités Par Métier</h2>
+                <p style="margin-bottom: 20px;">Basé sur la nature des projets du studio, voici les profils probablement recherchés :</p>
+                
+                <div class="metier-grid">
+                    <div class="metier-card">
+                        <h4>🎮 Game Designer</h4>
+                        <p>Conception de mécaniques de jeu innovantes et expériences joueur mémorables.</p>
+                        <span class="probabilite">Probable</span>
+                    </div>
+                    <div class="metier-card">
+                        <h4>💻 Programmeur</h4>
+                        <p>Développement technique des jeux, architecture logicielle et optimisation.</p>
+                        <span class="probabilite">Probable</span>
+                    </div>
+                    <div class="metier-card">
+                        <h4>🎨 Artiste 3D</h4>
+                        <p>Modélisation 3D et création d'assets visuels pour mondes immersifs.</p>
+                        <span class="probabilite">Probable</span>
+                    </div>
+                    <div class="metier-card">
+                        <h4>🖼️ UI Artist</h4>
+                        <p>Design d'interfaces utilisateur intuitives et attrayantes visuellement.</p>
+                        <span class="probabilite">Probable</span>
+                    </div>
+                    <div class="metier-card">
+                        <h4>✏️ Concept Artist</h4>
+                        <p>Création de concepts visuels et direction artistique des projets.</p>
+                        <span class="probabilite">Probable</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Liens Utiles -->
+            <section>
+                <h2>🔗 Liens Utiles</h2>
+                <div class="liens-grid">
+                    <a href="https://www.lamoutarde.io" class="lien-button" target="_blank">🌐 Site Web Officiel</a>
+                    <a href="https://www.lamoutarde.io/contact/" class="lien-button" target="_blank">📧 Formulaire de Contact</a>
+                    <a href="https://store.steampowered.com/search/?developer=La%20Moutarde" class="lien-button" target="_blank">🎮 Page Steam</a>
+                    <a href="https://www.linkedin.com/company/la-moutarde/" class="lien-button" target="_blank">💼 LinkedIn</a>
+                </div>
+            </section>
+
+            <!-- Section Verdict -->
+            <section class="verdict">
+                <h2>🎯 Verdict & Conseils</h2>
+                
+                <h3>Difficulté de Recrutement</h3>
+                <span class="difficulte-badge">MODÉRÉE</span>
+                <p style="margin-top: 10px;">La Moutarde est un studio indépendant de petite taille avec un recrutement limité. Les opportunités sont rares mais réelles pour les candidats fortement motivés.</p>
+                
+                <h3>Points Clés</h3>
+                <ul style="margin-left: 20px; margin-top: 15px;">
+                    <li style="margin-bottom: 10px;"><strong>Studio Créatif :</strong> Environnement propice à l'innovation et aux projets variés</li>
+                    <li style="margin-bottom: 10px;"><strong>Indépendant :</strong> Plus de liberté créative mais ressources plus limitées</li>
+                    <li style="margin-bottom: 10px;"><strong>Basé en France :</strong> Atout pour les talents français souhaitant rester localement</li>
+                    <li style="margin-bottom: 10px;"><strong>Communauté-Centrée :</strong> Engagement fort avec les joueurs et la communauté</li>
+                </ul>
+
+                <div class="conseil-box">
+                    <strong>📌 Conseil Principal :</strong>
+                    <p style="margin-top: 10px;">Contactez directement La Moutarde via le formulaire de contact sur leur site web (<a href="https://www.lamoutarde.io/contact/" style="color: #ffd700; text-decoration: underline;">https://www.lamoutarde.io/contact/</a>) pour exprimer votre intérêt et votre passion pour leurs projets. Engagez-vous également avec leur communauté sur les réseaux sociaux (Discord, Twitter, Facebook) pour vous faire connaître et montrer votre enthousiasme. La persistance combinée à une réelle passion pour leurs jeux est votre meilleur atout.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Fiche informative sur La Moutarde - Studio de Jeux Vidéo Indépendant | Données à jour</p>
+        </footer>
+    </div>
+</body>
+</html>
