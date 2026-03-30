@@ -131,6 +131,7 @@
 - [Ubisoft Annecy](studios/ubisoft-annecy.html) — Annecy, France
 - [Ubisoft Bordeaux](studios/ubisoft-bordeaux.html) — Bordeaux, France
 - [Ubisoft Montpellier](studios/ubisoft-montpellier.html) — Montpellier, France
+- [Ubisoft Montréal](studios/ubisoft-montreal.html) — Montréal, Canada
 - [Ubisoft](studios/ubisoft.html) — Saint-Mandé, France
 - [Umeshu Lovers](studios/umeshu-lovers.html) — Toulouse, France
 - [Unexpected Studio](studios/unexpected-studio.html) — Montpellier, France
