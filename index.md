@@ -15,6 +15,7 @@
 - [Motion Twin](studios/motion-twin.html) — Bordeaux, France — Studio de développement indépendant
 - [Omega Force](studios/omega-force.html) — Ashikaga, Japon
 - [Playtouch](studios/playtouch.html) — Port Louis, Île Maurice
+- [Playwing](studios/playwing.html) — Bordeaux, France
 - [PowerZ](studios/powerz.html) — Paris, France
 - [Sandfall Interactive](studios/sandfall-interactive.html) — Montpellier, France
 - [Sirene Games](studios/sirene-games.html) — Aucamville, France
