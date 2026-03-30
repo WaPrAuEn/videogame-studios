@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reenbow - Studio de Jeux Vidéo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 30px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        section {
+            margin-bottom: 40px;
+        }
+        
+        section h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        section h3 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .info-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .info-card strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .info-card p {
+            color: #555;
+            font-size: 0.95em;
+        }
+        
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .game-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .game-card h4 {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        
+        .game-card p {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+        
+        .recruitment-section {
+            background: #f0f4ff;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .job-opening {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #764ba2;
+        }
+        
+        .job-opening h4 {
+            color: #764ba2;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .job-opening p {
+            color: #666;
+            margin-bottom: 5px;
+            font-size: 0.95em;
+        }
+        
+        .job-tag {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-top: 10px;
+        }
+        
+        .profession-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .profession-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
+        }
+        
+        .profession-card h4 {
+            color: #667eea;
+            font-size: 1.2em;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .profession-card h4::before {
+            content: "";
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #667eea;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        
+        .demand-level {
+            display: inline-block;
+            margin-bottom: 15px;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        
+        .demand-very-high {
+            background: #ff6b6b;
+            color: white;
+        }
+        
+        .demand-high {
+            background: #ffa500;
+            color: white;
+        }
+        
+        .demand-moderate {
+            background: #ffd93d;
+            color: #333;
+        }
+        
+        .demand-low {
+            background: #95e1d3;
+            color: #333;
+        }
+        
+        .profession-card p {
+            color: #666;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .profile-box {
+            background: #f8f9fa;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 3px solid #764ba2;
+            border-radius: 4px;
+        }
+        
+        .profile-box strong {
+            color: #764ba2;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .link-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .link-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .link-card a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95em;
+            word-break: break-word;
+        }
+        
+        .link-card p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.85em;
+            margin-top: 8px;
+        }
+        
+        .verdict-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        
+        .verdict-section h2 {
+            color: white;
+            border-bottom-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .verdict-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .verdict-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        .verdict-item h4 {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+        
+        .verdict-item p {
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+        
+        .culture-list {
+            list-style: none;
+            margin: 15px 0;
+        }
+        
+        .culture-list li {
+            padding: 10px;
+            margin: 8px 0;
+            background: #f0f4ff;
+            border-left: 3px solid #667eea;
+            border-radius: 4px;
+            color: #555;
+        }
+        
+        .culture-list li::before {
+            content: "✓ ";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #999;
+            font-size: 0.9em;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .icon {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            section h2 {
+                font-size: 1.5em;
+            }
+            
+            .info-grid,
+            .games-grid,
+            .links-grid,
+            .verdict-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 REENBOW</h1>
+            <p>Studio de Jeux Vidéo - Gamification Pédagogique & Technologie VR/AR</p>
+        </header>
+        
+        <div class="content">
+            <!-- SECTION IDENTITE -->
+            <section>
+                <h2>📋 Identité du Studio</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <strong>📍 Localisation</strong>
+                        <p>Paris, France</p>
+                    </div>
+                    <div class="info-card">
+                        <strong>📅 Fondation</strong>
+                        <p>2019</p>
+                    </div>
+                    <div class="info-card">
+                        <strong>👥 Taille de l'équipe</strong>
+                        <p>7 personnes</p>
+                    </div>
+                    <div class="info-card">
+                        <strong>🏢 Type</strong>
+                        <p>Startup innovante</p>
+                    </div>
+                </div>
+                
+                <h3>Spécialités</h3>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <strong>🎓 Gamification Pédagogique</strong>
+                        <p>Intégration d'éléments ludiques dans l'apprentissage</p>
+                    </div>
+                    <div class="info-card">
+                        <strong>🥽 VR / AR</strong>
+                        <p>Technologies de réalité virtuelle et augmentée</p>
+                    </div>
+                    <div class="info-card">
+                        <strong>🎨 Jeux 2D</strong>
+                        <p>Développement de jeux en 2D innovants</p>
+                    </div>
+                    <div class="info-card">
+                        <strong>🤖 Plateforme LMS IA</strong>
+                        <p>Système de gestion d'apprentissage avec intelligence artificielle</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SECTION JEUX NOTABLES -->
+            <section>
+                <h2>🎯 Jeux Notables</h2>
+                <div class="games-grid">
+                    <div class="game-card">
+                        <h4>Atomic Battle</h4>
+                        <p>Un jeu immersif combinant éléments éducatifs et gameplay engageant. Parfait exemple de l'approche gamification pédagogique du studio.</p>
+                    </div>
+                    <div class="game-card">
+                        <h4>Mirabo</h4>
+                        <p>Kit de réalité augmentée pour apprendre l'anglais. Utilise la technologie AR pour créer une expérience d'apprentissage ludique et interactive.</p>
+                    </div>
+                    <div class="game-card">
+                        <h4>Kids Booky</h4>
+                        <p>Application destinée aux enfants, combinant apprentissage et divertissement. Démontre l'expertise du studio dans la création de contenu éducatif accessible.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SECTION RECRUTEMENT -->
+            <section>
+                <h2>💼 Postes Ouverts & Recrutement</h2>
+                <div class="recruitment-section">
+                    <h3>Offres Actuelles</h3>
+                    <div class="job-opening">
+                        <h4>🎨 Concept Artist 2D - Freelance</h4>
+                        <p><strong>Type :</strong> Freelance</p>
+                        <p><strong>Demande :</strong> Très élevée</p>
+                        <p>Reenbow recherche un Concept Artist 2D talented pour rejoindre son équipe en freelance. Vous apporterez votre vision créative sur les projets de gamification pédagogique et jeux 2D.</p>
+                        <span class="job-tag">Freelance</span>
+                        <span class="job-tag">2D Art</span>
+                    </div>
+                </div>
+                
+                <h3>Informations de Contact Recrutement</h3>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <strong>📧 Email Recrutement</strong>
+                        <p><span class="highlight">Non spécifié</span></p>
+                    </div>
+                    <div class="info-card">
+                        <strong>🌐 Site Carrières</strong>
+                        <p><span class="highlight">Non disponible</span></p>
+                    </div>
+                    <div class="info-card">
+                        <strong>🔗 Site Web</strong>
+                        <p><a href="https://www.reenbow.ai/" style="color: #667eea; text-decoration: none;">https://www.reenbow.ai/</a></p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SECTION PAR METIER -->
+            <section>
+                <h2>👨‍💼 Guide par Métier</h2>
+                
+                <!-- CONCEPT ARTIST -->
+                <div class="profession-card">
+                    <h4>Concept Artist 2D</h4>
+                    <span class="demand-level demand-very-high">Demande : TRÈS ÉLEVÉE 🔥</span>
+                    <p>Reenbow a une <strong>offre active et urgente</strong> pour un Concept Artist 2D en freelance. C'est clairement le profil le plus recherché actuellement.</p>
+                    
+                    <div class="profile-box">
+                        <strong>Profil Recherché</strong>
+                        <p>✓ Expert en <span class="highlight">Photoshop et Illustrator</span><br>
+                        ✓ Spécialiste character design, décors et animations 2D<br>
+                        ✓ Excellente intégration avec <span class="highlight">Unity</span><br>
+                        ✓ Portfolio démontrant créativité et style<br>
+                        ✓ Disponibilité en <span class="highlight">freelance longue durée</span></p>
+                    </div>
+                    
+                    <div class="profile-box">
+                        <strong>Conseils pour Candidater</strong>
+                        <p>📌 <strong>Mettre en avant</strong> : Maîtrise complète des outils 2D professionnels, portfolio riche en character design et décors, expérience d'intégration dans Unity<br>
+                        📌 <strong>Points fort</strong> : Démontrer expérience en jeux éducatifs ou gamification, afficher intérêt pour innovation technologique<br>
+                        📌 <strong>À mentionner</strong> : Votre TJM (Tarif Journalier Moyen) et disponibilité pour engagement freelance long terme</p>
+                    </div>
+                    
+                    <p><strong>Difficulté de candidature :</strong> Moyenne - Startup de petite taille acceptant les freelances. L'enjeu principal est la maîtrise certifiée des outils 2D et Unity.</p>
+                </div>
+                
+                <!-- PROGRAMMEUR -->
+                <div class="profession-card">
+                    <h4>Programmeur / Développeur</h4>
+                    <span class="demand-level demand-high">Demande : ÉLEVÉE 📈</span>
+                    <p>Reenbow a un <strong>historique de recrutement important</strong> pour les développeurs, notamment VR/AR et mobile. Le studio est en croissance tech.</p>
+                    
+                    <div class="profile-box">
+                        <strong>Profil Recherché</strong>
+                        <p>✓ Expérience <span class="highlight">VR/AR</span> fortement valorisée<br>
+                        ✓ Développement mobile (Android/iOS)<br>
+                        ✓ Maîtrise <span class="highlight">Unity</span> et C#<br>
+                        ✓ Connaissance des technologies d'IA pour LMS<br>
+                        ✓ Capacité à travailler en équipe réduite</p>
+                    </div>
+                    
+                    <div class="profile-box">
+                        <strong>Conseils pour Candidater</strong>
+                        <p>📌 <strong>Points forts</strong> : Projets VR/AR complétés, expérience mobile native<br>
+                        📌 <strong>À démontrer</strong> : Compréhension des enjeux éducatifs, intérêt pour gamification<br>
+                        📌 <strong>Culture du studio</strong> : 4 jours/semaine, télétravail possible, collaboration étroite Unity</p>
+                    </div>
+                    
+                    <p><strong>Difficulté de candidature :</strong> Moyenne - Les compétences VR/AR sont rares. Sans cette expérience, il faut démontrer une forte aptitude d'apprentissage.</p>
+                </div>
+                
+                <!-- GAME DESIGNER -->
+                <div class="profession-card">
+                    <h4>Game Designer</h4>
+                    <span class="demand-level demand-moderate">Demande : MODÉRÉE ⚡</span>
+                    <p>Reenbow cherche occasionnellement des Game Designers, notamment en freelance. Une opportunité réelle mais moins urgente que Concept Artist.</p>
+                    
+                    <div class="profile-box">
+                        <strong>Profil Recherché</strong>
+                        <p>✓ Expertise en <span class="highlight">gamification pédagogique</span><br>
+                        ✓ Expérience jeux 2D et/ou VR/AR<br>
+                        ✓ Compréhension des mécaniques éducatives<br>
+                        ✓ Capacité à documenter et itérer rapidement<br>
+                        ✓ Sensibilité UX/UI</p>
+                    </div>
+                    
+                    <div class="profile-box">
+                        <strong>Conseils pour Candidater</strong>
+                        <p>📌 <strong>À valoriser</strong> : Portfolio de jeux pédagogiques ou à fort contenu éducatif<br>
+                        📌 <strong>Idéal</strong> : Expérience en design AR/VR, connaissance des plateformes LMS<br>
+                        📌 <strong>Format</strong> : Freelance long terme acceptable, CDI possible selon profil</p>
+                    </div>
+                    
+                    <p><strong>Difficulté de candidature :</strong> Moyenne - Besoin de démontrer expertise en gamification éducative, pas seulement game design généraliste.</p>
+                </div>
+                
+                <!-- ARTISTE 3D -->
+                <div class="profession-card">
+                    <h4>Artiste 3D</h4>
+                    <span class="demand-level demand-low">Demande : FAIBLE 📉</span>
+                    <p>Reenbow privilégie la 2D et les technologies immersives (VR/AR).
