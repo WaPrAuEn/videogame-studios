@@ -41,6 +41,7 @@
 - [Sirene Games](studios/sirene-games.html) — Aucamville, France
 - [Sirène Rouge Games](studios/sirene-rouge-games.html) — Lyon, France
 - [Team Cherry](studios/team-cherry.html) — Adélaïde, Australie
+- [The Yard VFX](studios/the-yard-vfx.html) — Montpellier, France
 - [Tronatic Studio](studios/tronatic-studio.html) — Saint Avertin (Tours), France
 - [Twin Sails Interactive](studios/twin-sails-interactive.html) — Paris, France
 - [Ubisoft Montpellier](studios/ubisoft-montpellier.html) — Montpellier, France
