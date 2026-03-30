@@ -59,6 +59,7 @@
 - [Sirène Rouge Games](studios/sirene-rouge-games.html) — Lyon, France
 - [Sköll Studio](studios/sköll-studio.html) — Metz, France
 - [Skydance Interactive](studios/skydance-interactive.html) — Malibu, États-Unis
+- [Sorare](studios/sorare.html) — Paris, France
 - [Spiders](studios/spiders.html) — Paris, France
 - [Square Enix](studios/square-enix.html) — Tokyo, Japon
 - [Studio Black Flag](studios/studio-black-flag.html) — Bordeaux, France
