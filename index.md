@@ -61,6 +61,7 @@
 - [Inti Creates](studios/inti-creates.html) — Ichikawa (Chiba) et Nagoya, Japon
 - [Ishtar Games](studios/ishtar-games.html) — Lille/Bordeaux, France
 - [istargames](studios/istargames.html) — 
+- [Kalank](studios/kalank.html) — Angoulême, France
 - [Kojima Productions](studios/kojima-productions.html) — Tokyo, Japon
 - [La Moutarde](studios/la-moutarde.html) — Montpellier, France
 - [Loomio](studios/loomio.html) — Levallois-Perret, France
