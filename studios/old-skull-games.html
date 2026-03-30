@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Old Skull Games - Studio de Jeux Vidéo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #0f3460 0%, #533483 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        section {
+            background: white;
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #533483;
+        }
+        
+        section h2 {
+            color: #0f3460;
+            font-size: 2em;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #533483;
+            padding-bottom: 15px;
+        }
+        
+        section h3 {
+            color: #533483;
+            font-size: 1.5em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .identite-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .info-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #533483;
+        }
+        
+        .info-card strong {
+            color: #0f3460;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        
+        .info-card p {
+            color: #555;
+        }
+        
+        .jeux-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .jeu-card {
+            background: linear-gradient(135deg, #fff9e6 0%, #ffe6cc 100%);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #ff9800;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .jeu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(255, 152, 0, 0.2);
+        }
+        
+        .jeu-card h4 {
+            color: #ff6f00;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        
+        .jeu-card p {
+            color: #666;
+            font-style: italic;
+        }
+        
+        .recrutement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .poste-card {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .poste-card h4 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .poste-card ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .poste-card li {
+            color: #555;
+            margin-bottom: 8px;
+        }
+        
+        .metier-subsection {
+            background: linear-gradient(135deg, #f0f4ff 0%, #e3f2fd 100%);
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .metier-subsection h4 {
+            color: #1565c0;
+            margin-bottom: 15px;
+            font-size: 1.25em;
+        }
+        
+        .opportunite {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            border-left: 3px solid #2196f3;
+        }
+        
+        .opportunite strong {
+            color: #1565c0;
+        }
+        
+        .opportunite p {
+            color: #666;
+            margin-top: 8px;
+        }
+        
+        .liens-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .lien-card {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #e91e63;
+            transition: transform 0.3s ease;
+        }
+        
+        .lien-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .lien-card a {
+            color: #c2185b;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .lien-card a:hover {
+            color: #880e4f;
+            text-decoration: underline;
+        }
+        
+        .lien-card p {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .verdict {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid #ff6f00;
+            margin-bottom: 30px;
+        }
+        
+        .verdict h3 {
+            color: #e65100;
+            margin-bottom: 20px;
+        }
+        
+        .verdict-item {
+            background: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            border-left: 3px solid #ff6f00;
+        }
+        
+        .verdict-item strong {
+            color: #ff6f00;
+        }
+        
+        .conseil {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #1976d2;
+            margin-top: 20px;
+        }
+        
+        .conseil p {
+            color: #0d47a1;
+            font-weight: bold;
+        }
+        
+        .culture-list {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .culture-list li {
+            padding: 10px 0;
+            color: #555;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .culture-list li:before {
+            content: "⚔️ ";
+            margin-right: 10px;
+            color: #533483;
+        }
+        
+        footer {
+            background: #0f3460;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        
+        .difficulty-badge {
+            display: inline-block;
+            background: #ffc107;
+            color: #333;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 0.9em;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #533483;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #0f3460;
+        }
+        
+        .btn-secondary {
+            background: #4caf50;
+        }
+        
+        .btn-secondary:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>⚔️ OLD SKULL GAMES ⚔️</h1>
+        <p>Studio de Développement Indépendant - Villeurbanne, France</p>
+    </header>
+    
+    <div class="container">
+        <!-- IDENTITÉ -->
+        <section>
+            <h2>Identité du Studio</h2>
+            
+            <div class="identite-grid">
+                <div class="info-card">
+                    <strong>📍 Localisation</strong>
+                    <p>Villeurbanne, France</p>
+                </div>
+                
+                <div class="info-card">
+                    <strong>📅 Fondation</strong>
+                    <p>2012 (12 ans d'expérience)</p>
+                </div>
+                
+                <div class="info-card">
+                    <strong>👥 Taille de l'équipe</strong>
+                    <p>85 développeurs (Pirates)</p>
+                </div>
+                
+                <div class="info-card">
+                    <strong>🎮 Type de Studio</strong>
+                    <p>Développement Indépendant</p>
+                </div>
+                
+                <div class="info-card">
+                    <strong>🏆 Éditeurs Partenaires</strong>
+                    <p>Apple Arcade</p>
+                </div>
+                
+                <div class="info-card">
+                    <strong>🌐 Site Principal</strong>
+                    <p><a href="https://www.oldskullgames.com" style="color: #533483; text-decoration: none;">oldskullgames.com</a></p>
+                </div>
+            </div>
+            
+            <h3>Culture & Valeurs</h3>
+            <ul class="culture-list">
+                <li><strong>Passion Créative</strong> - Une équipe unie par l'amour du jeu vidéo</li>
+                <li><strong>Patte Artistique Marquée</strong> - Des créations visuelles distinctives et mémorables</li>
+                <li><strong>Ancrage dans la Réalité du Marché</strong> - Pragmatisme commercial combiné à l'innovation artistique</li>
+                <li><strong>Environnement Dynamique</strong> - Studio en croissance constante avec des défis stimulants</li>
+                <li><strong>Esprit de Pirate</strong> - Créativité, audace et dépassement de soi au quotidien</li>
+            </ul>
+        </section>
+        
+        <!-- JEUX NOTABLES -->
+        <section>
+            <h2>Jeux Notables</h2>
+            
+            <div class="jeux-container">
+                <div class="jeu-card">
+                    <h4>🧽 SpongeBob Patty Pursuit</h4>
+                    <p>Action dynamique dans l'univers emblématique de Bob l'Éponge. Un succès multi-plateforme qui démontre l'expertise du studio dans les adaptations de licences populaires.</p>
+                </div>
+                
+                <div class="jeu-card">
+                    <h4>🗡️ RPG Coopératif</h4>
+                    <p>Aventure immersive conçue pour le jeu en équipe. Showcase de la capacité du studio à créer des expériences multijoueurs engageantes et accessibles.</p>
+                </div>
+                
+                <div class="jeu-card">
+                    <h4>🏃 Jeu de Plateforme 2D</h4>
+                    <p>Classique moderne du genre plateforme. Démontre la maîtrise du game design fondamental et la direction artistique soignée du studio.</p>
+                </div>
+                
+                <div class="jeu-card">
+                    <h4>🐼 Runner inspiré du Panda Roux</h4>
+                    <p>Jeu casual dynamique avec une mascotte charismatique. Illustre la polyvalence créative et la capacité à développer pour mobile et multi-plateformes.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- RECRUTEMENT -->
+        <section>
+            <h2>Recrutement Actif</h2>
+            <p style="margin-bottom: 30px; color: #666; font-size: 1.1em;">Old Skull Games cherche actuellement à renforcer son équipe créative avec des profils expérimentés.</p>
+            
+            <div class="recrutement-grid">
+                <div class="poste-card">
+                    <h4>🎯 Game Director</h4>
+                    <p style="color: #555; margin-bottom: 15px;">Poste clé pour piloter la vision créative du studio</p>
+                    <ul>
+                        <li>Leadership créatif d'équipes multidisciplinaires</li>
+                        <li>Définition de la direction artistique et ludique</li>
+                        <li>Expérience proven en développement multi-plateforme</li>
+                        <li>Connaissance du marché mobile et console</li>
+                    </ul>
+                </div>
+                
+                <div class="poste-card">
+                    <h4>⚙️ Gameplay Programmer Senior</h4>
+                    <p style="color: #555; margin-bottom: 15px;">Expert technique pour concevoir les mécaniques de jeu</p>
+                    <ul>
+                        <li>Architecture robuste des systèmes de gameplay</li>
+                        <li>Expertise en développement multi-plateforme</li>
+                        <li>Optimisation pour mobile, PC et console</li>
+                        <li>Collaboration étroite avec les designers</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%); padding: 25px; border-radius: 8px; border-left: 4px solid #7b1fa2; margin-top: 30px;">
+                <h3 style="color: #6a1b9a; margin-bottom: 15px;">Candidature</h3>
+                <p style="color: #666; margin-bottom: 15px;">Envoyez votre dossier et portfolio via le formulaire de contact du studio:</p>
+                <div class="btn-group">
+                    <a href="https://oldskullgames.com/contact-us/" class="btn">📧 Contacter le Studio</a>
+                    <a href="https://oldskullgames.com/careers/" class="btn btn-secondary">💼 Voir les Offres d'Emploi</a>
+                </div>
+            </div>
+            
+            <div class="difficulty-badge">
+                ⭐⭐⭐ Difficulté Modérée - Profils Expérimentés Recherchés
+            </div>
+        </section>
+        
+        <!-- PAR MÉTIER -->
+        <section>
+            <h2>Opportunités par Métier</h2>
+            
+            <!-- Game Designer -->
+            <div class="metier-subsection">
+                <h4>🎮 Game Designer - POSTE OUVERT</h4>
+                <div class="opportunite">
+                    <strong>Statut:</strong>
+                    <p>Le studio cherche activement un Game Director pour piloter la vision créative. C'est l'occasion de rejoindre une équipe passionnée avec une patte artistique marquée.</p>
+                </div>
+                <div class="opportunite">
+                    <strong>Vos atouts:</strong>
+                    <p>Expérience en conception de gameplay multi-plateforme (mobile, PC, console), capacité à synthétiser la créativité et le pragmatisme commercial, leadership créatif, portfolio de jeux publiés.</p>
+                </div>
+                <div class="opportunite">
+                    <strong>Points clés:</strong>
+                    <p>Old Skull Games valorise les designers capables de travailler dans un environnement dynamique de studio indépendant en croissance. Votre expérience avec des adaptations de licences ou des jeux à grand public serait un atout.</p>
+                </div>
+            </div>
+            
+            <!-- Programmeur -->
+            <div class="metier-subsection">
+                <h4>⚙️ Programmeur - POSTE OUVERT</h4>
+                <div class="opportunite">
+                    <strong>Statut:</strong>
+                    <p>Gameplay Programmer Senior recherché pour architecter les systèmes ludiques. Un rôle technique stratégique dans un studio réputé pour sa qualité code et innovation.</p>
+                </div>
+                <div class="opportunite">
+                    <strong>Vos atouts:</strong>
+                    <p>Senior avec expertise en développement multi-plateforme, optimisation performance (mobile, console), C++/C#, architecture système de gameplay, expérience dans cycles de production complets.</p>
+                </div>
+                <div class="opportunite">
+                    <strong>Points clés:</strong>
+                    <p>Le studio cherche des profils qui comprennent à la fois l'aspect technique et créatif du développement. Votre capacité à collaborer avec designers et artistes est cruciale.</p>
+                </div>
+            </div>
+            
+            <!-- Artiste 3D -->
+            <div class="metier-subsection">
+                <h4>🎨 Artiste 3D - PROBABLE</h4>
+                <div class="opportunite">
+                    <strong>Statut:</strong>
+                    <p>Non officiellement affiché mais très probable. Old Skull Games développe des jeux multi-plateforme avec une patte artistique marquée, nécessitant des artistes 3D qualifiés.</p>
+                </div>
+                <div class="opportunite">
+                    <strong>Vos atouts:</strong>
+                    <p>Maîtrise de Blender/Maya, modélisation pour mobile et console, optimisation géométrie, expérience texture/matériaux, portfolio de jeux publiés, compréhension du pipeline production indie.</p>
+                </div>
+                <div class="opportunite">
+                    <strong>Points clés:</strong>
+                    <p>Contactez le studio directement via le formulaire carrières pour connaître les offres en cours. Montrez votre capacité à créer des assets à forte identité visuelle.</p>
+                </div>
+            </div>
+            
+            <!-- UI Artist -->
+            <div class="metier-subsection">
+                <h4>🖼️ UI/UX Artist - PROBABLE</h4>
+                <div class="opportunite">
+                    <strong>Statut:</strong>
+                    <p>Probablement recherché. Avec une patte artistique distincte et des jeux multi-plateforme, le studio a besoin d'experts en interface utilisateur.</p>
+                </div>
+                <div class="opportunite">
+                    <strong>Vos atouts:</strong>
+                    <p>Expérience UI/UX pour jeux, design responsive multi-écran, Figma/Adobe Suite, animation UI, connaissance engine (Unity/Unreal), portfolio de jeux shipped.</p>
+                </div>
+                <div class="opportunite">
+                    <strong>Points clés:</strong>
+                    <p>L'équipe valorise la créativité dans chaque domaine. Les artistes UI doivent comprendre à la fois l'accessibilité et l'identité visuelle forte du studio.</p>
+                </div>
+            </div>
+            
+            <!-- Concept Artist -->
+            <div class="metier-subsection">
+                <h4>✏️ Concept Artist - PROBABLE</h4>
+                <div class="opportunite">
+                    <strong>Statut:</strong>
+                    <p>Probable. Old Skull Games met l'accent sur une patte artistique marquée, créant une demande régulière de concept artists créatifs.</p>
+                </div>
+                <div class="opportunite">
+                    <strong>Vos atouts:</strong>
+                    <p>Maîtrise du dessin numérique, photoshop/Clip Studio Paint, créativité visuelle distinctive, expérience jeux vidéo (character design, environment, props), portfolio riche et varié.</p>
+                </div>
+                <div class="opportunite">
+                    <strong>Points clés:</strong>
+                    <p>Le studio cherche des artistes qui imposent une vision visuelle claire. Votre portfolio doit démontrer une patte artistique personnelle et cohérente.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- VERDICT -->
+        <section>
+            <h2>Verdict
