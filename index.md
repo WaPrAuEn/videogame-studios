@@ -36,6 +36,7 @@
 - [Elia Games](studios/elia-games.html) — Saint-Gély-du-Fesc, France
 - [Elseware Experience](studios/elseware-experience.html) — Dinard, France
 - [Endroad](studios/endroad.html) — Nantes, France
+- [Eugen Systems](studios/eugen-systems.html) — Paris, France
 - [Fortiche Production](studios/fortiche-production.html) — Paris, France
 - [Game Freak, Inc.](studios/game-freak,-inc..html) — Tokyo, Japon
 - [GFactory](studios/gfactory.html) — Lyon, France
