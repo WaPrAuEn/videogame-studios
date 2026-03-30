@@ -35,6 +35,7 @@
 - [Illumination Studios Paris (anciennement Illumination Mac Guff)](studios/illumination-studios-paris-(anciennement-illumination-mac-guff).html) — Paris, France
 - [Inti Creates](studios/inti-creates.html) — Ichikawa (Chiba) et Nagoya, Japon
 - [Kojima Productions](studios/kojima-productions.html) — Tokyo, Japon
+- [Ludogram](studios/ludogram.html) — Lille, France
 - [Magic Design Studios](studios/magic-design-studios.html) — Montpellier, France
 - [Manufacture 43](studios/manufacture-43.html) — Bordeaux, France
 - [Mikros Animation](studios/mikros-animation.html) — Paris, France
