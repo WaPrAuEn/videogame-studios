@@ -68,6 +68,7 @@
 - [Playtouch](studios/playtouch.html) — Port Louis, Île Maurice
 - [Playwing](studios/playwing.html) — Bordeaux, France
 - [PowerZ](studios/powerz.html) — Paris, France
+- [Reenbow](studios/reenbow.html) — Paris, France
 - [Sandfall Interactive](studios/sandfall-interactive.html) — Montpellier, France
 - [Semiwork](studios/semiwork.html) — Uppsala, Suède
 - [Shiro Games](studios/shiro-games.html) — Bordeaux, France
