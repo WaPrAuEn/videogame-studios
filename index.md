@@ -105,6 +105,7 @@
 - [Reenbow](studios/reenbow.html) — Paris, France
 - [Riot Games France](studios/riot-games-france.html) — Paris, France
 - [Rivrs](studios/rivrs.html) — Rennes, France
+- [Rockstar Games](studios/rockstar-games.html) — New York, États-Unis
 - [Sandfall Interactive](studios/sandfall-interactive.html) — Montpellier, France
 - [Semiwork](studios/semiwork.html) — Uppsala, Suède
 - [Shiro Games](studios/shiro-games.html) — Bordeaux, France
