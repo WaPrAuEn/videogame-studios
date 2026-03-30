@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FromSoftware - Studio de Jeux Vidéo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(180deg, rgba(20, 20, 40, 0.95) 0%, rgba(30, 30, 50, 0.9) 100%);
+            border-bottom: 3px solid #d4af37;
+            padding: 40px 0;
+            margin-bottom: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+        }
+        
+        .logo {
+            font-size: 48px;
+            font-weight: bold;
+            color: #d4af37;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 18px;
+            color: #b8860b;
+            font-style: italic;
+        }
+        
+        section {
+            background: rgba(25, 25, 45, 0.8);
+            border-left: 5px solid #d4af37;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+        
+        h2 {
+            font-size: 32px;
+            color: #d4af37;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid #d4af37;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            font-size: 22px;
+            color: #ffd700;
+            margin-top: 20px;
+            margin-bottom: 12px;
+        }
+        
+        h4 {
+            font-size: 18px;
+            color: #d4af37;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+        
+        .identity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .identity-card {
+            background: rgba(40, 40, 70, 0.7);
+            padding: 20px;
+            border-radius: 5px;
+            border-left: 4px solid #d4af37;
+        }
+        
+        .identity-card strong {
+            color: #ffd700;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .game-card {
+            background: rgba(40, 40, 70, 0.7);
+            padding: 20px;
+            border-radius: 5px;
+            border-top: 4px solid #d4af37;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+        
+        .game-card h4 {
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+        
+        .game-year {
+            font-size: 14px;
+            color: #b8860b;
+            font-style: italic;
+        }
+        
+        .editors-list {
+            background: rgba(40, 40, 70, 0.5);
+            padding: 15px;
+            border-radius: 3px;
+            margin-top: 15px;
+            border-left: 3px solid #ffd700;
+        }
+        
+        .editors-list li {
+            margin-bottom: 8px;
+            margin-left: 20px;
+        }
+        
+        .editors-list strong {
+            color: #ffd700;
+        }
+        
+        .recruitment-status {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(184, 134, 11, 0.1) 100%);
+            padding: 20px;
+            border-radius: 5px;
+            border-left: 4px solid #d4af37;
+            margin-top: 20px;
+        }
+        
+        .recruitment-status strong {
+            color: #ffd700;
+        }
+        
+        .recruitment-status p {
+            margin-bottom: 10px;
+        }
+        
+        .job-category {
+            background: rgba(40, 40, 70, 0.7);
+            padding: 25px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 5px solid #d4af37;
+        }
+        
+        .job-category h4 {
+            color: #ffd700;
+            font-size: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .job-icon {
+            width: 30px;
+            height: 30px;
+            background: #d4af37;
+            color: #0a0a0a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        .job-requirements {
+            list-style: none;
+            margin-bottom: 15px;
+        }
+        
+        .job-requirements li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #c0c0c0;
+        }
+        
+        .job-requirements li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #d4af37;
+            font-weight: bold;
+        }
+        
+        .job-advice {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 15px;
+            border-radius: 3px;
+            border-left: 3px solid #ffd700;
+            color: #d4af37;
+            font-style: italic;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .link-card {
+            background: rgba(40, 40, 70, 0.7);
+            padding: 20px;
+            border-radius: 5px;
+            border-top: 4px solid #d4af37;
+            text-align: center;
+        }
+        
+        .link-card strong {
+            display: block;
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+        
+        .link-card p {
+            font-size: 14px;
+            color: #999;
+        }
+        
+        .verdict-card {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(184, 134, 11, 0.1) 100%);
+            border: 2px solid #d4af37;
+            padding: 30px;
+            border-radius: 5px;
+        }
+        
+        .verdict-score {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .score-item {
+            background: rgba(25, 25, 45, 0.8);
+            padding: 20px;
+            border-radius: 5px;
+            border-left: 4px solid #d4af37;
+            text-align: center;
+        }
+        
+        .score-label {
+            color: #ffd700;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .score-value {
+            font-size: 24px;
+            color: #d4af37;
+            font-weight: bold;
+        }
+        
+        .difficulty-indicator {
+            display: inline-block;
+            background: linear-gradient(90deg, #d4af37 0%, #ffd700 50%, #d4af37 100%);
+            padding: 8px 16px;
+            border-radius: 20px;
+            color: #0a0a0a;
+            font-weight: bold;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            border-top: 2px solid #d4af37;
+            margin-top: 50px;
+        }
+        
+        .highlight {
+            color: #d4af37;
+            font-weight: bold;
+        }
+        
+        .info-box {
+            background: rgba(212, 175, 55, 0.05);
+            padding: 15px;
+            border-left: 3px solid #d4af37;
+            margin: 15px 0;
+            border-radius: 3px;
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 36px;
+            }
+            
+            h2 {
+                font-size: 24px;
+            }
+            
+            h3 {
+                font-size: 18px;
+            }
+            
+            section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">FromSoftware</div>
+            <div class="tagline">Crafting Challenges, Creating Legends</div>
+        </header>
+
+        <section>
+            <h2>Identité du Studio</h2>
+            <div class="identity-grid">
+                <div class="identity-card">
+                    <strong>📍 Localisation</strong>
+                    Tokyo, Shibuya<br>Japon
+                </div>
+                <div class="identity-card">
+                    <strong>📅 Fondation</strong>
+                    1986<br><span style="color: #999; font-size: 14px;">40 ans d'expertise</span>
+                </div>
+                <div class="identity-card">
+                    <strong>🎮 Spécialité</strong>
+                    Action-RPG<br>Jeux Soulslike
+                </div>
+                <div class="identity-card">
+                    <strong>🏢 Secteur</strong>
+                    Développeur de Jeux Vidéo
+                </div>
+            </div>
+
+            <h3 style="margin-top: 30px;">Actionnariat et Éditeurs</h3>
+            <ul class="editors-list">
+                <li><strong>Kadokawa Corporation</strong> - Actionnaire majoritaire</li>
+                <li><strong>Sony Interactive Entertainment (SIE)</strong> - 14,09%</li>
+                <li><strong>Sixjoy</strong> (filiale Tencent) - 16,25%</li>
+                <li><strong>Agetec</strong> - Partenaire historique</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Jeux Notables</h2>
+            <div class="games-grid">
+                <div class="game-card">
+                    <h4>King's Field</h4>
+                    <div class="game-year">1994</div>
+                    <p>Fondateur du style dungeon crawler 3D qui définirait la patte FromSoftware.</p>
+                </div>
+                <div class="game-card">
+                    <h4>Demon's Souls</h4>
+                    <div class="game-year">2009</div>
+                    <p>Le point de départ du mouvement soulslike qui révolutionna l'industrie.</p>
+                </div>
+                <div class="game-card">
+                    <h4>Dark Souls (Série)</h4>
+                    <div class="game-year">2011+</div>
+                    <p>La trilogie qui établit les standards du genre et la signature studio.</p>
+                </div>
+                <div class="game-card">
+                    <h4>Bloodborne</h4>
+                    <div class="game-year">2015</div>
+                    <p>Exclusivité PlayStation confirmant l'excellence multi-plateformes de FromSoft.</p>
+                </div>
+                <div class="game-card">
+                    <h4>Armored Core</h4>
+                    <div class="game-year">1997+</div>
+                    <p>Saga mecha légendaire influencée par Hidetaka Miyazaki dès 2001.</p>
+                </div>
+                <div class="game-card">
+                    <h4>Sekiro: Shadows Die Twice</h4>
+                    <div class="game-year">2019</div>
+                    <p>Évo paroxystique du combat soulslike. Goty 2019, jeu de référence.</p>
+                </div>
+                <div class="game-card">
+                    <h4>Elden Ring</h4>
+                    <div class="game-year">2022</div>
+                    <p>Mastodonte open-world soulslike. Collab Miyazaki-Martin. 20M+ copies.</p>
+                </div>
+                <div class="game-card">
+                    <h4>Armored Core VI</h4>
+                    <div class="game-year">2023</div>
+                    <p>Renaissance du mecha FromSoft avec mécaniques affinées post-Elden Ring.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Recrutement et Contact</h2>
+            <div class="recruitment-status">
+                <p><strong>Postes Ouverts:</strong> Non spécifié dans les résultats de recherche</p>
+                <p><strong>Email Recrutement:</strong> Non spécifié dans les résultats de recherche</p>
+                <p><strong>Site Carrières:</strong> Non spécifié dans les résultats de recherche</p>
+            </div>
+
+            <div class="info-box">
+                <strong>⚠️ Note Importante:</strong> Les informations de recrutement détaillées ne sont pas publiquement disponibles. Il est recommandé de contacter directement le studio via ses canaux officiels ou les événements industriels (GDC, CEDEC, etc.).
+            </div>
+        </section>
+
+        <section>
+            <h2>Opportunités par Métier</h2>
+
+            <div class="job-category">
+                <h4>
+                    <span class="job-icon">🎮</span>
+                    Game Designer
+                </h4>
+                <p>FromSoftware recherche activement des game designers expérimentés en action-RPG et mécaniques challenging.</p>
+                <ul class="job-requirements">
+                    <li>Maîtrise des mécaniques soulslike (timing, hitbox, hitlag, feedback)</li>
+                    <li>Portfolio montrant itération et affinement de systèmes difficiles</li>
+                    <li>Expérience en design level exploration non-linéaire</li>
+                    <li>Passion pour narration implicite et worldbuilding environnemental</li>
+                    <li>Capacité à travailler avec équipes multidisciplinaires (3D, audio, combat)</li>
+                </ul>
+                <div class="job-advice">
+                    <strong>Conseil:</strong> Hidetaka Miyazaki a rejoint FromSoft en 2001 et depuis influence directement la direction créative (Armored Core, Elden Ring). Démontrez votre capacité à affiner les mécaniques de combat comme lui l'a fait.
+                </div>
+            </div>
+
+            <div class="job-category">
+                <h4>
+                    <span class="job-icon">💻</span>
+                    Programmeur
+                </h4>
+                <p>Besoin constant en programmation pour jeux 3D complexes et optimisation temps réel.</p>
+                <ul class="job-requirements">
+                    <li>Expertise en moteurs 3D (Unreal Engine, custom engines)</li>
+                    <li>Optimisation GPU/CPU pour jeux open-world exigeants</li>
+                    <li>Systèmes de physique et collision avancés (hitbox precision)</li>
+                    <li>Architecture réseau pour multiplayer asynchrone (invasions, covenants)</li>
+                    <li>Connaissances en shaders et rendu graphique complexe</li>
+                    <li>Expérience post-processing et lighting dynamique</li>
+                </ul>
+                <div class="job-advice">
+                    <strong>Conseil:</strong> FromSoftware a des origines en logiciels professionnels. Démontrez votre maîtrise des systèmes bas-niveau et optimisation avancée. Les défis techniques japonais demandent rigueur et expertise approfondie.
+                </div>
+            </div>
+
+            <div class="job-category">
+                <h4>
+                    <span class="job-icon">🎨</span>
+                    Artiste 3D
+                </h4>
+                <p>Création d'univers visuels sombres et détaillés en 3D depuis l'ère PlayStation.</p>
+                <ul class="job-requirements">
+                    <li>Modélisation 3D haute-fidélité (armes, armures, créatures, architectures)</li>
+                    <li>Sculpture digitale et anatomie avancée (Z-Brush, Blender)</li>
+                    <li>Texturing PBR photo-réaliste pour atmosphères sombres</li>
+                    <li>Rigging et animation character pour combat dynamique</li>
+                    <li>Optimisation poly/LOD pour open-world (Elden Ring scale)</li>
+                    <li>Connaissance des pipelines from concept à in-game</li>
+                </ul>
+                <div class="job-advice">
+                    <strong>Conseil:</strong> Le portfolio doit montrer maîtrise de l'anatomie, matériaux weathered/décorés, et capacity à créer des atmosphères oppressantes. Inspirez-vous des mondes de King's Field, Bloodborne et Elden Ring.
+                </div>
+            </div>
+
+            <div class="job-category">
+                <h4>
+                    <span class="job-icon">🖼️</span>
+                    UI Artist / UX Designer
+                </h4>
+                <p>Design d'interfaces pour jeux d'exploration et RPG exigeant clarté dans la difficulté.</p>
+                <ul class="job-requirements">
+                    <li>Design d'HUD épuré qui ne distrait pas l'immersion</li>
+                    <li>Systèmes d'inventaire et équipement intuitifs mais complexes</li>
+                    <li>Menus de progression (stats, items, spells, builds)</li>
+                    <li>Feedback visuel pour mécanique difficiles (santé, stamina, dodge windows)</li>
+                    <li>Localization support (japonais, anglais, multilingue)</li>
+                    <li>Animation UI et micro-interactions</li>
+                </ul>
+                <div class="job-advice">
+                    <strong>Conseil:</strong> FromSoftware privilégie la clarté sans surcharge. Votre UI doit aider le joueur à maîtriser la difficulté sans le surprotéger. Étudiez les évolutions UI de Dark Souls à Elden Ring.
+                </div>
+            </div>
+
+            <div class="job-category">
+                <h4>
+                    <span class="job-icon">✨</span>
+                    Concept Artist
+                </h4>
+                <p>Création d'univers mystiques et complexes inspirés par l'héritage Wizardry et FromSoftware.</p>
+                <ul class="job-requirements">
+                    <li>Design caractère (PNJ, créatures, bosses iconiques)</li>
+                    <li>Architecture environnementale sombre et détaillée (châteaux, dungeons, mondes ouverts)</li>
+                    <li>Design d'armes et équipement unique et thématique</li>
+                    <li>Color scripting pour atmosphères évocatrices</li>
+                    <li>Narration visuelle implicite via l'art</li>
+                    <li>Maîtrise stylisation réaliste avec touches gothiques/mystiques</li>
+                </ul>
+                <div class="job-advice">
+                    <strong>Conseil:</strong> La patte FromSoftware mélange inspiration Wizardry et créativité propre. Votre portfolio doit montrer cohérence worldbuilding, détails narratifs subtils, et capacité à créer icons visuels mémorables (style Artorias, Malenia, Lady Maria).
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Liens Utiles</h2>
+            <div class="links-grid">
+                <div class="link-card">
+                    <strong>Site Web</strong>
+                    <p>Non spécifié - Contacter via Kadokawa Corporation</p>
+                </div>
+                <div class="link-card">
+                    <strong>Steam</strong>
+                    <p>Non spécifié - Vérifier les
