@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duper Games - Studio Indépendant Montpellier</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+        
+        .header .location {
+            margin-top: 10px;
+            font-size: 1em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-icon {
+            font-size: 1.5em;
+        }
+        
+        .identity-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .identity-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 3px solid #667eea;
+        }
+        
+        .identity-item strong {
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .game-card {
+            background: #f8f9fa;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+        
+        .game-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .game-card p {
+            margin-bottom: 10px;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+        
+        .recruitment-alert {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        
+        .recruitment-alert strong {
+            color: #856404;
+        }
+        
+        .recruitment-alert p {
+            color: #856404;
+            margin-top: 10px;
+        }
+        
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .job-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s ease;
+        }
+        
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+        
+        .job-card h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .job-status {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .status-open {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status-closed {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .job-details {
+            margin-top: 10px;
+            font-size: 0.95em;
+            line-height: 1.8;
+        }
+        
+        .job-details strong {
+            color: #667eea;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .link-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .link-card:hover {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+        
+        .link-card a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .link-card a:hover {
+            color: #764ba2;
+        }
+        
+        .link-label {
+            font-size: 0.85em;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .link-unavailable {
+            color: #999;
+            font-style: italic;
+        }
+        
+        .verdict {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .verdict h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        
+        .verdict-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .verdict-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .verdict-item strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .culture-box {
+            background: #e8f4f8;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            font-style: italic;
+            color: #2c5aa0;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+            border-top: 1px solid #dee2e6;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .identity-grid, .jobs-grid, .links-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .content {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎮 DUPER GAMES</h1>
+            <p>Studio Indépendant de Jeux Vidéo</p>
+            <div class="location">📍 Montpellier, France</div>
+        </div>
+        
+        <div class="content">
+            <!-- Section Identité -->
+            <section class="section">
+                <h2><span class="section-icon">🏢</span>Identité du Studio</h2>
+                <div class="identity-grid">
+                    <div class="identity-item">
+                        <strong>Fondation</strong>
+                        2023
+                    </div>
+                    <div class="identity-item">
+                        <strong>Taille d'équipe</strong>
+                        6 personnes (core team de 5)
+                    </div>
+                    <div class="identity-item">
+                        <strong>Type</strong>
+                        Indépendant
+                    </div>
+                    <div class="identity-item">
+                        <strong>Structure</strong>
+                        Collaboration de freelances en télétravail
+                    </div>
+                    <div class="identity-item">
+                        <strong>Éditeur</strong>
+                        Goblinz Publishing
+                    </div>
+                    <div class="identity-item">
+                        <strong>Localisation</strong>
+                        Montpellier, France
+                    </div>
+                </div>
+                
+                <div class="culture-box">
+                    <strong>Philosophie du studio :</strong><br>
+                    Collectif de créateurs et amis faisant des jeux petits, stratégiques et accessibles avec de petites équipes. Collaboration hands-on et proche des joueurs. "Duper" signifie "perdu" en argot français — un clin d'œil à l'esprit créatif et décalé du collectif.
+                </div>
+            </section>
+            
+            <!-- Section Jeux Notables -->
+            <section class="section">
+                <h2><span class="section-icon">🎯</span>Jeux Notables</h2>
+                <div class="game-card">
+                    <h3>Day of the Shell</h3>
+                    <p>Jeu stratégique et accessible développé par Duper Games, publié par Goblinz Publishing.</p>
+                    <span class="badge">Stratégie</span>
+                    <span class="badge">Accessible</span>
+                    <span class="badge">Indépendant</span>
+                </div>
+            </section>
+            
+            <!-- Section Recrutement -->
+            <section class="section">
+                <h2><span class="section-icon">💼</span>Recrutement & Opportunités</h2>
+                <div class="recruitment-alert">
+                    <strong>⚠️ Situation de recrutement</strong>
+                    <p>Le studio n'embauche pas actuellement. L'équipe est fermée et composée d'amis expérimentés travaillant ensemble. Aucun poste ouvert à ce moment.</p>
+                </div>
+                
+                <div class="jobs-grid">
+                    <div class="job-card">
+                        <div class="job-status status-closed">FERMÉ</div>
+                        <h3>Game Designer</h3>
+                        <div class="job-details">
+                            <strong>Compétences requises :</strong><br>
+                            - Design de jeux stratégiques<br>
+                            - Accessibilité ludique<br>
+                            - Expérience indé<br>
+                            <strong>Difficulté d'accès :</strong> Très élevée
+                        </div>
+                    </div>
+                    
+                    <div class="job-card">
+                        <div class="job-status status-closed">FERMÉ</div>
+                        <h3>Programmeur</h3>
+                        <div class="job-details">
+                            <strong>Compétences requises :</strong><br>
+                            - Programmation gameplay<br>
+                            - Architectures légères<br>
+                            - Jeux indépendants<br>
+                            <strong>Difficulté d'accès :</strong> Très élevée
+                        </div>
+                    </div>
+                    
+                    <div class="job-card">
+                        <div class="job-status status-closed">FERMÉ</div>
+                        <h3>Artiste 3D</h3>
+                        <div class="job-details">
+                            <strong>Compétences requises :</strong><br>
+                            - Modélisation 3D légère<br>
+                            - Petits projets<br>
+                            - Optimisation équipes réduites<br>
+                            <strong>Difficulté d'accès :</strong> Très élevée
+                        </div>
+                    </div>
+                    
+                    <div class="job-card">
+                        <div class="job-status status-closed">FERMÉ</div>
+                        <h3>UI Artist</h3>
+                        <div class="job-details">
+                            <strong>Compétences requises :</strong><br>
+                            - Design d'interfaces<br>
+                            - Jeux stratégiques<br>
+                            - UX accessible<br>
+                            <strong>Difficulté d'accès :</strong> Très élevée
+                        </div>
+                    </div>
+                    
+                    <div class="job-card">
+                        <div class="job-status status-closed">FERMÉ</div>
+                        <h3>Concept Artist</h3>
+                        <div class="job-details">
+                            <strong>Compétences requises :</strong><br>
+                            - Art concept créatif<br>
+                            - Collaboration créative<br>
+                            - Vision artistique<br>
+                            <strong>Difficulté d'accès :</strong> Très élevée
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section Conseils -->
+            <section class="section">
+                <h2><span class="section-icon">💡</span>Conseils pour Candidater</h2>
+                <div style="background: #f0f7ff; padding: 20px; border-radius: 8px; border-left: 4px solid #667eea;">
+                    <p><strong>Situation actuelle :</strong> Aucune opportunité disponible. L'équipe est composée d'amis expérimentés travaillant ensemble depuis la fondation du studio.</p>
+                    
+                    <p style="margin-top: 15px;"><strong>Recommandations :</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>Suivez leur newsletter et les mises à jour du studio</li>
+                        <li>Soyez patient — les opportunités pourraient émerger avec la croissance</li>
+                        <li>Mettez en avant votre expérience en jeux indépendants stratégiques</li>
+                        <li>Démontrez votre passion pour l'accessibilité ludique</li>
+                        <li>Engagez-vous avec la communauté Duper Games sur les réseaux sociaux</li>
+                        <li>Créez des prototypes ou des jeux inspirés par leur philosophie</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Section Liens Utiles -->
+            <section class="section">
+                <h2><span class="section-icon">🔗</span>Liens Utiles</h2>
+                <div class="links-grid">
+                    <div class="link-card">
+                        <a href="https://dupergames.com" target="_blank">Site Web Officiel</a>
+                        <div class="link-label">dupergames.com</div>
+                    </div>
+                    <div class="link-card">
+                        <span class="link-unavailable">Carrières</span>
+                        <div class="link-label">Non disponible</div>
+                    </div>
+                    <div class="link-card">
+                        <span class="link-unavailable">Contact Recrutement</span>
+                        <div class="link-label">Non fourni</div>
+                    </div>
+                    <div class="link-card">
+                        <span class="link-unavailable">Steam</span>
+                        <div class="link-label">Non fourni</div>
+                    </div>
+                    <div class="link-card">
+                        <span class="link-unavailable">LinkedIn</span>
+                        <div class="link-label">Non fourni</div>
+                    </div>
+                    <div class="link-card">
+                        <span class="link-unavailable">Discord / Communauté</span>
+                        <div class="link-label">À vérifier sur le site</div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section Verdict -->
+            <section class="section">
+                <div class="verdict">
+                    <h3>📊 Verdict & Synthèse</h3>
+                    
+                    <div class="verdict-item">
+                        <strong>Difficulté d'accès : 9/10 (TRÈS DIFFICILE)</strong>
+                        Aucune embauche en cours, équipe fermée d'amis expérimentés. L'accès est quasi-impossible actuellement.
+                    </div>
+                    
+                    <div class="verdict-item">
+                        <strong>Profil idéal :</strong>
+                        Développeur/artiste passionné par les jeux stratégiques accessibles, avec expérience en projets indépendants, prêt à contribuer à une vision créative collective.
+                    </div>
+                    
+                    <div class="verdict-item">
+                        <strong>Avantages du studio :</strong>
+                        ✓ Jeux créatifs et stratégiques<br>
+                        ✓ Équipe passionnée et cohésive<br>
+                        ✓ Télétravail flexible<br>
+                        ✓ Petit collectif hands-on<br>
+                        ✓ Éditeur de qualité (Goblinz Publishing)
+                    </div>
+                    
+                    <div class="verdict-item">
+                        <strong>Inconvénients :</strong>
+                        ✗ Aucune opportunité actuelle<br>
+                        ✗ Équipe fermée et établie<br>
+                        ✗ Pas de contact recrutement accessible<br>
+                        ✗ Attendre une croissance du studio
+                    </div>
+                    
+                    <div class="verdict-item">
+                        <strong>Recommandation finale :</strong>
+                        Si vous êtes passionné par Duper Games, mieux vaut vous engager avec la communauté, suivre leur newsletter et attendre d'éventuelles futures opportunités plutôt que de forcer une candidature. Montrez votre enthousiasme pour leur vision créative !
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <div class="footer">
+            <p>Fiche d'information studio — Duper Games | Mise à jour 2024 | Travaux, collaborations et environnement de travail basés sur les informations publiques disponibles</p>
+        </div>
+    </div>
+</body>
+</html>
