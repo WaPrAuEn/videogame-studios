@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bungie - Studio de Jeux Vidéo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a1f3a 0%, #2d3561 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        header p {
+            font-size: 1.3em;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+
+        .header-tagline {
+            font-size: 0.95em;
+            color: #a8d5ff;
+            margin-top: 15px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(45, 53, 97, 0.95);
+            padding: 15px 0;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        nav a {
+            color: #a8d5ff;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            background: rgba(168, 213, 255, 0.2);
+            color: #fff;
+        }
+
+        /* Sections */
+        section {
+            background: white;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        section h2 {
+            color: #1a1f3a;
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #ff6b35;
+            padding-bottom: 15px;
+        }
+
+        section h3 {
+            color: #2d3561;
+            font-size: 1.5em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        /* Identité */
+        .identity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .identity-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #ff6b35;
+        }
+
+        .identity-card strong {
+            color: #1a1f3a;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .identity-card span {
+            color: #555;
+        }
+
+        /* Jeux */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .game-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 10px;
+            border-top: 4px solid #ff6b35;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
+        }
+
+        .game-card h4 {
+            color: #1a1f3a;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .game-card p {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        /* Recrutement */
+        .recruitment-info {
+            background: linear-gradient(135deg, #fff5f1 0%, #ffe8e0 100%);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #ff6b35;
+            margin-bottom: 25px;
+        }
+
+        .recruitment-info p {
+            margin-bottom: 12px;
+            font-size: 1.05em;
+        }
+
+        .recruitment-info strong {
+            color: #1a1f3a;
+        }
+
+        /* Jobs Grid */
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .job-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 30px;
+            border-radius: 10px;
+            border-top: 5px solid #ff6b35;
+        }
+
+        .job-card h4 {
+            color: #1a1f3a;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+
+        .job-requirements {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .job-requirements h5 {
+            color: #2d3561;
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+
+        .job-requirements ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .job-requirements li {
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .job-requirements li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #ff6b35;
+            font-weight: bold;
+        }
+
+        .job-tips {
+            background: #fff5f1;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 3px solid #ff6b35;
+        }
+
+        .job-tips strong {
+            color: #1a1f3a;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .job-tips p {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+        }
+
+        .job-tips p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Liens Utiles */
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .link-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .link-card:hover {
+            border-color: #ff6b35;
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.2);
+        }
+
+        .link-card a {
+            display: inline-block;
+            color: white;
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8a5b 100%);
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-top: 15px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .link-card a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+        }
+
+        .link-card h4 {
+            color: #1a1f3a;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        /* Verdict */
+        .verdict {
+            background: linear-gradient(135deg, #1a1f3a 0%, #2d3561 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+        }
+
+        .verdict h2 {
+            color: white;
+            border-bottom-color: #ff6b35;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .verdict-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .verdict-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #ff6b35;
+            backdrop-filter: blur(10px);
+        }
+
+        .verdict-card h4 {
+            color: #ff6b35;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+        }
+
+        .verdict-card p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        .difficulty-meter {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            gap: 15px;
+        }
+
+        .difficulty-bar {
+            flex: 1;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .difficulty-fill {
+            height: 100%;
+            width: 80%;
+            background: linear-gradient(90deg, #ff6b35 0%, #ff8a5b 100%);
+        }
+
+        .difficulty-label {
+            color: #ff6b35;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(26, 31, 58, 0.95);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin-bottom: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav a {
+                display: block;
+            }
+
+            section {
+                padding: 25px;
+            }
+
+            section h2 {
+                font-size: 1.8em;
+            }
+
+            .identity-grid,
+            .games-grid,
+            .links-grid,
+            .verdict-content,
+            .jobs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        section:nth-child(1) { animation-delay: 0.1s; }
+        section:nth-child(2) { animation-delay: 0.2s; }
+        section:nth-child(3) { animation-delay: 0.3s; }
+        section:nth-child(4) { animation-delay: 0.4s; }
+        section:nth-child(5) { animation-delay: 0.5s; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🎮 BUNGIE</h1>
+        <p>Studio de Jeux Vidéo - Premier Party Sony</p>
+        <p class="header-tagline">Innovation, Communauté, Live-Service</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#identite">Identité</a></li>
+            <li><a href="#jeux">Jeux Notables</a></li>
+            <li><a href="#recrutement">Recrutement</a></li>
+            <li><a href="#metiers">Par Métier</a></li>
+            <li><a href="#liens">Liens Utiles</a></li>
+            <li><a href="#verdict">Verdict</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Section Identité -->
+        <section id="identite">
+            <h2>📋 Identité du Studio</h2>
+            <div class="identity-grid">
+                <div class="identity-card">
+                    <strong>📍 Localisation</strong>
+                    <span>Bellevue, États-Unis</span>
+                </div>
+                <div class="identity-card">
+                    <strong>📅 Fondation</strong>
+                    <span>1991</span>
+                </div>
+                <div class="identity-card">
+                    <strong>👥 Taille de l'équipe</strong>
+                    <span>~1200 employés</span>
+                </div>
+                <div class="identity-card">
+                    <strong>🎯 Type de Studio</strong>
+                    <span>Premier Party (Sony Interactive Entertainment)</span>
+                </div>
+                <div class="identity-card">
+                    <strong>🏢 Éditeurs</strong>
+                    <span>Sony Interactive Entertainment, Activision (anciennement)</span>
+                </div>
+                <div class="identity-card">
+                    <strong>💡 Culture</strong>
+                    <span>Collaborative, innovation, passion pour les jeux live-service, communauté joueurs</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Jeux Notables -->
+        <section id="jeux">
+            <h2>🎮 Jeux Notables</h2>
+            <div class="games-grid">
+                <div class="game-card">
+                    <h4>Halo: Combat Evolved</h4>
+                    <p>Le titre fondateur de Bungie qui a révolutionné les FPS sur console. Un classique intemporel qui a défini un genre entier.</p>
+                </div>
+                <div class="game-card">
+                    <h4>Destiny</h4>
+                    <p>Un FPS MMO innovant combinant action intense et progression sociale. Première aventure majeure de Bungie avec les jeux live-service.</p>
+                </div>
+                <div class="game-card">
+                    <h4>Destiny 2</h4>
+                    <p>La suite améliorée avec des contenus réguliers, un gameplay affiné et une communauté florissante. Le titre phare actuel du studio.</p>
+                </div>
+                <div class="game-card">
+                    <h4>Marathon</h4>
+                    <p>Un nouveau FPS multijoueur gratuit en développement. Bungie revisite ses racines avec une approche moderne et communautaire.</p>
+                </div>
+                <div class="game-card">
+                    <h4>Myth: The Fallen Lords</h4>
+                    <p>Un jeu de stratégie en temps réel classique. Montre l'expertise de Bungie au-delà des FPS purs.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Recrutement -->
+        <section id="recrutement">
+            <h2>💼 Recrutement</h2>
+            <div class="recruitment-info">
+                <p><strong>📧 Email Recrutement:</strong> jobs@bungie.com</p>
+                <p><strong>🌐 Site Carrières:</strong> https://bungie.careers</p>
+                <p><strong>📋 Postes Ouverts:</strong> Plusieurs postes en développement, design et art disponibles. Vérifiez le site carrière pour les offres actuelles.</p>
+            </div>
+
+            <h3>Conditions et Difficultés</h3>
+            <div class="recruitment-info">
+                <p><strong>🎯 Niveau de Difficulté:</strong> ÉLEVÉ (4/5)</p>
+                <p><strong>📌 Exigences principales:</strong></p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li style="margin-bottom: 8px;">✓ Expérience AAA (jeux de grande envergure)</li>
+                    <li style="margin-bottom: 8px;">✓ Portfolio solide et démontrable</li>
+                    <li style="margin-bottom: 8px;">✓ Expérience avec jeux multijoueur/live-service</li>
+                    <li style="margin-bottom: 8px;">✓ Réseau professionnel établi (LinkedIn)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section Par Métier -->
+        <section id="metiers">
+            <h2>👨‍💼 Opportunités par Métier</h2>
+            
+            <div class="jobs-grid">
+                <!-- Game Designer -->
+                <div class="job-card">
+                    <h4>🎮 Game Designer</h4>
+                    <div class="job-requirements">
+                        <h5>COMPÉTENCES REQUISES</h5>
+                        <ul>
+                            <li>Expérience en design de jeux multijoueur</li>
+                            <li>Connaissance des systèmes live-service</li>
+                            <li>Expertise en level design ou game balance</li>
+                            <li>Maîtrise des outils comme Unreal Engine</li>
+                        </ul>
+                    </div>
+                    <div class="job-tips">
+                        <strong>💡 Conseils pour candidater:</strong>
+                        <p>• Montrer un portfolio avec exemples de jeux multijoueur</p>
+                        <p>• Mettre en avant l'expérience avec les jeux de style Destiny</p>
+                        <p>• Démontrer la compréhension des systèmes de progression</p>
+                    </div>
+                </div>
+
+                <!-- Programmeur -->
+                <div class="job-card">
+                    <h4>💻 Programmeur</h4>
+                    <div class="job-requirements">
+                        <h5>COMPÉTENCES REQUISES</h5>
+                        <ul>
+                            <li>C++ et/ou C# avancé</li>
+                            <li>Expérience avec Unreal Engine ou moteurs AAA</li>
+                            <li>Expertise en architecture logicielle</li>
+                            <li>Expérience en jeux live multijoueur</li>
+                        </ul>
+                    </div>
+                    <div class="job-tips">
+                        <strong>💡 Conseils pour candidater:</strong>
+                        <p>• Montrer des projets GitHub ou code porfolio</p>
+                        <p>• Mettre en avant l'expérience multiplayer/réseau</p>
+                        <p>• Démontrer la scalabilité des systèmes (serveurs)</p>
+                    </div>
+                </div>
+
+                <!-- Artiste 3D -->
+                <div class="job-card">
+                    <h4>🎨 Artiste 3D</h4>
+                    <div class="job-requirements">
+                        <h5>COMPÉTENCES REQUISES</h5>
+                        <ul>
+                            <li>Maîtrise de Maya, Blender ou 3ds Max</li>
+                            <li>Substance Painter pour les textures</li>
+                            <li>Optimisation pour les moteurs de jeu</li>
+                            <li>Expérience AAA en assets/environnements</li>
+                        </ul>
+                    </div>
+                    <div class="job-tips">
+                        <strong>💡 Conseils pour candidater:</strong>
+                        <p>• Portfolio web avec haute résolution et breakdown</p>
+                        <p>• Montrer la compréhension du style Destiny</p>
+                        <p>• Inclure des assets actualisés et variés (env/chars)</p>
+                    </div>
+                </div>
+
+                <!-- UI Artist -->
+                <div class="job-card">
+                    <h4>🖼️ UI/UX Artist</h4>
+                    <div class="job-requirements">
+                        <h5>COMPÉTENCES REQUISES</h5>
+                        <ul>
+                            <li>Figma, Adobe XD ou Sketch</li>
+                            <li>Design d'interface pour jeux multijoueur</li>
+                            <li>Expérience avec systèmes de progression complexes</li>
+                            <li>Connaissance de la psychologie UX gaming</li>
+                        </ul>
+                    </div>
+                    <div class="job-tips">
+                        <strong>
