@@ -70,6 +70,7 @@
 - [TapNation](studios/tapnation.html) — Paris, France
 - [Team Cherry](studios/team-cherry.html) — Adélaïde, Australie
 - [The Yard VFX](studios/the-yard-vfx.html) — Montpellier, France
+- [Tin Can Studio](studios/tin-can-studio.html) — Lyon, France
 - [Tronatic Studio](studios/tronatic-studio.html) — Saint Avertin (Tours), France
 - [Twin Sails Interactive](studios/twin-sails-interactive.html) — Paris, France
 - [Ubisoft Annecy](studios/ubisoft-annecy.html) — Annecy, France
