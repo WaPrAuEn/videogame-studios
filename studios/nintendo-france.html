@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nintendo France - Fiche Studio</title>
+    <title>Nintendo France - Fiche Entreprise</title>
     <style>
         * {
             margin: 0;
@@ -13,36 +13,35 @@
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #e60012 0%, #003da5 100%);
-            color: #333;
             line-height: 1.6;
-            min-height: 100vh;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 20px;
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             background: white;
-            border-radius: 12px;
+            border-radius: 15px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
             overflow: hidden;
         }
         
-        header {
-            background: linear-gradient(135deg, #e60012 0%, #003da5 100%);
+        .header {
+            background: linear-gradient(135deg, #e60012 0%, #003399 100%);
             color: white;
-            padding: 40px 30px;
+            padding: 40px;
             text-align: center;
         }
         
-        header h1 {
+        .header h1 {
             font-size: 2.5em;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
         
-        header p {
+        .header p {
             font-size: 1.1em;
             opacity: 0.95;
         }
@@ -51,11 +50,11 @@
             padding: 40px;
         }
         
-        section {
+        .section {
             margin-bottom: 40px;
         }
         
-        section h2 {
+        .section h2 {
             color: #e60012;
             font-size: 1.8em;
             margin-bottom: 20px;
@@ -63,437 +62,408 @@
             border-bottom: 3px solid #e60012;
         }
         
-        .grid-2 {
+        .identity-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
             margin-bottom: 30px;
         }
         
-        .card {
+        .identity-card {
             background: #f8f9fa;
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 10px;
             border-left: 4px solid #e60012;
         }
         
-        .card h3 {
-            color: #003da5;
+        .identity-card h3 {
+            color: #003399;
+            margin-bottom: 10px;
+            font-size: 0.95em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .identity-card p {
+            color: #555;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+        
+        .games-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .game-tag {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(102, 126, 234, 0.4);
+        }
+        
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .job-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-top: 4px solid #e60012;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(230, 0, 18, 0.2);
+        }
+        
+        .job-card h3 {
+            color: #003399;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .job-card p {
+            color: #555;
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+        
+        .difficulty {
+            display: inline-block;
+            background: #fff3cd;
+            color: #856404;
+            padding: 5px 12px;
+            border-radius: 5px;
+            font-weight: 600;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .link-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: block;
+            text-align: center;
+        }
+        
+        .link-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .link-card h4 {
             margin-bottom: 10px;
             font-size: 1.1em;
         }
         
-        .card p {
+        .link-card p {
+            font-size: 0.85em;
+            opacity: 0.9;
+        }
+        
+        .verdict-box {
+            background: linear-gradient(135deg, #e60012 0%, #003399 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        .verdict-box h3 {
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .verdict-box p {
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+        
+        .highlight {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-left: 3px solid white;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+        
+        .recruitment-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .recruitment-section h3 {
+            color: #003399;
+            margin-bottom: 15px;
+        }
+        
+        .culture-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .culture-list li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
             color: #555;
-            margin-bottom: 8px;
+        }
+        
+        .culture-list li:before {
+            content: "★";
+            position: absolute;
+            left: 0;
+            color: #e60012;
+            font-size: 1.2em;
         }
         
         .badge {
             display: inline-block;
             background: #e60012;
             color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
+            padding: 5px 10px;
+            border-radius: 5px;
             font-size: 0.85em;
             margin-right: 5px;
             margin-bottom: 5px;
+            font-weight: 600;
         }
         
-        .badge-neutral {
-            background: #6c757d;
-        }
-        
-        .badge-success {
-            background: #28a745;
-        }
-        
-        .links-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .link-card {
+        .footer {
             background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
+            padding: 20px 40px;
             text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .link-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(230, 0, 18, 0.2);
-        }
-        
-        .link-card a {
-            color: #003da5;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.95em;
-            word-break: break-word;
-        }
-        
-        .link-card a:hover {
-            color: #e60012;
-        }
-        
-        .link-card p {
-            color: #666;
-            font-size: 0.85em;
-            margin-top: 8px;
-        }
-        
-        .metier-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .metier-card {
-            background: #fff;
-            border: 2px solid #e60012;
-            border-radius: 8px;
-            padding: 20px;
-            transition: all 0.3s;
-        }
-        
-        .metier-card:hover {
-            box-shadow: 0 5px 15px rgba(230, 0, 18, 0.15);
-            transform: translateY(-3px);
-        }
-        
-        .metier-card h3 {
-            color: #e60012;
-            margin-bottom: 15px;
-            font-size: 1.2em;
-        }
-        
-        .difficulty-bar {
-            background: #e9ecef;
-            height: 8px;
-            border-radius: 4px;
-            overflow: hidden;
-            margin-top: 10px;
-        }
-        
-        .difficulty-fill {
-            background: linear-gradient(90deg, #28a745, #ffc107, #dc3545);
-            height: 100%;
-            width: 80%;
-            border-radius: 4px;
-        }
-        
-        .verdict {
-            background: linear-gradient(135deg, #f8f9fa, #e8eef5);
-            border: 2px solid #003da5;
-            border-radius: 8px;
-            padding: 25px;
-            margin-top: 20px;
-        }
-        
-        .verdict h3 {
-            color: #003da5;
-            margin-bottom: 15px;
-            font-size: 1.3em;
-        }
-        
-        .verdict-item {
-            margin-bottom: 12px;
-            padding-left: 25px;
-            position: relative;
-        }
-        
-        .verdict-item:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #e60012;
-            font-weight: bold;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .stat-box {
-            background: linear-gradient(135deg, #e60012, #003da5);
-            color: white;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-        }
-        
-        .stat-box strong {
-            display: block;
-            font-size: 1.5em;
-            margin-bottom: 5px;
-        }
-        
-        .stat-box span {
+            color: #999;
             font-size: 0.9em;
-            opacity: 0.9;
-        }
-        
-        .conseil {
-            background: #e8f4f8;
-            border-left: 4px solid #003da5;
-            padding: 20px;
-            border-radius: 4px;
-            margin-top: 20px;
-        }
-        
-        .conseil strong {
-            color: #003da5;
-        }
-        
-        footer {
-            background: #f8f9fa;
-            padding: 20px;
-            text-align: center;
-            color: #666;
-            font-size: 0.9em;
-            border-top: 1px solid #dee2e6;
-        }
-        
-        @media (max-width: 768px) {
-            .grid-2, .links-grid, .metier-container, .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            header h1 {
-                font-size: 2em;
-            }
-            
-            .content {
-                padding: 20px;
-            }
+            border-top: 1px solid #ddd;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
+        <div class="header">
             <h1>🎮 Nintendo France</h1>
-            <p>Studio d'édition - Courbevoie, France</p>
-        </header>
+            <p>Studio de Développement - Courbevoie</p>
+        </div>
         
         <div class="content">
-            <!-- SECTION IDENTITÉ -->
-            <section>
-                <h2>Identité du Studio</h2>
-                <div class="stats-grid">
-                    <div class="stat-box">
-                        <strong>Fondé</strong>
-                        <span>1993</span>
+            <!-- IDENTITÉ -->
+            <section class="section">
+                <h2>📋 Identité de l'Entreprise</h2>
+                <div class="identity-grid">
+                    <div class="identity-card">
+                        <h3>Localisation</h3>
+                        <p>Courbevoie, France</p>
                     </div>
-                    <div class="stat-box">
-                        <strong>Effectif</strong>
-                        <span>50-99 employés</span>
+                    <div class="identity-card">
+                        <h3>Fondation</h3>
+                        <p>1993</p>
                     </div>
-                    <div class="stat-box">
-                        <strong>Type</strong>
-                        <span>Éditeur</span>
+                    <div class="identity-card">
+                        <h3>Effectifs (2022)</h3>
+                        <p>56 employés</p>
                     </div>
-                    <div class="stat-box">
-                        <strong>Groupe</strong>
-                        <span>Nintendo</span>
+                    <div class="identity-card">
+                        <h3>Type d'Entreprise</h3>
+                        <p>Éditeur de Jeux Vidéo</p>
                     </div>
-                </div>
-                
-                <div class="grid-2" style="margin-top: 25px;">
-                    <div class="card">
-                        <h3>📍 Localisation</h3>
-                        <p><strong>Courbevoie, France</strong></p>
-                        <p>Région parisienne, excellente accessibilité</p>
+                    <div class="identity-card">
+                        <h3>Maison Mère</h3>
+                        <p>Nintendo Co., Ltd. (Kyoto, Japon)</p>
                     </div>
-                    <div class="card">
-                        <h3>💡 Culture d'Entreprise</h3>
-                        <p>✓ Fidélité élevée des salariés</p>
-                        <p>✓ Effectif modeste et serré</p>
-                        <p>✓ Rentabilité exceptionnelle par employé</p>
+                    <div class="identity-card">
+                        <h3>Fondation Originelle</h3>
+                        <p>1889 (histoire riche)</p>
                     </div>
                 </div>
             </section>
             
-            <!-- SECTION JEUX NOTABLES -->
-            <section>
-                <h2>Jeux Notables</h2>
-                <p style="margin-bottom: 20px;">En tant qu'éditeur, Nintendo France est responsable de la distribution et commercialisation des franchises majeures Nintendo en France :</p>
-                <div class="grid-2">
-                    <div class="card">
-                        <h3>🍄 Super Mario</h3>
-                        <p>Plateforme, action. Franchise iconique depuis 1985.</p>
-                        <span class="badge">Plateforme</span>
-                    </div>
-                    <div class="card">
-                        <h3>⚔️ The Legend of Zelda</h3>
-                        <p>Action-aventure, énigmes. Référence du jeu vidéo.</p>
-                        <span class="badge">Aventure</span>
-                    </div>
-                    <div class="card">
-                        <h3>🔴 Pokémon</h3>
-                        <p>RPG, collection. Phénomène culturel mondial.</p>
-                        <span class="badge">RPG</span>
-                    </div>
-                    <div class="card">
-                        <h3>🎮 Autres Franchises</h3>
-                        <p>Mario Kart, Donkey Kong, Animal Crossing, Splatoon...</p>
-                        <span class="badge">Multi-genres</span>
-                    </div>
+            <!-- JEUX NOTABLES -->
+            <section class="section">
+                <h2>🎯 Franchises et Jeux Notables</h2>
+                <p style="margin-bottom: 20px; color: #555;">Nintendo France est associé aux plus grandes franchises mondiales:</p>
+                <div class="games-list">
+                    <div class="game-tag">🍄 Mario</div>
+                    <div class="game-tag">🦍 Donkey Kong</div>
+                    <div class="game-tag">⚔️ The Legend of Zelda</div>
+                    <div class="game-tag">⚡ Pokémon</div>
+                    <div class="game-tag">🎶 Metroid</div>
+                    <div class="game-tag">👽 Kirby</div>
+                    <div class="game-tag">🏠 Animal Crossing</div>
+                    <div class="game-tag">🌿 Pikmin</div>
+                    <div class="game-tag">🎨 Splatoon</div>
                 </div>
             </section>
             
-            <!-- SECTION RECRUTEMENT -->
-            <section>
-                <h2>Recrutement</h2>
-                <div class="grid-2">
-                    <div class="card">
-                        <h3>📋 Postes Actuellement Ouverts</h3>
-                        <p style="color: #666;">Données récentes non spécifiées</p>
-                        <p style="margin-top: 10px; font-size: 0.95em;">Consultez régulièrement le portail carrière Nintendo Europe pour les dernières offres.</p>
-                    </div>
-                    <div class="card">
-                        <h3>⭐ Difficulté de Recrutement</h3>
-                        <p style="font-size: 1.3em; margin-bottom: 10px;">
-                            <strong style="color: #e60012;">4/5 - Élevée</strong>
-                        </p>
-                        <p>Grande marque prestigieuse avec processus sélectif rigoureux via Nintendo Europe.</p>
-                    </div>
-                </div>
-                
-                <div class="conseil">
-                    <strong>💼 Conseil pour postuler :</strong>
-                    <p style="margin-top: 10px;">Postulez via le portail carrière Nintendo Europe. Mettez en avant votre expérience dans l'industrie vidéoludique et présentez un portfolio adapté à l'univers Nintendo. Démontrez votre passion pour les franchises Nintendo et votre compréhension du public français.</p>
+            <!-- CULTURE & VALEURS -->
+            <section class="section">
+                <h2>🌟 Culture d'Entreprise</h2>
+                <div class="recruitment-section">
+                    <h3>Valeurs et Spécialités</h3>
+                    <ul class="culture-list">
+                        <li><strong>Innovation Technologique</strong> - Développement constant de nouvelles consoles et logiciels</li>
+                        <li><strong>Divertissement de Qualité</strong> - Création d'expériences ludiques exceptionnelles</li>
+                        <li><strong>Franchises Iconiques</strong> - Porteuses de l'héritage Nintendo depuis 1889</li>
+                        <li><strong>Excellence Créative</strong> - Équipes multidisciplinaires hautement spécialisées</li>
+                        <li><strong>Passion du Jeu Vidéo</strong> - Culture d'entreprise centrée sur la qualité</li>
+                    </ul>
                 </div>
             </section>
             
-            <!-- SECTION LIENS UTILES -->
-            <section>
-                <h2>Liens Utiles</h2>
-                <div class="links-grid">
-                    <div class="link-card">
-                        <h3>🌐 Site Web</h3>
-                        <a href="https://www.nintendo.com/fr-fr/" target="_blank">www.nintendo.com/fr-fr/</a>
-                        <p>Site officiel Nintendo France</p>
-                    </div>
-                    <div class="link-card">
-                        <h3>👔 Carrières</h3>
-                        <a href="https://nintendoeurope.csod.com/ux/ats/careersite/1/home?c=nintendoeurope" target="_blank">nintendoeurope.csod.com</a>
-                        <p>Portail de recrutement Nintendo Europe</p>
-                    </div>
-                    <div class="link-card">
-                        <h3>💼 LinkedIn</h3>
-                        <a href="https://www.linkedin.com/company/nintendo-of-europe/" target="_blank">Nintendo of Europe</a>
-                        <p>Suivre l'actualité et réseau</p>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- SECTION PAR MÉTIER -->
-            <section>
-                <h2>Opportunités par Métier</h2>
-                <div class="metier-container">
-                    <div class="metier-card">
-                        <h3>🎨 Game Designer</h3>
-                        <p><strong>Demande :</strong> <span class="badge">Moyen</span></p>
-                        <p style="margin-top: 10px; color: #666;">Nintendo France étant un éditeur (peu de développement interne), les postes de Game Designer sont moins nombreux. Focus sur la stratégie commerciale et l'adaptation des jeux au marché français.</p>
-                        <div class="difficulty-bar">
-                            <div class="difficulty-fill" style="width: 50%;"></div>
-                        </div>
+            <!-- MÉTIERS -->
+            <section class="section">
+                <h2>💼 Par Métier</h2>
+                <div class="jobs-grid">
+                    <div class="job-card">
+                        <h3>🎮 Game Designer</h3>
+                        <p><strong>Statut:</strong> <span class="badge">OUI</span></p>
+                        <p><strong>Responsabilités:</strong></p>
+                        <p>Développement de jeux vidéo innovants et d'expériences interactives engageantes. Conception de mécaniques de jeu, narration interactive et user experience.</p>
+                        <span class="difficulty">Difficulté: MODÉRÉE À ÉLEVÉE</span>
                     </div>
                     
-                    <div class="metier-card">
+                    <div class="job-card">
                         <h3>💻 Programmeur</h3>
-                        <p><strong>Demande :</strong> <span class="badge">Moyen</span></p>
-                        <p style="margin-top: 10px; color: #666;">Postes limités en raison du modèle d'éditeur. Plutôt orientés support technique, optimisation et outils de distribution.</p>
-                        <div class="difficulty-bar">
-                            <div class="difficulty-fill" style="width: 50%;"></div>
-                        </div>
+                        <p><strong>Statut:</strong> <span class="badge">OUI</span></p>
+                        <p><strong>Responsabilités:</strong></p>
+                        <p>Engineering est le plus grand département (536 employés). Développement backend, systèmes de jeu, optimisation et architecture logicielle.</p>
+                        <span class="difficulty">Difficulté: ÉLEVÉE</span>
                     </div>
                     
-                    <div class="metier-card">
-                        <h3>🎭 Artiste 3D</h3>
-                        <p><strong>Demande :</strong> <span class="badge">Moyen</span></p>
-                        <p style="margin-top: 10px; color: #666;">Peu de création interne. Peut intervenir sur du contenu marketing ou des adaptations graphiques pour le marché français.</p>
-                        <div class="difficulty-bar">
-                            <div class="difficulty-fill" style="width: 50%;"></div>
-                        </div>
+                    <div class="job-card">
+                        <h3>🎨 Artiste 3D</h3>
+                        <p><strong>Statut:</strong> <span class="badge">OUI</span></p>
+                        <p><strong>Responsabilités:</strong></p>
+                        <p>Production et développement de contenu visuel haute qualité. Modélisation 3D, texturing, animation et optimisation graphique.</p>
+                        <span class="difficulty">Difficulté: MODÉRÉE À ÉLEVÉE</span>
                     </div>
                     
-                    <div class="metier-card">
-                        <h3>🖼️ UI/UX Artist</h3>
-                        <p><strong>Demande :</strong> <span class="badge">Moyen</span></p>
-                        <p style="margin-top: 10px; color: #666;">Interface, localisation, adaptation UI pour le marché français. Compétence utile pour les équipes d'édition.</p>
-                        <div class="difficulty-bar">
-                            <div class="difficulty-fill" style="width: 50%;"></div>
-                        </div>
+                    <div class="job-card">
+                        <h3>🖼️ UI Artist</h3>
+                        <p><strong>Statut:</strong> <span class="badge">OUI</span></p>
+                        <p><strong>Responsabilités:</strong></p>
+                        <p>Design d'interfaces utilisateur innovantes. Marketing and Product compte 412 employés. Création d'éléments visuels et expérience utilisateur.</p>
+                        <span class="difficulty">Difficulté: MODÉRÉE</span>
                     </div>
                     
-                    <div class="metier-card">
-                        <h3>🎨 Concept Artist</h3>
-                        <p><strong>Demande :</strong> <span class="badge">Moyen</span></p>
-                        <p style="margin-top: 10px; color: #666;">Matériaux marketing, illustrations promotionnelles. Opportunités limitées mais présentes pour du contenu commercial.</p>
-                        <div class="difficulty-bar">
-                            <div class="difficulty-fill" style="width: 50%;"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="metier-card" style="border-color: #003da5;">
-                        <h3>📱 Rôles Éditeur</h3>
-                        <p><strong>Meilleure opportunité</strong> <span class="badge badge-success">Haute demande</span></p>
-                        <p style="margin-top: 10px; color: #666;">Community Manager, Product Manager, Marketing, Business Development. Les vrais besoins de Nintendo France.</p>
-                        <div class="difficulty-bar">
-                            <div class="difficulty-fill" style="width: 70%;"></div>
-                        </div>
+                    <div class="job-card">
+                        <h3>✏️ Concept Artist</h3>
+                        <p><strong>Statut:</strong> <span class="badge">OUI</span></p>
+                        <p><strong>Responsabilités:</strong></p>
+                        <p>Création de franchises et univers de jeux. Design des personnages, environnements, direction artistique et vision créative globale.</p>
+                        <span class="difficulty">Difficulté: MODÉRÉE À ÉLEVÉE</span>
                     </div>
                 </div>
             </section>
             
-            <!-- SECTION VERDICT -->
-            <section>
-                <div class="verdict">
-                    <h3>📊 Verdict Global</h3>
+            <!-- RECRUTEMENT -->
+            <section class="section">
+                <h2>🚀 Recrutement et Candidature</h2>
+                <div class="recruitment-section">
+                    <h3>Postes Ouverts</h3>
+                    <p>Consultez régulièrement le portail de recrutement officiel pour les offres actuelles et adaptées à votre profil.</p>
+                </div>
+                
+                <div class="recruitment-section">
+                    <h3>📧 Contact Recrutement</h3>
+                    <p><strong>Email:</strong> Non disponible (passer par le portail officiel)</p>
+                </div>
+                
+                <div class="recruitment-section">
+                    <h3>📌 Conseils de Candidature</h3>
+                    <ul class="culture-list">
+                        <li><strong>Postuler via le portail officiel</strong> Nintendo Europe - Le seul canal de recrutement légitime</li>
+                        <li><strong>Démontrer votre passion</strong> pour les jeux vidéo et la créativité interactive</li>
+                        <li><strong>Justifier votre expérience</strong> pertinente dans le secteur du jeu vidéo</li>
+                        <li><strong>Préparer portfolio</strong> ou démonstration de vos projets personnels</li>
+                        <li><strong>Processus structuré</strong> - Préparez-vous à environ 5 étapes de sélection</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- LIENS UTILES -->
+            <section class="section">
+                <h2>🔗 Liens Utiles</h2>
+                <div class="links-grid">
+                    <a href="https://nintendoeurope.csod.com/ux/ats/careersite/1/home?c=nintendoeurope" class="link-card" target="_blank">
+                        <h4>💼 Portail Carrières</h4>
+                        <p>Consultez les offres d'emploi officielles Nintendo Europe</p>
+                    </a>
                     
-                    <div class="verdict-item">
-                        <strong>Prestige et Marque</strong> : Nintendo est une marque mondialement reconnue et vénérée. Travailler pour Nintendo France est prestigieux et reconnu dans l'industrie.
+                    <a href="https://www.nintendo.com/fr-fr/" class="link-card" target="_blank">
+                        <h4>🌐 Site Web Nintendo France</h4>
+                        <p>Découvrez l'univers officiel de Nintendo</p>
+                    </a>
+                    
+                    <a href="https://www.linkedin.com/company/nintendo-of-europe/" class="link-card" target="_blank">
+                        <h4>💻 Page LinkedIn</h4>
+                        <p>Suivez Nintendo of Europe et restez informé</p>
+                    </a>
+                </div>
+                <p style="margin-top: 20px; color: #999; font-size: 0.95em;">
+                    <strong>Note:</strong> Steam n'est pas applicable pour Nintendo France (plateforme propriétaire Nintendo)
+                </p>
+            </section>
+            
+            <!-- VERDICT -->
+            <section class="section">
+                <div class="verdict-box">
+                    <h3>⭐ Verdict Global</h3>
+                    <p><strong>Difficulté d'Accès:</strong> Modérée à Élevée</p>
+                    <p>Nintendo France est une entreprise prestigieuse avec un processus de recrutement structuré et exigeant (5 étapes minimum). Avec seulement 56 employés, le nombre de postes disponibles est limité.</p>
+                    
+                    <div class="highlight">
+                        <p><strong>✅ Points Forts:</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Entreprise légendaire avec 130+ ans d'histoire</li>
+                            <li>Accès à des franchises iconiques mondialement reconnues</li>
+                            <li>Équipes multidisciplinaires hautement spécialisées</li>
+                            <li>Environnement créatif et innovant</li>
+                            <li>Stabilité et prestige du groupe Nintendo</li>
+                        </ul>
                     </div>
                     
-                    <div class="verdict-item">
-                        <strong>Culture Entreprise</strong> : Fidélité élevée des employés, effectif serré créant une ambiance collaborative. Rentabilité exceptionnelle par personne montre l'efficacité et la qualité.
+                    <div class="highlight">
+                        <p><strong>⚠️ Points à Considérer:</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Processus de recrutement structuré et sélectif</li>
+                            <li>Peu de postes disponibles (entreprise de taille petite/moyenne)</li>
+                            <li>Compétition élevée entre candidats</li>
+                            <li>Expérience préalable fortement demandée</li>
+                        </ul>
                     </div>
                     
-                    <div class="verdict-item">
-                        <strong>Opportunités Créatives</strong> : Limitées en tant qu'éditeur (peu de développement interne). La créativité se manifeste plutôt dans le marketing, la commercialisation et l'adaptation aux marchés.
-                    </div>
-                    
-                    <div class="verdict-item">
-                        <strong>Stabilité</strong> : Excellente. Nintendo est rentable et stable, avec une clientèle fidèle. Pas de risque majeur à court/moyen terme.
-                    </div>
-                    
-                    <div class="verdict-item">
-                        <strong>Difficulté d'Accès</strong> : Élevée (4/5). Grande marque avec processus sélectif strict. Nécessite portfolio solide et expérience vidéoludique confirmée.
-                    </div>
-                    
-                    <div class="verdict-item">
-                        <strong>Pour qui ?</strong> : Idéal pour profils orientés marketing/édition, ou développeurs cherchant stabilité et prestige. Moins adapté aux créatifs visant développement pur (peu de postes internes).
-                    </div>
-                    
-                    <div class="verdict-item">
-                        <strong>Rémunération estimée</strong> : Probable que salaires soient compétitifs mais pas excessifs (éditeur, pas créatif pur). Avantages sociaux Nintendo excellents.
-                    </div>
+                    <p style="margin-top: 20px;"><strong>🎯 Recommandation:</strong> Idéal pour les professionnels du jeu vidéo avec expérience confirmée et véritable passion pour Nintendo. Postulez via le portail officiel avec un portfolio solide et démontrez votre connaissance de l'univers Nintendo.</p>
                 </div>
             </section>
         </div>
         
-        <footer>
-            <p>Fiche informative - Nintendo France | Mise à jour : 2024 | Données compilées à partir de sources publiques</p>
-        </footer>
+        <div class="footer">
+            <p>Fiche Informative Nintendo France - Mise à jour 2024</p>
+            <p>Les informations contenues sont basées sur les données disponibles publiquement</p>
+        </div>
     </div>
 </body>
 </html>
