@@ -23,6 +23,7 @@
 - [BlueTwelve Studio](studios/bluetwelve-studio.html) — Montpellier, France
 - [Brain Up](studios/brain-up.html) — Bordeaux, France
 - [Build The Light](studios/build-the-light.html) — Montpellier, France
+- [Capcom Entertainment France](studios/capcom-entertainment-france.html) — Saint Germain en Laye, France
 - [Carpool Studio](studios/carpool-studio.html) — Montpellier et Paris, France
 - [CD Projekt Red](studios/cd-projekt-red.html) — Varsovie, Pologne
 - [Celsiusonline](studios/celsiusonline.html) — 
