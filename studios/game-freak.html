@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Freak - Studio de Développement de Jeux Vidéo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .logo-icon {
+            font-size: 2.5em;
+        }
+
+        section {
+            background: white;
+            margin-bottom: 25px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        .identity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .identity-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #667eea;
+        }
+
+        .identity-card strong {
+            color: #1a1a2e;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .identity-card p {
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .game-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .game-card h4 {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .game-card p {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .recruitment-status {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .recruitment-status strong {
+            color: #856404;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .link-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #667eea;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .link-card:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .link-card a {
+            color: inherit;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border-top: 5px solid #667eea;
+        }
+
+        .skill-card h4 {
+            color: #1a1a2e;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .skill-level {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .skill-label {
+            color: #764ba2;
+            font-weight: bold;
+            min-width: 100px;
+        }
+
+        .skill-bar {
+            flex: 1;
+            height: 8px;
+            background: #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 4px;
+        }
+
+        .difficulty-meter {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .difficulty-stars {
+            display: flex;
+            gap: 5px;
+        }
+
+        .star {
+            color: #ffc107;
+            font-size: 1.2em;
+        }
+
+        .verdict {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .verdict h2 {
+            color: white;
+            border-bottom-color: white;
+        }
+
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .pros, .cons {
+            text-align: left;
+        }
+
+        .pros h4 {
+            color: #90EE90;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .cons h4 {
+            color: #FFB6C6;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .pros ul, .cons ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .pros li:before {
+            content: "✓ ";
+            color: #90EE90;
+            margin-right: 8px;
+        }
+
+        .cons li:before {
+            content: "✗ ";
+            color: #FFB6C6;
+            margin-right: 8px;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .advice-box {
+            background: #e7f3ff;
+            border-left: 5px solid #2196F3;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .advice-box strong {
+            color: #1565C0;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .pros-cons {
+                grid-template-columns: 1fr;
+            }
+
+            .identity-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .logo-section {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-section">
+                <div class="logo-icon">🎮</div>
+                <div>
+                    <h1>GAME FREAK</h1>
+                    <p>Studio de Développement Spécialisé en RPG et Pokémon</p>
+                </div>
+                <div class="logo-icon">⚡</div>
+            </div>
+        </header>
+
+        <section>
+            <h2>📋 Identité du Studio</h2>
+            <div class="identity-grid">
+                <div class="identity-card">
+                    <strong>📍 Localisation</strong>
+                    <p>Tokyo, Japon</p>
+                </div>
+                <div class="identity-card">
+                    <strong>📅 Fondation</strong>
+                    <p>1989</p>
+                </div>
+                <div class="identity-card">
+                    <strong>👥 Taille de l'équipe</strong>
+                    <p>118 personnes</p>
+                </div>
+                <div class="identity-card">
+                    <strong>🎯 Spécialité</strong>
+                    <p>Développeur RPG et Pokémon</p>
+                </div>
+                <div class="identity-card">
+                    <strong>🏢 Partenaires Éditeurs</strong>
+                    <p>Nintendo, The Pokémon Company, Namco, Sega, Hudson Soft</p>
+                </div>
+                <div class="identity-card">
+                    <strong>🎨 Vision</strong>
+                    <p>Studio indépendant axé sur créativité et projets originaux</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>🎮 Jeux Notables</h2>
+            <div class="games-grid">
+                <div class="game-card">
+                    <h4>Pokémon Rouge et Vert</h4>
+                    <p>Franchises principales</p>
+                </div>
+                <div class="game-card">
+                    <h4>Pokémon Série Principale</h4>
+                    <p>Développement continu</p>
+                </div>
+                <div class="game-card">
+                    <h4>Mendel Palace (Quinty)</h4>
+                    <p>Jeu de puzzle</p>
+                </div>
+                <div class="game-card">
+                    <h4>Mario & Yoshi</h4>
+                    <p>Collaboration Nintendo</p>
+                </div>
+                <div class="game-card">
+                    <h4>Game Boy Camera</h4>
+                    <p>Innovation créative</p>
+                </div>
+                <div class="game-card">
+                    <h4>Gear Project</h4>
+                    <p>Projets originaux</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>💼 Recrutement</h2>
+            <div class="recruitment-status">
+                <strong>⚠️ Status Actuel :</strong> Postes ouverts non spécifiés dans les résultats récents
+            </div>
+            <p><strong>Email Recrutement :</strong> Non disponible</p>
+            <p><strong>Site Carrières :</strong> Non disponible</p>
+            <p><strong>Site Web Officiel :</strong> Non disponible</p>
+            <p><strong>Présence Steam :</strong> Non disponible</p>
+            <p><strong>Profil LinkedIn :</strong> Non disponible</p>
+            <div class="advice-box">
+                <strong>💡 Conseil :</strong> Pour postuler chez Game Freak, il est recommandé de mettre en avant votre passion pour Pokémon, votre expérience avec les consoles Nintendo et un portfolio créatif solide. Un réseau professionnel au Japon peut s'avérer très utile.
+            </div>
+        </section>
+
+        <section>
+            <h2>🔗 Liens Utiles</h2>
+            <div class="links-grid">
+                <div class="link-card">
+                    <a href="#" onclick="alert('Non disponible')">🌐 Site Web Officiel</a>
+                </div>
+                <div class="link-card">
+                    <a href="#" onclick="alert('Non disponible')">💼 Carrières</a>
+                </div>
+                <div class="link-card">
+                    <a href="#" onclick="alert('Non disponible')">💬 LinkedIn</a>
+                </div>
+                <div class="link-card">
+                    <a href="#" onclick="alert('Non disponible')">🎮 Steam</a>
+                </div>
+                <div class="link-card">
+                    <a href="#" onclick="alert('Non disponible')">📧 Recrutement</a>
+                </div>
+                <div class="link-card">
+                    <a href="#" onclick="alert('🇯🇵 Contacter via réseau japonais')">🇯🇵 Contact Local</a>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>👨‍💼 Opportunités par Métier</h2>
+            
+            <h3>🎮 Game Designer</h3>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <h4>Niveau de Demande</h4>
+                    <div class="skill-level">
+                        <span class="skill-label">Exigences</span>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <p><strong>Élevé</strong> - Développement de systèmes RPG complexes comme Pokémon</p>
+                    <div class="difficulty-meter">
+                        <span>Difficulté :</span>
+                        <div class="difficulty-stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                    </div>
+                    <p><strong>Profil Recherché :</strong> Expérience en conception de mécaniques RPG, connaissance approfondie de Pokémon, capacité à gérer la balance gameplay</p>
+                </div>
+            </div>
+
+            <h3>💻 Programmeur</h3>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <h4>Niveau de Demande</h4>
+                    <div class="skill-level">
+                        <span class="skill-label">Exigences</span>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <p><strong>Élevé</strong> - Co-développement avec Nintendo sur les séries principales</p>
+                    <div class="difficulty-meter">
+                        <span>Difficulté :</span>
+                        <div class="difficulty-stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                    </div>
+                    <p><strong>Profil Recherché :</strong> Expertise en C++/C#, expérience avec Unity ou Unreal Engine, familiarité avec les consoles Nintendo, optimisation performance</p>
+                </div>
+            </div>
+
+            <h3>🎨 Artiste 3D</h3>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <h4>Niveau de Demande</h4>
+                    <div class="skill-level">
+                        <span class="skill-label">Exigences</span>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <p><strong>Moyen-Élevé</strong> - Modélisation 3D des créatures Pokémon depuis générations récentes</p>
+                    <div class="difficulty-meter">
+                        <span>Difficulté :</span>
+                        <div class="difficulty-stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                    </div>
+                    <p><strong>Profil Recherché :</strong> Maîtrise de Maya/Blender, portfolio de créatures/personnages 3D, compréhension de l'esthétique Pokémon, rigging et animation</p>
+                </div>
+            </div>
+
+            <h3>🖼️ UI/UX Artist</h3>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <h4>Niveau de Demande</h4>
+                    <div class="skill-level">
+                        <span class="skill-label">Exigences</span>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <p><strong>Moyen</strong> - Interfaces Pokémon ergonomiques et attrayantes</p>
+                    <div class="difficulty-meter">
+                        <span>Difficulté :</span>
+                        <div class="difficulty-stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                    </div>
+                    <p><strong>Profil Recherché :</strong> Expertise Figma/Adobe XD, expérience en game UI, compréhension UX pour jeux mobiles et consoles, design responsive</p>
+                </div>
+            </div>
+
+            <h3>✨ Concept Artist</h3>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <h4>Niveau de Demande</h4>
+                    <div class="skill-level">
+                        <span class="skill-label">Exigences</span>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <p><strong>Très Élevé</strong> - Designs originaux de créatures Pokémon sous la supervision de Ken Sugimori</p>
+                    <div class="difficulty-meter">
+                        <span>Difficulté :</span>
+                        <div class="difficulty-stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                    </div>
+                    <p><strong>Profil Recherché :</strong> Portfolio créatif exceptionnels, maîtrise absolue du dessin digital (Photoshop, Procreate), styles variés, connaissance approfondie de l'univers Pokémon</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="verdict">
+            <h2>🏆 Verdict & Recommandations</h2>
+            <div class="pros-cons">
+                <div class="pros">
+                    <h4>✨ Avantages</h4>
+                    <ul>
+                        <li>Travailler sur une franchise mondiale (Pokémon)</li>
+                        <li>Équipe créative et passionnée</li>
+                        <li>Partenariat avec Nintendo garanti</li>
+                        <li>Opportunités de projets originaux</li>
+                        <li>Impact global sur millions de joueurs</li>
+                        <li>Culture axée sur l'innovation</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h4>⚠️ Défis</h4>
+                    <ul>
+                        <li>Processus de recrutement opaque</li>
+                        <li>Localisation au Japon</li>
+                        <li>Équipe restreinte (~118 personnes)</li>
+                        <li>Concurrence très élevée</li>
+                        <li>Partenariat exclusif Nintendo</li>
+                        <li>Absence de présence en ligne officielle</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="color: white; margin-top: 30px;">📊 Difficulté Globale de Recrutement</h3>
+            <div class="difficulty-meter">
+                <div class="difficulty-stars">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class
