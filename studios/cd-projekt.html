@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CD Projekt - Studio de Jeux Vidéo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(180deg, #0f3460 0%, #16213e 100%);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 4px solid #e94560;
+            box-shadow: 0 8px 32px rgba(233, 69, 96, 0.2);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            color: #e94560;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-weight: 700;
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            color: #ffd700;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .studio-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .info-badge {
+            background: rgba(233, 69, 96, 0.2);
+            padding: 12px 24px;
+            border-radius: 25px;
+            border: 2px solid #e94560;
+            font-weight: 600;
+            color: #ffd700;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background: linear-gradient(135deg, #16213e 0%, #0f3460 100%);
+            border-radius: 12px;
+            padding: 35px;
+            margin-bottom: 35px;
+            border-left: 5px solid #e94560;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #ffd700;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2::before {
+            content: '';
+            width: 8px;
+            height: 25px;
+            background: #e94560;
+            border-radius: 4px;
+        }
+
+        h3 {
+            color: #e94560;
+            font-size: 1.5em;
+            margin-top: 20px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #d0d0d0;
+            font-size: 1em;
+            line-height: 1.8;
+        }
+
+        .identity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .identity-card {
+            background: rgba(233, 69, 96, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #e94560;
+        }
+
+        .identity-card strong {
+            color: #ffd700;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .game-card {
+            background: rgba(233, 69, 96, 0.15);
+            border: 2px solid #e94560;
+            border-radius: 10px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .game-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(233, 69, 96, 0.4);
+            border-color: #ffd700;
+        }
+
+        .game-card h3 {
+            margin-top: 0;
+            color: #ffd700;
+        }
+
+        .metier-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .metier-card {
+            background: rgba(233, 69, 96, 0.12);
+            padding: 22px;
+            border-radius: 8px;
+            border: 2px solid #e94560;
+            transition: all 0.3s ease;
+        }
+
+        .metier-card:hover {
+            background: rgba(233, 69, 96, 0.2);
+            border-color: #ffd700;
+        }
+
+        .metier-card h4 {
+            color: #ffd700;
+            font-size: 1.3em;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .metier-icon {
+            width: 30px;
+            height: 30px;
+            background: #e94560;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background: #e94560;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        .verdict-section {
+            background: linear-gradient(135deg, #e94560 0%, #c71e43 100%);
+            border-left: 5px solid #ffd700;
+        }
+
+        .verdict-section h2 {
+            color: white;
+        }
+
+        .verdict-section h2::before {
+            background: #ffd700;
+        }
+
+        .verdict-content {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .verdict-content p {
+            color: #f5f5f5;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .link-item {
+            background: rgba(233, 69, 96, 0.15);
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #e94560;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .link-item:hover {
+            background: rgba(233, 69, 96, 0.25);
+            border-color: #ffd700;
+        }
+
+        .link-item strong {
+            display: block;
+            color: #ffd700;
+            margin-bottom: 8px;
+        }
+
+        .link-item .unavailable {
+            color: #a0a0a0;
+            font-style: italic;
+            font-size: 0.95em;
+        }
+
+        footer {
+            background: #0f3460;
+            padding: 30px 20px;
+            text-align: center;
+            border-top: 4px solid #e94560;
+            margin-top: 50px;
+            color: #a0a0a0;
+        }
+
+        footer p {
+            margin: 8px 0;
+            color: #a0a0a0;
+        }
+
+        .highlight {
+            color: #ffd700;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .studio-info {
+                gap: 15px;
+            }
+
+            section {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>CD PROJEKT</h1>
+            <p class="tagline">Créateurs de Légendes Numériques</p>
+            <div class="studio-info">
+                <div class="info-badge">🌍 Varsovie, Pologne</div>
+                <div class="info-badge">📅 Fondé en 1994</div>
+                <div class="info-badge">🎮 Jeux AAA</div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <h2>Identité du Studio</h2>
+            <div class="identity-grid">
+                <div class="identity-card">
+                    <strong>📍 Localisation</strong>
+                    Varsovie, Pologne - Un hub créatif majeur en Europe de l'Est
+                </div>
+                <div class="identity-card">
+                    <strong>🏢 Année de Fondation</strong>
+                    1994 - Trois décennies d'expérience et d'innovation
+                </div>
+                <div class="identity-card">
+                    <strong>🎯 Spécialité</strong>
+                    Développement, édition et distribution de jeux vidéo
+                </div>
+                <div class="identity-card">
+                    <strong>⭐ Réputation</strong>
+                    Studio reconnu mondialement pour ses titres AAA ambitieux
+                </div>
+            </div>
+            <p style="margin-top: 25px;">CD Projekt est l'un des plus importants studios de développement de jeux vidéo au monde. Basé à Varsovie, le studio s'est construit une réputation exceptionnelle grâce à des productions ambitieuses et innovantes qui repoussent les limites de l'industrie.</p>
+        </section>
+
+        <section>
+            <h2>Jeux Notables</h2>
+            <div class="games-grid">
+                <div class="game-card">
+                    <h3>The Witcher 3: Wild Hunt</h3>
+                    <p>Un chef-d'œuvre du RPG moderne qui a redéfini les standards de l'industrie. Ce jeu fantastique d'envergure mondiale a remporté des centaines de récompenses et a établi CD Projekt comme un créateur de mondes immersifs exceptionnels.</p>
+                    <p><strong>Impact:</strong> Transformé le studio en phénomène global</p>
+                </div>
+                <div class="game-card">
+                    <h3>Cyberpunk 2077</h3>
+                    <p>Une ambitieuse vision futuriste d'un monde dystopique. Ce jeu de science-fiction immersif représente l'apogée de la vision créative du studio avec ses systèmes complexes et son univers richement détaillé.</p>
+                    <p><strong>Impact:</strong> Franchise majeure avec potentiel énorme</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Recrutement</h2>
+            <p>CD Projekt recrute régulièrement des talents passionnés pour rejoindre ses équipes dynamiques. Le studio recherche des professionnels créatifs et techniques pour développer les jeux de demain.</p>
+            <p><strong>Informations actuelles:</strong></p>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li style="margin-bottom: 10px;">Postes ouverts: Non spécifiés actuellement</li>
+                <li style="margin-bottom: 10px;">Email de recrutement: Non fourni dans les données</li>
+                <li>Carrière: Consultez les plateformes de recrutement internationales</li>
+            </ul>
+            <p style="margin-top: 20px; color: #ffd700; font-style: italic;">💡 Conseil: Visitez les portails de recrutement majeurs ou contactez directement le studio via ses canaux officiels pour connaître les opportunités actuelles.</p>
+        </section>
+
+        <section>
+            <h2>Liens Utiles</h2>
+            <div class="links-grid">
+                <div class="link-item">
+                    <strong>🌐 Site Web Principal</strong>
+                    <span class="unavailable">URL non disponible</span>
+                </div>
+                <div class="link-item">
+                    <strong>🎮 Plateforme Steam</strong>
+                    <span class="unavailable">Lien non spécifié</span>
+                </div>
+                <div class="link-item">
+                    <strong>💼 LinkedIn</strong>
+                    <span class="unavailable">Profil non spécifié</span>
+                </div>
+                <div class="link-item">
+                    <strong>👥 Carrières</strong>
+                    <span class="unavailable">Page non spécifiée</span>
+                </div>
+                <div class="link-item">
+                    <strong>📧 Contact</strong>
+                    <span class="unavailable">Email non fourni</span>
+                </div>
+                <div class="link-item">
+                    <strong>🏢 Varsovie, Pologne</strong>
+                    <span style="color: #d0d0d0;">Siège social principal</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Profils & Métiers</h2>
+            
+            <div class="metier-grid">
+                <div class="metier-card">
+                    <h4><span class="metier-icon">🎮</span> Game Designer</h4>
+                    <p>Créateurs d'expériences immersives et engageantes. Les game designers de CD Projekt conçoivent les mécaniques innovantes et les mondes captivants qui définissent les jeux du studio.</p>
+                    <p><strong>Compétences clés:</strong> Game Design, Prototypage, Narration interactive</p>
+                    <span class="status-badge">Données indisponibles</span>
+                </div>
+                <div class="metier-card">
+                    <h4><span class="metier-icon">💻</span> Programmeur</h4>
+                    <p>Architectes techniques des jeux à grande échelle. Les programmeurs du studio développent les systèmes robustes et performants nécessaires pour des titres AAA complexes.</p>
+                    <p><strong>Compétences clés:</strong> C++, Unreal Engine, Architecture logicielle</p>
+                    <span class="status-badge">Données indisponibles</span>
+                </div>
+                <div class="metier-card">
+                    <h4><span class="metier-icon">🎨</span> Artiste 3D</h4>
+                    <p>Sculpteurs numériques créant des environnements et personnages détaillés. Les artistes 3D du studio donnent vie aux mondes visuels exceptionnels du studio.</p>
+                    <p><strong>Compétences clés:</strong> Modélisation, Texturing, ZBrush, Maya</p>
+                    <span class="status-badge">Données indisponibles</span>
+                </div>
+                <div class="metier-card">
+                    <h4><span class="metier-icon">🎭</span> UI Artist</h4>
+                    <p>Designers d'interfaces créant des expériences utilisateur intuitives et esthétiques. Les UI artists conçoivent les menus et interfaces visuelles du studio.</p>
+                    <p><strong>Compétences clés:</strong> Design UI/UX, Figma, Animation 2D</p>
+                    <span class="status-badge">Données indisponibles</span>
+                </div>
+                <div class="metier-card">
+                    <h4><span class="metier-icon">✏️</span> Concept Artist</h4>
+                    <p>Visionnaires créatifs établissant l'esthétique des mondes et personnages. Les concept artists du studio définissent la direction artistique des projets ambitieux.</p>
+                    <p><strong>Compétences clés:</strong> Illustration digitale, Peinture conceptuelle, Direction artistique</p>
+                    <span class="status-badge">Données indisponibles</span>
+                </div>
+                <div class="metier-card">
+                    <h4><span class="metier-icon">⚙️</span> Autres Disciplines</h4>
+                    <p>Le studio embauche également des sound designers, animateurs, producteurs et d'autres spécialistes créatifs pour former ses équipes multidisciplinaires.</p>
+                    <p><strong>Compétences variables:</strong> Audio, Animation, Production, QA</p>
+                    <span class="status-badge">Données indisponibles</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="verdict-section">
+            <h2>Verdict</h2>
+            <div class="verdict-content">
+                <h3 style="color: white; margin-top: 0;">CD Projekt: Un Géant de l'Industrie</h3>
+                <p>CD Projekt est indéniablement l'un des studios les plus prestigieux et ambitieux au monde. Fondé en 1994 à Varsovie, le studio a progressivement construit une réputation de créateur de jeux monumentaux et innovants qui repoussent les limites techniques et créatives de l'industrie.</p>
+                
+                <p style="margin-top: 20px;"><strong>Points Forts:</strong></p>
+                <ul style="margin-left: 20px; color: #f5f5f5;">
+                    <li style="margin-bottom: 10px;">✅ Portefeuille de titres AAA de renommée mondiale</li>
+                    <li style="margin-bottom: 10px;">✅ Réputation d'excellence en game design et narration</li>
+                    <li style="margin-bottom: 10px;">✅ Trois décennies d'expérience et d'évolution</li>
+                    <li style="margin-bottom: 10px;">✅ Équipes internationales et talentueuses</li>
+                    <li>✅ Vision artistique forte et reconnaissable</li>
+                </ul>
+
+                <p style="margin-top: 20px;"><strong>Conseils pour Candidats:</strong></p>
+                <ul style="margin-left: 20px; color: #f5f5f5;">
+                    <li style="margin-bottom: 10px;">📌 Vérifiez régulièrement les portails de recrutement internationaux</li>
+                    <li style="margin-bottom: 10px;">📌 Constituez un portfolio solide montrant votre expertise</li>
+                    <li style="margin-bottom: 10px;">📌 Engagez-vous dans la communauté modding et des projets personnels</li>
+                    <li style="margin-bottom: 10px;">📌 Suivez les actualités du studio pour les annonces</li>
+                    <li>📌 Contactez directement le studio pour les opportunités</li>
+                </ul>
+
+                <p style="margin-top: 25px; font-style: italic; border-top: 2px solid rgba(255, 255, 255, 0.2); padding-top: 20px;">CD Projekt offre une opportunité exceptionnelle de travailler sur des projets d'envergure mondiale aux côtés de talents exceptionnels. C'est une destination de choix pour les professionnels ambitieux du secteur des jeux vidéo.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>📊 Fiche CD Projekt - Studio de Jeux Vidéo Prestigieux</p>
+        <p>Localisation: Varsovie, Pologne | Fondé: 1994 | Secteur: Développement & Édition de Jeux Vidéo</p>
+        <p style="margin-top: 20px; font-size: 0.9em;">Cette fiche a été générée à titre informatif. Pour les informations les plus actuelles, veuillez consulter les sources officielles de CD Projekt.</p>
+    </footer>
+</body>
+</html>
