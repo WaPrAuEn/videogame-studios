@@ -77,6 +77,7 @@
 - [Kalank](studios/kalank.html) — Angoulême, France
 - [Kojima Productions](studios/kojima-productions.html) — Tokyo, Japon
 - [La Moutarde](studios/la-moutarde.html) — Montpellier, France
+- [Legendo](studios/legendo.html) — Inconnu, Inconnu
 - [Leikir Studio](studios/leikir-studio.html) — Ivry-sur-Seine, France
 - [Loomio](studios/loomio.html) — Levallois-Perret, France
 - [Ludogram](studios/ludogram.html) — Lille, France
