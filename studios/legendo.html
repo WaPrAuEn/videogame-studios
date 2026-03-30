@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legendo - Studio de Jeux Vidéo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 45px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 35px;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .section-title {
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .section-title::before {
+            content: '';
+            width: 5px;
+            height: 35px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 3px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .info-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .info-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .info-card p {
+            color: #666;
+            line-height: 1.6;
+            font-style: italic;
+        }
+        
+        .unknown-badge {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-top: 8px;
+        }
+        
+        .section-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .job-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border: 2px solid #667eea;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .job-card h3 {
+            color: #667eea;
+            margin-bottom: 12px;
+            font-size: 1.15em;
+        }
+        
+        .job-card .unknown-badge {
+            width: 100%;
+        }
+        
+        .links-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .link-button {
+            display: inline-block;
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 100%;
+        }
+        
+        .link-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .link-button.unknown {
+            background: #bdc3c7;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+        
+        .link-button.unknown:hover {
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .verdict-box {
+            background: linear-gradient(135deg, #fff5e6 0%, #ffe6e6 100%);
+            border: 3px solid #e74c3c;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .verdict-box h2 {
+            color: #e74c3c;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        
+        .verdict-box p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05em;
+            font-weight: 500;
+        }
+        
+        .alert {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            color: #856404;
+            line-height: 1.7;
+        }
+        
+        .alert strong {
+            color: #d39e00;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+            
+            .content {
+                padding: 25px;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎮 LEGENDO</h1>
+            <p>Studio de Développement de Jeux Vidéo</p>
+        </div>
+        
+        <div class="content">
+            <!-- Section Identité -->
+            <div class="section">
+                <h2 class="section-title">Identité du Studio</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>📍 Localisation</h3>
+                        <p>Inconnu</p>
+                        <span class="unknown-badge">Information indisponible</span>
+                    </div>
+                    <div class="info-card">
+                        <h3>📅 Année de Fondation</h3>
+                        <p>Inconnu</p>
+                        <span class="unknown-badge">Information indisponible</span>
+                    </div>
+                    <div class="info-card">
+                        <h3>👥 Taille de l'Équipe</h3>
+                        <p>Inconnu</p>
+                        <span class="unknown-badge">Information indisponible</span>
+                    </div>
+                    <div class="info-card">
+                        <h3>🏢 Type de Studio</h3>
+                        <p>Inconnu</p>
+                        <span class="unknown-badge">Information indisponible</span>
+                    </div>
+                    <div class="info-card">
+                        <h3>🎯 Éditeurs Partenaires</h3>
+                        <p>Inconnu</p>
+                        <span class="unknown-badge">Information indisponible</span>
+                    </div>
+                    <div class="info-card">
+                        <h3>🎨 Culture du Studio</h3>
+                        <p>Inconnu</p>
+                        <span class="unknown-badge">Information indisponible</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Section Jeux Notables -->
+            <div class="section">
+                <h2 class="section-title">Jeux Notables</h2>
+                <div class="info-card">
+                    <h3>Portfolio de Jeux</h3>
+                    <p>Inconnu</p>
+                    <span class="unknown-badge">Information indisponible</span>
+                </div>
+                <div class="alert">
+                    <strong>⚠️ Attention :</strong> Aucun jeu identifié pour ce studio dans les ressources disponibles.
+                </div>
+            </div>
+            
+            <!-- Section Recrutement -->
+            <div class="section">
+                <h2 class="section-title">Recrutement</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>💼 Postes Ouverts</h3>
+                        <p>Inconnu</p>
+                        <span class="unknown-badge">Information indisponible</span>
+                    </div>
+                    <div class="info-card">
+                        <h3>📧 Email Recrutement</h3>
+                        <p>Inconnu</p>
+                        <span class="unknown-badge">Information indisponible</span>
+                    </div>
+                    <div class="info-card">
+                        <h3>🌐 Site Carrières</h3>
+                        <p>Inconnu</p>
+                        <span class="unknown-badge">Information indisponible</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Section Par Métier -->
+            <div class="section">
+                <h2 class="section-title">Opportunités par Métier</h2>
+                <div class="section-grid">
+                    <div class="job-card">
+                        <h3>🎮 Game Designer</h3>
+                        <p>Difficulté: Inconnu/5</p>
+                        <span class="unknown-badge">Non disponible</span>
+                    </div>
+                    <div class="job-card">
+                        <h3>💻 Programmeur</h3>
+                        <p>Difficulté: Inconnu/5</p>
+                        <span class="unknown-badge">Non disponible</span>
+                    </div>
+                    <div class="job-card">
+                        <h3>🎨 Artiste 3D</h3>
+                        <p>Difficulté: Inconnu/5</p>
+                        <span class="unknown-badge">Non disponible</span>
+                    </div>
+                    <div class="job-card">
+                        <h3>🖼️ UI Artist</h3>
+                        <p>Difficulté: Inconnu/5</p>
+                        <span class="unknown-badge">Non disponible</span>
+                    </div>
+                    <div class="job-card">
+                        <h3>✏️ Concept Artist</h3>
+                        <p>Difficulté: Inconnu/5</p>
+                        <span class="unknown-badge">Non disponible</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Section Liens Utiles -->
+            <div class="section">
+                <h2 class="section-title">Liens Utiles</h2>
+                <div class="links-container">
+                    <a href="#" class="link-button unknown">🌐 Site Web</a>
+                    <a href="#" class="link-button unknown">💼 LinkedIn</a>
+                    <a href="#" class="link-button unknown">🎮 Steam</a>
+                </div>
+            </div>
+            
+            <!-- Section Verdict -->
+            <div class="section">
+                <div class="verdict-box">
+                    <h2>⚠️ VERDICT</h2>
+                    <p>Aucun studio nommé <strong>Legendo</strong> n'a été identifié dans les résultats de recherche disponibles.</p>
+                    <div class="alert" style="margin-top: 20px; background: #f8d7da; border-left-color: #e74c3c; color: #721c24;">
+                        <strong>Important :</strong> Il est possible que le studio soit très récent, opère sous un autre nom, soit fermé, ou que les données ne soient pas accessibles. Nous recommandons de vérifier directement auprès d'autres sources ou de contacter directement les studios si vous recherchez des opportunités d'emploi.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
