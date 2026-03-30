@@ -102,6 +102,7 @@
 - [Ubisoft Montpellier](studios/ubisoft-montpellier.html) — Montpellier, France
 - [Ubisoft](studios/ubisoft.html) — Saint-Mandé, France
 - [Umeshu Lovers](studios/umeshu-lovers.html) — Toulouse, France
+- [Unknown Worlds](studios/unknown-worlds.html) — San Francisco, États-Unis
 - [Virtuos France](studios/virtuos-france.html) — Montpellier & Lyon, France
 - [World Game](studios/world-game.html) — Paris, France
 - [Xeno Bits](studios/xeno-bits.html) — Bordeaux, France
