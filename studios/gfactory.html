@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GFactory - Studio d'Outsourcing Art 2D/3D à Lyon</title>
+    <title>GFactory - Studio d'Art Outsourcing 2D/3D à Lyon</title>
     <style>
         * {
             margin: 0;
@@ -13,161 +13,132 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: #333;
             line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
         }
 
         header {
-            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 40px 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         header h1 {
             font-size: 3em;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         header p {
             font-size: 1.2em;
-            opacity: 0.9;
+            opacity: 0.95;
         }
 
-        .hero-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .hero-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 4px solid #e94560;
-        }
-
-        .hero-card h3 {
-            font-size: 0.9em;
-            text-transform: uppercase;
-            opacity: 0.8;
-            margin-bottom: 5px;
-        }
-
-        .hero-card p {
-            font-size: 1.3em;
-            font-weight: bold;
-        }
-
-        .content {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
 
         section {
+            background: white;
+            margin-bottom: 30px;
             padding: 40px;
-            border-bottom: 2px solid #f0f0f0;
-        }
-
-        section:last-child {
-            border-bottom: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
 
         h2 {
-            color: #0f3460;
+            color: #667eea;
             font-size: 2em;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #e94560;
-            display: inline-block;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #764ba2;
+            padding-bottom: 15px;
         }
 
         h3 {
-            color: #0f3460;
-            font-size: 1.3em;
-            margin-top: 20px;
-            margin-bottom: 10px;
+            color: #764ba2;
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
         }
 
-        .section-content {
-            display: grid;
-            gap: 20px;
-        }
-
-        .info-grid {
+        .identity-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
-            margin-top: 20px;
+            margin: 20px 0;
         }
 
-        .info-card {
-            background: #f9f9f9;
-            padding: 20px;
+        .identity-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
             border-radius: 8px;
-            border-left: 4px solid #e94560;
+            text-align: center;
         }
 
-        .info-card h4 {
-            color: #0f3460;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-
-        .info-card p {
-            color: #666;
-            font-size: 0.95em;
-        }
-
-        .job-position {
-            background: #f0f7ff;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 15px 0;
-            border-left: 4px solid #00a86b;
-        }
-
-        .job-position.closed {
-            background: #f5f5f5;
-            border-left-color: #999;
-            opacity: 0.7;
-        }
-
-        .job-position h4 {
-            color: #0f3460;
-            font-size: 1.1em;
+        .identity-card strong {
+            display: block;
+            font-size: 0.9em;
+            opacity: 0.9;
             margin-bottom: 8px;
         }
 
-        .job-status {
+        .identity-card span {
+            display: block;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .job-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            text-align: center;
+        }
+
+        .job-card.open {
+            border-left-color: #10b981;
+            background: #ecfdf5;
+        }
+
+        .job-card.closed {
+            border-left-color: #ef4444;
+            opacity: 0.7;
+        }
+
+        .job-card h4 {
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .status {
             display: inline-block;
-            padding: 4px 12px;
+            padding: 5px 15px;
             border-radius: 20px;
             font-size: 0.85em;
             font-weight: bold;
-            margin-top: 10px;
         }
 
-        .job-status.open {
-            background: #00a86b;
+        .status.open {
+            background: #10b981;
             color: white;
         }
 
-        .job-status.closed {
-            background: #ccc;
+        .status.closed {
+            background: #ef4444;
             color: white;
         }
 
@@ -175,11 +146,11 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
-            margin-top: 20px;
+            margin: 20px 0;
         }
 
         .link-card {
-            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 25px;
             border-radius: 8px;
             text-align: center;
@@ -188,301 +159,255 @@
 
         .link-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
         }
 
         .link-card a {
             color: white;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.1em;
+            display: block;
+            word-break: break-all;
+            font-size: 0.95em;
+        }
+
+        .link-card a:hover {
+            text-decoration: underline;
+        }
+
+        .link-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85em;
+            margin-bottom: 10px;
             display: block;
         }
 
-        .link-card p {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.9em;
-            margin-top: 10px;
+        .culture-box {
+            background: #f0f4ff;
+            border-left: 5px solid #667eea;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
         }
 
-        .verdict {
-            background: linear-gradient(135deg, #e94560 0%, #d9344b 100%);
+        .verdict-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 30px;
             border-radius: 8px;
-            margin-top: 20px;
+            margin: 20px 0;
         }
 
-        .verdict h3 {
+        .verdict-box h3 {
             color: white;
             margin-top: 0;
-            font-size: 1.5em;
         }
 
-        .verdict-item {
+        .difficulty-bar {
+            background: rgba(255, 255, 255, 0.3);
+            height: 25px;
+            border-radius: 5px;
             margin: 15px 0;
-            padding-left: 20px;
-            border-left: 3px solid rgba(255, 255, 255, 0.3);
+            overflow: hidden;
         }
 
-        .verdict-item strong {
-            color: #ffe66d;
-        }
-
-        .difficulty {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 8px 15px;
-            border-radius: 20px;
+        .difficulty-fill {
+            background: linear-gradient(90deg, #10b981, #f59e0b, #ef4444);
+            height: 100%;
+            width: 60%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
             font-weight: bold;
-            margin-top: 10px;
+            font-size: 0.9em;
         }
 
-        .stars {
-            color: #ffe66d;
-            font-size: 1.3em;
-            margin-left: 10px;
+        .advice-box {
+            background: #fef3c7;
+            border-left: 5px solid #f59e0b;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
         }
 
         footer {
             text-align: center;
-            color: rgba(255, 255, 255, 0.6);
             padding: 20px;
-            margin-top: 30px;
-            font-size: 0.9em;
+            color: #666;
+            margin-top: 40px;
         }
 
-        .highlight {
-            background: #fffacd;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 15px 0;
-            border-left: 4px solid #ffd700;
+        p {
+            margin-bottom: 15px;
         }
 
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
-            }
-
-            .hero-info {
-                grid-template-columns: 1fr;
-            }
-
-            h2 {
-                font-size: 1.5em;
-            }
-
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .links-grid {
-                grid-template-columns: 1fr;
-            }
+        strong {
+            color: #764ba2;
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>🎮 GFactory</h1>
+        <p>Studio d'Art Outsourcing 2D/3D basé à Lyon</p>
+    </header>
+
     <div class="container">
-        <header>
-            <h1>🎮 GFACTORY</h1>
-            <p>Studio d'Outsourcing Art 2D/3D pour Jeux Vidéo, Publicité et Animation</p>
-            <div class="hero-info">
-                <div class="hero-card">
-                    <h3>Localisation</h3>
-                    <p>Lyon, France 🇫🇷</p>
+        <!-- Section Identité -->
+        <section id="identite">
+            <h2>📋 Identité du Studio</h2>
+            <div class="identity-grid">
+                <div class="identity-card">
+                    <strong>Localisation</strong>
+                    <span>Lyon, France 🇫🇷</span>
                 </div>
-                <div class="hero-card">
-                    <h3>Fondée</h3>
-                    <p>2011</p>
+                <div class="identity-card">
+                    <strong>Fondation</strong>
+                    <span>2011</span>
                 </div>
-                <div class="hero-card">
-                    <h3>Effectif</h3>
-                    <p>35 collaborateurs</p>
+                <div class="identity-card">
+                    <strong>Équipe Permanente</strong>
+                    <span>35 Artistes</span>
                 </div>
-                <div class="hero-card">
-                    <h3>Spécialité</h3>
-                    <p>Art 2D/3D</p>
+                <div class="identity-card">
+                    <strong>Spécialité</strong>
+                    <span>Art Outsourcing</span>
                 </div>
             </div>
-        </header>
+            <p><strong>Description :</strong> GFactory est un studio d'outsourcing d'art 2D/3D spécialisé dans la création d'assets visuels pour les studios de développement de jeux vidéo. Fondé en 2011, le studio s'est construit une solide réputation dans l'industrie grâce à son expertise artistique et sa capacité à livrer des travaux de haute qualité dans les délais impartis.</p>
+        </section>
 
-        <div class="content">
-            <!-- SECTION IDENTITÉ -->
-            <section>
-                <h2>📋 Identité</h2>
-                <div class="section-content">
-                    <p>GFactory est un studio d'outsourcing spécialisé en art 2D/3D pour les jeux vidéo, la publicité et l'animation. Basée à Lyon depuis 2011, l'équipe combine une force interne dédiée d'artistes avec un réseau international de freelances experts.</p>
-                    
-                    <div class="highlight">
-                        <strong>🌟 Forces principales :</strong> Une équipe agile, créative et expérimentée dans la production artistique pour jeux vidéo, avec une expertise reconnue en 2D/3D et une capacité à collaborer avec des partenaires freelance de haut niveau.
-                    </div>
+        <!-- Section Culture -->
+        <section id="culture">
+            <h2>🌍 Culture d'Entreprise</h2>
+            <div class="culture-box">
+                <h3>Équipe et Réseau</h3>
+                <p>GFactory dispose d'une <strong>équipe dédiée de 35 artistes</strong> basée à Lyon, complétée par un <strong>réseau international de 60 freelances experts</strong>. Cette structure hybride permet au studio de scalabiliser rapidement les projets tout en maintenant une qualité constante.</p>
+                <p>Le studio fonctionne sur un modèle de collaboration internationale, permettant une couverture géographique et temporelle maximale pour les projets de ses clients.</p>
+            </div>
+        </section>
 
-                    <div class="info-grid">
-                        <div class="info-card">
-                            <h4>Type d'Entreprise</h4>
-                            <p>Studio d'Outsourcing Art 2D/3D</p>
-                        </div>
-                        <div class="info-card">
-                            <h4>Domaines d'Activité</h4>
-                            <p>Jeux Vidéo, Publicité, Animation</p>
-                        </div>
-                        <div class="info-card">
-                            <h4>Approche</h4>
-                            <p>Équipe interne + réseau international de freelances</p>
-                        </div>
-                    </div>
+        <!-- Section Jeux Notables -->
+        <section id="jeux">
+            <h2>🎯 Jeux et Projets</h2>
+            <p>GFactory ne communique pas publiquement sur les jeux spécifiques sur lesquels l'équipe a travaillé. Le studio fonctionne principalement en B2B, fournissant des services d'art outsourcing pour divers studios et éditeurs.</p>
+            <p>Pour découvrir les projets sur lesquels GFactory a collaboré, nous vous recommandons de <strong>contacter directement le studio</strong> via leurs canaux officiels.</p>
+        </section>
+
+        <!-- Section Par Métier -->
+        <section id="metiers">
+            <h2>👨‍💼 Opportunités par Métier</h2>
+            <div class="jobs-grid">
+                <div class="job-card closed">
+                    <h4>🎮 Game Designer</h4>
+                    <span class="status closed">Non Disponible</span>
                 </div>
-            </section>
-
-            <!-- SECTION JEUX NOTABLES -->
-            <section>
-                <h2>🎯 Jeux Notables</h2>
-                <div class="section-content">
-                    <p style="color: #999; font-style: italic;">Aucune liste de jeux publiée actuellement. GFactory fonctionne principalement en mode outsourcing, contribuant aux projets de ses clients sans nécessairement être créditée pour des titres spécifiques.</p>
-                    <div class="highlight">
-                        <strong>💡 À noter :</strong> Pour découvrir les projets auxquels GFactory a contribué, consultez directement leur site web ou contactez l'équipe via les canaux de communication listés ci-dessous.
-                    </div>
+                <div class="job-card closed">
+                    <h4>💻 Programmeur</h4>
+                    <span class="status closed">Non Disponible</span>
                 </div>
-            </section>
-
-            <!-- SECTION RECRUTEMENT -->
-            <section>
-                <h2>💼 Recrutement et Postes Ouverts</h2>
-                <div class="section-content">
-                    <p>GFactory recrute régulièrement des talents créatifs passionnés par l'art pour jeux vidéo. Pour connaître les postes actuellement disponibles, consultez leur plateforme carrières.</p>
-
-                    <h3>📌 Contact Recrutement</h3>
-                    <div class="info-card">
-                        <h4>Site Carrières Officiel</h4>
-                        <p><a href="https://www.the-gfactory.com/jobs" target="_blank" style="color: #e94560; text-decoration: none; font-weight: bold;">https://www.the-gfactory.com/jobs</a></p>
-                        <p style="margin-top: 10px; color: #666; font-size: 0.9em;">Visitez cette page pour voir les offres d'emploi actuelles et postuler directement.</p>
-                    </div>
-
-                    <h3>📧 Autres Contacts</h3>
-                    <div class="job-position">
-                        <h4>Contact LinkedIn</h4>
-                        <p><a href="https://www.linkedin.com/company/the-gfactory/?originalSubdomain=fr" target="_blank" style="color: #e94560; text-decoration: none; font-weight: bold;">LinkedIn - The GFactory</a></p>
-                        <p style="margin-top: 8px;">Connectez avec l'équipe sur LinkedIn pour rester à jour sur les opportunités.</p>
-                    </div>
-
-                    <div class="info-card">
-                        <h4>💡 Conseil pour Postuler</h4>
-                        <p><strong>Mettez en avant votre portfolio artistique 2D/3D</strong> et votre expérience en jeux vidéo. <strong>Contactez Laurent Dury via LinkedIn</strong> ou utilisez le site carrières pour une approche directe et pertinente.</p>
-                    </div>
+                <div class="job-card open">
+                    <h4>🎨 Artiste 3D</h4>
+                    <span class="status open">Potentiellement Ouvert</span>
                 </div>
-            </section>
-
-            <!-- SECTION PAR MÉTIER -->
-            <section>
-                <h2>🎨 Opportunités par Métier</h2>
-                <div class="section-content">
-                    
-                    <div class="job-position">
-                        <h4>🎮 Game Designer</h4>
-                        <p>Aucun poste spécifique listé pour ce rôle.</p>
-                        <span class="job-status closed">Non Ouvert</span>
-                    </div>
-
-                    <div class="job-position">
-                        <h4>👨‍💻 Programmeur</h4>
-                        <p>Aucun poste spécifique listé pour ce rôle.</p>
-                        <span class="job-status closed">Non Ouvert</span>
-                    </div>
-
-                    <div class="job-position">
-                        <h4>🎨 Artiste 3D</h4>
-                        <p>GFactory recrute régulièrement des artistes 3D talentueux. C'est l'un des postes clés du studio.</p>
-                        <p style="margin-top: 10px;"><strong>Profil attendu :</strong> Portfolio solide en modélisation 3D, expérience en jeux vidéo, maîtrise des outils (Maya, Blender, 3DS Max, etc.).</p>
-                        <p><strong>Difficulté :</strong> <span class="difficulty">Moyenne ⭐⭐⭐</span></p>
-                        <span class="job-status open">À Consulter</span>
-                    </div>
-
-                    <div class="job-position">
-                        <h4>🖼️ UI Artist</h4>
-                        <p>GFactory recherche des talents en design UI pour jeux vidéo.</p>
-                        <p style="margin-top: 10px;"><strong>Profil attendu :</strong> Expérience en création d'interfaces de jeux, connaissance des bonnes pratiques UX/UI, portfolio solide.</p>
-                        <p><strong>Difficulté :</strong> <span class="difficulty">Moyenne ⭐⭐⭐</span></p>
-                        <span class="job-status open">À Consulter</span>
-                    </div>
-
-                    <div class="job-position">
-                        <h4>🎭 Concept Artist</h4>
-                        <p>Les concept artists jouent un rôle important chez GFactory dans la définition visuelle des projets.</p>
-                        <p style="margin-top: 10px;"><strong>Profil attendu :</strong> Portfolio de concept art varié, expérience en jeux vidéo, maîtrise des techniques digitales (Photoshop, Procreate, etc.).</p>
-                        <p><strong>Difficulté :</strong> <span class="difficulty">Moyenne ⭐⭐⭐</span></p>
-                        <span class="job-status open">À Consulter</span>
-                    </div>
-
-                    <div class="highlight">
-                        <strong>📊 Niveau de Difficulté Global :</strong> Moyen sur 5 - La spécialisation en art et l'expérience préalable en jeux vidéo sont fortement appréciées. GFactory recherche des profils créatifs avec une solide base technique.
-                    </div>
+                <div class="job-card open">
+                    <h4>🖼️ UI Artist</h4>
+                    <span class="status open">Potentiellement Ouvert</span>
                 </div>
-            </section>
-
-            <!-- SECTION LIENS UTILES -->
-            <section>
-                <h2>🔗 Liens Utiles</h2>
-                <div class="links-grid">
-                    <div class="link-card">
-                        <a href="https://www.the-gfactory.com" target="_blank">Site Web Officiel</a>
-                        <p>Découvrez GFactory et ses projets</p>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://www.the-gfactory.com/jobs" target="_blank">Carrières & Recrutement</a>
-                        <p>Consultez les offres d'emploi</p>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://www.linkedin.com/company/the-gfactory/?originalSubdomain=fr" target="_blank">LinkedIn</a>
-                        <p>Suivez l'actualité et connectez-vous</p>
-                    </div>
+                <div class="job-card open">
+                    <h4>✏️ Concept Artist</h4>
+                    <span class="status open">Potentiellement Ouvert</span>
                 </div>
-            </section>
+            </div>
+            <p><strong>Note :</strong> GFactory est un studio d'outsourcing artistique, les opportunités se concentrent donc principalement sur les métiers de l'art (3D, 2D, UI, Concept Art). Les postes en game design et programmation ne correspondent pas à la spécialité du studio.</p>
+        </section>
 
-            <!-- SECTION VERDICT -->
-            <section>
-                <div class="verdict">
-                    <h3>⚡ Verdict Complet</h3>
-                    
-                    <div class="verdict-item">
-                        <strong>🎯 Profil Idéal :</strong> Artiste 2D/3D passionné par les jeux vidéo avec un portfolio solide et une expérience reconnue dans le domaine.
-                    </div>
-
-                    <div class="verdict-item">
-                        <strong>✅ Points Forts :</strong> Studio établi depuis 2011, équipe expérimentée, réseau international, spécialisation claire en art pour jeux vidéo, localisation à Lyon (centre créatif français dynamique).
-                    </div>
-
-                    <div class="verdict-item">
-                        <strong>⚠️ À Retenir :</strong> GFactory fonctionne principalement en outsourcing. Les postes ouverts varient en fonction des projets clients. Il est recommandé de consulter régulièrement leur page carrières.
-                    </div>
-
-                    <div class="verdict-item">
-                        <strong>💪 Comment Se Démarquer :</strong>
-                        <ul style="margin-left: 20px; margin-top: 10px;">
-                            <li>Présentez un portfolio artistique 2D/3D impressionnant et professionnel</li>
-                            <li>Démontrez une expérience concrète en jeux vidéo (AA ou AAA idéalement)</li>
-                            <li>Maîtrisez les outils standards (Blender, Maya, Substance Painter, Photoshop, etc.)</li>
-                            <li>Contactez directement Laurent Dury via LinkedIn pour une approche personnalisée</li>
-                            <li>Montrez votre compréhension de la pipeline de production jeux vidéo</li>
-                        </ul>
-                    </div>
-
-                    <div class="verdict-item">
-                        <strong>📈 Niveau de Difficulté :</strong>
-                        <span class="difficulty">Moyen sur 5 ⭐⭐⭐</span>
-                        <p style="margin-top: 10px;">GFactory recrute régulièrement mais demande une spécialisation claire en art et une expérience jeux vidéo. Les postes sont compétitifs mais accessibles avec un bon portfolio.</p>
-                    </div>
-
-                    <div class="verdict-item">
-                        <strong>🎓 Recommandation Finale :</strong> GFactory est une excellente opportunité pour les artistes 2D/3D cherchant à travailler dans un environnement collaboratif avec des clients prestigieux. La localisation à Lyon, la stabilité du studio depuis 2011, et la spécialisation claire font de cette entreprise une destination attrayante pour les talents créatifs du secteur jeux vidéo.
-                    </div>
+        <!-- Section Recrutement -->
+        <section id="recrutement">
+            <h2>💼 Recrutement</h2>
+            <div class="jobs-grid" style="margin: 20px 0;">
+                <div class="job-card">
+                    <h4>📧 Email Recrutement</h4>
+                    <p style="font-size: 0.9em; color: #666;">Non communiqué publiquement</p>
                 </div>
-            </section>
-        </div>
+                <div class="job-card">
+                    <h4>📋 Postes Ouverts</h4>
+                    <p style="font-size: 0.9em; color: #666;">Voir la page carrières</p>
+                </div>
+            </div>
+            <p>Pour consulter les offres d'emploi actuelles et candidater, veuillez consulter la <strong>page carrières officielle</strong> du studio via le lien fourni dans la section "Liens Utiles".</p>
+        </section>
 
-        <footer>
-            <p>Fiche d'information | GFactory - Studio d'Outsourcing Art 2D/3D | Lyon, France | Mise à jour 2024</p>
-        </footer>
+        <!-- Section Liens Utiles -->
+        <section id="liens">
+            <h2>🔗 Liens Utiles</h2>
+            <div class="links-grid">
+                <div class="link-card">
+                    <span class="link-label">Site Web Officiel</span>
+                    <a href="https://www.the-gfactory.com" target="_blank">https://www.the-gfactory.com</a>
+                </div>
+                <div class="link-card">
+                    <span class="link-label">Page Carrières</span>
+                    <a href="https://www.the-gfactory.com/jobs" target="_blank">https://www.the-gfactory.com/jobs</a>
+                </div>
+                <div class="link-card">
+                    <span class="link-label">LinkedIn</span>
+                    <a href="https://www.linkedin.com/company/the-gfactory/?originalSubdomain=fr" target="_blank">The GFactory sur LinkedIn</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Verdict -->
+        <section id="verdict">
+            <h2>⭐ Verdict et Recommandations</h2>
+            
+            <div class="verdict-box">
+                <h3>Difficulté d'Accès: Moyenne</h3>
+                <div class="difficulty-bar">
+                    <div class="difficulty-fill">60%</div>
+                </div>
+                <p>GFactory est un studio spécialisé avec une structure bien établie. L'accès aux postes dépend fortement de votre profil artistique et de l'adéquation de vos compétences avec leurs besoins.</p>
+            </div>
+
+            <div class="advice-box">
+                <h3>💡 Conseil de Candidature</h3>
+                <p><strong>Contactez Laurent Dury via LinkedIn</strong> ou visitez le site de GFactory pour discuter de <strong>projets d'art outsourcing</strong>. Le studio fonctionne en B2B, les recrutements se font généralement de manière ciblée en fonction des besoins spécifiques des projets.</p>
+                <p>Si vous êtes un artiste 2D/3D, concept artist ou UI artist avec une expérience solide, <strong>montrez un portfolio impressionnant</strong> et démontrez votre capacité à respecter les délais et les spécifications techniques des clients.</p>
+            </div>
+
+            <h3>✅ Points Positifs</h3>
+            <ul style="list-style-position: inside; margin: 15px 0;">
+                <li>Studio établi depuis 2011 avec une bonne réputation</li>
+                <li>Équipe permanente de 35 artistes + réseau international</li>
+                <li>Spécialisation claire en art outsourcing 2D/3D</li>
+                <li>Collaborations avec de nombreux studios et éditeurs</li>
+                <li>Localisation à Lyon, centre technique français</li>
+            </ul>
+
+            <h3>⚠️ Points d'Attention</h3>
+            <ul style="list-style-position: inside; margin: 15px 0;">
+                <li>Studio d'outsourcing avant tout, opportunités de CDI limitées</li>
+                <li>Information publique limitée sur les recrutements actuels</li>
+                <li>Nécessite une spécialisation artistique confirmée</li>
+                <li>Environnement B2B, peut signifier des projets variés mais des délais stricts</li>
+            </ul>
+
+            <h3>🎯 Profil Idéal</h3>
+            <p><strong>Vous êtes un bon candidat si vous êtes :</strong></p>
+            <ul style="list-style-position: inside; margin: 15px 0;">
+                <li>Artiste 3D, 2D, Concept Artist ou UI Artist expérimenté</li>
+                <li>Capable de travailler en équipe avec des délais serrés</li>
+                <li>Polyvalent et adaptable aux différents styles artistiques</li>
+                <li>À l'aise avec la collaboration internationale et asynchrone</li>
+                <li>Possédant un portfolio solide démontrant vos compétences</li>
+            </ul>
+        </section>
     </div>
+
+    <footer>
+        <p>&copy; 2024 - Fiche de présentation GFactory | Studio d'Art Outsourcing 2D/3D</p>
+        <p>Informations à jour au moment de la génération de cette fiche</p>
+    </footer>
 </body>
 </html>
