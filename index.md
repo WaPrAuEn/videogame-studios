@@ -45,6 +45,7 @@
 - [Game Freak, Inc.](studios/game-freak,-inc..html) — Tokyo, Japon
 - [Gaminho](studios/gaminho.html) — Paris, France
 - [GFactory](studios/gfactory.html) — Lyon, France
+- [Giant Animation Studios](studios/giant-animation-studios.html) — Dublin (et Barcelona), Irlande (et Espagne)
 - [Glitchr Studio](studios/glitchr-studio.html) — Bordeaux, France
 - [Guerrilla Games](studios/guerrilla-games.html) — Amsterdam, Pays-Bas
 - [Hawkswell](studios/hawkswell.html) — Paris, France
