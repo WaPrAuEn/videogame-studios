@@ -10,253 +10,330 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #333;
             line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
-        
+
         header {
             background: linear-gradient(135deg, #2d3561 0%, #1a1f3a 100%);
             color: white;
-            padding: 40px 30px;
-            border-radius: 10px 10px 0 0;
+            padding: 40px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-        
+
         header h1 {
             font-size: 3em;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
-        
+
         header p {
-            font-size: 1.2em;
+            font-size: 1.1em;
             opacity: 0.9;
         }
-        
+
+        .header-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .meta-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .meta-item strong {
+            display: block;
+            font-size: 0.9em;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+
+        .meta-item span {
+            display: block;
+            font-size: 1.3em;
+        }
+
         .main-content {
-            background: white;
-            padding: 40px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
         }
-        
+
         section {
-            margin-bottom: 40px;
-            padding-bottom: 30px;
-            border-bottom: 2px solid #e8e8e8;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
         }
-        
-        section:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        
+
         h2 {
             color: #667eea;
             font-size: 2em;
             margin-bottom: 20px;
+            border-bottom: 3px solid #764ba2;
             padding-bottom: 10px;
-            border-bottom: 3px solid #667eea;
-            display: inline-block;
         }
-        
+
         h3 {
             color: #764ba2;
-            font-size: 1.5em;
+            font-size: 1.4em;
             margin-top: 20px;
             margin-bottom: 15px;
         }
-        
-        .info-grid {
+
+        .identity-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             margin-top: 20px;
         }
-        
-        .info-card {
+
+        .identity-card {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             padding: 20px;
             border-radius: 8px;
             border-left: 4px solid #667eea;
         }
-        
-        .info-card strong {
+
+        .identity-card strong {
             color: #2d3561;
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
-        
-        .info-card p {
-            color: #555;
-        }
-        
-        .jeux-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .jeu-card {
-            background: linear-gradient(135deg, #fff5f7 0%, #fce4ec 100%);
-            border-radius: 8px;
-            padding: 25px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-left: 5px solid #764ba2;
-        }
-        
-        .jeu-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-        
-        .jeu-card h4 {
-            color: #764ba2;
-            font-size: 1.5em;
-            margin-bottom: 10px;
-        }
-        
-        .jeu-card p {
-            color: #666;
-            margin-bottom: 15px;
-        }
-        
-        .metiers-container {
+
+        .games-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
             margin-top: 20px;
         }
-        
-        .metier-card {
-            background: linear-gradient(135deg, #e0f7fa 0%, #b2dfdb 100%);
+
+        .game-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
             border-radius: 8px;
-            padding: 20px;
-            border-top: 4px solid #667eea;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            transition: transform 0.3s ease;
         }
-        
-        .metier-card h4 {
-            color: #00695c;
-            font-size: 1.3em;
-            margin-bottom: 12px;
+
+        .game-card:hover {
+            transform: translateY(-5px);
         }
-        
-        .metier-card ul {
-            list-style: none;
-            padding-left: 0;
+
+        .game-card h4 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
         }
-        
-        .metier-card li {
-            color: #444;
-            padding-left: 20px;
-            margin-bottom: 8px;
-            position: relative;
+
+        .game-card p {
+            opacity: 0.9;
+            margin-bottom: 15px;
         }
-        
-        .metier-card li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #667eea;
-            font-weight: bold;
-        }
-        
-        .liens-container {
+
+        .links-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 15px;
             margin-top: 20px;
         }
-        
-        .lien-btn {
+
+        .link-button {
             display: inline-block;
-            padding: 15px 20px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
             text-decoration: none;
-            border-radius: 5px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
-            font-weight: 600;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
         }
-        
-        .lien-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+
+        .link-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
         }
-        
-        .verdict {
-            background: linear-gradient(135deg, #fff9c4 0%, #ffe082 100%);
-            border-left: 5px solid #f57f17;
-            padding: 25px;
-            border-radius: 5px;
+
+        .link-button strong {
+            display: block;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+            opacity: 0.9;
+        }
+
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
             margin-top: 20px;
         }
-        
-        .verdict h3 {
-            color: #f57f17;
-            margin-top: 0;
-        }
-        
-        .difficulty-meter {
-            background: #ddd;
-            height: 20px;
-            border-radius: 10px;
-            margin-top: 10px;
-            overflow: hidden;
-        }
-        
-        .difficulty-bar {
-            background: linear-gradient(90deg, #4caf50 0%, #ffc107 50%, #f44336 100%);
-            height: 100%;
-            width: 60%;
-            border-radius: 10px;
-        }
-        
-        .conseil {
-            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
-            border-left: 5px solid #764ba2;
+
+        .job-card {
+            border: 2px solid #667eea;
+            border-radius: 8px;
             padding: 20px;
-            border-radius: 5px;
-            margin-top: 15px;
+            background: #f9f9f9;
+            transition: all 0.3s ease;
         }
-        
-        .conseil strong {
-            color: #764ba2;
+
+        .job-card:hover {
+            background: #f0f0ff;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
         }
-        
-        footer {
-            background: #2d3561;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: 0 0 10px 10px;
+
+        .job-card h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.3em;
         }
-        
-        .badge {
+
+        .difficulty {
             display: inline-block;
             background: #667eea;
             color: white;
-            padding: 5px 12px;
+            padding: 5px 15px;
             border-radius: 20px;
             font-size: 0.9em;
-            margin-right: 8px;
-            margin-bottom: 8px;
+            margin-bottom: 15px;
+        }
+
+        .difficulty.medium {
+            background: #f59e0b;
+        }
+
+        .difficulty.high {
+            background: #ef4444;
+        }
+
+        .job-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .job-card ul li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .job-card ul li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .verdict {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-left: 5px solid #667eea;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .verdict h3 {
+            margin-top: 0;
+        }
+
+        .rating {
+            display: inline-block;
+            color: #f59e0b;
+            font-size: 1.3em;
+            margin-top: 10px;
+        }
+
+        .culture-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .culture-section p {
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: white;
+            margin-top: 30px;
+        }
+
+        .tips-section {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .tips-section h4 {
+            color: #92400e;
+            margin-bottom: 10px;
+        }
+
+        .tips-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tips-section ul li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #78350f;
+        }
+
+        .tips-section ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #f59e0b;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .header-meta {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
         }
     </style>
 </head>
@@ -264,197 +341,232 @@
     <div class="container">
         <header>
             <h1>🎮 ABRAKAM</h1>
-            <p>Studio de Développement de Jeux de Stratégie</p>
+            <p>Studio de Développement - Jeux de Cartes Numériques Stratégiques</p>
+            <div class="header-meta">
+                <div class="meta-item">
+                    <strong>Localisation</strong>
+                    <span>Liège, Belgique</span>
+                </div>
+                <div class="meta-item">
+                    <strong>Fondé en</strong>
+                    <span>2013</span>
+                </div>
+                <div class="meta-item">
+                    <strong>Équipe</strong>
+                    <span>24 personnes</span>
+                </div>
+                <div class="meta-item">
+                    <strong>Éditeur</strong>
+                    <span>Paradox Interactive</span>
+                </div>
+            </div>
         </header>
-        
+
         <div class="main-content">
-            <!-- SECTION IDENTITÉ -->
-            <section id="identite">
-                <h2>Identité du Studio</h2>
-                <div class="info-grid">
-                    <div class="info-card">
-                        <strong>📍 Localisation</strong>
-                        <p>Liège, Belgique</p>
+            <!-- Section Identité -->
+            <section>
+                <h2>📋 Identité du Studio</h2>
+                <div class="identity-grid">
+                    <div class="identity-card">
+                        <strong>Type de Studio</strong>
+                        Studio de développement de jeux de cartes numériques stratégiques
                     </div>
-                    <div class="info-card">
-                        <strong>📅 Fondation</strong>
-                        <p>2013</p>
+                    <div class="identity-card">
+                        <strong>Spécialité</strong>
+                        Jeux stratégiques innovants avec mécaniques de cartes à collectionner
                     </div>
-                    <div class="info-card">
-                        <strong>👥 Taille</strong>
-                        <p>24 personnes</p>
+                    <div class="identity-card">
+                        <strong>Taille</strong>
+                        24 collaborateurs - petite équipe experte et passionnée
                     </div>
-                    <div class="info-card">
-                        <strong>🎯 Spécialité</strong>
-                        <p>Jeux de Stratégie & Jeux de Cartes Numériques</p>
+                    <div class="identity-card">
+                        <strong>Localisation</strong>
+                        Liège, Belgique - Un studio belge de renom en jeux stratégiques
                     </div>
                 </div>
+
+                <div class="culture-section">
+                    <h3>🌟 Culture & Valeurs</h3>
+                    <p>Studio belge passionné par les jeux de stratégie et les histoires épiques, axé sur l'innovation, le bien-être de l'équipe et la création d'expériences pour joueurs dédiés. Abrakam valorise la passion, les compétences métier et l'implication dans des projets ambitieux.</p>
+                </div>
+            </section>
+
+            <!-- Section Jeux Notables -->
+            <section>
+                <h2>🎯 Jeux Notables</h2>
+                <div class="games-grid">
+                    <div class="game-card">
+                        <h4>Faeria</h4>
+                        <p>Le jeu phare du studio - Un jeu de cartes stratégique innovant mêlant deckbuilding et stratégie au tour par tour.</p>
+                        <p><strong>Disponible sur :</strong> Steam et multiples plateformes</p>
+                    </div>
+                    <div class="game-card">
+                        <h4>Roguebook</h4>
+                        <p>Collaboration avec Klei Entertainment - Un RPG rogue-like avec un univers coloré et enchanteur, mêlant exploration et stratégie.</p>
+                        <p><strong>Disponible sur :</strong> Steam et consoles</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Recrutement -->
+            <section>
+                <h2>💼 Recrutement</h2>
+                <p>Abrakam recrute régulièrement pour renforcer son équipe de développeurs passionnés par les jeux stratégiques. Les postes ouverts couvrent plusieurs domaines clés du développement de jeux.</p>
                 
-                <h3>Notre Culture</h3>
-                <p style="font-size: 1.1em; color: #555; line-height: 1.8;">
-                    Studio belge passionné par les jeux de stratégie et les histoires épiques, avec un esprit d'innovation et un focus sur le bien-être de l'équipe. Abrakam est un studio indépendant où la créativité, l'excellence technique et l'épanouissement personnel des collaborateurs sont au cœur de nos valeurs.
-                </p>
-            </section>
-            
-            <!-- SECTION JEUX NOTABLES -->
-            <section id="jeux">
-                <h2>Jeux Notables</h2>
-                <div class="jeux-container">
-                    <div class="jeu-card">
-                        <h4>⚡ Faeria</h4>
-                        <p>Jeu de cartes stratégique innovant combinant la profondeur du TCG avec des mécaniques de plateau unique. Faeria offre une expérience stratégique riche avec un univers visuel captivant.</p>
-                        <div style="margin-top: 10px;">
-                            <span class="badge">Jeu de Cartes</span>
-                            <span class="badge">Stratégie</span>
-                        </div>
-                    </div>
-                    <div class="jeu-card">
-                        <h4>📖 Roguebook</h4>
-                        <p>Une aventure roguelike stratégique qui marie exploration, stratégie au tour par tour et narration riche. Roguebook démontre l'expertise du studio dans les jeux de cartes avec progression.</p>
-                        <div style="margin-top: 10px;">
-                            <span class="badge">Roguelike</span>
-                            <span class="badge">Cartes</span>
-                        </div>
-                    </div>
+                <h3>Postes Disponibles</h3>
+                <p>Consultez les offres d'emploi actuelles et explorez les opportunités de carrière chez Abrakam.</p>
+                
+                <div class="links-grid">
+                    <a href="https://emploi.afjv.com/annonces-societes/934" class="link-button">
+                        <strong>Consulter les Offres</strong>
+                        Voir les postes ouverts sur AFJV
+                    </a>
                 </div>
-            </section>
-            
-            <!-- SECTION RECRUTEMENT -->
-            <section id="recrutement">
-                <h2>Recrutement</h2>
-                <p style="margin-bottom: 20px;">
-                    Abrakam est actuellement à la recherche de talents pour rejoindre son équipe créative. Consultez les offres d'emploi disponibles et découvrez comment vous pouvez contribuer au développement de jeux innovants.
-                </p>
-                <div class="info-grid">
-                    <div class="info-card">
-                        <strong>🎯 Postes Ouverts</strong>
-                        <p>Consultez les annonces sur le portail AFJV pour découvrir les opportunités actuelles.</p>
-                    </div>
-                    <div class="info-card">
-                        <strong>📧 Contact</strong>
-                        <p>Disponible via le portail AFJV ou directement sur LinkedIn.</p>
-                    </div>
-                    <div class="info-card">
-                        <strong>🌐 Carrières</strong>
-                        <p>Découvrez la culture et les valeurs d'Abrakam en explorant les opportunités disponibles.</p>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- SECTION PAR MÉTIER -->
-            <section id="metiers">
-                <h2>Opportunités par Métier</h2>
-                <div class="metiers-container">
-                    <div class="metier-card">
-                        <h4>🎮 Game Designer</h4>
-                        <ul>
-                            <li>Design de mécaniques de jeux de cartes stratégiques</li>
-                            <li>Équilibragedu gameplay et progression</li>
-                            <li>Création d'expériences stratégiques innovantes</li>
-                            <li>Travail collaboratif avec l'équipe créative</li>
-                            <li>Passion pour les TCG et jeux stratégiques</li>
-                        </ul>
-                    </div>
-                    <div class="metier-card">
-                        <h4>💻 Programmeur</h4>
-                        <ul>
-                            <li>Développement en C# et Unity</li>
-                            <li>Architecture de systèmes de jeux robustes</li>
-                            <li>Optimisation de performance</li>
-                            <li>Intégration multijoueur et réseau</li>
-                            <li>Expertise en jeux de cartes numériques</li>
-                        </ul>
-                    </div>
-                    <div class="metier-card">
-                        <h4>🎨 Artiste 3D</h4>
-                        <ul>
-                            <li>Création de modèles 3D haute qualité</li>
-                            <li>Texturing et matériaux réalistes</li>
-                            <li>Design d'environnements immersifs</li>
-                            <li>Animation et rigging de personnages</li>
-                            <li>Pipeline 3D optimisé pour les jeux</li>
-                        </ul>
-                    </div>
-                    <div class="metier-card">
-                        <h4>🖌️ UI Artist</h4>
-                        <ul>
-                            <li>Design d'interfaces intuitives et époustouflantes</li>
-                            <li>UX design centré utilisateur</li>
-                            <li>Création de wireframes et prototypes</li>
-                            <li>Animation UI et feedback visuel</li>
-                            <li>Cohérence visuelle et branding</li>
-                        </ul>
-                    </div>
-                    <div class="metier-card">
-                        <h4>🖼️ Concept Artist</h4>
-                        <ul>
-                            <li>Direction artistique du projet</li>
-                            <li>Concept art de mondes et univers</li>
-                            <li>Design de personnages mémorables</li>
-                            <li>Création de mood boards et style guides</li>
-                            <li>Établissement de l'identité visuelle</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- SECTION LIENS UTILES -->
-            <section id="liens">
-                <h2>Liens Utiles</h2>
-                <div class="liens-container">
-                    <a href="https://www.abrakam.com/" class="lien-btn" target="_blank">🌐 Site Web</a>
-                    <a href="https://store.steampowered.com/developer/abrakam" class="lien-btn" target="_blank">🎮 Page Steam</a>
-                    <a href="https://www.linkedin.com/company/abrakam/" class="lien-btn" target="_blank">💼 LinkedIn</a>
-                    <a href="https://emploi.afjv.com/annonces-societes/934" class="lien-btn" target="_blank">📋 Offres AFJV</a>
-                </div>
-            </section>
-            
-            <!-- SECTION CONSEIL -->
-            <section id="conseil">
-                <h2>Conseil de Candidature</h2>
-                <div class="conseil">
-                    <strong>📌 Pour Maximiser Vos Chances :</strong>
-                    <ul style="margin-top: 15px; margin-left: 20px;">
-                        <li><strong>Passion visible</strong> : Mettez en avant votre passion pour les jeux de stratégie, notamment les jeux de cartes à collectionner (comme Faeria)</li>
-                        <li><strong>Expérience pertinente</strong> : Démontrez votre expérience en game design stratégique et mécaniques de jeux de cartes</li>
-                        <li><strong>Portfolio solide</strong> : Présentez un portfolio démontrant votre innovation et vos compétences techniques</li>
-                        <li><strong>Moyens de contact</strong> : Contactez via AFJV ou directement via LinkedIn du PDG Jean-Michel Vilain</li>
-                        <li><strong>Engagement</strong> : Montrez votre intérêt pour la culture d'équipe et le bien-être collaboratif</li>
+
+                <div class="tips-section">
+                    <h4>📌 Conseils pour Postuler</h4>
+                    <ul>
+                        <li>Mettez en avant votre expérience en jeux stratégiques et cartes à collectionner</li>
+                        <li>Préparez un portfolio concret et détaillé montrant vos réalisations</li>
+                        <li>Démontrez votre connaissance de Faeria et Roguebook</li>
+                        <li>Postulez via la plateforme AFJV - voie officielle recommandée</li>
+                        <li>Montrez votre passion pour l'innovation et la qualité</li>
                     </ul>
                 </div>
             </section>
-            
-            <!-- SECTION VERDICT -->
-            <section id="verdict">
+
+            <!-- Section Par Métier -->
+            <section>
+                <h2>👥 Profils Recherchés par Métier</h2>
+                
+                <div class="jobs-grid">
+                    <div class="job-card">
+                        <h4>Game Designer</h4>
+                        <span class="difficulty high">Expérience : Élevée</span>
+                        <p><strong>Spécialisation :</strong> Game design stratégique et cartes à collectionner</p>
+                        <ul>
+                            <li>Conception de méchaniques de jeux stratégiques</li>
+                            <li>Équilibrage des cartes et systèmes de jeu</li>
+                            <li>Analyse et itération sur les mécaniques existantes</li>
+                            <li>Collaboration créative avec l'équipe artistique</li>
+                            <li>Connaissance des jeux de cartes classiques et numériques</li>
+                        </ul>
+                    </div>
+
+                    <div class="job-card">
+                        <h4>Programmeur</h4>
+                        <span class="difficulty medium">Expérience : Moyenne</span>
+                        <p><strong>Focus :</strong> Développement de jeux numériques avec accent stratégie</p>
+                        <ul>
+                            <li>Programmation de systèmes de jeu en C#/C++</li>
+                            <li>Implémentation de mécaniques stratégiques</li>
+                            <li>Optimisation de performances</li>
+                            <li>Intégration avec moteurs de jeu (Unity/Unreal)</li>
+                            <li>Tests et débogage rigoureux</li>
+                        </ul>
+                    </div>
+
+                    <div class="job-card">
+                        <h4>Artiste 3D</h4>
+                        <span class="difficulty medium">Expérience : Moyenne</span>
+                        <p><strong>Style :</strong> Univers colorés et enchanteurs (ex: Roguebook)</p>
+                        <ul>
+                            <li>Modélisation 3D de personnages et environnements</li>
+                            <li>Texturing et matériaux</li>
+                            <li>Animation de créatures et objets</li>
+                            <li>Maîtrise d'outils 3D standards (Maya, Blender, etc.)</li>
+                            <li>Sensibilité esthétique et style artistique personnel</li>
+                        </ul>
+                    </div>
+
+                    <div class="job-card">
+                        <h4>UI Artist</h4>
+                        <span class="difficulty high">Expérience : Élevée</span>
+                        <p><strong>Domaine :</strong> Interface pour jeux de cartes et stratégie</p>
+                        <ul>
+                            <li>Conception d'interfaces pour jeux de cartes</li>
+                            <li>Design de menus et systèmes de navigation</li>
+                            <li>Animations UI et feedback visuel</li>
+                            <li>Expérience UX/UI appliquée au gaming</li>
+                            <li>Maîtrise de outils : Figma, Adobe CC, Unity</li>
+                        </ul>
+                    </div>
+
+                    <div class="job-card">
+                        <h4>Concept Artist</h4>
+                        <span class="difficulty high">Expérience : Élevée</span>
+                        <p><strong>Mission :</strong> Conception de plateaux de jeu dynamiques et IP propres</p>
+                        <ul>
+                            <li>Création de concepts visuels originaux</li>
+                            <li>Design de mondes et environnements de jeu</li>
+                            <li>Développement d'IP visuelles propriétaires</li>
+                            <li>Illustration digitale de haute qualité</li>
+                            <li>Direction artistique et narration visuelle</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Liens Utiles -->
+            <section>
+                <h2>🔗 Liens Utiles</h2>
+                <p>Connectez-vous avec Abrakam et découvrez leurs jeux :</p>
+                
+                <div class="links-grid">
+                    <a href="https://www.abrakam.com/" class="link-button">
+                        <strong>Site Officiel</strong>
+                        www.abrakam.com
+                    </a>
+                    <a href="https://emploi.afjv.com/annonces-societes/934" class="link-button">
+                        <strong>Carrières (AFJV)</strong>
+                        Postes ouverts
+                    </a>
+                    <a href="https://store.steampowered.com/developer/abrakam" class="link-button">
+                        <strong>Store Steam</strong>
+                        Jeux Abrakam
+                    </a>
+                    <a href="https://www.linkedin.com/company/abrakam/" class="link-button">
+                        <strong>LinkedIn</strong>
+                        Abrakam Company
+                    </a>
+                </div>
+            </section>
+
+            <!-- Section Verdict -->
+            <section>
+                <h2>📊 Verdict & Synthèse</h2>
+                
                 <div class="verdict">
-                    <h3>📊 Verdict : Difficulté de Candidature</h3>
-                    <p style="margin-bottom: 15px;">
-                        <strong>Niveau : Moyen</strong>
-                    </p>
-                    <div class="difficulty-meter">
-                        <div class="difficulty-bar"></div>
-                    </div>
-                    <p style="margin-top: 15px; color: #333;">
-                        Abrakam est un studio indépendant de taille petite-moyenne avec une expertise spécialisée en jeux de cartes stratégiques. La difficulté est modérée : le studio cherche activement des talents et valorise l'expertise dans les jeux de cartes plutôt que la notoriété. Cependant, il est essentiel de démontrer :
-                    </p>
-                    <ul style="margin-top: 15px; margin-left: 20px; color: #333;">
-                        <li>Une compréhension profonde des mécaniques de jeux de cartes</li>
-                        <li>Une passion genuine pour la stratégie et l'innovation</li>
-                        <li>Des compétences techniques solides et bien documentées</li>
-                        <li>Une adaptabilité à un environnement de petit studio</li>
-                        <li>Un alignement avec les valeurs du studio (bien-être d'équipe, innovation)</li>
+                    <h3>Difficulty: ⭐⭐⭐ Moyenne</h3>
+                    <p><strong>Analyse :</strong> Abrakam est une petite équipe d'experts (24 personnes) avec une forte spécialisation en jeux stratégiques. La difficulté d'accès est moyenne car le studio valorise :</p>
+                    <ul style="list-style: none; padding: 15px 0;">
+                        <li>✓ La passion réelle pour les jeux de stratégie</li>
+                        <li>✓ Les compétences métier démontrer par portfolio</li>
+                        <li>✓ L'expérience en jeux de cartes ou stratégie</li>
+                        <li>✓ L'innovation et la créativité</li>
+                        <li>✓ Le bien-être et l'implication dans les projets</li>
                     </ul>
-                    <p style="margin-top: 15px; color: #333;">
-                        <strong>Recommandation :</strong> Si vous maîtrisez les jeux de cartes stratégiques et possédez un portfolio pertinent, vos chances sont bonnes. N'hésitez pas à montrer votre enthousiasme et vos réalisations concrètes.
-                    </p>
                 </div>
-            </section>
-        </div>
-        
-        <footer>
-            <p>&copy; 2024 Abrakam Studio. Passionnés par les jeux de stratégie depuis 2013.</p>
-            <p>Liège, Belgique 🇧🇪</p>
-        </footer>
-    </div>
-</body>
-</html>
+
+                <div class="verdict">
+                    <h3>Points Forts ✨</h3>
+                    <ul style="list-style: none; padding: 15px 0;">
+                        <li>✓ Studio belge reconnu dans les jeux stratégiques</li>
+                        <li>✓ Jeux talentueux et innovants (Faeria, Roguebook)</li>
+                        <li>✓ Équipe experte et passionnée par son domaine</li>
+                        <li>✓ Partenariat avec Paradox Interactive</li>
+                        <li>✓ Accent sur la qualité et l'innovation</li>
+                        <li>✓ Petite taille = environnement collaboratif</li>
+                    </ul>
+                </div>
+
+                <div class="verdict">
+                    <h3>Conseils pour Candidats 🎯</h3>
+                    <p><strong>Pour augmenter vos chances :</strong></p>
+                    <ul style="list-style: none; padding: 15px 0;">
+                        <li>🎮 Jouez à Faeria et Roguebook - comprenez leur design</li>
+                        <li>📁 Portfolio solide montrant expérience en jeux stratégiques</li>
+                        <li>💡 Mettez l'accent sur projet personnel innovants</li>
+                        <li>🤝 Réseau via AFJV et LinkedIn - plateforme officielle</li>
+                        <li>🔍 Personnalisez votre candidature au domaine du studio</li>
+                        <li>
