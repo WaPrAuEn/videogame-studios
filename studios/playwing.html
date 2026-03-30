@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playwing - Studio de Jeux Vidéo Bordeaux</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        header h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            color: #666;
+            font-size: 1.1em;
+            margin: 5px 0;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+        
+        .section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            margin-bottom: 30px;
+        }
+        
+        .section h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .section h3 {
+            color: #764ba2;
+            font-size: 1.4em;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .info-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .info-card strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .game-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .game-card h4 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        
+        .job-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #764ba2;
+        }
+        
+        .job-category h4 {
+            color: #764ba2;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .difficulty {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 5px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        .difficulty.moyen {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .difficulty.eleve {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .link-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+        
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+        
+        .link-card strong {
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .verdict {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .verdict h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .verdict-item {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .verdict-item::before {
+            content: "✓ ";
+            margin-left: -20px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .rating {
+            font-size: 1.5em;
+            color: #ffc107;
+            margin: 10px 0;
+        }
+        
+        .no-offers {
+            background: #e7f3ff;
+            padding: 15px;
+            border-radius: 5px;
+            color: #004085;
+            border-left: 4px solid #0056b3;
+            margin: 15px 0;
+        }
+        
+        footer {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #ffc107;
+            margin: 15px 0;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>🎮 PLAYWING</h1>
+            <p>Studio de Développement et Édition de Jeux Vidéo</p>
+            <p style="color: #667eea; font-weight: 600; margin-top: 15px;">Bordeaux, France</p>
+            <div style="margin-top: 15px;">
+                <span class="badge">Fondé en 2016</span>
+                <span class="badge">11-50 collaborateurs</span>
+                <span class="badge">Free-to-Play Multijoueur</span>
+            </div>
+        </header>
+
+        <!-- Identité -->
+        <section class="section">
+            <h2>Identité du Studio</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <strong>Localisation</strong>
+                    Bordeaux, France
+                </div>
+                <div class="info-card">
+                    <strong>Année de Fondation</strong>
+                    2016
+                </div>
+                <div class="info-card">
+                    <strong>Effectifs</strong>
+                    11-50 collaborateurs
+                </div>
+                <div class="info-card">
+                    <strong>Type</strong>
+                    Développement et édition
+                </div>
+            </div>
+            
+            <h3>Culture du Studio</h3>
+            <p style="margin: 15px 0;">
+                Playwing est un studio fondé par des <strong>vétérans du secteur des jeux vidéo</strong>, spécialisé dans la création de jeux <strong>multijoueurs free-to-play</strong> avec un focus particulier sur les mécaniques compétitives et immersives. Le studio s'inscrit dans l'écosystème gaming dynamique de Bordeaux, aux côtés de géants comme Ubisoft et Asobo.
+            </p>
+            <p>
+                L'approche de Playwing privilégie l'<strong>expérience multijoueur</strong> et les défis techniques liés au développement de jeux en <strong>accès anticipé</strong>, notamment sur Steam. C'est un environnement de travail idéal pour les développeurs passionnés par le gameplay compétitif.
+            </p>
+        </section>
+
+        <!-- Jeux Notables -->
+        <section class="section">
+            <h2>Jeux Notables</h2>
+            <div class="game-card">
+                <h4>⚔️ Century: Age of Ashes</h4>
+                <p><strong>Genre :</strong> Action multijoueur free-to-play</p>
+                <p><strong>Description :</strong> Jeu de combats aériens impliquant des dragons. Les joueurs pilotent des créatures majestueuses dans des affrontements compétitifs intenses, avec des mécaniques de gameplay sophistiquées et des environnements dynamiques.</p>
+                <p><strong>Plateforme :</strong> Steam (accès anticipé)</p>
+            </div>
+        </section>
+
+        <!-- Par Métier -->
+        <section class="section">
+            <h2>Opportunités par Métier</h2>
+            
+            <div class="job-category">
+                <h4>🎮 Game Designer</h4>
+                <p><strong>Demande :</strong> Moyen</p>
+                <p><strong>Focus :</strong> Gameplay multijoueur compétitif</p>
+                <p>Les game designers rejoignant Playwing doivent avoir une expertise solide en conception de mécaniques multijoueur équilibrées et compétitives. L'expérience sur des jeux en accès anticipé est un plus considérable.</p>
+                <div class="difficulty moyen">Difficulté : Moyen</div>
+            </div>
+
+            <div class="job-category">
+                <h4>💻 Programmeur</h4>
+                <p><strong>Demande :</strong> Élevé</p>
+                <p><strong>Focus :</strong> Développement de jeux en accès anticipé sur Steam</p>
+                <p>Playwing recherche des programmeurs expérimentés capables de gérer les défis techniques des jeux multijoueur free-to-play, notamment l'optimisation, la synchronisation réseau et les performances. C'est un rôle clé pour le studio.</p>
+                <div class="difficulty eleve">Difficulté : Élevé</div>
+            </div>
+
+            <div class="job-category">
+                <h4>🎨 Artiste 3D</h4>
+                <p><strong>Demande :</strong> Élevé</p>
+                <p><strong>Focus :</strong> Environnements et dragons en combat aérien</p>
+                <p>Le besoin en artistes 3D est important pour créer des environnements visuellement impressionnants et des modèles de dragons détaillés et fluides en mouvement. L'expérience en animation de créatures est essentielle.</p>
+                <div class="difficulty eleve">Difficulté : Élevé</div>
+            </div>
+
+            <div class="job-category">
+                <h4>🖼️ UI Artist</h4>
+                <p><strong>Demande :</strong> Moyen</p>
+                <p><strong>Focus :</strong> Interface pour modes multijoueurs</p>
+                <p>Les UI Artists doivent concevoir des interfaces claires, intuitives et performantes pour les modes multijoueur compétitifs. L'expérience en jeux free-to-play est fortement appréciée.</p>
+                <div class="difficulty moyen">Difficulté : Moyen</div>
+            </div>
+
+            <div class="job-category">
+                <h4>✏️ Concept Artist</h4>
+                <p><strong>Demande :</strong> Moyen</p>
+                <p><strong>Focus :</strong> Concepts pour classes de dragons et modes de jeu</p>
+                <p>Les concept artists jouent un rôle crucial dans l'identité visuelle du jeu, notamment dans la création de designs de dragons variés et de modes de jeu innovants. L'expérience en art conceptuel pour jeux multijoueur est un atout.</p>
+                <div class="difficulty moyen">Difficulté : Moyen</div>
+            </div>
+        </section>
+
+        <!-- Recrutement -->
+        <section class="section">
+            <h2>Recrutement</h2>
+            <div class="no-offers">
+                <strong>📌 Statut Actuel :</strong> Aucune offre d'emploi ou de stage actuellement disponible
+            </div>
+            
+            <div class="highlight">
+                <strong>💡 Conseil Important :</strong> Bien qu'aucune offre ne soit actuellement affichée, il est fortement recommandé de consulter régulièrement le site carrières et de postuler en candidature spontanée. Playwing est un studio en croissance active dans un écosystème dynamique. Vérifiez les offres émergentes et montrez votre intérêt pour le studio et ses projets.
+            </div>
+            
+            <h3>Conditions Préalables</h3>
+            <ul style="margin: 15px 0; padding-left: 20px;">
+                <li><strong>Expérience multijoueur :</strong> Mettre en avant vos projets et compétences en développement de jeux multijoueur</li>
+                <li><strong>Vétérans du secteur :</strong> Souligner votre séniorité et votre expérience antérieure en studios établis</li>
+                <li><strong>Accès anticipé :</strong> Décrire votre expérience avec des jeux en early access et les défis associés</li>
+                <li><strong>Passion pour les combats de dragons :</strong> Montrer votre enthousiasme pour Century: Age of Ashes et les mécaniques d'action aérienne</li>
+            </ul>
+
+            <h3>Processus de Candidature</h3>
+            <p style="margin: 15px 0;">
+                Les candidatures doivent être déposées via le site carrières officiel de Playwing. Même en l'absence d'offres actuelles, n'hésitez pas à envoyer une candidature spontanée ou à vous abonner aux alertes pour être parmi les premiers informés des nouvelles opportunités.
+            </p>
+        </section>
+
+        <!-- Liens Utiles -->
+        <section class="section">
+            <h2>Liens Utiles</h2>
+            <div class="links-grid">
+                <a href="https://www.playwing.com/careers/" class="link-card" target="_blank">
+                    <strong>Site Carrières</strong>
+                    Consultez les offres et candidatures
+                </a>
+                <a href="https://www.playwing.com" class="link-card" target="_blank">
+                    <strong>Site Officiel</strong>
+                    En savoir plus sur le studio
+                </a>
+                <a href="https://www.linkedin.com/company/playwing-bordeaux/?originalSubdomain=fr" class="link-card" target="_blank">
+                    <strong>LinkedIn</strong>
+                    Connectez-vous avec l'équipe
+                </a>
+                <div class="link-card" style="cursor: not-allowed; opacity: 0.6;">
+                    <strong>Steam</strong>
+                    Lien non disponible actuellement
+                </div>
+            </div>
+        </section>
+
+        <!-- Verdict & Recommandations -->
+        <section class="verdict">
+            <h2>Verdict & Recommandations</h2>
+            
+            <h3 style="color: white;">⭐ Évaluation Générale</h3>
+            <div class="rating">★★★★☆ (4/5)</div>
+            
+            <h3 style="color: white; margin-top: 20px;">Points Forts</h3>
+            <div class="verdict-item">Écosystème bordelais dynamique avec Ubisoft et Asobo à proximité</div>
+            <div class="verdict-item">Fondateurs vétérans du secteur apportant une expertise incontestable</div>
+            <div class="verdict-item">Focus clair sur le multijoueur compétitif, secteur en expansion</div>
+            <div class="verdict-item">Studio en croissance active cherchant à élargir son équipe</div>
+            <div class="verdict-item">Jeu innovant (Century: Age of Ashes) avec potentiel de croissance</div>
+            
+            <h3 style="color: white; margin-top: 20px;">Points d'Attention</h3>
+            <div class="verdict-item">Aucune offre actuellement disponible (recrutement potentiellement ferme)</div>
+            <div class="verdict-item">Équipe réduite (11-50 personnes) = hiérarchie plate mais peu de postes libres</div>
+            <div class="verdict-item">Concurrence importante des studios majeurs bordelais</div>
+            
+            <h3 style="color: white; margin-top: 20px;">Recommandations</h3>
+            <div class="verdict-item">Postulez rapidement si une offre correspondant à votre profil apparaît</div>
+            <div class="verdict-item">Valorisez votre expérience multijoueur et accès anticipé Steam</div>
+            <div class="verdict-item">Montrez votre intérêt pour Century: Age of Ashes spécifiquement</div>
+            <div class="verdict-item">Envisagez une candidature spontanée professionnelle et personnalisée</div>
+            <div class="verdict-item">Suivez le studio sur LinkedIn et le site carrières pour les mises à jour</div>
+            
+            <h3 style="color: white; margin-top: 20px;">Profil Idéal</h3>
+            <p style="margin-top: 10px;">Playwing recherche des profils <strong>séniors avec une expertise confirmée en multijoueur</strong>, capables de contribuer immédiatement à l'évolution de Century: Age of Ashes et à la création de futurs projets. Les candidats passionnés par les combats de dragons et les jeux d'action aérienne seront particulièrement convaincants.</p>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>Fiche Studio - Playwing | Mise à jour 2024</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">Informations basées sur les données publiques disponibles du studio</p>
+        </footer>
+    </div>
+</body>
+</html>
