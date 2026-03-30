@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shiro Games - Studio Indépendant à Bordeaux</title>
+    <title>Shiro Games - Studio de Jeux Vidéo Bordeaux</title>
     <style>
         * {
             margin: 0;
@@ -13,502 +13,434 @@
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
             color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 4px solid #e74c3c;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
         }
         
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-        }
-        
-        .header {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: white;
-            padding: 50px 40px;
-            text-align: center;
-            border-bottom: 5px solid #667eea;
-        }
-        
-        .header h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-        
-        .header p {
-            font-size: 1.2em;
-            opacity: 0.9;
-            margin-bottom: 15px;
-        }
-        
-        .header-info {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-            font-size: 0.95em;
-        }
-        
-        .header-info span {
-            background: rgba(102, 126, 234, 0.2);
-            padding: 8px 16px;
-            border-radius: 20px;
-            border-left: 3px solid #667eea;
-        }
-        
-        .content {
-            padding: 40px;
-        }
-        
-        .section {
-            margin-bottom: 40px;
-        }
-        
-        .section h2 {
-            font-size: 1.8em;
-            color: #1a1a2e;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #667eea;
-            display: inline-block;
-        }
-        
-        .identite-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .identite-card {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             padding: 20px;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
         }
         
-        .identite-card h3 {
+        section {
+            background: white;
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        section h2 {
             color: #1a1a2e;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+        }
+        
+        section h3 {
+            color: #16213e;
+            font-size: 1.5em;
+            margin-top: 20px;
             margin-bottom: 10px;
-            font-size: 1.1em;
         }
         
-        .identite-card p {
-            color: #555;
-            font-size: 0.95em;
-        }
-        
-        .jeux-container {
+        .identity-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             margin-top: 20px;
         }
         
-        .jeu-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .identity-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid #e74c3c;
         }
         
-        .jeu-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.5);
+        .identity-card strong {
+            color: #1a1a2e;
+            display: block;
+            margin-bottom: 5px;
         }
         
-        .jeu-card h3 {
-            font-size: 1.3em;
-            margin-bottom: 10px;
-        }
-        
-        .metiers-grid {
+        .games-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
             margin-top: 20px;
         }
         
-        .metier-card {
-            background: #f5f7fa;
+        .game-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
             padding: 25px;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
-            transition: box-shadow 0.3s ease;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
         }
         
-        .metier-card:hover {
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        .game-card:hover {
+            transform: translateY(-5px);
         }
         
-        .metier-card h3 {
-            color: #667eea;
-            margin-bottom: 15px;
-            font-size: 1.2em;
-        }
-        
-        .metier-card ul {
-            list-style: none;
-            margin-bottom: 15px;
-        }
-        
-        .metier-card li {
-            padding: 8px 0;
-            padding-left: 25px;
-            position: relative;
-            color: #555;
-        }
-        
-        .metier-card li:before {
-            content: "▸";
-            position: absolute;
-            left: 0;
-            color: #667eea;
-            font-weight: bold;
-        }
-        
-        .difficulte {
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-            border-left: 4px solid #ff6b6b;
-        }
-        
-        .difficulte h3 {
-            color: #c92a2a;
+        .game-card h4 {
+            font-size: 1.5em;
             margin-bottom: 10px;
-            font-size: 1.1em;
         }
         
-        .barre-difficulte {
-            width: 100%;
-            height: 8px;
-            background: #ddd;
-            border-radius: 5px;
-            overflow: hidden;
-            margin-top: 10px;
+        .recruitment-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 20px;
         }
         
-        .barre-remplissage {
-            height: 100%;
-            width: 60%;
-            background: linear-gradient(90deg, #ff6b6b 0%, #ffa502 100%);
+        .job-opening {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 6px;
+            border-left: 4px solid white;
         }
         
-        .liens-utiles {
+        .job-opening strong {
+            display: block;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+        
+        .links-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 15px;
             margin-top: 20px;
         }
         
-        .lien-btn {
+        .link-button {
             display: inline-block;
-            padding: 15px 20px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
+            padding: 15px 20px;
             text-decoration: none;
-            border-radius: 8px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 6px;
             text-align: center;
-            font-weight: 500;
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
         
-        .lien-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        .link-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
         }
         
-        .conseil {
-            background: linear-gradient(135deg, #d4f1d4 0%, #a8e6a8 100%);
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 4px solid #2f9e2f;
+        .professions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
             margin-top: 20px;
         }
         
-        .conseil h3 {
-            color: #1b6e1b;
+        .profession-card {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 25px;
+            border-radius: 8px;
+            border-top: 4px solid #e74c3c;
+        }
+        
+        .profession-card h4 {
+            color: #1a1a2e;
+            font-size: 1.3em;
             margin-bottom: 10px;
-            font-size: 1.1em;
         }
         
-        .conseil ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .conseil li {
-            padding: 8px 0;
-            padding-left: 25px;
-            position: relative;
+        .profession-card p {
             color: #333;
+            margin-bottom: 10px;
         }
         
-        .conseil li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #2f9e2f;
-            font-weight: bold;
+        .profession-card ul {
+            margin-left: 20px;
+            color: #555;
+        }
+        
+        .profession-card li {
+            margin-bottom: 8px;
         }
         
         .verdict {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
             color: white;
-            padding: 40px;
-            border-radius: 10px;
+            padding: 30px;
+            border-radius: 8px;
             text-align: center;
-            margin-top: 30px;
-            font-size: 1.1em;
-            line-height: 1.8;
         }
         
-        .verdict h2 {
+        .verdict h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
             color: white;
-            border-bottom-color: rgba(255, 255, 255, 0.3);
-            margin-bottom: 20px;
         }
         
-        .footer {
+        .verdict p {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+        
+        .difficulty-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+        
+        .difficulty-bar .bars {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .bar {
+            width: 30px;
+            height: 30px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 4px;
+        }
+        
+        .bar.filled {
+            background: rgba(255,255,255,0.8);
+        }
+        
+        footer {
             background: #1a1a2e;
             color: white;
             text-align: center;
             padding: 20px;
-            font-size: 0.9em;
-            border-top: 3px solid #667eea;
+            margin-top: 40px;
         }
         
-        @media (max-width: 768px) {
-            .identite-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .metiers-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .liens-utiles {
-                grid-template-columns: 1fr;
-            }
-            
-            .header h1 {
-                font-size: 2em;
-            }
-            
-            .header-info {
-                flex-direction: column;
-                gap: 10px;
-            }
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: #333;
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>🎮 SHIRO GAMES</h1>
+        <p>Studio Indépendant de Développement de Jeux Vidéo</p>
+        <p>Bordeaux, France • Depuis 2013</p>
+    </header>
+    
     <div class="container">
-        <!-- HEADER -->
-        <div class="header">
-            <h1>🎮 SHIRO GAMES</h1>
-            <p>Studio Indépendant de Développement de Jeux Vidéo</p>
-            <div class="header-info">
-                <span>📍 Bordeaux, France</span>
-                <span>👥 70 Personnes</span>
-                <span>📅 Fondé en 2012</span>
-                <span>⭐ Indépendant</span>
+        <!-- SECTION IDENTITÉ -->
+        <section>
+            <h2>🏢 Identité du Studio</h2>
+            <div class="identity-grid">
+                <div class="identity-card">
+                    <strong>📍 Localisation</strong>
+                    Bordeaux, France
+                </div>
+                <div class="identity-card">
+                    <strong>📅 Fondé en</strong>
+                    2013 (11 ans d'expérience)
+                </div>
+                <div class="identity-card">
+                    <strong>👥 Taille de l'équipe</strong>
+                    70 collaborateurs
+                </div>
+                <div class="identity-card">
+                    <strong>🎯 Type de Studio</strong>
+                    Studio Indépendant
+                </div>
+                <div class="identity-card">
+                    <strong>🏆 Expérience Éditeurs</strong>
+                    NCsoft (Guild Wars, Ghost Recon)
+                </div>
+                <div class="identity-card">
+                    <strong>💻 Plateformes</strong>
+                    PC et Tablettes
+                </div>
             </div>
-        </div>
-
-        <!-- CONTENU PRINCIPAL -->
-        <div class="content">
-            <!-- SECTION IDENTITÉ -->
-            <section class="section">
-                <h2>Identité du Studio</h2>
-                <div class="identite-grid">
-                    <div class="identite-card">
-                        <h3>Type de Studio</h3>
-                        <p>Studio indépendant spécialisé dans le développement de jeux en ligne de haute qualité avec une équipe expérimentée et passionnée.</p>
-                    </div>
-                    <div class="identite-card">
-                        <h3>Taille & Localisation</h3>
-                        <p>Une équipe de 70 personnes basée à Bordeaux, en France, dédiée à la création d'expériences ludiques innovantes.</p>
-                    </div>
-                    <div class="identite-card">
-                        <h3>Fondateurs & Expérience</h3>
-                        <p>Équipe de vétérans ayant travaillé sur Guild Wars, Rayman, Ghost Recon et Motion Twin. Anciennes expériences chez NCsoft.</p>
-                    </div>
-                    <div class="identite-card">
-                        <h3>Spécialité</h3>
-                        <p>Jeux en ligne, MMO, et titre indépendants innovants. Expertise reconnue dans la création de mondes persistants et d'expériences multijoueurs engageantes.</p>
-                    </div>
+            
+            <h3 style="margin-top: 30px;">📊 Expertise de l'Équipe</h3>
+            <p style="margin-top: 10px;">Équipe expérimentée avec antécédents sur des titres prestigieux :</p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li><strong>Guild Wars</strong> - Développement MMO de haut niveau</li>
+                <li><strong>Rayman</strong> - Expertise en jeux de plateforme</li>
+                <li><strong>Ghost Recon</strong> - Expérience en jeux d'action</li>
+            </ul>
+        </section>
+        
+        <!-- SECTION JEUX NOTABLES -->
+        <section>
+            <h2>🎮 Jeux Notables</h2>
+            <div class="games-grid">
+                <div class="game-card">
+                    <h4>Evoland HD</h4>
+                    <p>Un jeu aventure innovant qui retrace l'évolution des jeux vidéo, alliant nostalgie et gameplay moderne pour une expérience unique.</p>
                 </div>
-            </section>
-
-            <!-- SECTION JEUX NOTABLES -->
-            <section class="section">
-                <h2>Jeux Notables</h2>
-                <div class="jeux-container">
-                    <div class="jeu-card">
-                        <h3>Evoland HD</h3>
-                        <p>Une aventure innovante qui revisite l'histoire des jeux vidéo, combinant nostalgie et gameplay moderne dans une expérience unique.</p>
-                    </div>
-                    <div class="jeu-card">
-                        <h3>Northgard</h3>
-                        <p>Un jeu de stratégie en temps réel inspiré de l'univers viking, mêlant gestion de ressources et combats tactiques.</p>
-                    </div>
-                    <div class="jeu-card">
-                        <h3>Wartales</h3>
-                        <p>Un RPG tactique au tour par tour mettant en avant la gestion d'une bande de mercenaires dans un monde medieval sombre.</p>
-                    </div>
+                <div class="game-card">
+                    <h4>Project Z</h4>
+                    <p>Un projet ambitieux showcasing les capacités de créativité et innovation du studio, en développement continu.</p>
                 </div>
-            </section>
-
-            <!-- SECTION RECRUTEMENT -->
-            <section class="section">
-                <h2>Recrutement & Opportunités</h2>
-                <div class="identite-grid">
-                    <div class="identite-card">
-                        <h3>Postes Ouverts</h3>
-                        <p>Consultez régulièrement la page carrières du studio pour découvrir les postes disponibles correspondant à votre profil et compétences.</p>
-                    </div>
-                    <div class="identite-card">
-                        <h3>Niveau de Difficulté</h3>
-                        <p><strong>Difficulté Moyenne</strong> - Fondateurs expérimentés et équipe de vétérans. Équipe mature et bien structurée, mais sélective sur le talent.</p>
-                    </div>
+                <div class="game-card">
+                    <h4>Wartales</h4>
+                    <p>Un jeu tactique au tour par tour combinant stratégie et RPG, offrant une profondeur stratégique remarquable.</p>
                 </div>
-
-                <div class="conseil">
-                    <h3>💡 Conseils pour Postuler</h3>
+            </div>
+        </section>
+        
+        <!-- SECTION RECRUTEMENT -->
+        <section>
+            <h2>💼 Nous Recrutons !</h2>
+            <div class="recruitment-section">
+                <h3 style="color: white;">Postes Ouverts</h3>
+                <div class="job-opening">
+                    <strong>🎨 Graphiste Senior</strong>
+                    <p>Nous recherchons un graphiste expérimenté capable de diriger la vision artistique de nos projets et mentorer l'équipe créative.</p>
+                </div>
+                <div class="job-opening">
+                    <strong>⚙️ Programmeur Gameplay</strong>
+                    <p>Un programmeur expérimenté en gameplay pour développer des mécaniques de jeu innovantes et engageantes.</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 20px; background: #f0f0f0; padding: 20px; border-radius: 6px;">
+                <h3>📋 Informations Candidature</h3>
+                <p style="margin-top: 10px;"><strong>Email de recrutement :</strong> <span class="highlight">recrutement@shirogames.com</span></p>
+                <p style="margin-top: 10px;"><strong>Difficulté d'accès :</strong> <span class="highlight">Moyenne (3/5)</span> - L'expérience est valorisée</p>
+                <p style="margin-top: 10px;"><strong>💡 Conseil :</strong> Les candidatures spontanées sont <span class="highlight">bienvenues</span>. Priorité aux profils seniors en graphisme et programmation gameplay.</p>
+            </div>
+        </section>
+        
+        <!-- SECTION PAR MÉTIER -->
+        <section>
+            <h2>🎯 Opportunités par Métier</h2>
+            <div class="professions-grid">
+                <div class="profession-card">
+                    <h4>🎮 Game Designer</h4>
+                    <p>Rejoignez notre équipe créative et contribuez à la conception de jeux innovants.</p>
                     <ul>
-                        <li>Mettez en avant votre expérience en jeux en ligne et MMO</li>
-                        <li>Démontrez des compétences en Haxe ou moteurs indie (Godot, etc.)</li>
-                        <li>Pour les artistes : préparez un portfolio solide et impressionnant</li>
-                        <li>Consultez régulièrement https://shirogames.com/jobs/ pour les offres actuelles</li>
-                        <li>Montrez votre passion pour les jeux vidéo et la création</li>
-                        <li>Soulignez votre capacité à travailler en équipe et votre adaptabilité</li>
+                        <li>Conception mécanique de jeux</li>
+                        <li>Level design</li>
+                        <li>Balancing et gameplay</li>
+                        <li>Storytelling interactif</li>
                     </ul>
                 </div>
-            </section>
-
-            <!-- SECTION PAR MÉTIER -->
-            <section class="section">
-                <h2>Opportunités par Métier</h2>
-                <div class="metiers-grid">
-                    <div class="metier-card">
-                        <h3>🎮 Game Designer</h3>
-                        <ul>
-                            <li>Conception de mécaniques de jeu innovantes</li>
-                            <li>Expérience en jeux en ligne/MMO</li>
-                            <li>Balance et progression du gameplay</li>
-                            <li>Documentation et pitch de concepts</li>
-                            <li>Collaboration avec artistes et programmeurs</li>
-                            <li>Familiarité avec outils comme Unity ou Godot</li>
-                        </ul>
-                    </div>
-
-                    <div class="metier-card">
-                        <h3>💻 Programmeur</h3>
-                        <ul>
-                            <li>Maîtrise de langages : C#, C++, Haxe</li>
-                            <li>Expérience en architectures réseau/serveur</li>
-                            <li>Optimisation et performance</li>
-                            <li>Systèmes de gameplay et IA</li>
-                            <li>Connaissance des moteurs modernes</li>
-                            <li>Passion pour les défis techniques</li>
-                        </ul>
-                    </div>
-
-                    <div class="metier-card">
-                        <h3>🎨 Artiste 3D</h3>
-                        <ul>
-                            <li>Modélisation 3D haute-poly/basse-poly</li>
-                            <li>Création de textures PBR</li>
-                            <li>Animation des personnages et créatures</li>
-                            <li>Portfolio 3D professionnel requis</li>
-                            <li>Maîtrise de Blender ou Maya</li>
-                            <li>Optimisation des assets pour temps réel</li>
-                        </ul>
-                    </div>
-
-                    <div class="metier-card">
-                        <h3>🎨 UI/UX Artist</h3>
-                        <ul>
-                            <li>Design d'interfaces utilisateur intuitives</li>
-                            <li>Création d'éléments UI pour jeux en ligne</li>
-                            <li>Prototypage et wireframing</li>
-                            <li>Sensibilité UX/Ergonomie</li>
-                            <li>Maîtrise des outils de design (Figma, Photoshop)</li>
-                            <li>Connaissance des contraintes de performance</li>
-                        </ul>
-                    </div>
-
-                    <div class="metier-card">
-                        <h3>🎨 Concept Artist</h3>
-                        <ul>
-                            <li>Création de concepts originaux et inspirants</li>
-                            <li>Design de personnages et environnements</li>
-                            <li>Direction artistique du projet</li>
-                            <li>Portfolio numérique démontrant votre style</li>
-                            <li>Maîtrise du dessin digital</li>
-                            <li>Collaboration créative avec l'équipe</li>
-                        </ul>
-                    </div>
-
-                    <div class="metier-card">
-                        <h3>📊 Difficulté par Métier</h3>
-                        <ul>
-                            <li><strong>Programmeur :</strong> Moyenne à Difficile</li>
-                            <li><strong>Game Designer :</strong> Moyenne</li>
-                            <li><strong>Artiste 3D :</strong> Difficile (portfolio requis)</li>
-                            <li><strong>UI Artist :</strong> Moyenne</li>
-                            <li><strong>Concept Artist :</strong> Difficile (portfolio requis)</li>
-                        </ul>
-                    </div>
+                
+                <div class="profession-card">
+                    <h4>⚙️ Programmeur</h4>
+                    <p>Dites-nous votre spécialité ! Le studio recrute activement des programmeurs gameplay.</p>
+                    <ul>
+                        <li>Programmation gameplay</li>
+                        <li>Architecture logicielle</li>
+                        <li>Optimisation performance</li>
+                        <li>Intégration moteur</li>
+                    </ul>
                 </div>
-            </section>
-
-            <!-- SECTION LIENS UTILES -->
-            <section class="section">
-                <h2>Liens Utiles</h2>
-                <div class="liens-utiles">
-                    <a href="https://shirogames.com" class="lien-btn" target="_blank">🌐 Site Officiel</a>
-                    <a href="https://shirogames.com/jobs/" class="lien-btn" target="_blank">💼 Page Recrutement</a>
-                    <a href="https://store.steampowered.com/developer/shirogames" class="lien-btn" target="_blank">🎮 Steam</a>
-                    <a href="https://www.linkedin.com/company/shiro-games/" class="lien-btn" target="_blank">💼 LinkedIn</a>
+                
+                <div class="profession-card">
+                    <h4>🎨 Artiste 3D</h4>
+                    <p>Créez des mondes visuels captivants pour nos jeux.</p>
+                    <ul>
+                        <li>Modélisation 3D</li>
+                        <li>Texturing et shading</li>
+                        <li>Animation 3D</li>
+                        <li>Optimisation assets</li>
+                    </ul>
                 </div>
-            </section>
-
-            <!-- SECTION VERDICT -->
-            <section class="verdict">
-                <h2>Verdict</h2>
-                <p>
-                    Shiro Games est un studio indépendant de référence basé à Bordeaux avec une équipe de 70 personnes expérimentées et passionnées. 
-                    Fondé en 2012 et dirigé par des vétérans de l'industrie ayant travaillé sur des franchises majeures (Guild Wars, Rayman, Ghost Recon), 
-                    le studio offre des opportunités intéressantes pour les développeurs talentueux.
-                </p>
-                <p style="margin-top: 15px;">
-                    <strong>Niveau d'accès : MOYEN</strong> - L'équipe est mature et sélective, mais elle valorise les compétences authentiques et l'expérience 
-                    en jeux en ligne. Présentez un portfolio solide, démontrez votre passion et votre expertise technique, 
-                    et vous aurez de bonnes chances de vous démarquer auprès de Shiro Games.
-                </p>
-            </section>
-        </div>
-
-        <!-- FOOTER -->
-        <div class="footer">
-            <p>&copy; 2024 Fiche Informative - Shiro Games. Informations basées sur les données publiques du studio.</p>
-        </div>
+                
+                <div class="profession-card">
+                    <h4>🖼️ UI Artist</h4>
+                    <p>Concevez les interfaces utilisateur intuitives et esthétiques de nos jeux.</p>
+                    <ul>
+                        <li>Design d'interface</li>
+                        <li>UX/UI</li>
+                        <li>Animation UI</li>
+                        <li>Direction artistique</li>
+                    </ul>
+                </div>
+                
+                <div class="profession-card">
+                    <h4>✏️ Concept Artist</h4>
+                    <p>Donnez vie aux visions créatives du studio par vos concepts.</p>
+                    <ul>
+                        <li>Character design</li>
+                        <li>Environment concept</li>
+                        <li>Direction artistique</li>
+                        <li>Visual development</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SECTION LIENS UTILES -->
+        <section>
+            <h2>🔗 Liens Utiles</h2>
+            <div class="links-grid">
+                <a href="https://shirogames.com" class="link-button" target="_blank">🌐 Site Officiel</a>
+                <a href="https://shirogames.com/jobs/" class="link-button" target="_blank">💼 Page Carrières</a>
+                <a href="https://store.steampowered.com/developer/shirogames" class="link-button" target="_blank">🎮 Steam</a>
+                <a href="https://www.linkedin.com/company/shiro-games/" class="link-button" target="_blank">💼 LinkedIn</a>
+            </div>
+        </section>
+        
+        <!-- SECTION VERDICT -->
+        <section class="verdict">
+            <h3>✅ VERDICT</h3>
+            <p><strong>Shiro Games est une excellente opportunité</strong> pour les professionnels expérimentés du jeu vidéo.</p>
+            
+            <p style="margin-top: 20px;">Ce studio indépendant de 70 personnes offre une expérience solide dans le développement de jeux de qualité. Avec un historique incluant des contributions à des titres prestigieux (Guild Wars, Rayman, Ghost Recon), vous bénéficierez d'une environnement professionnel et créatif.</p>
+            
+            <p style="margin-top: 15px;"><strong>Points forts :</strong> Studio établi • Équipe expérimentée • Plusieurs projets actifs • Localisation attractive (Bordeaux)</p>
+            
+            <p style="margin-top: 15px;"><strong>Difficultés :</strong> Profils seniors prioritaires • Compétences spécialisées valorisées</p>
+            
+            <div class="difficulty-bar">
+                <span><strong>Difficulté d'accès :</strong></span>
+                <div class="bars">
+                    <div class="bar filled"></div>
+                    <div class="bar filled"></div>
+                    <div class="bar filled"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <span>3/5 (Moyenne)</span>
+            </div>
+            
+            <p style="margin-top: 20px;"><strong>🎯 Recommandation :</strong> Postulez si vous avez de l'expérience en développement de jeux vidéo, particulièrement en graphisme ou programmation gameplay. Les candidatures spontanées sont bienvenues !</p>
+        </section>
     </div>
+    
+    <footer>
+        <p>&copy; 2024 Fiche Studio - Shiro Games. Toutes les informations sont à titre informatif.</p>
+        <p>Dernière mise à jour : 2024</p>
+    </footer>
 </body>
 </html>
