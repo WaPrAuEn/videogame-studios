@@ -107,6 +107,7 @@
 - [Studio Nyx](studios/studio-nyx.html) — Angoulême, France
 - [Studio Wildcard](studios/studio-wildcard.html) — Redmond, États-Unis
 - [TapNation](studios/tapnation.html) — Paris, France
+- [Tarsier Studios](studios/tarsier-studios.html) — Malmö, Suède
 - [Team Cherry](studios/team-cherry.html) — Adélaïde, Australie
 - [The Wall Productions](studios/the-wall-productions.html) — Inconnu, Inconnu
 - [The Yard VFX](studios/the-yard-vfx.html) — Montpellier, France
