@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capcom Entertainment France - Fiche Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveBackground 20s linear infinite;
+        }
+        
+        @keyframes moveBackground {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        header p {
+            font-size: 1.2em;
+            position: relative;
+            z-index: 1;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+        
+        .identite-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .info-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .info-card strong {
+            color: #1a1a2e;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        
+        .info-card p {
+            color: #555;
+            margin: 5px 0;
+        }
+        
+        .jeux-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .jeu-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .jeu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.6);
+        }
+        
+        .jeu-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        
+        .metier-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #764ba2;
+        }
+        
+        .metier-section h3 {
+            color: #764ba2;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .metier-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .metier-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .metier-item .label {
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            min-width: 80px;
+            text-align: center;
+        }
+        
+        .recruitment-box {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .recruitment-box strong {
+            color: #856404;
+        }
+        
+        .links-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .link-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .link-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.5);
+        }
+        
+        .verdict {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        .verdict h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        
+        .verdict-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .verdict-item:last-child {
+            border-bottom: none;
+        }
+        
+        .verdict-label {
+            font-weight: bold;
+            color: #ffd700;
+        }
+        
+        .difficulty-bar {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .bar {
+            flex: 1;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ffc107 0%, #ff6b6b 100%);
+            width: 80%;
+            border-radius: 10px;
+        }
+        
+        .conseils {
+            background: #e3f2fd;
+            border-left: 4px solid #2196F3;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .conseils strong {
+            color: #1565c0;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .conseils ul {
+            list-style-position: inside;
+            color: #333;
+        }
+        
+        .conseils li {
+            margin-bottom: 8px;
+        }
+        
+        footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #ddd;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .metier-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .identite-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Capcom Entertainment France</h1>
+            <p>Studio d'édition de jeux vidéo - Leader mondial du divertissement interactif</p>
+        </header>
+        
+        <div class="content">
+            <!-- SECTION IDENTITÉ -->
+            <section>
+                <h2 class="section-title">📋 Identité du Studio</h2>
+                <div class="identite-grid">
+                    <div class="info-card">
+                        <strong>📍 Localisation</strong>
+                        <p>Saint Germain en Laye, France</p>
+                    </div>
+                    <div class="info-card">
+                        <strong>📅 Année de Fondation</strong>
+                        <p>2008</p>
+                    </div>
+                    <div class="info-card">
+                        <strong>👥 Taille du Studio</strong>
+                        <p>1 000 à 5 000 employés</p>
+                    </div>
+                    <div class="info-card">
+                        <strong>🏢 Type d'Entreprise</strong>
+                        <p>Éditeur de jeux vidéo</p>
+                    </div>
+                    <div class="info-card">
+                        <strong>🌍 Société Mère</strong>
+                        <p>Capcom Co., Ltd (Japon)</p>
+                    </div>
+                    <div class="info-card">
+                        <strong>💡 Culture Studio</strong>
+                        <p>Innovation, jeux emblématiques et succès commerciaux</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SECTION JEUX NOTABLES -->
+            <section>
+                <h2 class="section-title">🎯 Jeux Notables</h2>
+                <div class="jeux-container">
+                    <div class="jeu-card">
+                        <h3>Resident Evil</h3>
+                        <p>Série phare de survie horrifique</p>
+                    </div>
+                    <div class="jeu-card">
+                        <h3>Street Fighter</h3>
+                        <p>Légende des jeux de combat</p>
+                    </div>
+                    <div class="jeu-card">
+                        <h3>Mega Man</h3>
+                        <p>Classique intemporel des années 80</p>
+                    </div>
+                    <div class="jeu-card">
+                        <h3>Devil May Cry</h3>
+                        <p>Action et stylisation uniques</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SECTION RECRUTEMENT -->
+            <section>
+                <h2 class="section-title">💼 Recrutement</h2>
+                <div class="recruitment-box">
+                    <strong>⚠️ Status Actuels</strong>
+                    <p>Postes ouverts : <strong>Non spécifié</strong></p>
+                    <p style="margin-top: 10px; color: #666;">Consultez régulièrement les sites carrières et les réseaux sociaux de Capcom pour les annonces récentes.</p>
+                </div>
+            </section>
+            
+            <!-- SECTION PAR MÉTIER -->
+            <section>
+                <h2 class="section-title">🛠️ Opportunités par Métier</h2>
+                
+                <div class="metier-section">
+                    <h3>🎮 Game Designer</h3>
+                    <p>En tant qu'éditeur, Capcom France recrute moins de game designers que les studios de développement, mais valorise l'expérience en design de jeux et la compréhension des mécaniques modernes.</p>
+                    <div class="metier-grid">
+                        <div class="metier-item">
+                            <span class="label">Demande</span>
+                            <span>Moyen</span>
+                        </div>
+                        <div class="metier-item">
+                            <span class="label">Niveau</span>
+                            <span>Confirmé minimum</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="metier-section">
+                    <h3>💻 Programmeur</h3>
+                    <p>Développement limité en interne. Les programmeurs recherchés doivent avoir une expertise en optimisation et en intégration de jeux sur diverses plateformes.</p>
+                    <div class="metier-grid">
+                        <div class="metier-item">
+                            <span class="label">Demande</span>
+                            <span>Moyen</span>
+                        </div>
+                        <div class="metier-item">
+                            <span class="label">Niveau</span>
+                            <span>Senior préféré</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="metier-section">
+                    <h3>🎨 Artiste 3D</h3>
+                    <p>Besoin modéré pour la localisation et l'adaptation de contenu. Portfolio fort et maîtrise des outils 3D standards essentiels.</p>
+                    <div class="metier-grid">
+                        <div class="metier-item">
+                            <span class="label">Demande</span>
+                            <span>Moyen</span>
+                        </div>
+                        <div class="metier-item">
+                            <span class="label">Niveau</span>
+                            <span>Intermédiaire à confirmé</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="metier-section">
+                    <h3>🖼️ UI Artist</h3>
+                    <p>Les UI Artists jouent un rôle important dans l'adaptation des interfaces pour le marché français. Connaissance des standards d'accessibilité et UX modernes.</p>
+                    <div class="metier-grid">
+                        <div class="metier-item">
+                            <span class="label">Demande</span>
+                            <span>Moyen</span>
+                        </div>
+                        <div class="metier-item">
+                            <span class="label">Niveau</span>
+                            <span>Confirmé</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="metier-section">
+                    <h3>✏️ Concept Artist</h3>
+                    <p>Participation à l'adaptation créative des jeux. Portfolio varié montrant capacité d'adaptation et respect de l'identité visuelle des franchises.</p>
+                    <div class="metier-grid">
+                        <div class="metier-item">
+                            <span class="label">Demande</span>
+                            <span>Moyen</span>
+                        </div>
+                        <div class="metier-item">
+                            <span class="label">Niveau</span>
+                            <span>Confirmé minimum</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SECTION LIENS UTILES -->
+            <section>
+                <h2 class="section-title">🔗 Liens Utiles</h2>
+                <div class="links-container">
+                    <a href="https://www.capcomfrance.fr" class="link-button" target="_blank">🌐 Site Web Officiel</a>
+                    <a href="https://store.steampowered.com/publisher/capcom?l=french" class="link-button" target="_blank">🎮 Capcom sur Steam</a>
+                    <a href="https://www.linkedin.com/company/capcom/?originalSubdomain=fr" class="link-button" target="_blank">💼 Page LinkedIn</a>
+                </div>
+            </section>
+            
+            <!-- SECTION CONSEILS -->
+            <section>
+                <div class="conseils">
+                    <strong>💡 Conseils pour Candidater</strong>
+                    <ul>
+                        <li><strong>Mettez en avant votre expérience en édition/localisation</strong> - Un atout majeur pour rejoindre Capcom France</li>
+                        <li><strong>Réseau LinkedIn</strong> - Contactez la DRH Johan Delorme via LinkedIn pour des opportunités</li>
+                        <li><strong>Maîtrise du français et de l'anglais</strong> - Essentielle pour travailler dans une filiale locale d'un groupe international</li>
+                        <li><strong>Portfolio solide</strong> - Montrez vos meilleures réalisations et votre contribution à des projets de qualité</li>
+                        <li><strong>Passion pour les franchises Capcom</strong> - Démontrez une connaissance et une appréciation authentique de leurs jeux</li>
+                        <li><strong>Suivre les annonces</strong> - Les recrutements peuvent être publiés sans avertissement préalable</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- SECTION VERDICT -->
+            <section>
+                <div class="verdict">
+                    <h3>⭐ Verdict Global</h3>
+                    
+                    <div class="verdict-item">
+                        <span class="verdict-label">Attractivité Studio :</span>
+                        <p style="margin-top: 8px;">⭐⭐⭐⭐⭐ Exceptionnel - Leader mondial, franchises emblématiques, stabilité de l'emploi.</p>
+                    </div>
+                    
+                    <div class="verdict-item">
+                        <span class="verdict-label">Opportunités de Carrière :</span>
+                        <p style="margin-top: 8px;">⭐⭐⭐⭐☆ Très Bonnes - Bonnes perspectives d'évolution, environnement professionnel de qualité.</p>
+                    </div>
+                    
+                    <div class="verdict-item">
+                        <span class="verdict-label">Difficulté d'Accès :</span>
+                        <p style="margin-top: 8px;">⭐⭐⭐⭐⭐ Très Élevée (4/5)</p>
+                        <div class="difficulty-bar">
+                            <div class="bar">
+                                <div class="bar-fill"></div>
+                            </div>
+                            <span>80% - Grande entreprise, concurrence mondiale très forte</span>
+                        </div>
+                    </div>
+                    
+                    <div class="verdict-item">
+                        <span class="verdict-label">Volume de Recrutement :</span>
+                        <p style="margin-top: 8px;">⭐⭐⭐☆☆ Modéré - Éditeur avec développement limité en interne, recrutements ponctuels.</p>
+                    </div>
+                    
+                    <div class="verdict-item">
+                        <span class="verdict-label">Recommandation :</span>
+                        <p style="margin-top: 8px;">✅ <strong>FORTEMENT RECOMMANDÉ</strong> - Si vous avez de l'expérience en édition, localisation ou si vous êtes un talent senior. Passez par le réseau LinkedIn et mentionnez votre passion pour les franchises Capcom. Soyez patient et persistant face à la faible fréquence des ouvertures.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <footer>
+            <p>📌 Fiche d'Information Studio - Mise à jour 2024 | Capcom Entertainment France</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">Informations basées sur les données disponibles publiquement. Consultez les sources officielles pour les mises à jour récentes.</p>
+        </footer>
+    </div>
+</body>
+</html>
