@@ -47,6 +47,7 @@
 - [GFactory](studios/gfactory.html) — Lyon, France
 - [Glitchr Studio](studios/glitchr-studio.html) — Bordeaux, France
 - [Guerrilla Games](studios/guerrilla-games.html) — Amsterdam, Pays-Bas
+- [Hawkswell](studios/hawkswell.html) — Paris, France
 - [Hot Chili Games](studios/hot-chili-games.html) — Montpellier, France
 - [Iconik](studios/iconik.html) — La Ciotat, France
 - [Idea Factory](studios/idea-factory.html) — Tokyo, Japon
