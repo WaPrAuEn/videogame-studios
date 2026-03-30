@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Illumination Studios Paris - Fiche Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card h2 {
+            color: #00d4ff;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            border-bottom: 2px solid #00d4ff;
+            padding-bottom: 10px;
+        }
+        
+        .card h3 {
+            color: #0099cc;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+        
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .info-row:last-child {
+            border-bottom: none;
+        }
+        
+        .info-label {
+            font-weight: bold;
+            color: #0099cc;
+            min-width: 150px;
+        }
+        
+        .info-value {
+            color: #555;
+            text-align: right;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #00d4ff;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin: 5px 5px 5px 0;
+            font-weight: bold;
+        }
+        
+        .badge.success {
+            background: #27ae60;
+        }
+        
+        .badge.warning {
+            background: #f39c12;
+        }
+        
+        .badge.danger {
+            background: #e74c3c;
+        }
+        
+        .badge.neutral {
+            background: #95a5a6;
+        }
+        
+        .metier-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .metier-card {
+            background: #f8f9fa;
+            border-left: 4px solid #00d4ff;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        .metier-card h4 {
+            color: #0099cc;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        
+        .metier-card p {
+            color: #666;
+            font-size: 0.95em;
+        }
+        
+        .verdict-card {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .verdict-card h2 {
+            color: white;
+            border-bottom-color: white;
+        }
+        
+        .links-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .link-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #00d4ff;
+        }
+        
+        .link-item a {
+            color: #00d4ff;
+            text-decoration: none;
+            font-weight: bold;
+            word-break: break-all;
+        }
+        
+        .link-item a:hover {
+            color: #0099cc;
+            text-decoration: underline;
+        }
+        
+        .link-item p {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        
+        .notables {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #ffc107;
+            margin-bottom: 15px;
+        }
+        
+        .notables strong {
+            color: #856404;
+        }
+        
+        .culture-text {
+            background: #e7f3ff;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #00d4ff;
+            color: #004085;
+            font-style: italic;
+        }
+        
+        footer {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Illumination Studios Paris</h1>
+            <p>Studio Leader en Animation 3D | Europe</p>
+        </header>
+        
+        <div class="content">
+            <!-- IDENTITÉ -->
+            <div class="card">
+                <h2>Identité</h2>
+                <div class="info-row">
+                    <span class="info-label">Studio</span>
+                    <span class="info-value">Illumination Studios Paris</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Ancien Nom</span>
+                    <span class="info-value">Illumination Mac Guff</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Localisation</span>
+                    <span class="info-value">Paris, France</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Fondation</span>
+                    <span class="info-value">2011</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Taille</span>
+                    <span class="info-value">Non spécifiée</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Type</span>
+                    <span class="info-value">Animation 3D</span>
+                </div>
+                <h3>Éditeurs Partenaires</h3>
+                <div style="margin-top: 10px;">
+                    <span class="badge success">Universal Pictures</span>
+                    <span class="badge success">Illumination Entertainment</span>
+                </div>
+                <h3>Statut Jeux Vidéo</h3>
+                <div style="margin-top: 10px;">
+                    <span class="badge danger">N/A - Studio d'Animation</span>
+                </div>
+            </div>
+            
+            <!-- JEUX NOTABLES -->
+            <div class="card">
+                <h2>Productions</h2>
+                <div class="notables">
+                    <strong>Studio d'Animation 3D</strong>
+                    <p style="margin-top: 10px; color: #666;">Illumination Studios Paris est un studio spécialisé dans la production de films d'animation 3D, non dans le développement de jeux vidéo.</p>
+                </div>
+                <h3>Spécialités</h3>
+                <ul style="margin-left: 20px; color: #666; margin-top: 10px;">
+                    <li>Production de films d'animation 3D</li>
+                    <li>Contenu marketing d'animation</li>
+                    <li>Storyboarding</li>
+                    <li>Animation de caractères</li>
+                    <li>Animation 3D avancée</li>
+                </ul>
+            </div>
+            
+            <!-- CULTURE -->
+            <div class="card">
+                <h2>Culture & Positionnement</h2>
+                <div class="culture-text">
+                    Leader européen en animation 3D avec technologie de pointe et équipes artistiques et techniques mondialement reconnues.
+                </div>
+                <h3 style="margin-top: 20px;">Avantages</h3>
+                <ul style="margin-left: 20px; color: #666; margin-top: 10px;">
+                    <li>Excellence technique mondialement reconnue</li>
+                    <li>Équipes artistiques de haut niveau</li>
+                    <li>Technologies de pointe</li>
+                    <li>Partenariats internationaux prestigieux</li>
+                    <li>Position de leader européen</li>
+                </ul>
+            </div>
+            
+            <!-- RECRUTEMENT -->
+            <div class="card">
+                <h2>Recrutement</h2>
+                <h3>Offres d'Emploi</h3>
+                <div style="background: #fff3cd; padding: 15px; border-radius: 5px; margin-top: 10px; color: #856404;">
+                    <strong>Information :</strong> Les postes ouverts ne sont pas spécifiés dans les données disponibles.
+                </div>
+                <h3 style="margin-top: 20px;">Contacts</h3>
+                <div class="info-row" style="flex-direction: column; border: none;">
+                    <span class="info-label">Email Recrutement</span>
+                    <span class="info-value" style="text-align: left; margin-top: 5px;">Non spécifié</span>
+                </div>
+                <div class="info-row" style="flex-direction: column; border: none; margin-top: 15px;">
+                    <span class="info-label">Site Carrières</span>
+                    <span class="info-value" style="text-align: left; margin-top: 5px;">Non spécifié</span>
+                </div>
+                <div style="background: #e7f3ff; padding: 15px; border-radius: 5px; margin-top: 15px; color: #004085;">
+                    <strong>Conseil :</strong> Pour les opportunités de recrutement, consultez le site officiel ou les réseaux sociaux du studio.
+                </div>
+            </div>
+            
+            <!-- LIENS UTILES -->
+            <div class="card">
+                <h2>Liens Utiles</h2>
+                <div class="links-section">
+                    <div class="link-item">
+                        <p><strong>Site Web Officiel</strong></p>
+                        <a href="https://www.illuminationstudiosparis.com" target="_blank">illuminationstudiosparis.com</a>
+                    </div>
+                    <div class="link-item">
+                        <p><strong>Universal Pictures</strong></p>
+                        <a href="https://www.universalstudios.com" target="_blank">universalstudios.com</a>
+                    </div>
+                    <div class="link-item">
+                        <p><strong>Illumination Entertainment</strong></p>
+                        <a href="https://www.illumination.com" target="_blank">illumination.com</a>
+                    </div>
+                </div>
+                <div style="background: #f0f0f0; padding: 15px; border-radius: 5px; margin-top: 15px; color: #666;">
+                    <strong>Note :</strong> LinkedIn et Steam ne s'appliquent pas (studio d'animation, pas de jeux vidéo).
+                </div>
+            </div>
+            
+            <!-- PAR MÉTIER -->
+            <div class="card" style="grid-column: 1 / -1;">
+                <h2>Opportunités par Métier</h2>
+                <div class="metier-grid">
+                    <div class="metier-card">
+                        <h4>Game Designer</h4>
+                        <p><span class="badge danger">N/A</span></p>
+                        <p>Pas applicable - Studio d'animation, non de jeux vidéo</p>
+                    </div>
+                    
+                    <div class="metier-card">
+                        <h4>Programmeur</h4>
+                        <p><span class="badge danger">N/A</span></p>
+                        <p>Pas applicable - Pas de développement de jeux vidéo</p>
+                    </div>
+                    
+                    <div class="metier-card">
+                        <h4>Artiste 3D</h4>
+                        <p><span class="badge success">OUI</span></p>
+                        <p>Opportunités probables pour les spécialistes en modélisation, texturing et animation 3D haute qualité.</p>
+                    </div>
+                    
+                    <div class="metier-card">
+                        <h4>UI Artist</h4>
+                        <p><span class="badge danger">N/A</span></p>
+                        <p>Pas applicable - Non orienté interface de jeux</p>
+                    </div>
+                    
+                    <div class="metier-card">
+                        <h4>Concept Artist</h4>
+                        <p><span class="badge success">OUI</span></p>
+                        <p>Opportunités pour la création de contenus, storyboards et concepts visuels pour productions cinématographiques.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- VERDICT -->
+            <div class="verdict-card">
+                <h2>Verdict & Recommandation</h2>
+                <h3 style="color: white; border-bottom: 2px solid white; margin-top: 15px; margin-bottom: 15px; padding-bottom: 10px;">Profil du Studio</h3>
+                <p style="margin-bottom: 15px;">Illumination Studios Paris est un studio d'animation 3D de prestige, leader européen reconnu mondialement. Ce n'est PAS un studio de jeux vidéo, mais plutôt une structure spécialisée dans la production de films d'animation de haute qualité.</p>
+                
+                <h3 style="color: white; border-bottom: 2px solid white; margin-top: 15px; margin-bottom: 15px; padding-bottom: 10px;">Pour Qui ?</h3>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li><strong>Artistes 3D :</strong> Excellente opportunité pour développer des compétences en animation 3D cinématographique</li>
+                    <li><strong>Concept Artists :</strong> Environnement créatif et stimulant pour la création visuelle</li>
+                    <li><strong>Professionnels du jeu vidéo :</strong> Pas adapté - studio d'animation, non de game dev</li>
+                </ul>
+                
+                <h3 style="color: white; border-bottom: 2px solid white; margin-top: 15px; margin-bottom: 15px; padding-bottom: 10px;">Points Forts</h3>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>Position de leader international en animation 3D</li>
+                    <li>Partenariats prestigieux (Universal, Illumination)</li>
+                    <li>Technologie de pointe</li>
+                    <li>Équipes mondialement reconnues</li>
+                    <li>Localisation à Paris (Europe)</li>
+                </ul>
+                
+                <h3 style="color: white; border-bottom: 2px solid white; margin-top: 15px; margin-bottom: 15px; padding-bottom: 10px;">Difficulté d'Accès</h3>
+                <p><span class="badge warning">ÉLEVÉE</span> - Studio très sélectif, postes limités, compétition internationale forte</p>
+                
+                <h3 style="color: white; border-bottom: 2px solid white; margin-top: 15px; margin-bottom: 15px; padding-bottom: 10px;">Recommandation Finale</h3>
+                <p style="font-size: 1.1em; line-height: 1.8;">⭐⭐⭐⭐ <strong>Studio de très haut niveau</strong> pour les artistes 3D et concept artists passionnés par l'animation cinématographique. À noter que ce studio n'est PAS adapté aux développeurs de jeux vidéo classiques. Un portefeuille d'excellence est indispensable pour postuler.</p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2024 Fiche Studio Illumination Studios Paris | Données à titre informatif</p>
+        </footer>
+    </div>
+</body>
+</html>
