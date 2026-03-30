@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abiding Bridge - Studio de Jeux Vidéo Indépendant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+            margin-bottom: 5px;
+        }
+        
+        header .subtitle {
+            font-size: 0.95em;
+            opacity: 0.85;
+        }
+        
+        .content {
+            padding: 50px 40px;
+        }
+        
+        section {
+            margin-bottom: 50px;
+        }
+        
+        section h2 {
+            font-size: 2em;
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            display: inline-block;
+        }
+        
+        .section-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+        }
+        
+        .card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        
+        .card p {
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .info-list {
+            list-style: none;
+        }
+        
+        .info-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .info-list strong {
+            color: #667eea;
+            min-width: 150px;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .badge.game {
+            background: #764ba2;
+        }
+        
+        .badge.culture {
+            background: #f093fb;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .link-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .link-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .metier-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .metier-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ebf0 100%);
+            padding: 25px;
+            border-radius: 10px;
+            border: 2px solid #667eea;
+            text-align: center;
+        }
+        
+        .metier-card h4 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .status {
+            font-size: 0.9em;
+            color: #999;
+            font-style: italic;
+        }
+        
+        .verdict-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+        
+        .verdict-section h2 {
+            color: white;
+            border-bottom-color: white;
+            margin-bottom: 20px;
+        }
+        
+        .verdict-content {
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+        
+        .difficulty {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+        
+        .stars {
+            color: #ffd700;
+            font-size: 1.5em;
+            margin-right: 15px;
+        }
+        
+        footer {
+            background: #f8f9fa;
+            padding: 30px 40px;
+            text-align: center;
+            color: #666;
+            border-top: 2px solid #e0e0e0;
+        }
+        
+        .icon {
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            section h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Abiding Bridge</h1>
+            <p>Maison d'édition indépendante</p>
+            <p class="subtitle">Soutenir les développeurs français marginalisés</p>
+        </header>
+        
+        <div class="content">
+            <!-- Section Identité -->
+            <section>
+                <h2>📋 Identité</h2>
+                <ul class="info-list">
+                    <li><strong>Nom:</strong> Abiding Bridge</li>
+                    <li><strong>Localisation:</strong> Paris, France 🇫🇷</li>
+                    <li><strong>Fondation:</strong> 2019</li>
+                    <li><strong>Type:</strong> Maison d'édition indépendante</li>
+                    <li><strong>Spécialité:</strong> Edition et accompagnement de développeurs indépendants</li>
+                </ul>
+            </section>
+            
+            <!-- Section Culture d'entreprise -->
+            <section>
+                <h2>🌟 Culture d'Entreprise</h2>
+                <div class="card">
+                    <p>Abiding Bridge se spécialise dans l'aide aux développeurs français indépendants, particulièrement marginalisés, pour publier leurs créations sans créer d'entreprise. L'éditeur offre un accompagnement personnalisé et des formations en ligne pour démocratiser l'accès à l'industrie du jeu vidéo.</p>
+                    <div style="margin-top: 20px;">
+                        <span class="badge culture">Accessibilité</span>
+                        <span class="badge culture">Formation</span>
+                        <span class="badge culture">Accompagnement personnalisé</span>
+                        <span class="badge culture">Inclusion</span>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section Jeux Notables -->
+            <section>
+                <h2>🎯 Jeux Notables</h2>
+                <div class="section-grid">
+                    <div class="card">
+                        <h3>Randomice</h3>
+                        <p>Jeu édité par Abiding Bridge, représentant les créations soutenues par le studio dans leur mission de promotion des développeurs indépendants français.</p>
+                        <div style="margin-top: 15px;">
+                            <span class="badge game">Jeu édité</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section Par métier -->
+            <section>
+                <h2>👥 Opportunités par Métier</h2>
+                <div class="metier-grid">
+                    <div class="metier-card">
+                        <h4>🎮 Game Designer</h4>
+                        <p class="status">Actuellement pas de poste ouvert</p>
+                    </div>
+                    <div class="metier-card">
+                        <h4>💻 Programmeur</h4>
+                        <p class="status">Actuellement pas de poste ouvert</p>
+                    </div>
+                    <div class="metier-card">
+                        <h4>🎨 Artiste 3D</h4>
+                        <p class="status">Actuellement pas de poste ouvert</p>
+                    </div>
+                    <div class="metier-card">
+                        <h4>🖼️ UI Artist</h4>
+                        <p class="status">Actuellement pas de poste ouvert</p>
+                    </div>
+                    <div class="metier-card">
+                        <h4>✏️ Concept Artist</h4>
+                        <p class="status">Actuellement pas de poste ouvert</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section Recrutement -->
+            <section>
+                <h2>💼 Recrutement</h2>
+                <div class="card">
+                    <p><strong>Statut actuel:</strong> Aucun poste ouvert identifié actuellement.</p>
+                    <p style="margin-top: 15px;">Pour des informations sur les opportunités de recrutement ou de collaboration, veuillez consulter le site officiel d'Abiding Bridge ou visiter leur page de carrières.</p>
+                </div>
+            </section>
+            
+            <!-- Section Liens Utiles -->
+            <section>
+                <h2>🔗 Liens Utiles</h2>
+                <div class="links-grid">
+                    <a href="https://abidingbridge.com" class="link-btn" target="_blank">
+                        <span class="icon">🌐</span> Site Web Officiel
+                    </a>
+                    <a href="https://store.steampowered.com/publisher/Abiding-Bridge" class="link-btn" target="_blank">
+                        <span class="icon">🎮</span> Steam Publisher
+                    </a>
+                </div>
+            </section>
+            
+            <!-- Section Verdict -->
+            <section>
+                <div class="verdict-section">
+                    <h2>⭐ Verdict</h2>
+                    <div class="verdict-content">
+                        <p>Abiding Bridge est une maison d'édition avec une mission noble et unique dans le paysage français du jeu vidéo. Fondée en 2019, elle se distingue par son engagement envers l'accessibilité et l'inclusion dans l'industrie.</p>
+                        
+                        <p style="margin-top: 15px;"><strong>Points forts:</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>✓ Modèle éditorial inclusif et novateur</li>
+                            <li>✓ Accompagnement personnalisé des développeurs</li>
+                            <li>✓ Formations en ligne pour démocratiser l'accès</li>
+                            <li>✓ Basée à Paris, centre culturel majeur</li>
+                            <li>✓ Mission claire de soutien aux marginalisés</li>
+                        </ul>
+                        
+                        <p style="margin-top: 15px;"><strong>À noter:</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>• Taille du studio non précisée</li>
+                            <li>• Pas de postes ouvertement affichés actuellement</li>
+                            <li>• Portefeuille de jeux limité mais spécialisé</li>
+                        </ul>
+                        
+                        <div class="difficulty">
+                            <span class="stars">★★★☆☆</span>
+                            <span>Difficulté d'intégration: Faible à Modérée (à confirmer directement)</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <footer>
+            <p>&copy; 2024 Abiding Bridge | Studio de jeux vidéo indépendant - Paris, France</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">Pour toute information, consultez le site officiel ou les réseaux sociaux du studio.</p>
+        </footer>
+    </div>
+</body>
+</html>
