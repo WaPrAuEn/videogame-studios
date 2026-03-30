@@ -55,6 +55,7 @@
 - [Ikigai - Games for Citizens](studios/ikigai---games-for-citizens.html) — Paris, France
 - [Illogic Studios](studios/illogic-studios.html) — Montpellier, France
 - [Illumination Studios Paris (anciennement Illumination Mac Guff)](studios/illumination-studios-paris-(anciennement-illumination-mac-guff).html) — Paris, France
+- [Inconnu](studios/inconnu.html) — Inconnu, Inconnu
 - [Inti Creates](studios/inti-creates.html) — Ichikawa (Chiba) et Nagoya, Japon
 - [Ishtar Games](studios/ishtar-games.html) — Lille/Bordeaux, France
 - [istargames](studios/istargames.html) — 
