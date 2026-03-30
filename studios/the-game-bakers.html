@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Game Bakers - Fiche Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 1.8em;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+        
+        .identity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .identity-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .identity-card strong {
+            color: #1e3c72;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .identity-card p {
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .game-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .game-card h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        
+        .recruitment-section {
+            background: #fff3cd;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .recruitment-section h3 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        .recruitment-section p {
+            color: #856404;
+            line-height: 1.6;
+        }
+        
+        .positions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .position-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #e0e0e0;
+        }
+        
+        .position-card h4 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+        
+        .position-card p {
+            color: #999;
+            font-size: 0.9em;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .link-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+        
+        .link-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+        
+        .link-card a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .link-card a:hover {
+            color: #764ba2;
+        }
+        
+        .culture-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            font-size: 1.3em;
+            font-style: italic;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .advice-box {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .advice-box strong {
+            color: #155724;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .advice-box p {
+            color: #155724;
+            line-height: 1.6;
+        }
+        
+        .verdict-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .verdict-section h3 {
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        
+        .verdict-section p {
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+        
+        .difficulty-bar {
+            background: rgba(255, 255, 255, 0.3);
+            height: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+        
+        .difficulty-fill {
+            background: white;
+            height: 100%;
+            width: 0%;
+            border-radius: 5px;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .empty-state {
+            color: #999;
+            font-style: italic;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎮 The Game Bakers</h1>
+            <p>Studio de développement indépendant</p>
+        </div>
+        
+        <div class="content">
+            <!-- SECTION IDENTITÉ -->
+            <section class="section">
+                <h2 class="section-title">Identité</h2>
+                <div class="identity-grid">
+                    <div class="identity-card">
+                        <strong>📍 Localisation</strong>
+                        <p>Montpellier, France</p>
+                    </div>
+                    <div class="identity-card">
+                        <strong>🏢 Type</strong>
+                        <p>Studio de développement indépendant</p>
+                    </div>
+                    <div class="identity-card">
+                        <strong>🌐 Site Web</strong>
+                        <p><a href="https://www.thegamebakers.com" style="color: #667eea; text-decoration: none;" target="_blank">www.thegamebakers.com</a></p>
+                    </div>
+                </div>
+                
+                <div class="culture-box">
+                    "We make games like we make food. With a lot of love."
+                </div>
+            </section>
+            
+            <!-- SECTION JEUX NOTABLES -->
+            <section class="section">
+                <h2 class="section-title">Jeux Notables</h2>
+                <div class="games-grid">
+                    <div class="game-card">
+                        <h3>Haven</h3>
+                        <p>RPG aventure immersif</p>
+                    </div>
+                    <div class="game-card">
+                        <h3>Furi</h3>
+                        <p>Action-aventure intense</p>
+                    </div>
+                    <div class="game-card">
+                        <h3>Cairn</h3>
+                        <p>Exploration atmosphérique</p>
+                    </div>
+                    <div class="game-card">
+                        <h3>Squids Odyssey</h3>
+                        <p>Puzzle-action amusant</p>
+                    </div>
+                    <div class="game-card">
+                        <h3>Combo Crew</h3>
+                        <p>Action coopérative</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SECTION RECRUTEMENT -->
+            <section class="section">
+                <h2 class="section-title">Recrutement</h2>
+                <div class="recruitment-section">
+                    <h3>⚠️ Statut Actuel</h3>
+                    <p>Aucune offre d'emploi ou de stage actuellement disponible.</p>
+                </div>
+                
+                <div style="margin-top: 20px;">
+                    <h3 style="color: #1e3c72; margin-bottom: 15px;">Métiers Recherchés</h3>
+                    <div class="positions-grid">
+                        <div class="position-card">
+                            <h4>🎮 Game Designer</h4>
+                            <p>Non disponible</p>
+                        </div>
+                        <div class="position-card">
+                            <h4>💻 Programmeur</h4>
+                            <p>Non disponible</p>
+                        </div>
+                        <div class="position-card">
+                            <h4>🎨 Artiste 3D</h4>
+                            <p>Non disponible</p>
+                        </div>
+                        <div class="position-card">
+                            <h4>🖌️ UI Artist</h4>
+                            <p>Non disponible</p>
+                        </div>
+                        <div class="position-card">
+                            <h4>✏️ Concept Artist</h4>
+                            <p>Non disponible</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SECTION LIENS UTILES -->
+            <section class="section">
+                <h2 class="section-title">Liens Utiles</h2>
+                <div class="links-grid">
+                    <div class="link-card">
+                        <a href="https://www.thegamebakers.com" target="_blank">
+                            🌐 Site Officiel
+                        </a>
+                    </div>
+                    <div class="link-card">
+                        <a href="https://store.steampowered.com/publisher/TheGameBakers" target="_blank">
+                            🎮 Steam Publisher
+                        </a>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SECTION TÉLÉTRAVAIL -->
+            <section class="section">
+                <div class="advice-box">
+                    <strong>💡 Information Importante</strong>
+                    <p>L'équipe travaille 100% en télétravail. Cette flexibilité est un atout majeur de The Game Bakers pour le recrutement de talents.</p>
+                </div>
+            </section>
+            
+            <!-- SECTION VERDICT -->
+            <section class="section">
+                <h2 class="section-title">Verdict</h2>
+                <div class="verdict-section">
+                    <h3>Analyse Globale</h3>
+                    <p>The Game Bakers est un studio indépendant montpelliérain reconnu pour la qualité de ses productions (Haven, Furi). Le studio offre un environnement de travail moderne avec 100% télétravail, permettant une grande flexibilité géographique.</p>
+                    <p><strong>Contexte Actuel :</strong> Aucune offre d'emploi n'est actuellement disponible. Il est recommandé de surveiller régulièrement le site officiel pour les futures opportunités de recrutement.</p>
+                    <p><strong>Points Forts :</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>Portefeuille de jeux de qualité</li>
+                        <li>Environnement 100% télétravail</li>
+                        <li>Passion et créativité (culture "made with love")</li>
+                        <li>Studio établi et reconnu</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>Recommandation :</strong> Consultez régulièrement leur site carrières pour les futures ouvertures de postes.</p>
+                </div>
+            </section>
+        </div>
+        
+        <div class="footer">
+            <p>Fiche studio mise à jour - The Game Bakers | Montpellier, France</p>
+        </div>
+    </div>
+</body>
+</html>
