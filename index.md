@@ -27,6 +27,7 @@
 - [Cyanide Studio](studios/cyanide-studio.html) — Nanterre, France
 - [Dear Villagers](studios/dear-villagers.html) — Montpellier, France
 - [DIGIC Pictures](studios/digic-pictures.html) — Budapest, Hongrie
+- [Douze Dixièmes](studios/douze-dixiemes.html) — Saint Ouen, France
 - [Duper Games](studios/duper-games.html) — Montpellier, France
 - [Fortiche Production](studios/fortiche-production.html) — Paris, France
 - [Game Freak, Inc.](studios/game-freak,-inc..html) — Tokyo, Japon
