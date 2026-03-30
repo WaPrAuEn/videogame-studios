@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misty Whale - Studio de Jeux Vidéo Indépendant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        section {
+            background: white;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #764ba2;
+            padding-bottom: 15px;
+        }
+
+        h3 {
+            color: #2a5298;
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .grid-5 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .info-box {
+            background: #f8f9ff;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+
+        .info-box strong {
+            color: #2a5298;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .game-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .game-card h3 {
+            color: #667eea;
+            margin-top: 0;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 0.85em;
+            margin: 5px 5px 5px 0;
+            font-weight: 600;
+        }
+
+        .badge-alt {
+            background: #764ba2;
+        }
+
+        .badge-alt2 {
+            background: #2a5298;
+        }
+
+        .profession-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .profession-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .profession-card h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .profession-card p {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .link-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .not-specified {
+            color: #999;
+            font-style: italic;
+        }
+
+        .verdict-box {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border: 2px solid #764ba2;
+            border-radius: 8px;
+            padding: 30px;
+            margin-top: 20px;
+        }
+
+        .verdict-box h3 {
+            color: #764ba2;
+            margin-top: 0;
+        }
+
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            color: #856404;
+        }
+
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            section {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🐋 Misty Whale</h1>
+        <p>Studio de Jeux Vidéo Indépendant</p>
+    </header>
+
+    <div class="container">
+        <!-- SECTION IDENTITÉ -->
+        <section>
+            <h2>🎮 Identité du Studio</h2>
+            
+            <div class="grid-2">
+                <div>
+                    <h3>Informations Générales</h3>
+                    <div class="info-box">
+                        <strong>Type de Studio</strong>
+                        Studio Indépendant
+                    </div>
+                    <div class="info-box">
+                        <strong>Taille</strong>
+                        1 développeur solo
+                    </div>
+                    <div class="info-box">
+                        <strong>Localisation</strong>
+                        <span class="not-specified">Non spécifiée</span>
+                    </div>
+                    <div class="info-box">
+                        <strong>Année de Fondation</strong>
+                        <span class="not-specified">Non spécifiée</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h3>Philosophie du Studio</h3>
+                    <div class="info-box">
+                        <strong>Culture de Développement</strong>
+                        Concentration sur l'intelligence du jeu plutôt que sur la performance. Misty Whale privilégie la qualité du gameplay et de la conception à une course aux performances graphiques brutes.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION JEUX NOTABLES -->
+        <section>
+            <h2>🎯 Jeux Notables</h2>
+            
+            <div class="game-card">
+                <h3>Orbyss</h3>
+                <p><strong>Date de Sortie:</strong> 29 octobre 2025</p>
+                <p><strong>Plateforme:</strong> PC (Steam)</p>
+                <div style="margin-top: 15px;">
+                    <span class="badge">Jeu Indépendant</span>
+                    <span class="badge badge-alt">Gameplay Intelligent</span>
+                </div>
+                <p style="margin-top: 15px; color: #666;">
+                    Le premier titre du studio Misty Whale, reflétant la philosophie de conception axée sur l'intelligence du gameplay.
+                </p>
+                <a href="https://store.steampowered.com/app/1385340/Orbyss/" class="btn" style="margin-top: 15px;">Voir sur Steam</a>
+            </div>
+        </section>
+
+        <!-- SECTION RECRUTEMENT -->
+        <section>
+            <h2>👥 Recrutement</h2>
+            
+            <div class="note">
+                En tant que studio solo de développement indépendant, Misty Whale n'a actuellement pas d'offre d'emploi active.
+            </div>
+
+            <div class="info-box">
+                <strong>Postes Ouverts</strong>
+                <span class="not-specified">Non spécifié</span>
+            </div>
+
+            <div class="info-box">
+                <strong>Email de Recrutement</strong>
+                <span class="not-specified">Non spécifié</span>
+            </div>
+
+            <div class="info-box">
+                <strong>Site Carrières</strong>
+                <span class="not-specified">Non disponible</span>
+            </div>
+
+            <p style="margin-top: 20px; color: #666;">
+                Pour toute question concernant des opportunités de collaboration ou de partenariat, nous vous recommandons de contacter le studio via son site officiel.
+            </p>
+        </section>
+
+        <!-- SECTION LIENS UTILES -->
+        <section>
+            <h2>🔗 Liens Utiles</h2>
+            
+            <div class="link-group">
+                <a href="https://mistywhale.com" class="btn">Site Officiel</a>
+                <a href="https://store.steampowered.com/app/1385340/Orbyss/" class="btn">Steam - Orbyss</a>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <h3>Réseaux Sociaux et Présences</h3>
+                <div class="info-box">
+                    <strong>LinkedIn</strong>
+                    <span class="not-specified">Non spécifié</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION PAR MÉTIER -->
+        <section>
+            <h2>💼 Informations par Métier</h2>
+            
+            <p style="color: #666; margin-bottom: 30px;">
+                En tant que studio solo, Misty Whale est actuellement développé par un seul créateur qui endosse potentiellement plusieurs rôles. Voici les professions qui pourraient être impliquées dans le développement:
+            </p>
+
+            <div class="grid-5">
+                <div class="profession-card">
+                    <h4>🎮 Game Designer</h4>
+                    <p>Conception et intelligence du gameplay</p>
+                    <p style="font-size: 0.8em; color: #999; margin-top: 10px;">Données non spécifiées</p>
+                </div>
+
+                <div class="profession-card">
+                    <h4>💻 Programmeur</h4>
+                    <p>Développement et architecture du code</p>
+                    <p style="font-size: 0.8em; color: #999; margin-top: 10px;">Données non spécifiées</p>
+                </div>
+
+                <div class="profession-card">
+                    <h4>🎨 Artiste 3D</h4>
+                    <p>Modélisation et assets 3D</p>
+                    <p style="font-size: 0.8em; color: #999; margin-top: 10px;">Données non spécifiées</p>
+                </div>
+
+                <div class="profession-card">
+                    <h4>🖥️ UI Artist</h4>
+                    <p>Interface utilisateur et UX</p>
+                    <p style="font-size: 0.8em; color: #999; margin-top: 10px;">Données non spécifiées</p>
+                </div>
+
+                <div class="profession-card">
+                    <h4>✏️ Concept Artist</h4>
+                    <p>Concept art et direction visuelle</p>
+                    <p style="font-size: 0.8em; color: #999; margin-top: 10px;">Données non spécifiées</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <h3>Niveau de Difficulté</h3>
+                <div class="info-box">
+                    <strong>Difficulté Estimée</strong>
+                    <span class="not-specified">Non spécifié sur 5</span>
+                </div>
+            </div>
+
+            <div style="margin-top: 20px;">
+                <h3>Conseils pour Travailler avec Misty Whale</h3>
+                <div class="info-box">
+                    <strong>Recommandations</strong>
+                    <span class="not-specified">Non spécifié</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION VERDICT -->
+        <section>
+            <h2>📊 Verdict</h2>
+            
+            <div class="verdict-box">
+                <h3>Vue d'ensemble de Misty Whale</h3>
+
+                <h4 style="color: #667eea; margin-top: 20px; margin-bottom: 10px;">Forces</h4>
+                <ul style="margin-left: 20px; color: #333;">
+                    <li>Studio indépendant avec une vision claire axée sur la qualité du gameplay</li>
+                    <li>Philosophie de conception favorisant l'intelligence du jeu plutôt que la course aux performances</li>
+                    <li>Présence établie avec un titre (Orbyss) sur la plateforme majeure Steam</li>
+                    <li>Site officiel professionnel et accessible</li>
+                </ul>
+
+                <h4 style="color: #764ba2; margin-top: 20px; margin-bottom: 10px;">Points à Noter</h4>
+                <ul style="margin-left: 20px; color: #333;">
+                    <li>Studio ultra-compact (1 développeur solo) - peu d'opportunités de recrutement</li>
+                    <li>Informations limitées sur les détails de localisation et de fondation</li>
+                    <li>Pas de canaux de recrutement ou de carrières actuellement définis</li>
+                    <li>Présence minimale sur les réseaux sociaux professionnels</li>
+                </ul>
+
+                <h4 style="color: #2a5298; margin-top: 20px; margin-bottom: 10px;">Recommandations</h4>
+                <ul style="margin-left: 20px; color: #333;">
+                    <li><strong>Pour les contributeurs:</strong> Contacter directement via le site officiel pour explorer des collaborations</li>
+                    <li><strong>Pour les fans:</strong> Suivre les sorties via Steam et le site pour découvrir les nouveaux projets</li>
+                    <li><strong>Pour les investisseurs:</strong> Démontrer un intérêt auprès du studio par les canaux disponibles</li>
+                </ul>
+
+                <div style="background: white; border: 2px solid #667eea; border-radius: 8px; padding: 20px; margin-top: 20px;">
+                    <p style="color: #333;">
+                        <strong>Conclusion:</strong> Misty Whale est un studio indépendant prometteur et concentré, pilotée par une vision claire d'excellence en conception de jeu. Bien que petit en taille, le studio démontre un engagement envers la qualité et l'innovation. Pour ceux intéressés par les jeux intelligents et bien conçus, Orbyss représente un titre à explorer.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Fiche Complète - Misty Whale | Studio de Jeux Vidéo Indépendant</p>
+        <p style="font-size: 0.9em; margin-top: 10px; opacity: 0.8;">Dernière mise à jour: 2025</p>
+    </footer>
+</body>
+</html>
