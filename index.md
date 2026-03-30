@@ -29,6 +29,7 @@
 - [Critical Hit Games](studios/critical-hit-games.html) — Wrocław, Pologne
 - [Cyanide Studio](studios/cyanide-studio.html) — Nanterre, France
 - [Dear Villagers](studios/dear-villagers.html) — Montpellier, France
+- [Delusion](studios/delusion.html) — Cergy, France
 - [DIGIC Pictures](studios/digic-pictures.html) — Budapest, Hongrie
 - [Dodge Roll](studios/dodge-roll.html) — Fairfax, USA
 - [Douze Dixièmes](studios/douze-dixiemes.html) — Saint Ouen, France
