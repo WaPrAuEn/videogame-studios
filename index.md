@@ -22,6 +22,7 @@
 - [Playwing](studios/playwing.html) — Bordeaux, France
 - [PowerZ](studios/powerz.html) — Paris, France
 - [Sandfall Interactive](studios/sandfall-interactive.html) — Montpellier, France
+- [Shiro Games](studios/shiro-games.html) — Bordeaux, France
 - [Sirene Games](studios/sirene-games.html) — Aucamville, France
 - [Sirène Rouge Games](studios/sirene-rouge-games.html) — Lyon, France
 - [Team Cherry](studios/team-cherry.html) — Adélaïde, Australie
