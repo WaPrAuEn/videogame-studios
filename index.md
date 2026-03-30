@@ -125,6 +125,7 @@
 - [Umeshu Lovers](studios/umeshu-lovers.html) — Toulouse, France
 - [Unexpected Studio](studios/unexpected-studio.html) — Montpellier, France
 - [Unknown Worlds](studios/unknown-worlds.html) — San Francisco, États-Unis
+- [Unseen Interactive](studios/unseen-interactive.html) — Tokyo, Japon
 - [Virtuallyz Gaming](studios/virtuallyz-gaming.html) — Bouc-Bel-Air, France
 - [Virtuos France](studios/virtuos-france.html) — Montpellier & Lyon, France
 - [World Game](studios/world-game.html) — Paris, France
