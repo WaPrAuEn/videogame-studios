@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ubisoft Montpellier - Fiche Studio</title>
+    <title>Ubisoft Montpellier - Studio de Jeux Vidéo</title>
     <style>
         * {
             margin: 0;
@@ -16,556 +16,526 @@
             line-height: 1.6;
             color: #333;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            padding: 20px;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-            overflow: hidden;
+            padding: 20px;
         }
         
         header {
-            background: linear-gradient(135deg, #001a4d 0%, #003d99 100%);
+            background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
             color: white;
-            padding: 40px;
+            padding: 60px 40px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             text-align: center;
         }
         
         header h1 {
-            font-size: 2.5em;
+            font-size: 3em;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
         
-        header p {
-            font-size: 1.1em;
-            opacity: 0.95;
+        header .subtitle {
+            font-size: 1.2em;
+            color: #e0a800;
+            margin-bottom: 5px;
         }
         
-        .content {
+        header .location {
+            font-size: 1em;
+            color: #bbb;
+        }
+        
+        .logo-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            font-size: 4em;
+            color: #e0a800;
+            margin-bottom: 10px;
+        }
+        
+        section {
+            background: white;
+            margin-bottom: 30px;
             padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
         
-        .section {
-            margin-bottom: 40px;
-        }
-        
-        .section h2 {
-            color: #001a4d;
-            font-size: 1.8em;
+        section h2 {
+            color: #0f3460;
+            font-size: 2em;
             margin-bottom: 20px;
+            border-bottom: 3px solid #e0a800;
             padding-bottom: 10px;
-            border-bottom: 3px solid #003d99;
         }
         
-        .identite {
+        section h3 {
+            color: #0f3460;
+            font-size: 1.3em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .identite-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
             margin-bottom: 20px;
         }
         
-        .info-card {
+        .identite-item {
             background: #f8f9fa;
             padding: 20px;
             border-radius: 8px;
-            border-left: 4px solid #003d99;
+            border-left: 4px solid #e0a800;
         }
         
-        .info-card strong {
-            color: #001a4d;
+        .identite-item strong {
+            color: #0f3460;
             display: block;
-            margin-bottom: 8px;
-            font-size: 0.9em;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            margin-bottom: 5px;
         }
         
-        .info-card p {
+        .identite-item p {
             color: #555;
-            font-size: 1.05em;
         }
         
-        .jeux-grid {
+        .game-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
         
-        .jeu-card {
-            background: linear-gradient(135deg, #f5f5f5 0%, #efefef 100%);
+        .game-item {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e8eaed 100%);
             padding: 20px;
             border-radius: 8px;
-            border-top: 4px solid #003d99;
+            border: 2px solid #e0a800;
             text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
         }
         
-        .jeu-card:hover {
+        .game-item strong {
+            color: #0f3460;
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .recruitment-info {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #e0a800;
+            margin-bottom: 20px;
+        }
+        
+        .recruitment-info strong {
+            color: #0f3460;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .link-card {
+            background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .link-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(0,61,153,0.2);
+            box-shadow: 0 10px 25px rgba(224, 168, 0, 0.2);
         }
         
-        .jeu-card h3 {
-            color: #001a4d;
+        .link-card a {
+            color: #e0a800;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            border: 2px solid #e0a800;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .link-card a:hover {
+            background: #e0a800;
+            color: #0f3460;
+        }
+        
+        .link-card p {
+            color: white;
+            font-size: 0.9em;
             margin-bottom: 10px;
         }
         
-        .postes-list {
+        .metier-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 15px;
-        }
-        
-        .poste-item {
-            background: #e3f2fd;
-            padding: 15px;
-            border-radius: 6px;
-            border-left: 4px solid #003d99;
-            transition: background 0.3s;
-        }
-        
-        .poste-item:hover {
-            background: #bbdefb;
-        }
-        
-        .poste-item strong {
-            color: #001a4d;
-        }
-        
-        .metiers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
         
         .metier-card {
-            background: #f9f9f9;
-            border: 2px solid #003d99;
-            border-radius: 8px;
-            padding: 25px;
-            transition: all 0.3s;
-        }
-        
-        .metier-card:hover {
-            box-shadow: 0 8px 25px rgba(0,61,153,0.2);
-            transform: translateY(-3px);
-        }
-        
-        .metier-card h3 {
-            color: #001a4d;
-            font-size: 1.3em;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .metier-icon {
-            width: 35px;
-            height: 35px;
-            background: #003d99;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 10px;
-            font-weight: bold;
-        }
-        
-        .metier-card ul {
-            list-style: none;
-            margin-bottom: 15px;
-        }
-        
-        .metier-card li {
-            padding: 8px 0;
-            padding-left: 25px;
-            position: relative;
-            color: #555;
-        }
-        
-        .metier-card li:before {
-            content: "▸";
-            position: absolute;
-            left: 0;
-            color: #003d99;
-            font-weight: bold;
-        }
-        
-        .metier-details {
-            background: #e3f2fd;
-            padding: 12px;
-            border-radius: 6px;
-            font-size: 0.95em;
-            color: #333;
-        }
-        
-        .liens-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-        
-        .lien-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 15px;
-            background: linear-gradient(135deg, #003d99 0%, #001a4d 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .lien-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,61,153,0.4);
-        }
-        
-        .verdict {
-            background: linear-gradient(135deg, #fff3cd 0%, #ffe8a1 100%);
-            border-left: 5px solid #ffc107;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e8eaed 100%);
             padding: 25px;
             border-radius: 8px;
-            margin-top: 20px;
+            border-top: 4px solid #e0a800;
         }
         
-        .verdict h3 {
-            color: #856404;
+        .metier-card h4 {
+            color: #0f3460;
+            font-size: 1.2em;
             margin-bottom: 15px;
-            font-size: 1.3em;
         }
         
-        .verdict p {
-            color: #856404;
-            margin-bottom: 10px;
-            line-height: 1.8;
-        }
-        
-        .verdict strong {
-            color: #d39e00;
-        }
-        
-        .difficulte-bar {
-            width: 100%;
-            height: 25px;
+        .difficulty-bar {
             background: #ddd;
-            border-radius: 5px;
+            height: 8px;
+            border-radius: 4px;
+            margin: 10px 0;
             overflow: hidden;
+        }
+        
+        .difficulty-fill {
+            background: linear-gradient(90deg, #e0a800 0%, #ff6b6b 100%);
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+        
+        .demand-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
             margin-top: 10px;
         }
         
-        .difficulte-fill {
-            width: 70%;
-            height: 100%;
-            background: linear-gradient(90deg, #ffc107 0%, #ff9800 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .demand-high {
+            background: #ff6b6b;
             color: white;
-            font-weight: bold;
-            font-size: 0.85em;
         }
         
-        .culture-list {
+        .demand-medium {
+            background: #ffd93d;
+            color: #333;
+        }
+        
+        .demand-low {
+            background: #6bcf7f;
+            color: white;
+        }
+        
+        .metier-card p {
+            color: #555;
+            font-size: 0.95em;
+            margin-top: 10px;
+            line-height: 1.5;
+        }
+        
+        .verdict-section {
+            background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+        }
+        
+        .verdict-section h2 {
+            color: #e0a800;
+            border-bottom-color: white;
+        }
+        
+        .verdict-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
         }
         
-        .culture-item {
-            background: #e8f5e9;
-            padding: 15px;
-            border-radius: 6px;
-            border-left: 4px solid #4caf50;
-            color: #2e7d32;
-            font-weight: 500;
+        .verdict-item {
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            border-left: 4px solid #e0a800;
+        }
+        
+        .verdict-item h4 {
+            color: #e0a800;
+            margin-bottom: 10px;
+        }
+        
+        .verdict-item p {
+            color: #ddd;
+            line-height: 1.6;
+        }
+        
+        .difficulty-score {
+            font-size: 2em;
+            color: #e0a800;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        
+        .difficulty-label {
+            color: #bbb;
+            font-size: 1em;
         }
         
         footer {
-            background: #f5f5f5;
-            padding: 20px;
             text-align: center;
-            color: #666;
-            border-top: 1px solid #ddd;
+            color: white;
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.2);
         }
         
-        .badge {
-            display: inline-block;
-            background: #003d99;
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            margin: 5px 5px 5px 0;
+        .conseil-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffe0b2 100%);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 5px solid #e0a800;
+            margin-top: 20px;
+        }
+        
+        .conseil-box strong {
+            color: #0f3460;
+            font-size: 1.1em;
+        }
+        
+        .conseil-box p {
+            color: #555;
+            margin-top: 10px;
+            line-height: 1.6;
+        }
+        
+        .culture-highlight {
+            background: linear-gradient(135deg, #e0a800 0%, #ffb84d 100%);
+            color: #0f3460;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-weight: bold;
+            text-align: center;
+            font-size: 1.1em;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .identite-grid,
+            .game-list,
+            .links-grid,
+            .metier-grid,
+            .verdict-content {
+                grid-template-columns: 1fr;
+            }
+            
+            header {
+                padding: 40px 20px;
+            }
+            
+            section {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🎮 Ubisoft Montpellier</h1>
-            <p>Studio de Développement Créatif et Innovant</p>
+            <div class="logo-section">
+                <div class="logo">🎮</div>
+            </div>
+            <h1>Ubisoft Montpellier</h1>
+            <p class="subtitle">Studio de Développement de Jeux Vidéo</p>
+            <p class="location">📍 Montpellier, France</p>
         </header>
         
-        <div class="content">
-            <!-- SECTION IDENTITÉ -->
-            <section class="section">
-                <h2>📋 Identité du Studio</h2>
-                <div class="identite">
-                    <div class="info-card">
-                        <strong>📍 Localisation</strong>
-                        <p>Montpellier, France</p>
-                    </div>
-                    <div class="info-card">
-                        <strong>📅 Fondée en</strong>
-                        <p>2017</p>
-                    </div>
-                    <div class="info-card">
-                        <strong>👥 Taille de l'équipe</strong>
-                        <p>50+ collaborateurs</p>
-                    </div>
-                    <div class="info-card">
-                        <strong>🎯 Type d'activité</strong>
-                        <p>Développement de Jeux Vidéo</p>
-                    </div>
-                    <div class="info-card">
-                        <strong>🏢 Éditeur</strong>
-                        <p>Ubisoft</p>
-                    </div>
+        <section>
+            <h2>📋 Identité du Studio</h2>
+            <div class="identite-grid">
+                <div class="identite-item">
+                    <strong>📅 Fondation</strong>
+                    <p>2011</p>
                 </div>
-            </section>
-            
-            <!-- SECTION JEUX NOTABLES -->
-            <section class="section">
-                <h2>🎮 Jeux Notables</h2>
-                <div class="jeux-grid">
-                    <div class="jeu-card">
-                        <h3>Beyond Good & Evil 2</h3>
-                        <p>Action-Aventure futuriste</p>
-                        <span class="badge">Développement</span>
-                    </div>
-                    <div class="jeu-card">
-                        <h3>Assassin's Creed</h3>
-                        <p>Saga emblématique Ubisoft</p>
-                        <span class="badge">Contribution</span>
-                    </div>
-                    <div class="jeu-card">
-                        <h3>Just Dance</h3>
-                        <p>Jeu de rythme multi-plateforme</p>
-                        <span class="badge">Support</span>
-                    </div>
-                    <div class="jeu-card">
-                        <h3>Rayman</h3>
-                        <p>Plateforme classique</p>
-                        <span class="badge">Développement</span>
-                    </div>
+                <div class="identite-item">
+                    <strong>🌍 Localisation</strong>
+                    <p>Montpellier, France</p>
                 </div>
-            </section>
-            
-            <!-- SECTION CULTURE -->
-            <section class="section">
-                <h2>🌟 Culture du Studio</h2>
-                <p style="margin-bottom: 15px; color: #555;">Ubisoft Montpellier valorise une approche centrée sur l'excellence technique et la créativité débridée.</p>
-                <div class="culture-list">
-                    <div class="culture-item">✓ Technicité pointue</div>
-                    <div class="culture-item">✓ Expérience et expertise</div>
-                    <div class="culture-item">✓ Vision innovante</div>
-                    <div class="culture-item">✓ Passion pour le jeu vidéo</div>
-                    <div class="culture-item">✓ Ouverture aux jeunes talents</div>
-                    <div class="culture-item">✓ Environnement collaboratif</div>
+                <div class="identite-item">
+                    <strong>👥 Groupe Ubisoft</strong>
+                    <p>Environ 19 000 employés mondiaux</p>
                 </div>
-            </section>
-            
-            <!-- SECTION RECRUTEMENT -->
-            <section class="section">
-                <h2>💼 Postes Ouverts</h2>
-                <div class="postes-list">
-                    <div class="poste-item">
-                        <strong>🔧 Programmation 3D</strong>
-                        <p>Développement d'outils et moteurs</p>
-                    </div>
-                    <div class="poste-item">
-                        <strong>🎮 Gameplay Programming</strong>
-                        <p>Implémentation de mécaniques de jeu</p>
-                    </div>
-                    <div class="poste-item">
-                        <strong>🎨 Art/Animation</strong>
-                        <p>Création d'assets visuels et animation</p>
-                    </div>
-                    <div class="poste-item">
-                        <strong>🎯 Design Jeu Vidéo</strong>
-                        <p>Conception de contenus et systèmes</p>
-                    </div>
-                    <div class="poste-item">
-                        <strong>🏗️ Directeurs Techniques Animation</strong>
-                        <p>Leadership technique sur les pipelines</p>
-                    </div>
-                    <div class="poste-item">
-                        <strong>👾 Programmation Characters</strong>
-                        <p>Système de personnages et IA</p>
-                    </div>
-                    <div class="poste-item">
-                        <strong>📹 Monteurs Vidéos</strong>
-                        <p>Production de contenu vidéo</p>
-                    </div>
-                    <div class="poste-item">
-                        <strong>📝 Scripteurs Cinématiques</strong>
-                        <p>Création de scènes et dialogues</p>
-                    </div>
-                    <div class="poste-item">
-                        <strong>🦴 Riggers</strong>
-                        <p>Rigging de modèles et squelettes</p>
-                    </div>
+                <div class="identite-item">
+                    <strong>🎯 Type</strong>
+                    <p>Studio de Développement</p>
                 </div>
-            </section>
-            
-            <!-- SECTION PAR MÉTIER -->
-            <section class="section">
-                <h2>👨‍💼 Opportunités par Métier</h2>
-                <div class="metiers-grid">
-                    <!-- GAME DESIGNER -->
-                    <div class="metier-card">
-                        <h3>
-                            <div class="metier-icon">🎯</div>
-                            Game Designer
-                        </h3>
-                        <ul>
-                            <li>Concevoir des mécaniques de gameplay innovantes</li>
-                            <li>Designer des niveaux et progression</li>
-                            <li>Prototyper et itérer rapidement</li>
-                            <li>Collaborer avec l'équipe créative</li>
-                        </ul>
-                        <div class="metier-details">
-                            <strong>Niveau attendu :</strong> Confirmé à Senior<br>
-                            <strong>Profil :</strong> Portfolio solide, expérience shipped, vision créative affirmée
-                        </div>
-                    </div>
-                    
-                    <!-- PROGRAMMEUR -->
-                    <div class="metier-card">
-                        <h3>
-                            <div class="metier-icon">💻</div>
-                            Programmeur
-                        </h3>
-                        <ul>
-                            <li>Programmation gameplay et moteur</li>
-                            <li>Optimisation de code et performances</li>
-                            <li>Développement sur moteurs modernes (Unreal, Unity)</li>
-                            <li>C++, C#, architectures scalables</li>
-                        </ul>
-                        <div class="metier-details">
-                            <strong>Niveau attendu :</strong> Confirmé à Senior<br>
-                            <strong>Profil :</strong> Technicité forte, projets shipped, expérience multi-plateforme
-                        </div>
-                    </div>
-                    
-                    <!-- ARTISTE 3D -->
-                    <div class="metier-card">
-                        <h3>
-                            <div class="metier-icon">🎨</div>
-                            Artiste 3D
-                        </h3>
-                        <ul>
-                            <li>Modélisation et texturing haute qualité</li>
-                            <li>Animation de personnages et éléments</li>
-                            <li>VFX et effets visuels</li>
-                            <li>Optimisation pour temps réel</li>
-                        </ul>
-                        <div class="metier-details">
-                            <strong>Niveau attendu :</strong> Confirmé à Senior<br>
-                            <strong>Profil :</strong> Maîtrise Maya/Blender, portfolio shipped, sens esthétique développé
-                        </div>
-                    </div>
-                    
-                    <!-- UI ARTIST -->
-                    <div class="metier-card">
-                        <h3>
-                            <div class="metier-icon">🖼️</div>
-                            UI Artist
-                        </h3>
-                        <ul>
-                            <li>Design d'interfaces utilisateur</li>
-                            <li>Création d'assets UI cohérents</li>
-                            <li>Motion design et animations UI</li>
-                            <li>Intégration moteur en temps réel</li>
-                        </ul>
-                        <div class="metier-details">
-                            <strong>Niveau attendu :</strong> Confirmé à Senior<br>
-                            <strong>Profil :</strong> UX/UI, Photoshop/Figma, expérience shipped, sens du design
-                        </div>
-                    </div>
-                    
-                    <!-- CONCEPT ARTIST -->
-                    <div class="metier-card">
-                        <h3>
-                            <div class="metier-icon">✏️</div>
-                            Concept Artist
-                        </h3>
-                        <ul>
-                            <li>Design de mondes et environnements</li>
-                            <li>Création de concepts visuels novateurs</li>
-                            <li>Direction artistique de projets</li>
-                            <li>Collaboration avec équipes créatives</li>
-                        </ul>
-                        <div class="metier-details">
-                            <strong>Niveau attendu :</strong> Confirmé à Senior<br>
-                            <strong>Profil :</strong> Portfolio remarquable, maîtrise dessin digital, vision stylistique
-                        </div>
-                    </div>
+                <div class="identite-item">
+                    <strong>🏢 Éditeur</strong>
+                    <p>Ubisoft</p>
                 </div>
-            </section>
-            
-            <!-- SECTION LIENS UTILES -->
-            <section class="section">
-                <h2>🔗 Liens Utiles</h2>
-                <div class="liens-grid">
-                    <a href="https://www.ubisoft.com/fr-fr/" class="lien-btn">🌐 Site Ubisoft</a>
-                    <a href="https://www.steampowered.com/developer/ubisoft" class="lien-btn">🎮 Steam Ubisoft</a>
-                    <a href="https://www.linkedin.com/company/ubisoft/" class="lien-btn">💼 LinkedIn</a>
+                <div class="identite-item">
+                    <strong>🎪 Spécialité</strong>
+                    <p>Développement de jeux vidéo innovants</p>
                 </div>
-            </section>
-            
-            <!-- SECTION VERDICT -->
-            <section class="section">
-                <div class="verdict">
-                    <h3>⭐ Verdict & Recommandations</h3>
+            </div>
+            <div class="culture-highlight">
+                🚀 Culture : Fournir des jeux vidéo innovants et d'excellente qualité aux joueurs du monde entier
+            </div>
+        </section>
+        
+        <section>
+            <h2>🎮 Jeux Notables</h2>
+            <p style="margin-bottom: 20px;">Le studio Ubisoft Montpellier a développé des jeux appréciés par les joueurs du monde entier, contribuant au succès global du groupe Ubisoft avec des titres de haute qualité et une expertise technique reconnue.</p>
+            <div class="game-list">
+                <div class="game-item">
+                    <strong>🏆 Productions Mondiales</strong>
+                    <p>Jeux développés pour une audience internationale</p>
+                </div>
+                <div class="game-item">
+                    <strong>⭐ Excellence Reconnue</strong>
+                    <p>Productions appréciées par les joueurs mondialement</p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>💼 Recrutement</h2>
+            <div class="recruitment-info">
+                <strong>ℹ️ Postes Ouverts :</strong> Non spécifiés actuellement. Consultez régulièrement la plateforme de carrières Ubisoft pour connaître les opportunités disponibles.
+            </div>
+            <div class="recruitment-info">
+                <strong>📧 Contact Recrutement :</strong> Non spécifié directement. Passez par le site carrières officiel d'Ubisoft.
+            </div>
+            <div class="recruitment-info">
+                <strong>🎯 Candidature Recommandée :</strong> Mettre en avant votre expertise technique et votre portfolio créatif lors de votre candidature via les canaux officiels Ubisoft.
+            </div>
+        </section>
+        
+        <section>
+            <h2>🔗 Liens Utiles</h2>
+            <div class="links-grid">
+                <div class="link-card">
+                    <p>🌐 Site Web Officiel</p>
+                    <a href="https://www.ubisoft.com/fr-fr/" target="_blank">Visiter Ubisoft</a>
+                </div>
+                <div class="link-card">
+                    <p>🎮 Découvrir les Jeux</p>
+                    <a href="https://store.steampowered.com/developer/ubisoft" target="_blank">Steam Store</a>
+                </div>
+                <div class="link-card">
+                    <p>💼 Réseau Professionnel</p>
+                    <a href="https://www.linkedin.com/company/ubisoft/" target="_blank">LinkedIn Ubisoft</a>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>👨‍💼 Opportunités par Métier</h2>
+            <div class="metier-grid">
+                <div class="metier-card">
+                    <h4>🎮 Game Designer</h4>
+                    <div class="difficulty-bar">
+                        <div class="difficulty-fill" style="width: 50%;"></div>
+                    </div>
+                    <span class="demand-badge demand-medium">Demande Moyenne</span>
+                    <p>Le studio recherche des Game Designers capables de créer des expériences de jeu innovantes et engageantes. Une bonne compréhension des mécaniques de jeu et une expérience préalable sont appréciées.</p>
+                </div>
+                <div class="metier-card">
+                    <h4>💻 Programmeur</h4>
+                    <div class="difficulty-bar">
+                        <div class="difficulty-fill" style="width: 85%;"></div>
+                    </div>
+                    <span class="demand-badge demand-high">Demande Élevée</span>
+                    <p>L'expertise technique est hautement recherchée chez Ubisoft Montpellier. Les programmeurs doivent maîtriser les moteurs de jeu modernes et démontrer une excellence en architecture logicielle.</p>
+                </div>
+                <div class="metier-card">
+                    <h4>🎨 Artiste 3D</h4>
+                    <div class="difficulty-bar">
+                        <div class="difficulty-fill" style="width: 85%;"></div>
+                    </div>
+                    <span class="demand-badge demand-high">Demande Élevée</span>
+                    <p>Les productions mondiales du studio requièrent des artistes 3D de haut niveau. Un portfolio fort montrant votre expertise en modélisation, texturing et animation est essentiel.</p>
+                </div>
+                <div class="metier-card">
+                    <h4>🖼️ UI Artist</h4>
+                    <div class="difficulty-bar">
+                        <div class="difficulty-fill" style="width: 50%;"></div>
+                    </div>
+                    <span class="demand-badge demand-medium">Demande Moyenne</span>
+                    <p>Les UI Artists doivent créer des interfaces intuitives et attrayantes. Une bonne maîtrise des outils de design et une compréhension de l'expérience utilisateur sont nécessaires.</p>
+                </div>
+                <div class="metier-card">
+                    <h4>🖌️ Concept Artist</h4>
+                    <div class="difficulty-bar">
+                        <div class="difficulty-fill" style="width: 50%;"></div>
+                    </div>
+                    <span class="demand-badge demand-medium">Demande Moyenne</span>
+                    <p>Les Concept Artists donnent vie aux visions créatives du studio. Un portfolio solide montrant votre style artistique personnel et vos capacités de conceptualisation est crucial.</p>
+                </div>
+                <div class="metier-card">
+                    <h4>📊 Difficulté Globale</h4>
+                    <div class="difficulty-bar">
+                        <div class="difficulty-fill" style="width: 80%;"></div>
+                    </div>
+                    <span class="demand-badge demand-high">Très Compétitif</span>
+                    <p>Rejoindre un studio Ubisoft est très compétitif en raison de la réputation du groupe et de la qualité requise. Une expertise solide et une passion pour le jeu vidéo sont essentielles.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="verdict-section">
+            <h2>🎯 Verdict Final</h2>
+            <div class="verdict-content">
+                <div class="verdict-item">
+                    <h4>✅ Points Forts</h4>
                     <p>
-                        <strong>Ubisoft Montpellier</strong> représente une opportunité d'excellence pour les professionnels du jeu vidéo en quête de <strong>technicité pointue</strong> et de <strong>projets ambitieux</strong>. Le studio valorise particulièrement :
-                    </p>
-                    <ul style="margin: 15px 0; padding-left: 20px;">
-                        <li><strong>Les seniors techniques</strong> avec expérience shipped et vision d'équipe</li>
-                        <li><strong>Les juniors passionnés</strong> motivés par l'apprentissage et l'excellence</li>
-                        <li><strong>L'innovation créative</strong> alliée à la rigueur technique</li>
-                        <li><strong>La collaboration</strong> dans un environnement professionnel</li>
-                    </ul>
-                    
-                    <p style="margin-top: 15px;">
-                        <strong>Difficulté de recrutement :</strong> Moyenne à Élevée (3,5/5)
-                    </p>
-                    <div class="difficulte-bar">
-                        <div class="difficulte-fill">70% - Sélectif</div>
-                    </div>
-                    
-                    <p style="margin-top: 20px;">
-                        <strong>Conseil :</strong> Pour maximiser vos chances, mettez en avant votre <strong>expertise technique</strong>, vos <strong>projets shipped</strong>, votre <strong>vision créative</strong> et surtout votre <strong>passion sincère pour le jeu vidéo</strong>. Un portfolio solide et une démonstration de votre impact sur des projets antérieurs sont essentiels.
+                        <strong>Ubisoft Montpellier</strong> offre une opportunité de travailler au sein d'un grand groupe international reconnu. Vous bénéficierez d'une expertise technique élevée, d'une collaboration mondiale et de ressources importantes pour développer des jeux de qualité professionnelle.
                     </p>
                 </div>
-            </section>
-        </div>
+                <div class="verdict-item">
+                    <h4>⚠️ Défis</h4>
+                    <p>
+                        La compétition pour intégrer le studio est <strong>très élevée</strong>. Il faut démontrer une expertise solide, un portfolio impressionnant et une passion authentique pour le développement de jeux vidéo. Les salaires et conditions doivent être négociés au niveau du groupe Ubisoft.
+                    </p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 30px; text-align: center;">
+                <div class="difficulty-label">Difficulté d'intégration</div>
+                <div class="difficulty-score">4 / 5</div>
+                <p style="color: #bbb;">Très compétitif - Groupe Ubisoft très selectif</p>
+            </div>
+            
+            <div class="conseil-box">
+                <strong>💡 Conseil pour Postuler :</strong>
+                <p>
+                    Mettez en avant votre <strong>expertise technique</strong> et votre <strong>portfolio créatif</strong> de haute qualité. Postulez directement via les canaux officiels de Ubisoft en ligne. Demonstrez une passion claire pour le jeu vidéo et la capacité à travailler dans un environnement international. N'hésitez pas à suivre le studio sur les réseaux sociaux pour rester informé des opportunités d'emploi.
+                </p>
+            </div>
+        </section>
         
         <footer>
-            <p>&copy; 2024 Fiche Studio Ubisoft Montpellier | Mise à jour récente</p>
+            <p>Fiche Studio © 2024 | Ubisoft Montpellier - Studio de Développement de Jeux Vidéo</p>
         </footer>
     </div>
 </body>
