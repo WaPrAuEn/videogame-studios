@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blizzard Entertainment - Fiche Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 3em;
+            color: #fff;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #e3f2fd;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #263238 0%, #37474f 100%);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border-left: 5px solid #1976d2;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(25, 118, 210, 0.3);
+        }
+
+        .card h2 {
+            color: #1976d2;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            border-bottom: 2px solid #1976d2;
+            padding-bottom: 10px;
+        }
+
+        .card p {
+            margin-bottom: 8px;
+            color: #b0bec5;
+        }
+
+        .label {
+            font-weight: 600;
+            color: #fff;
+            display: inline-block;
+            margin-right: 8px;
+        }
+
+        .section {
+            background: linear-gradient(135deg, #263238 0%, #37474f 100%);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border-left: 5px solid #1976d2;
+        }
+
+        .section h2 {
+            color: #1976d2;
+            margin-bottom: 20px;
+            font-size: 2em;
+            border-bottom: 2px solid #1976d2;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #64b5f6;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .game-badge {
+            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(25, 118, 210, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .game-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(25, 118, 210, 0.5);
+        }
+
+        .metier-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .metier-card {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #42a5f5;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .metier-card h4 {
+            color: #42a5f5;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+        }
+
+        .metier-card p {
+            color: #b3e5fc;
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+
+        .difficulte {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #42a5f5;
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 1.3em;
+            margin-left: 10px;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .link-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+            color: #fff;
+            padding: 15px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(25, 118, 210, 0.3);
+            font-weight: 600;
+        }
+
+        .link-button:hover {
+            background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(25, 118, 210, 0.5);
+        }
+
+        .verdict {
+            background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 5px solid #66bb6a;
+            margin-bottom: 30px;
+        }
+
+        .verdict h2 {
+            color: #66bb6a;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .verdict p {
+            color: #c8e6c9;
+            margin-bottom: 12px;
+            font-size: 1.05em;
+        }
+
+        .difficulty-bar {
+            background: #1b5e20;
+            height: 10px;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .difficulty-fill {
+            background: linear-gradient(90deg, #fbc02d 0%, #f57f17 100%);
+            height: 100%;
+            width: 90%;
+            border-radius: 5px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .info-box {
+            background: rgba(25, 118, 210, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid #1976d2;
+        }
+
+        .info-box .label {
+            display: block;
+            color: #42a5f5;
+            margin-bottom: 5px;
+        }
+
+        .info-box p {
+            color: #e0e0e0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #90a4ae;
+            border-top: 1px solid #37474f;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .section h2 {
+                font-size: 1.5em;
+            }
+
+            .games-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Blizzard Entertainment</h1>
+            <p>Studio de développement et d'édition de jeux vidéo de renommée mondiale</p>
+        </header>
+
+        <div class="grid">
+            <div class="card">
+                <h2>📍 Localisation</h2>
+                <p><span class="label">Ville:</span> Irvine</p>
+                <p><span class="label">Pays:</span> États-Unis</p>
+                <p>Basée en Californie, Blizzard Entertainment est située au cœur de l'industrie technologique américaine.</p>
+            </div>
+
+            <div class="card">
+                <h2>📅 Historique</h2>
+                <p><span class="label">Fondée:</span> 1991</p>
+                <p><span class="label">Âge:</span> Plus de 30 ans d'excellence</p>
+                <p>Studio historiquement reconnu pour ses jeux innovants et sa contribution majeure à l'industrie du jeu vidéo.</p>
+            </div>
+
+            <div class="card">
+                <h2>🏢 Organisation</h2>
+                <p><span class="label">Type:</span> Éditeur et développeur de jeux vidéo</p>
+                <p><span class="label">Maison-mère:</span> Activision Blizzard</p>
+                <p><span class="label">Effectifs:</span> Non disponible actuellement</p>
+            </div>
+        </div>
+
+        <section class="section">
+            <h2>🎯 Jeux Notables</h2>
+            <p>Blizzard Entertainment a créé certaines des franchises les plus emblématiques et influentes du jeu vidéo :</p>
+            <div class="games-grid">
+                <div class="game-badge">Warcraft</div>
+                <div class="game-badge">World of Warcraft</div>
+                <div class="game-badge">Diablo</div>
+                <div class="game-badge">StarCraft</div>
+                <div class="game-badge">Hearthstone</div>
+                <div class="game-badge">Heroes of the Storm</div>
+                <div class="game-badge">Overwatch</div>
+            </div>
+            <p style="margin-top: 20px; color: #b0bec5;">Ces jeux couvrent plusieurs genres : RTS, RPG, MMO, jeux de cartes numériques et jeux de tir compétitifs.</p>
+        </section>
+
+        <section class="section">
+            <h2>💼 Opportunités de Recrutement</h2>
+            <div class="info-grid">
+                <div class="info-box">
+                    <span class="label">Postes ouverts</span>
+                    <p>Non spécifié dans les sources</p>
+                </div>
+                <div class="info-box">
+                    <span class="label">Contact recrutement</span>
+                    <p>Non disponible</p>
+                </div>
+                <div class="info-box">
+                    <span class="label">Portail carrières</span>
+                    <p><a href="https://careers.blizzard.com/global/en" target="_blank" style="color: #42a5f5; text-decoration: none;">careers.blizzard.com</a></p>
+                </div>
+            </div>
+            <h3>Points importants pour les candidats :</h3>
+            <ul style="margin-left: 20px; margin-top: 15px; color: #b0bec5;">
+                <li>Consultez régulièrement le portail de recrutement officiel</li>
+                <li>Préparez un portfolio démontrant une expérience dans les genres RTS, RPG ou MMO</li>
+                <li>Les standards de qualité sont très élevés</li>
+                <li>Le processus de candidature est compétitif</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>👨‍💼 Métiers et Opportunités</h2>
+            <p style="margin-bottom: 20px; color: #b0bec5;">Blizzard Entertainment recrute des talents dans plusieurs domaines clés :</p>
+            
+            <div class="metier-grid">
+                <div class="metier-card">
+                    <h4>🎮 Game Designer</h4>
+                    <p>Création et conception de mécaniques de jeux innovantes. Expérience requise dans les genres RTS, RPG ou MMO.</p>
+                    <div class="difficulte">
+                        <span class="label">Difficulté</span>
+                        <span class="stars">★★★★★</span>
+                    </div>
+                </div>
+
+                <div class="metier-card">
+                    <h4>💻 Programmeur</h4>
+                    <p>Développement de jeux complexes et MMO. Maîtrise des technologies avancées et des architectures scalables requise.</p>
+                    <div class="difficulte">
+                        <span class="label">Difficulté</span>
+                        <span class="stars">★★★★★</span>
+                    </div>
+                </div>
+
+                <div class="metier-card">
+                    <h4>🎨 Artiste 3D</h4>
+                    <p>Création d'univers visuels détaillés et immersifs. Portfolio démontrant une expertise en modélisation et texturation.</p>
+                    <div class="difficulte">
+                        <span class="label">Difficulté</span>
+                        <span class="stars">★★★★☆</span>
+                    </div>
+                </div>
+
+                <div class="metier-card">
+                    <h4>🖱️ UI Artist</h4>
+                    <p>Design d'interfaces pour jeux multijoueurs complexes. Expérience en UX/UI design et compréhension des jeux compétitifs.</p>
+                    <div class="difficulte">
+                        <span class="label">Difficulté</span>
+                        <span class="stars">★★★★☆</span>
+                    </div>
+                </div>
+
+                <div class="metier-card">
+                    <h4>🖌️ Concept Artist</h4>
+                    <p>Design de mondes et créatures fantastiques. Vision artistique forte et maîtrise des outils de conception numériques.</p>
+                    <div class="difficulte">
+                        <span class="label">Difficulté</span>
+                        <span class="stars">★★★★☆</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>🌐 Liens Utiles</h2>
+            <div class="links-grid">
+                <a href="https://www.blizzard.com/fr-fr/" target="_blank" class="link-button">🌍 Site Web Officiel</a>
+                <a href="https://careers.blizzard.com/global/en" target="_blank" class="link-button">💼 Portail Carrières</a>
+                <a href="https://store.steampowered.com/publisher/Blizzard?l=french" target="_blank" class="link-button">🎮 Page Steam</a>
+                <a href="https://www.linkedin.com/company/blizzard-entertainment/?originalSubdomain=fr" target="_blank" class="link-button">💼 LinkedIn</a>
+            </div>
+        </section>
+
+        <section class="verdict">
+            <h2>📊 Verdict</h2>
+            <p><span class="label" style="color: #66bb6a;">Difficulté globale: ÉLEVÉE</span></p>
+            <div class="difficulty-bar">
+                <div class="difficulty-fill"></div>
+            </div>
+            <p><strong>Résumé:</strong> Blizzard Entertainment est l'un des plus grands studios de développement de jeux vidéo au monde. Postuler ici est extrêmement compétitif et réservé aux candidats ayant une expertise confirmée et un portfolio impressionnant.</p>
+            
+            <h3 style="color: #66bb6a; margin-top: 20px;">Conseils pour réussir :</h3>
+            <ul style="margin-left: 20px; margin-top: 15px; color: #c8e6c9;">
+                <li><strong>Spécialisez-vous:</strong> Montrez une expertise dans les genres RTS, RPG ou MMO</li>
+                <li><strong>Construisez un portfolio solide:</strong> Présentez vos meilleurs projets avec des résultats concrets</li>
+                <li><strong>Restez à jour:</strong> Suivez les tendances et innovations de l'industrie</li>
+                <li><strong>Utilisez le portail officiel:</strong> Postulez directement via careers.blizzard.com</li>
+                <li><strong>Réseau professionnel:</strong> Connectez-vous sur LinkedIn et participez à des événements gaming</li>
+                <li><strong>Préparation:</strong> Entraînez-vous pour les entretiens techniques et créatifs</li>
+            </ul>
+
+            <p style="margin-top: 20px; border-top: 1px solid #66bb6a; padding-top: 20px;"><strong>Potentiel:</strong> Une opportunité chez Blizzard peut être transformatrice pour une carrière dans l'industrie du jeu vidéo. C'est une destination idéale pour les talents ambitieux cherchant à travailler sur des projets de classe mondiale.</p>
+        </section>
+
+        <footer>
+            <p>© 2024 - Fiche d'information Blizzard Entertainment | Données à titre informatif</p>
+        </footer>
+    </div>
+</body>
+</html>
