@@ -12,6 +12,7 @@
 - [Illogic Studios](studios/illogic-studios.html) — Montpellier, France
 - [Inti Creates](studios/inti-creates.html) — Ichikawa (Chiba) et Nagoya, Japon
 - [Magic Design Studios](studios/magic-design-studios.html) — Montpellier, France
+- [Manufacture 43](studios/manufacture-43.html) — Bordeaux, France
 - [Mikros Animation](studios/mikros-animation.html) — Paris, France
 - [Motion Twin](studios/motion-twin.html) — Bordeaux, France — Studio de développement indépendant
 - [Omega Force](studios/omega-force.html) — Ashikaga, Japon
