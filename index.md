@@ -50,6 +50,7 @@
 - [Eugen Systems](studios/eugen-systems.html) — Paris, France
 - [Evil Empire](studios/evil-empire.html) — Lyon, France
 - [Fortiche Production](studios/fortiche-production.html) — Paris, France
+- [FromSoftware](studios/fromsoftware.html) — Tokyo (Shibuya), Japon
 - [Game Freak, Inc.](studios/game-freak,-inc..html) — Tokyo, Japon
 - [Gaminho](studios/gaminho.html) — Paris, France
 - [GFactory](studios/gfactory.html) — Lyon, France
