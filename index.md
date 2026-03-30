@@ -13,6 +13,7 @@
 - [Inti Creates](studios/inti-creates.html) — Ichikawa (Chiba) et Nagoya, Japon
 - [Mikros Animation](studios/mikros-animation.html) — Paris, France
 - [Motion Twin](studios/motion-twin.html) — Bordeaux, France — Studio de développement indépendant
+- [Omega Force](studios/omega-force.html) — Ashikaga, Japon
 - [Playtouch](studios/playtouch.html) — Port Louis, Île Maurice
 - [PowerZ](studios/powerz.html) — Paris, France
 - [Sandfall Interactive](studios/sandfall-interactive.html) — Montpellier, France
