@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celsiusonline - Studio de Jeux Vidéo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .section {
+            background: white;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .identity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .identity-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 5px solid #667eea;
+        }
+
+        .identity-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .identity-card p {
+            color: #555;
+            font-weight: 500;
+        }
+
+        .empty-value {
+            color: #999;
+            font-style: italic;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .game-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.5);
+        }
+
+        .game-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .game-card p {
+            opacity: 0.9;
+        }
+
+        .recruitment-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .recruitment-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            border-top: 4px solid #667eea;
+        }
+
+        .recruitment-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .job-list {
+            list-style: none;
+        }
+
+        .job-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+            color: #555;
+        }
+
+        .job-list li:before {
+            content: "▶ ";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .job-list li:last-child {
+            border-bottom: none;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .contact-box h3 {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .contact-box p {
+            margin-bottom: 10px;
+        }
+
+        .contact-box a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-box a:hover {
+            border-bottom: 2px solid white;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .link-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .link-card a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .link-card a:hover {
+            color: #764ba2;
+        }
+
+        .professions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .profession-card {
+            background: white;
+            border: 2px solid #667eea;
+            padding: 30px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .profession-card:hover {
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+            border-color: #764ba2;
+        }
+
+        .profession-card h3 {
+            color: #667eea;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .profession-card p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .difficulty-bar {
+            background: #e0e0e0;
+            height: 25px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 15px;
+        }
+
+        .difficulty-fill {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.85em;
+        }
+
+        .verdict-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .verdict-section h2 {
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .verdict-section p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .advice-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-left: 5px solid white;
+            border-radius: 5px;
+            text-align: left;
+            font-size: 1.05em;
+        }
+
+        .advice-box strong {
+            color: #fff;
+        }
+
+        .culture-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 5px solid #667eea;
+        }
+
+        .culture-section h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .culture-section p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .recruitment-section {
+                grid-template-columns: 1fr;
+            }
+
+            .identity-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Celsiusonline</h1>
+            <p>Studio de Développement de Jeux Vidéo</p>
+        </header>
+
+        <!-- SECTION IDENTITÉ -->
+        <section class="section">
+            <h2>📋 Identité du Studio</h2>
+            <div class="identity-grid">
+                <div class="identity-card">
+                    <h3>Localisation</h3>
+                    <p class="empty-value">Non spécifiée</p>
+                </div>
+                <div class="identity-card">
+                    <h3>Année de Fondation</h3>
+                    <p class="empty-value">Non spécifiée</p>
+                </div>
+                <div class="identity-card">
+                    <h3>Taille de l'équipe</h3>
+                    <p class="empty-value">Non spécifiée</p>
+                </div>
+                <div class="identity-card">
+                    <h3>Type de Studio</h3>
+                    <p class="empty-value">Non spécifié</p>
+                </div>
+                <div class="identity-card">
+                    <h3>Éditeurs Associés</h3>
+                    <p class="empty-value">Non spécifiés</p>
+                </div>
+                <div class="identity-card">
+                    <h3>Portfolio</h3>
+                    <p class="empty-value">Non spécifié</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION JEUX NOTABLES -->
+        <section class="section">
+            <h2>🎯 Jeux Notables</h2>
+            <div class="games-grid">
+                <div class="game-card">
+                    <h3>Portfolio en Construction</h3>
+                    <p>Les informations concernant les jeux développés par Celsiusonline ne sont pas disponibles pour le moment.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION RECRUTEMENT -->
+        <section class="section">
+            <h2>💼 Recrutement</h2>
+            <div class="recruitment-section">
+                <div class="recruitment-card">
+                    <h3>Postes Ouverts</h3>
+                    <ul class="job-list">
+                        <li class="empty-value">Aucune offre disponible actuellement</li>
+                    </ul>
+                </div>
+                <div class="recruitment-card">
+                    <h3>Informations de Contact</h3>
+                    <div class="contact-box">
+                        <h3>Email Recrutement</h3>
+                        <p class="empty-value">Non fourni</p>
+                        <h3>Site Carrières</h3>
+                        <p class="empty-value">Non disponible</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION CULTURE -->
+        <section class="section">
+            <h2>🌟 Culture d'Entreprise</h2>
+            <div class="culture-section">
+                <h3>Environnement de Travail</h3>
+                <p class="empty-value">Les informations concernant la culture d'entreprise de Celsiusonline ne sont pas disponibles à ce moment.</p>
+            </div>
+        </section>
+
+        <!-- SECTION PAR MÉTIER -->
+        <section class="section">
+            <h2>👨‍💼 Opportunités par Métier</h2>
+            <div class="professions-grid">
+                <div class="profession-card">
+                    <h3>🎮 Game Designer</h3>
+                    <p>Profil recherché : <span class="empty-value">Non spécifié</span></p>
+                    <div class="difficulty-bar">
+                        <div class="difficulty-fill" style="width: 0%;">-/5</div>
+                    </div>
+                </div>
+                <div class="profession-card">
+                    <h3>💻 Programmeur</h3>
+                    <p>Profil recherché : <span class="empty-value">Non spécifié</span></p>
+                    <div class="difficulty-bar">
+                        <div class="difficulty-fill" style="width: 0%;">-/5</div>
+                    </div>
+                </div>
+                <div class="profession-card">
+                    <h3>🎨 Artiste 3D</h3>
+                    <p>Profil recherché : <span class="empty-value">Non spécifié</span></p>
+                    <div class="difficulty-bar">
+                        <div class="difficulty-fill" style="width: 0%;">-/5</div>
+                    </div>
+                </div>
+                <div class="profession-card">
+                    <h3>🖌️ UI Artist</h3>
+                    <p>Profil recherché : <span class="empty-value">Non spécifié</span></p>
+                    <div class="difficulty-bar">
+                        <div class="difficulty-fill" style="width: 0%;">-/5</div>
+                    </div>
+                </div>
+                <div class="profession-card">
+                    <h3>✏️ Concept Artist</h3>
+                    <p>Profil recherché : <span class="empty-value">Non spécifié</span></p>
+                    <div class="difficulty-bar">
+                        <div class="difficulty-fill" style="width: 0%;">-/5</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION LIENS UTILES -->
+        <section class="section">
+            <h2>🔗 Liens Utiles</h2>
+            <div class="links-grid">
+                <div class="link-card">
+                    <h3>🌐 Site Web</h3>
+                    <p class="empty-value">Non disponible</p>
+                </div>
+                <div class="link-card">
+                    <h3>🎮 Steam</h3>
+                    <p class="empty-value">Non disponible</p>
+                </div>
+                <div class="link-card">
+                    <h3>💼 LinkedIn</h3>
+                    <p class="empty-value">Non disponible</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION VERDICT -->
+        <section class="verdict-section">
+            <h2>🏆 Verdict Final</h2>
+            <div class="advice-box">
+                <p>Les informations nécessaires pour évaluer complètement les opportunités chez Celsiusonline ne sont pas actuellement disponibles. Pour obtenir des détails sur les postes ouverts, la culture d'entreprise et les conditions de travail, nous vous recommandons de visiter directement le site web du studio ou de contacter leur département de recrutement.</p>
+                <p style="margin-top: 20px;"><strong>💡 Conseil :</strong> Établissez un contact direct avec le studio pour connaître les dernières opportunités et obtenir des informations à jour sur les postes disponibles.</p>
+            </div>
+        </section>
+
+    </div>
+</body>
+</html>
+
+
+Cette fiche HTML complète propose :
+
+✅ **Design moderne et attrayant** avec dégradés de couleurs
+✅ **Sections bien organisées** : Identité, Jeux, Recrutement, Culture, Métiers, Liens, Verdict
+✅ **Responsive design** qui s'adapte à tous les appareils
+✅ **Animations et transitions** subtiles
+✅ **Structure professionnelle** avec cartes et grilles
+✅ **Indicateurs visuels** pour les barres de difficulté
+✅ **Styling inline** comme demandé (pas de fichier CSS externe)
+
+Le contenu indique que les données ne sont pas remplies et affiche des messages appropriés pour chaque champ vide.
