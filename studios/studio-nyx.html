@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Nyx - Studio de Développement de Jeux Vidéo et Simulateurs VR</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #764ba2;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #764ba2;
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .identite-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .info-card strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .jeux-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .jeu-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .jeu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .jeu-card h4 {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .metiers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .metier-card {
+            background: linear-gradient(135deg, #f9f9f9 0%, #efefef 100%);
+            border: 2px solid #764ba2;
+            border-radius: 8px;
+            padding: 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .metier-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 20px rgba(118, 75, 162, 0.2);
+        }
+
+        .metier-card h4 {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .metier-icon {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .metier-card ul {
+            list-style-position: inside;
+            color: #555;
+        }
+
+        .metier-card li {
+            margin-bottom: 8px;
+        }
+
+        .liens-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .lien-btn {
+            display: inline-block;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+        }
+
+        .lien-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border-left: 5px solid #667eea;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .contact-box p {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .contact-box strong {
+            color: #667eea;
+        }
+
+        .verdict {
+            background: linear-gradient(135deg, #764ba215 0%, #667eea15 100%);
+            border: 2px solid #764ba2;
+            border-radius: 8px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        .verdict h3 {
+            color: #764ba2;
+            margin-top: 0;
+        }
+
+        .difficulty-meter {
+            display: flex;
+            gap: 8px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .star {
+            width: 30px;
+            height: 30px;
+            background: #ffc107;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .star.empty {
+            background: #ddd;
+            color: #999;
+        }
+
+        .conseil-box {
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        .conseil-box strong {
+            color: #667eea;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        .culture-list {
+            list-style-position: inside;
+            margin-top: 15px;
+            color: #555;
+        }
+
+        .culture-list li {
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .identite-grid,
+            .jeux-grid,
+            .metiers-grid,
+            .liens-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🎮 Studio Nyx</h1>
+        <p>Studio de Développement de Jeux Vidéo et Simulateurs VR</p>
+        <p>Angoulême, France</p>
+    </header>
+
+    <div class="container">
+        <!-- Section Identité -->
+        <section class="section">
+            <h2>📋 Identité du Studio</h2>
+            <div class="identite-grid">
+                <div class="info-card">
+                    <strong>📍 Localisation</strong>
+                    Angoulême, France
+                </div>
+                <div class="info-card">
+                    <strong>👥 Taille</strong>
+                    11 à 50 collaborateurs
+                </div>
+                <div class="info-card">
+                    <strong>🎯 Type</strong>
+                    Studio de développement de jeux vidéo et simulateurs VR
+                </div>
+                <div class="info-card">
+                    <strong>🏢 Éditeur</strong>
+                    Black Swan Technology
+                </div>
+            </div>
+
+            <h3>🎯 Domaines d'Expertise</h3>
+            <ul class="culture-list">
+                <li><strong>Accompagnement transition numérique</strong> : Construction, industrie, tourisme, culture</li>
+                <li><strong>Expertise en ergonomie</strong> : Fluidité et expérience utilisateur optimisée</li>
+                <li><strong>Expérience sensorielle VR/AR</strong> : Immersion totale et interactive</li>
+                <li><strong>Simulations immersives</strong> : Environnements virtuels réalistes</li>
+                <li><strong>Formations digitales</strong> : Solutions pédagogiques innovantes</li>
+            </ul>
+        </section>
+
+        <!-- Section Jeux Notables -->
+        <section class="section">
+            <h2>🎮 Jeux Notables</h2>
+            <div class="jeux-grid">
+                <div class="jeu-card">
+                    <h4>Legions of Steel</h4>
+                    <p>Jeu de stratégie et de combat immersif. Disponible sur Steam et explorant les mécaniques tactiques avancées.</p>
+                    <a href="https://store.steampowered.com/app/312440/Legions_of_Steel/" class="lien-btn" style="display: inline-block; margin-top: 10px;">Voir sur Steam</a>
+                </div>
+                <div class="jeu-card">
+                    <h4>E-Cab</h4>
+                    <p>Simulateur immersif combinant réalisme de conduite et expérience sensorielle VR pour applications professionnelles et commerciales.</p>
+                </div>
+                <div class="jeu-card">
+                    <h4>Ampelos</h4>
+                    <p>Expérience interactive et immersive, démontrant l'expertise du studio en création de mondes virtuels captivants et détaillés.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Recrutement -->
+        <section class="section">
+            <h2>💼 Recrutement</h2>
+            <p>Studio Nyx recrute activement pour renforcer ses équipes de développement. Le studio cherche des talents passionnés par les jeux vidéo, la VR et les simulateurs immersifs.</p>
+
+            <div class="contact-box">
+                <p><strong>📧 Email Recrutement :</strong> <a href="mailto:jobs@studio-nyx.com" style="color: #667eea; text-decoration: none;">jobs@studio-nyx.com</a></p>
+                <p><strong>🔗 Consulter les offres d'emploi :</strong> <a href="https://www.studio-nyx.com/jobs" target="_blank" style="color: #667eea; text-decoration: none;">https://www.studio-nyx.com/jobs</a></p>
+            </div>
+
+            <div class="conseil-box">
+                <strong>💡 Conseil de Candidature :</strong>
+                <p>Consultez les offres disponibles sur le site careers, envoyez votre CV à jobs@studio-nyx.com, et mettez en avant vos compétences en VR/AR, simulations immersives et votre expérience en serious games ou secteurs numériques spécifiques (construction, industrie, tourisme, culture).</p>
+            </div>
+        </section>
+
+        <!-- Section Par Métier -->
+        <section class="section">
+            <h2>👔 Opportunités par Métier</h2>
+            <div class="metiers-grid">
+                <div class="metier-card">
+                    <h4><span class="metier-icon">🎨</span>Game Designer</h4>
+                    <p>Créez des expériences de jeu innovantes et immersives pour VR, serious games et simulateurs.</p>
+                    <ul>
+                        <li>Design de mécaniques de jeu</li>
+                        <li>Création de mondes virtuels</li>
+                        <li>Expérience utilisateur VR/AR</li>
+                        <li>Prototypage et itération</li>
+                    </ul>
+                </div>
+                <div class="metier-card">
+                    <h4><span class="metier-icon">💻</span>Programmeur</h4>
+                    <p>Développez les fondations techniques des jeux vidéo et applications VR avec des technologies de pointe.</p>
+                    <ul>
+                        <li>Programmation moteur (Unity, Unreal)</li>
+                        <li>Développement VR/AR</li>
+                        <li>Architecture logicielle</li>
+                        <li>Optimisation performances</li>
+                    </ul>
+                </div>
+                <div class="metier-card">
+                    <h4><span class="metier-icon">🖼️</span>Artiste 3D</h4>
+                    <p>Créez des visuels époustouflants et des environnements détaillés pour nos univers immersifs.</p>
+                    <ul>
+                        <li>Modélisation 3D</li>
+                        <li>Texturing et shaders</li>
+                        <li>Animation 3D</li>
+                        <li>Optimisation assets VR</li>
+                    </ul>
+                </div>
+                <div class="metier-card">
+                    <h4><span class="metier-icon">🎛️</span>UI Artist</h4>
+                    <p>Concevez des interfaces intuitives et ergonomiques pour VR et applications immersives.</p>
+                    <ul>
+                        <li>Design d'interface VR</li>
+                        <li>UX/UI en environnement immersif</li>
+                        <li>Ergonomie 3D</li>
+                        <li>Animation d'UI</li>
+                    </ul>
+                </div>
+                <div class="metier-card">
+                    <h4><span class="metier-icon">✏️</span>Concept Artist</h4>
+                    <p>Définissez l'univers artistique et visuel de nos projets de jeux et simulations.</p>
+                    <ul>
+                        <li>Character design</li>
+                        <li>Environment concept</li>
+                        <li>Art direction</li>
+                        <li>Visual storytelling</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Liens Utiles -->
+        <section class="section">
+            <h2>🔗 Liens Utiles</h2>
+            <div class="liens-grid">
+                <a href="https://www.studio-nyx.com" target="_blank" class="lien-btn">🌐 Site Web Official</a>
+                <a href="https://www.studio-nyx.com/jobs" target="_blank" class="lien-btn">💼 Offres d'Emploi</a>
+                <a href="https://www.linkedin.com/company/studio-nyx/" target="_blank" class="lien-btn">💼 LinkedIn Studio Nyx</a>
+                <a href="https://store.steampowered.com/app/312440/Legions_of_Steel/" target="_blank" class="lien-btn">🎮 Legions of Steel</a>
+                <a href="mailto:jobs@studio-nyx.com" class="lien-btn">✉️ Nous Contacter</a>
+            </div>
+        </section>
+
+        <!-- Section Verdict -->
+        <section class="section verdict">
+            <h2>📊 Verdict & Analyse</h2>
+            <h3>Difficulté de Candidature</h3>
+            <div class="difficulty-meter">
+                <div class="star">★</div>
+                <div class="star">★</div>
+                <div class="star">★</div>
+                <div class="star empty">★</div>
+                <div class="star empty">★</div>
+            </div>
+            <p><strong>Niveau de Difficulté : Moyen</strong></p>
+
+            <h3>Pourquoi cette difficulté ?</h3>
+            <ul class="culture-list">
+                <li><strong>Studio indépendant de petite-moyenne taille :</strong> Moins de postes disponibles qu'un grand studio AAA, mais plus de proximité et d'impact personnel possible</li>
+                <li><strong>Focus spécialisé VR/Serious Games :</strong> Demande des compétences spécifiques et une bonne maîtrise de ces technologies</li>
+                <li><strong>Secteurs de niche :</strong> Construction, industrie, tourisme, culture - requiert une compréhension des besoins métier en plus des compétences pures jeux vidéo</li>
+                <li><strong>Concurrence modérée :</strong> Moins de candidats que pour les studios AAA, ce qui peut jouer en votre faveur avec le bon profil</li>
+            </ul>
+
+            <h3>Recommandations pour Augmenter vos Chances</h3>
+            <div class="conseil-box" style="margin-top: 20px;">
+                <ul class="culture-list" style="margin-top: 0;">
+                    <li>✅ Consultez régulièrement la page <a href="https://www.studio-nyx.com/jobs" target="_blank" style="color: #667eea;">jobs.studio-nyx.com</a> pour les nouvelles offres</li>
+                    <li>✅ Envoyez votre CV à <a href="mailto:jobs@studio-nyx.com" style="color: #667eea;">jobs@studio-nyx.com</a> en mettant en avant vos projets VR/AR</li>
+                    <li>✅ Démontrez une expérience en serious games ou en numérique pour secteurs spécialisés</li>
+                    <li>✅ Suivez Studio Nyx sur <a href="https://www.linkedin.com/company/studio-nyx/" target="_blank" style="color: #667eea;">LinkedIn</a> pour rester informé des actualités et offres</li>
+                    <li>✅ Présentez des portfolios/projets montrant votre expertise en ergonomie, fluidité et expérience sensorielle</li>
+                    <li>✅ Mettez l'accent sur votre passion pour les simulations immersives et les applications métier</li>
+                </ul>
+            </div>
+
+            <h3>Points Forts du Studio</h3>
+            <ul class="culture-list">
+                <li>🌟 Spécialisation expertise en VR/AR - domaines d'avenir</li>
+                <li>🌟 Diversification vers les secteurs métier (pas que le jeu traditionnel)</li>
+                <li>🌟 Taille humaine favorisant l'impact personnel et la collaborativité</li>
+                <li>🌟 Ancrage régional (Angoulême) - possible avantage si vous cherchez stabilité locale</li>
+                <li>🌟 Portefeuille de jeux variés montrant la capacité d'innovation</li>
+            </ul>
+
+            <h3>Conclusion</h3>
+            <p>Studio Nyx est un excellent choix pour les développeurs passionnés par la VR, les serious games et les applications immersives. Difficultés modérées, mais valorisant l'expertise spécifique. Le studio semble en croissance avec une culture d'innovation marquée. À considérer sérieusement si votre profil correspond aux domaines VR/AR et simulations immersives !</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Fiche Recrutement Studio Nyx | Angoulême, France</p>
+        <p>Mise à jour : Décembre 2024</p>
+    </footer>
+</body>
+</html>
