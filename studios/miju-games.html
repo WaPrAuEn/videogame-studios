@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miju Games - Studio Indie de Jeux Vidéo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        header p {
+            font-size: 18px;
+            opacity: 0.95;
+            font-style: italic;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        section {
+            margin-bottom: 50px;
+        }
+        
+        section h2 {
+            color: #667eea;
+            font-size: 32px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #764ba2;
+        }
+        
+        .identity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .identity-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .identity-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .identity-card p {
+            font-size: 16px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .jeux-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .jeu-card {
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .jeu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.2);
+        }
+        
+        .jeu-card h3 {
+            color: #764ba2;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        
+        .jeu-card p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .jeu-card a {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+            margin-right: 10px;
+        }
+        
+        .jeu-card a:hover {
+            opacity: 0.8;
+        }
+        
+        .recrutement-alert {
+            background: #fff3cd;
+            border-left: 5px solid #ff6b6b;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        
+        .recrutement-alert h3 {
+            color: #ff6b6b;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .recrutement-alert p {
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .postes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .poste-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #e9ecef;
+        }
+        
+        .poste-item h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .poste-item p {
+            color: #999;
+            font-size: 14px;
+        }
+        
+        .liens-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .lien-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .lien-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .lien-card h4 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .lien-card a {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .lien-card a:hover {
+            background: #f8f9fa;
+            color: #764ba2;
+        }
+        
+        .metiers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .metier-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .metier-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.1);
+        }
+        
+        .metier-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .niveau-competence {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .niveau-bar {
+            background: #e9ecef;
+            height: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+        
+        .niveau-fill {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            height: 100%;
+            width: 20%;
+            transition: width 0.3s ease;
+        }
+        
+        .verdict {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e72 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        .verdict h2 {
+            color: white;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 25px;
+        }
+        
+        .verdict-score {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .verdict-score h3 {
+            font-size: 20px;
+        }
+        
+        .difficulty-badge {
+            background: white;
+            color: #ff6b6b;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 18px;
+        }
+        
+        .verdict-conseil {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid white;
+            margin-bottom: 20px;
+        }
+        
+        .verdict-conseil p {
+            margin: 10px 0;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        
+        footer {
+            background: #f8f9fa;
+            padding: 25px;
+            text-align: center;
+            color: #999;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge-indie {
+            background: #764ba2;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 32px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            section h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Miju Games</h1>
+            <p>Small indie team of two from France. We carefully craft games with love and passion!</p>
+        </header>
+        
+        <div class="content">
+            <!-- Identité Section -->
+            <section>
+                <h2>📋 Identité du Studio</h2>
+                <div style="margin-bottom: 20px;">
+                    <span class="badge badge-indie">Indépendant</span>
+                    <span class="badge">Couple de Développeurs</span>
+                    <span class="badge">Français</span>
+                </div>
+                
+                <div class="identity-grid">
+                    <div class="identity-card">
+                        <h3>📍 Localisation</h3>
+                        <p>Toulouse, France</p>
+                    </div>
+                    
+                    <div class="identity-card">
+                        <h3>📅 Fondation</h3>
+                        <p>2021</p>
+                    </div>
+                    
+                    <div class="identity-card">
+                        <h3>👥 Taille de l'équipe</h3>
+                        <p>2 développeurs</p>
+                    </div>
+                    
+                    <div class="identity-card">
+                        <h3>🎯 Type de Studio</h3>
+                        <p>Indie (Développeurs indépendants)</p>
+                    </div>
+                    
+                    <div class="identity-card">
+                        <h3>🏢 Éditeurs</h3>
+                        <p>Aucun partenariat mentionné</p>
+                    </div>
+                    
+                    <div class="identity-card">
+                        <h3>🌐 Site Web</h3>
+                        <p><a href="https://mijugames.com" style="color: #667eea; text-decoration: none;">mijugames.com</a></p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Jeux Notables Section -->
+            <section>
+                <h2>🎮 Jeux Notables</h2>
+                <div class="jeux-grid">
+                    <div class="jeu-card">
+                        <h3>The Planet Crafter</h3>
+                        <p>Jeu principal du studio Miju Games. Un titre qui reflète la passion et le soin apporté par les deux développeurs dans la création de leurs jeux.</p>
+                        <p style="font-size: 14px; color: #999;">Disponible sur Steam</p>
+                        <a href="https://store.steampowered.com/developer/MijuGames" target="_blank">Voir sur Steam</a>
+                        <a href="https://store.steampowered.com/app/1284190/The_Planet_Crafter/" target="_blank" style="background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);">Page du jeu</a>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Recrutement Section -->
+            <section>
+                <h2>💼 Recrutement</h2>
+                
+                <div class="recrutement-alert">
+                    <h3>⚠️ Attention</h3>
+                    <p>Miju Games n'est actuellement pas à la recherche d'employés ou de stagiaires. Le studio fonctionne en tant que couple de développeurs indépendants et n'a pas de postes ouverts.</p>
+                </div>
+                
+                <div style="background: #f8f9fa; padding: 25px; border-radius: 8px; margin-bottom: 25px;">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">Postes Ouverts</h3>
+                    <div class="postes-grid">
+                        <div class="poste-item">
+                            <h4>❌ Aucun</h4>
+                            <p>Aucun poste n'est actuellement ouvert</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background: #f8f9fa; padding: 25px; border-radius: 8px;">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">Contacts Recrutement</h3>
+                    <p style="color: #999; margin-bottom: 10px;">Email de recrutement: Non disponible</p>
+                    <p style="color: #999;">Site carrières: Non disponible</p>
+                </div>
+            </section>
+            
+            <!-- Liens Utiles Section -->
+            <section>
+                <h2>🔗 Liens Utiles</h2>
+                <div class="liens-grid">
+                    <div class="lien-card">
+                        <h4>Site Web Officiel</h4>
+                        <a href="https://mijugames.com" target="_blank">Visiter mijugames.com</a>
+                    </div>
+                    
+                    <div class="lien-card">
+                        <h4>Page Steam</h4>
+                        <a href="https://store.steampowered.com/developer/MijuGames" target="_blank">Profil Développeur</a>
+                    </div>
+                    
+                    <div class="lien-card">
+                        <h4>The Planet Crafter</h4>
+                        <a href="https://store.steampowered.com/app/1284190/The_Planet_Crafter/" target="_blank">Sur Steam</a>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Par Métier Section -->
+            <section>
+                <h2>💻 Analyse par Métier</h2>
+                <p style="margin-bottom: 25px; color: #666;">Évaluation du besoin de recrutement par domaine de compétence</p>
+                
+                <div class="metiers-grid">
+                    <!-- Game Designer -->
+                    <div class="metier-card">
+                        <h3>🎮 Game Designer</h3>
+                        <div class="niveau-competence">
+                            <p style="margin: 0; font-size: 14px; color: #999; margin-bottom: 8px;">Besoin de recrutement</p>
+                            <div class="niveau-bar">
+                                <div class="niveau-fill" style="width: 20%;"></div>
+                            </div>
+                            <p style="margin: 8px 0 0 0; font-size: 12px; color: #667eea; font-weight: 600;">Faible</p>
+                        </div>
+                        <p style="font-size: 13px; color: #666; margin-top: 15px;">Le studio n'effectue actuellement pas de recrutement dans ce domaine. L'équipe réduite gère l'ensemble de la conception.</p>
+                    </div>
+                    
+                    <!-- Programmeur -->
+                    <div class="metier-card">
+                        <h3>💾 Programmeur</h3>
+                        <div class="niveau-competence">
+                            <p style="margin: 0; font-size: 14px; color: #999; margin-bottom: 8px;">Besoin de recrutement</p>
+                            <div class="niveau-bar">
+                                <div class="niveau-fill" style="width: 20%;"></div>
+                            </div>
+                            <p style="margin: 8px 0 0 0; font-size: 12px; color: #667eea; font-weight: 600;">Faible</p>
+                        </div>
+                        <p style="font-size: 13px; color: #666; margin-top: 15px;">Pas de poste ouvert en programmation. L'équipe de deux développeurs gère la totalité du code.</p>
+                    </div>
+                    
+                    <!-- Artiste 3D -->
+                    <div class="metier-card">
+                        <h3>🎨 Artiste 3D</h3>
+                        <div class="niveau-competence">
+                            <p style="margin: 0; font-size: 14px; color: #999; margin-bottom: 8px;">Besoin de recrutement</p>
+                            <div class="niveau-bar">
+                                <div class="niveau-fill" style="width: 20%;"></div>
+                            </div>
+                            <p style="margin: 8px 0 0 0; font-size: 12px; color: #667eea; font-weight: 600;">Faible</p>
+                        </div>
+                        <p style="font-size: 13px; color: #666; margin-top: 15px;">Aucun recrutement d'artiste 3D prévu. Les deux développeurs gèrent les aspects artistiques en interne.</p>
+                    </div>
+                    
+                    <!-- UI Artist -->
+                    <div class="metier-card">
+                        <h3>🖼️ UI Artist</h3>
+                        <div class="niveau-competence">
+                            <p style="margin: 0; font-size: 14px; color: #999; margin-bottom: 8px;">Besoin de recrutement</p>
+                            <div class="niveau-bar">
+                                <div class="niveau-fill" style="width: 20%;"></div>
+                            </div>
+                            <p style="margin: 8px 0 0 0; font-size: 12px; color: #667eea; font-weight: 600;">Faible</p>
+                        </div>
+                        <p style="font-size: 13px; color: #666; margin-top: 15px;">Pas de besoin identifié en UI Design. L'interface utilisateur est développée en interne par l'équipe.</p>
+                    </div>
+                    
+                    <!-- Concept Artist -->
+                    <div class="metier-card">
+                        <h3>✨ Concept Artist</h3>
+                        <div class="niveau-competence">
+                            <p style="margin: 0; font-size: 14px; color: #999; margin-bottom: 8px;">Besoin de recrutement</p>
+                            <div class="niveau-bar">
+                                <div class="niveau-fill" style="width: 20%;"></div>
+                            </div>
+                            <p style="margin: 8px 0 0 0; font-size: 12px; color: #667eea; font-weight: 600;">Faible</p>
+                        </div>
+                        <p style="font-size: 13px; color: #666; margin-top: 15px;">Aucun poste ouvert en concept art. L'équipe duo assure la direction artistique de ses projets.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Verdict Section -->
+            <section>
+                <div class="verdict">
+                    <h2>📊 Verdict & Conclusion</h2>
+                    
+                    <div class="verdict-score">
+                        <h3>Difficulté de Candidature</h3>
+                        <div class="difficulty-badge">5/5 ⭐⭐⭐⭐⭐</div>
+                    </div>
+                    
+                    <div class="verdict-conseil">
+                        <p><strong>🚫 Conseil Principal:</strong></p>
+                        <p>Ne pas candidater auprès de Miju Games. Le studio n'est actuellement pas à la recherche d'employés ou de stagiaires.</p>
+                    </div>
+                    
+                    <div class="verdict-conseil">
+                        <p><strong>📝 Analyse
