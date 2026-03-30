@@ -59,6 +59,7 @@
 - [Nintendo France](studios/nintendo-france.html) — Courbevoie, France
 - [nWave Studios](studios/nwave-studios.html) — Bruxelles, Belgique
 - [Ocellus Studio](studios/ocellus-studio.html) — Lyon, France
+- [Old Skull Games](studios/old-skull-games.html) — Villeurbanne, France
 - [Omega Force](studios/omega-force.html) — Ashikaga, Japon
 - [Pixar Animation Studios](studios/pixar-animation-studios.html) — Emeryville, États-Unis
 - [Plane Toast](studios/plane-toast.html) — Montpellier, France
