@@ -114,6 +114,7 @@
 - [Sköll Studio](studios/sköll-studio.html) — Metz, France
 - [Skydance Interactive](studios/skydance-interactive.html) — Malibu, États-Unis
 - [Smart Tale Games](studios/smart-tale-games.html) — Montpellier, France
+- [Sony Interactive Entertainment](studios/sony-interactive-entertainment.html) — San Mateo, États-Unis
 - [Sorare](studios/sorare.html) — Paris, France
 - [Spiders](studios/spiders.html) — Paris, France
 - [Square Enix France](studios/square-enix-france.html) — Levallois-Perret, France
