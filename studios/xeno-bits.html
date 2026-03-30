@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xeno Bits - Studio de Jeux Vidéo Indépendant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+            padding: 40px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border-left: 5px solid #00d4ff;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #00d4ff;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            color: #a0a0a0;
+            margin-bottom: 20px;
+        }
+
+        .header-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .info-card {
+            background: rgba(0, 212, 255, 0.1);
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 3px solid #00d4ff;
+        }
+
+        .info-label {
+            color: #00d4ff;
+            font-weight: bold;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            color: #e0e0e0;
+            font-size: 1.1em;
+        }
+
+        section {
+            margin-bottom: 40px;
+            background: rgba(15, 52, 96, 0.5);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        h2 {
+            color: #00d4ff;
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #00d4ff;
+        }
+
+        h3 {
+            color: #00d4ff;
+            font-size: 1.4em;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        .jeux-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .jeu-card {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(15, 52, 96, 0.3) 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #00d4ff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .jeu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.2);
+        }
+
+        .jeu-titre {
+            color: #00d4ff;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .jeu-type {
+            color: #a0a0a0;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .jeu-description {
+            color: #d0d0d0;
+            font-size: 0.95em;
+        }
+
+        .recrutement-status {
+            background: linear-gradient(135deg, rgba(255, 100, 100, 0.1) 0%, rgba(139, 0, 0, 0.1) 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #ff6464;
+            margin-bottom: 20px;
+        }
+
+        .status-title {
+            color: #ff6464;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .status-message {
+            color: #d0d0d0;
+        }
+
+        .metier-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .metier-card {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(30, 30, 50, 0.3) 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .metier-titre {
+            color: #00d4ff;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .niveau-demande {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .niveau-label {
+            color: #a0a0a0;
+            font-weight: bold;
+            margin-right: 10px;
+            min-width: 120px;
+        }
+
+        .niveau-bar {
+            flex: 1;
+            height: 6px;
+            background: rgba(100, 100, 100, 0.3);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .niveau-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00d4ff 0%, #0099cc 100%);
+            border-radius: 3px;
+        }
+
+        .metier-description {
+            color: #d0d0d0;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .liens-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .lien-card {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(15, 52, 96, 0.3) 100%);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #00d4ff;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .lien-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .lien-type {
+            color: #a0a0a0;
+            font-size: 0.85em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .lien-card a {
+            color: #00d4ff;
+            text-decoration: none;
+            font-weight: bold;
+            word-break: break-all;
+        }
+
+        .lien-card a:hover {
+            color: #00ffff;
+            text-decoration: underline;
+        }
+
+        .verdict-section {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.15) 0%, rgba(15, 52, 96, 0.4) 100%);
+            border: 2px solid #00d4ff;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .difficulte-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .difficulte-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6464 0%, #ff9999 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 100, 100, 0.3);
+            flex-shrink: 0;
+        }
+
+        .difficulte-info h4 {
+            color: #ff6464;
+            margin-bottom: 5px;
+        }
+
+        .difficulte-info p {
+            color: #d0d0d0;
+        }
+
+        .conseil-box {
+            background: rgba(0, 212, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #00d4ff;
+            margin-top: 20px;
+        }
+
+        .conseil-titre {
+            color: #00d4ff;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .conseil-contenu {
+            color: #d0d0d0;
+            line-height: 1.8;
+        }
+
+        ul {
+            margin-left: 20px;
+            color: #d0d0d0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            color: #00ffff;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #a0a0a0;
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .header-info {
+                grid-template-columns: 1fr;
+            }
+
+            .metier-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .jeux-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 XENO BITS</h1>
+            <p class="tagline">Studio de Jeux Vidéo Indépendant - Créativité & Innovation</p>
+            
+            <div class="header-info">
+                <div class="info-card">
+                    <div class="info-label">📍 Localisation</div>
+                    <div class="info-value">Bordeaux, France</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">📅 Fondé en</div>
+                    <div class="info-value">2012</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">👥 Taille</div>
+                    <div class="info-value">4-5 personnes</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">🏢 Type</div>
+                    <div class="info-value">Indépendant (Indie)</div>
+                </div>
+            </div>
+        </header>
+
+        <section>
+            <h2>📱 Identité du Studio</h2>
+            <p style="margin-bottom: 15px;">
+                Xeno Bits est un studio indépendant basé à Bordeaux, fondé en 2012 par <span class="highlight">Maxime Millet</span>, 
+                Creative Director et Game Designer. Le studio est spécialisé dans le développement de <span class="highlight">projets originaux et ambitieux</span> 
+                mêlant technique avancée et créativité sans compromis.
+            </p>
+            <p style="margin-bottom: 15px;">
+                Avec une équipe restreinte mais hautement compétente, Xeno Bits adopte une <span class="highlight">stratégie progressive</span> 
+                commençant par des jeux mobile pour financer ses projets PC plus ambitieux. L'auto-édition permet une totale liberté créative 
+                et une vision unique de ses créations.
+            </p>
+            <p>
+                <strong>Culture:</strong> Environnement créatif où chaque membre apporte son expertise technique et artistique, 
+                favorisant la polyvalence et la passion pour des projets de qualité.
+            </p>
+        </section>
+
+        <section>
+            <h2>🎯 Jeux Notables</h2>
+            <div class="jeux-container">
+                <div class="jeu-card">
+                    <div class="jeu-titre">Exogate Initiative</div>
+                    <div class="jeu-type">Jeu PC</div>
+                    <div class="jeu-description">
+                        Projet ambitieux flagship du studio, représentant l'évolution vers le développement PC. 
+                        Démontre la capacité technique et créative de Xeno Bits à créer des expériences de qualité.
+                    </div>
+                </div>
+                <div class="jeu-card">
+                    <div class="jeu-titre">Portfolio Mobile</div>
+                    <div class="jeu-type">Jeux Mobile</div>
+                    <div class="jeu-description">
+                        Série de jeux mobiles qui ont permis au studio de générer les revenus nécessaires 
+                        pour financer des projets plus ambitieux sur PC.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>💼 Recrutement</h2>
+            <div class="recrutement-status">
+                <div class="status-title">🔴 Status: Aucune Offre Actuellement</div>
+                <div class="status-message">
+                    Le studio n'affiche pas d'offres d'emploi ouvertes actuellement. 
+                    Cependant, les candidatures spontanées peuvent être considérées pour les futurs projets.
+                </div>
+            </div>
+
+            <h3>📧 Moyens de Contact</h3>
+            <p style="margin-bottom: 20px;">
+                Aucun email de recrutement ou site carrières spécifiquement listé. La meilleure approche est de :
+            </p>
+            <ul>
+                <li>Consulter le <span class="highlight">site web officiel</span> pour des informations de contact</li>
+                <li>Envoyer une <span class="highlight">candidature spontanée</span> via le formulaire de contact du site</li>
+                <li>Mettre en avant un <span class="highlight">portfolio polyvalent</span> montrant vos compétences</li>
+                <li>Démontrer une <span class="highlight">passion pour les projets indie</span> ambitieux</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>🔗 Liens Utiles</h2>
+            <div class="liens-container">
+                <div class="lien-card">
+                    <div class="lien-type">Site Web Officiel</div>
+                    <a href="https://www.xeno-bits.com" target="_blank">https://www.xeno-bits.com</a>
+                </div>
+                <div class="lien-card">
+                    <div class="lien-type">Steam</div>
+                    <p style="color: #a0a0a0; padding-top: 10px;">Non disponible</p>
+                </div>
+                <div class="lien-card">
+                    <div class="lien-type">LinkedIn</div>
+                    <p style="color: #a0a0a0; padding-top: 10px;">Non disponible</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>👨‍💼 Opportunités par Métier</h2>
+
+            <div class="metier-grid">
+                <div class="metier-card">
+                    <div class="metier-titre">🎮 Game Designer</div>
+                    <div class="niveau-demande">
+                        <span class="niveau-label">Niveau Demandé</span>
+                        <div class="niveau-bar">
+                            <div class="niveau-fill" style="width: 95%;"></div>
+                        </div>
+                        <span style="color: #00d4ff; margin-left: 10px; font-weight: bold;">Élevé</span>
+                    </div>
+                    <div class="metier-description">
+                        <strong>Contexte:</strong> Maxime Millet, fondateur et Creative Director, est lui-même un Game Designer de haut niveau. 
+                        Le studio cherche des designers capables de contribuer à des concepts originaux et ambitieux.<br><br>
+                        <strong>Profil Recherché:</strong> Designer expérimenté avec porfolio solide, comprenant la mécanique et la narration, 
+                        idéalement avec expérience indie.
+                    </div>
+                </div>
+
+                <div class="metier-card">
+                    <div class="metier-titre">💻 Programmeur</div>
+                    <div class="niveau-demande">
+                        <span class="niveau-label">Niveau Demandé</span>
+                        <div class="niveau-bar">
+                            <div class="niveau-fill" style="width: 95%;"></div>
+                        </div>
+                        <span style="color: #00d4ff; margin-left: 10px; font-weight: bold;">Élevé</span>
+                    </div>
+                    <div class="metier-description">
+                        <strong>Contexte:</strong> L'équipe comprend des développeurs compétents. Le studio a besoin de programmeurs 
+                        pour gérer la complexité technique des jeux PC actuels.<br><br>
+                        <strong>Compétences Clés:</strong> C++/C#, moteurs (Unity/Unreal), architecture logicielle, 
+                        optimisation performance, expérience mobile/PC.
+                    </div>
+                </div>
+
+                <div class="metier-card">
+                    <div class="metier-titre">🎨 Artiste 3D</div>
+                    <div class="niveau-demande">
+                        <span class="niveau-label">Niveau Demandé</span>
+                        <div class="niveau-bar">
+                            <div class="niveau-fill" style="width: 80%;"></div>
+                        </div>
+                        <span style="color: #00d4ff; margin-left: 10px; font-weight: bold;">Moyen-Élevé</span>
+                    </div>
+                    <div class="metier-description">
+                        <strong>Contexte:</strong> L'équipe compte un 3D Character Artist et Animator. Les jeux PC demandent 
+                        une qualité artistique élevée.<br><br>
+                        <strong>Compétences Clés:</strong> Modélisation 3D, animation character, skinning, optimisation 
+                        pour moteur de jeu, connaissance des pipelines production.
+                    </div>
+                </div>
+
+                <div class="metier-card">
+                    <div class="metier-titre">🖼️ UI/UX Artist</div>
+                    <div class="niveau-demande">
+                        <span class="niveau-label">Niveau Demandé</span>
+                        <div class="niveau-bar">
+                            <div class="niveau-fill" style="width: 65%;"></div>
+                        </div>
+                        <span style="color: #00d4ff; margin-left: 10px; font-weight: bold;">Moyen</span>
+                    </div>
+                    <div class="metier-description">
+                        <strong>Contexte:</strong> Bien que non spécifiquement mentionné, la transition vers des jeux PC 
+                        requiert une expertise UI/UX solide.<br><br>
+                        <strong>Compétences Clés:</strong> Design interface utilisateur, prototypage, connaissances UX/ergonomie, 
+                        outils (Figma, Adobe), compréhension game design.
+                    </div>
+                </div>
+
+                <div class="metier-card">
+                    <div class="metier-titre">✏️ Concept Artist</div>
+                    <div class="niveau-demande">
+                        <span class="niveau-label">Niveau Demandé</span>
+                        <div class="niveau-bar">
+                            <div class="niveau-fill" style="width: 70%;"></div>
+                        </div>
+                        <span style="color: #00d4ff; margin-left: 10px; font-weight: bold;">Moyen</span>
+                    </div>
+                    <div class="metier-description">
+                        <strong>Contexte:</strong> Le studio valorise la créativité et les concepts originaux. 
+                        Les concept artists aident à définir la vision artistique.<br><br>
+                        <strong>Compétences Clés:</strong> Illustration numérique, design environnemental et character, 
+                        narration visuelle, portfolio montrant diversité créative.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="verdict-section">
+            <h2>⚖️ Verdict & Difficultés</h2>
+
+            <div class="difficulte-container">
+                <div class="difficulte-circle">4/5</div>
+                <div class="difficulte-info">
+                    <h4>Difficulté d'Accès: ÉLEVÉE</h4>
+                    <p>
+                        Xeno Bits est un petit studio indie avec très peu d'offres d'emploi. 
+                        Les postes sont rares et hautement con
