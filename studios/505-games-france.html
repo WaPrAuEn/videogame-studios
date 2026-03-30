@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>505 Games France - Fiche Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            border-bottom: 5px solid #667eea;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section h2 {
+            font-size: 1.8em;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .section h3 {
+            font-size: 1.3em;
+            color: #764ba2;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .info-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .info-card label {
+            font-weight: bold;
+            color: #667eea;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .info-card span {
+            color: #555;
+            font-size: 1em;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .link-button {
+            display: inline-block;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .link-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+        
+        .job-positions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .job-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid #667eea;
+        }
+        
+        .job-card h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .job-card p {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+        
+        .status-open {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status-closed {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .status-unknown {
+            background: #e7d4f5;
+            color: #543c6b;
+        }
+        
+        .verdict {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        .verdict h2 {
+            color: white;
+            border-bottom-color: white;
+        }
+        
+        .verdict-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+        
+        .not-specified {
+            color: #999;
+            font-style: italic;
+        }
+        
+        .recruiter-info {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #2196F3;
+        }
+        
+        .recruiter-info strong {
+            color: #1565c0;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .info-grid, .links-grid, .job-positions {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎮 505 Games France</h1>
+            <p>Studio d'édition de jeux vidéo</p>
+        </div>
+        
+        <div class="content">
+            <!-- Section Identité -->
+            <div class="section">
+                <h2>📋 Identité du Studio</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <label>Nom du Studio</label>
+                        <span>505 Games France</span>
+                    </div>
+                    <div class="info-card">
+                        <label>Type</label>
+                        <span>Éditeur</span>
+                    </div>
+                    <div class="info-card">
+                        <label>Localisation</label>
+                        <span>Francheville, France</span>
+                    </div>
+                    <div class="info-card">
+                        <label>Année de Fondation</label>
+                        <span>2005</span>
+                    </div>
+                    <div class="info-card">
+                        <label>Taille de l'Équipe</label>
+                        <span>168 personnes</span>
+                    </div>
+                    <div class="info-card">
+                        <label>Maison Mère</label>
+                        <span>Digital Bros</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Section Jeux Notables -->
+            <div class="section">
+                <h2>🎯 Jeux Notables</h2>
+                <p class="not-specified">Aucune donnée spécifiée sur les titres publiés</p>
+                <p style="margin-top: 10px; color: #666;">505 Games est un éditeur majeur publiant de nombreux jeux sur diverses plateformes. Consultez leur catalogue sur Steam ou leur site officiel pour découvrir leurs publications.</p>
+            </div>
+            
+            <!-- Section Liens Utiles -->
+            <div class="section">
+                <h2>🔗 Liens Utiles</h2>
+                <div class="links-grid">
+                    <a href="https://505games.com/" class="link-button" target="_blank">🌐 Site Web</a>
+                    <a href="https://505games.com/sign-up/" class="link-button" target="_blank">👔 Carrières</a>
+                    <a href="https://www.linkedin.com/company/505-games/people/" class="link-button" target="_blank">💼 LinkedIn</a>
+                    <a href="https://store.steampowered.com/search/?publisher=%20505%20Games" class="link-button" target="_blank">🎮 Steam</a>
+                </div>
+            </div>
+            
+            <!-- Section Recrutement -->
+            <div class="section">
+                <h2>💼 Recrutement</h2>
+                <div class="recruiter-info">
+                    <strong>Email de Recrutement:</strong>
+                    <span class="not-specified">Non spécifié dans les données disponibles</span>
+                </div>
+                <p><strong>Site de Carrières:</strong> <a href="https://505games.com/sign-up/" style="color: #667eea;">https://505games.com/sign-up/</a></p>
+                <p style="margin-top: 15px; color: #666;">Pour les opportunités d'emploi, veuillez consulter directement le site de carrières de 505 Games ou leur page LinkedIn pour les postes actuellement disponibles.</p>
+            </div>
+            
+            <!-- Section Par Métier -->
+            <div class="section">
+                <h2>👨‍💼 Opportunités par Métier</h2>
+                <div class="job-positions">
+                    <div class="job-card">
+                        <h4>🎨 Game Designer</h4>
+                        <p>Conception et design de jeux</p>
+                        <span class="status-badge status-unknown">Non spécifié</span>
+                    </div>
+                    <div class="job-card">
+                        <h4>💻 Programmeur</h4>
+                        <p>Développement et programmation</p>
+                        <span class="status-badge status-unknown">Non spécifié</span>
+                    </div>
+                    <div class="job-card">
+                        <h4>🎭 Artiste 3D</h4>
+                        <p>Création d'assets 3D</p>
+                        <span class="status-badge status-unknown">Non spécifié</span>
+                    </div>
+                    <div class="job-card">
+                        <h4>🖼️ UI Artist</h4>
+                        <p>Design d'interfaces utilisateur</p>
+                        <span class="status-badge status-unknown">Non spécifié</span>
+                    </div>
+                    <div class="job-card">
+                        <h4>🎨 Concept Artist</h4>
+                        <p>Art conceptuel et direction artistique</p>
+                        <span class="status-badge status-unknown">Non spécifié</span>
+                    </div>
+                </div>
+                <p style="margin-top: 20px; color: #666; font-style: italic;">Consultez le site des carrières pour connaître les postes actuellement ouverts dans chaque domaine.</p>
+            </div>
+            
+            <!-- Section Verdict -->
+            <div class="verdict">
+                <h2>⭐ Verdict & Recommandations</h2>
+                <div class="verdict-content">
+                    <p><strong>505 Games France</strong> est un studio d'édition établi depuis 2005, faisant partie du groupe Digital Bros. Avec une équipe de 168 personnes basée à Francheville, il s'agit d'un acteur significatif dans l'industrie du jeu vidéo.</p>
+                    
+                    <h3 style="color: white; margin-top: 20px;">Points Forts :</h3>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>✓ Studio établi avec 18+ ans d'expérience</li>
+                        <li>✓ Équipe solide de 168 personnes</li>
+                        <li>✓ Portefeuille diversifié de jeux publiés</li>
+                        <li>✓ Implantation en France avec portée internationale</li>
+                        <li>✓ Présence active sur les principales plateformes (Steam, etc.)</li>
+                    </ul>
+                    
+                    <h3 style="color: white; margin-top: 20px;">Conseil :</h3>
+                    <p style="margin-top: 10px;">Pour postuler chez 505 Games France, consultez leur site de carrières officielles (https://505games.com/sign-up/) ou explorez leur page LinkedIn pour identifier les postes ouverts correspondant à votre profil. N'hésitez pas à contacter directement le studio pour des informations sur les opportunités d'emploi.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
