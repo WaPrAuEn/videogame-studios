@@ -44,6 +44,7 @@
 - [Magic Design Studios](studios/magic-design-studios.html) — Montpellier, France
 - [Manufacture 43](studios/manufacture-43.html) — Bordeaux, France
 - [Mikros Animation](studios/mikros-animation.html) — Paris, France
+- [Misty Whale](studios/misty-whale.html) — Non spécifiée, Non spécifié
 - [Motion Twin](studios/motion-twin.html) — Bordeaux, France — Studio de développement indépendant
 - [Nintendo Co., Ltd.](studios/nintendo-co.,-ltd..html) — Kyoto, Japon
 - [Nintendo France](studios/nintendo-france.html) — Courbevoie, France
