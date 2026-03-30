@@ -41,6 +41,7 @@
 - [GFactory](studios/gfactory.html) — Lyon, France
 - [Glitchr Studio](studios/glitchr-studio.html) — Bordeaux, France
 - [Guerrilla Games](studios/guerrilla-games.html) — Amsterdam, Pays-Bas
+- [Iconik](studios/iconik.html) — La Ciotat, France
 - [Idea Factory](studios/idea-factory.html) — Tokyo, Japon
 - [Illogic Studios](studios/illogic-studios.html) — Montpellier, France
 - [Illumination Studios Paris (anciennement Illumination Mac Guff)](studios/illumination-studios-paris-(anciennement-illumination-mac-guff).html) — Paris, France
