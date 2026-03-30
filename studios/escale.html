@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escale - Studio de Jeux Vidéo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+            margin-bottom: 15px;
+        }
+        
+        header .tagline {
+            font-size: 1.1em;
+            font-style: italic;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        section {
+            margin-bottom: 50px;
+        }
+        
+        section h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        section h3 {
+            color: #764ba2;
+            font-size: 1.4em;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .identity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .identity-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .identity-card strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .identity-card p {
+            color: #555;
+        }
+        
+        .recruitment-section {
+            background: #f0f4ff;
+            padding: 30px;
+            border-radius: 10px;
+            border: 2px solid #667eea;
+            margin-bottom: 30px;
+        }
+        
+        .job-offer {
+            background: white;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 5px solid #764ba2;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .job-offer h4 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+        
+        .job-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .job-detail {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 8px;
+        }
+        
+        .job-detail strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+        }
+        
+        .metiers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .metier-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-top: 4px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .metier-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+        }
+        
+        .metier-card h4 {
+            color: #764ba2;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+        }
+        
+        .metier-card .status {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .status.open {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status.closed {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .link-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+        
+        .link-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .link-box strong {
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .verdict {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+        
+        .verdict h2 {
+            color: white;
+            border-bottom-color: white;
+            margin-bottom: 20px;
+        }
+        
+        .verdict-content {
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+        
+        .verdict-content strong {
+            font-size: 1.2em;
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .recommendation {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid white;
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+        
+        .highlight {
+            color: #764ba2;
+            font-weight: bold;
+        }
+        
+        ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 ESCALE</h1>
+            <p>Studio de Jeux Vidéo Indépendant</p>
+            <p class="tagline">Créateurs d'expériences immersives contemplatives</p>
+        </header>
+        
+        <div class="content">
+            <!-- SECTION IDENTITÉ -->
+            <section id="identite">
+                <h2>📍 Identité du Studio</h2>
+                
+                <div class="identity-grid">
+                    <div class="identity-card">
+                        <strong>🏙️ Localisation</strong>
+                        <p>Paris, France</p>
+                    </div>
+                    
+                    <div class="identity-card">
+                        <strong>🎯 Type</strong>
+                        <p>Studio Indépendant</p>
+                    </div>
+                    
+                    <div class="identity-card">
+                        <strong>🌟 Spécialité</strong>
+                        <p>Expériences immersives contemplatives</p>
+                    </div>
+                </div>
+                
+                <h3>À Propos</h3>
+                <p>Escale est une jeune entreprise innovante dédiée à la création d'expériences immersives contemplatives pour le grand public. Le studio se concentre sur le développement de voyages culturels, historiques, musicaux et filmographiques qui offrent aux joueurs des moments de détente et de découverte.</p>
+                
+                <p style="margin-top: 15px;">La philosophie d'Escale repose sur l'idée que les jeux vidéo peuvent être bien plus que du divertissement compétitif : ils peuvent être des portes vers des mondes de beauté, de culture et de réflexion.</p>
+            </section>
+            
+            <!-- SECTION JEUX NOTABLES -->
+            <section id="jeux">
+                <h2>🎮 Jeux Notables</h2>
+                <p>Actuellement en développement</p>
+            </section>
+            
+            <!-- SECTION RECRUTEMENT -->
+            <section id="recrutement">
+                <h2>👥 Recrutement</h2>
+                
+                <div class="recruitment-section">
+                    <h3>Postes Ouverts</h3>
+                    
+                    <div class="job-offer">
+                        <h4>💻 Développeur UE5 - C++ (Confirmé / Senior)</h4>
+                        <span class="badge">CDI</span>
+                        <span class="badge">Paris 75014</span>
+                        
+                        <div class="job-details">
+                            <div class="job-detail">
+                                <strong>Type de Contrat</strong>
+                                Contrat Indéterminé (CDI)
+                            </div>
+                            <div class="job-detail">
+                                <strong>Niveau Requis</strong>
+                                Confirmé / Senior
+                            </div>
+                            <div class="job-detail">
+                                <strong>Localisation</strong>
+                                Paris, France (75014)
+                            </div>
+                            <div class="job-detail">
+                                <strong>Technologie</strong>
+                                Unreal Engine 5 & C++
+                            </div>
+                        </div>
+                        
+                        <h4 style="font-size: 1.1em; color: #667eea; margin-top: 20px;">Description du Poste</h4>
+                        <p>Rejoignez Escale en tant que développeur confirmé ou senior pour contribuer au développement de nos expériences immersives contemplatives. Vous travaillerez avec Unreal Engine 5 et C++ pour créer des mondes captivants et des mécaniques innovantes.</p>
+                        
+                        <h4 style="font-size: 1.1em; color: #667eea; margin-top: 20px;">Candidaturer</h4>
+                        <p style="margin-bottom: 10px;"><strong>Via AFJV :</strong> Nous recommandons fortement de postuler directement via l'offre AFJV pour cette position. C'est le meilleur moyen d'assurer que votre candidature soit bien reçue par l'équipe Escale.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SECTION PAR MÉTIER -->
+            <section id="metiers">
+                <h2>👨‍💼 Opportunités par Métier</h2>
+                
+                <div class="metiers-grid">
+                    <div class="metier-card">
+                        <h4>🎮 Game Designer</h4>
+                        <span class="status closed">Pas d'offre actuellement</span>
+                        <p>Les postes de game designer ne sont pas ouverts pour le moment. Consultez régulièrement les offres d'emploi du studio.</p>
+                    </div>
+                    
+                    <div class="metier-card">
+                        <h4>💻 Programmeur</h4>
+                        <span class="status open">Offre disponible</span>
+                        <p>Position de Développeur UE5 - C++ confirmé/senior en CDI à Paris. Une excellente opportunité pour rejoindre une équipe innovante.</p>
+                    </div>
+                    
+                    <div class="metier-card">
+                        <h4>🎨 Artiste 3D</h4>
+                        <span class="status closed">Pas d'offre actuellement</span>
+                        <p>Aucune position d'artiste 3D n'est actuellement ouverte. Restez attentif aux futures annonces.</p>
+                    </div>
+                    
+                    <div class="metier-card">
+                        <h4>🖌️ UI Artist</h4>
+                        <span class="status closed">Pas d'offre actuellement</span>
+                        <p>Les postes en design d'interface utilisateur ne sont pas disponibles. Suivez les mises à jour du studio.</p>
+                    </div>
+                    
+                    <div class="metier-card">
+                        <h4>🎭 Concept Artist</h4>
+                        <span class="status closed">Pas d'offre actuellement</span>
+                        <p>Les positions de concept artist ne sont pas ouvertes. Revenez consulter les offres ultérieurement.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SECTION LIENS UTILES -->
+            <section id="liens">
+                <h2>🔗 Liens Utiles</h2>
+                
+                <div class="links-grid">
+                    <a href="#" class="link-box">
+                        <strong>🌐 Site Web</strong>
+                        <span>Découvrir le studio</span>
+                    </a>
+                    
+                    <a href="#" class="link-box">
+                        <strong>💼 Carrières</strong>
+                        <span>Voir toutes les offres</span>
+                    </a>
+                    
+                    <a href="#" class="link-box">
+                        <strong>🎮 Steam</strong>
+                        <span>Jeux du studio</span>
+                    </a>
+                    
+                    <a href="#" class="link-box">
+                        <strong>💼 LinkedIn</strong>
+                        <span>Suivre le studio</span>
+                    </a>
+                    
+                    <a href="#" class="link-box">
+                        <strong>📧 Recrutement</strong>
+                        <span>Contacter l'équipe</span>
+                    </a>
+                    
+                    <a href="#" class="link-box">
+                        <strong>🚀 AFJV</strong>
+                        <span>Offre en ligne</span>
+                    </a>
+                </div>
+            </section>
+            
+            <!-- SECTION VERDICT -->
+            <section id="verdict" class="verdict">
+                <h2>🎯 Verdict</h2>
+                
+                <div class="verdict-content">
+                    <p><strong>Escale</strong> est un studio parisien prometteur qui se démarque par sa vision innovante des expériences immersives contemplatives. Jeune et dynamique, le studio cherche à redéfinir ce que les jeux vidéo peuvent offrir en matière d'enrichissement culturel.</p>
+                    
+                    <strong>Pour les Développeurs C++ / UE5 :</strong>
+                    <p>C'est une excellente opportunité pour rejoindre une équipe créative dans le secteur du jeu vidéo indépendant. La position en CDI offre une certaine stabilité, et Paris est un excellent hub pour l'industrie du jeu vidéo français.</p>
+                    
+                    <strong>Niveau de Difficulté : 🌟🌟🌟 (3/5)</strong>
+                    <p>Le poste demande une certaine expérience en C++ et UE5, mais ne demande pas d'expertise rare. Les profils confirmés et seniors ont de bonnes chances.</p>
+                    
+                    <div class="recommendation">
+                        <strong>💡 Conseil de Candidature :</strong>
+                        <p>Postulez via l'offre AFJV pour le poste de Développeur UE5 - C++ Confirmé/Senior à Paris (75014). C'est le canal privilégié recommandé par le studio et cela garantit que votre candidature sera directement examinée par l'équipe Escale.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <footer>
+            <p>&copy; 2024 Escale - Studio de Jeux Vidéo Indépendant | Paris, France</p>
+            <p>Fiche complète - Toutes les informations peuvent être sujettes à modification</p>
+        </footer>
+    </div>
+</body>
+</html>
