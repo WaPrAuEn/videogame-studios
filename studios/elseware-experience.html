@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elseware Experience - Fiche Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: rgba(233, 69, 96, 0.1);
+            border-radius: 50%;
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            background: rgba(233, 69, 96, 0.8);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .badge.secondary {
+            background: rgba(100, 200, 255, 0.8);
+        }
+
+        section {
+            background: white;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            color: white;
+            padding: 20px 30px;
+            margin: 0;
+            font-size: 1.8em;
+            border-left: 5px solid #e94560;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .info-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #e94560;
+        }
+
+        .info-card h3 {
+            color: #0f3460;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .info-card p {
+            color: #555;
+            margin: 5px 0;
+        }
+
+        .job-position {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #0f3460;
+            border-top: 1px solid #eee;
+        }
+
+        .job-position h3 {
+            color: #0f3460;
+            margin-bottom: 12px;
+            font-size: 1.3em;
+        }
+
+        .job-position .demand {
+            display: inline-block;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .demand.high {
+            background: #fee;
+            color: #c33;
+        }
+
+        .demand.moderate {
+            background: #fef3cd;
+            color: #856404;
+        }
+
+        .demand.low {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .job-position ul {
+            margin: 15px 0 0 20px;
+            color: #666;
+        }
+
+        .job-position li {
+            margin: 8px 0;
+        }
+
+        .link-list {
+            list-style: none;
+            margin: 0;
+        }
+
+        .link-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .link-list li:last-child {
+            border-bottom: none;
+        }
+
+        .link-list a {
+            color: #0f3460;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        .link-list a:hover {
+            color: #e94560;
+        }
+
+        .unavailable {
+            color: #999;
+            font-style: italic;
+        }
+
+        .verdict-box {
+            background: linear-gradient(135deg, #fef3cd 0%, #fff3cd 100%);
+            border-left: 5px solid #ff9800;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 0;
+        }
+
+        .verdict-box h3 {
+            color: #ff6f00;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .difficulty-meter {
+            margin: 20px 0;
+        }
+
+        .difficulty-bar {
+            height: 25px;
+            background: #eee;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+
+        .difficulty-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6f00 0%, #ff9800 100%);
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        .game-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid #0f3460;
+        }
+
+        .game-item h3 {
+            color: #0f3460;
+            margin-bottom: 8px;
+        }
+
+        .game-item p {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .contacts {
+            background: #f0f7ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .contacts h3 {
+            color: #0f3460;
+            margin-bottom: 15px;
+        }
+
+        .contact-person {
+            margin-bottom: 12px;
+            color: #333;
+        }
+
+        .contact-person strong {
+            color: #0f3460;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            section h2 {
+                font-size: 1.4em;
+            }
+
+            .badge-group {
+                flex-direction: column;
+            }
+
+            .badge {
+                display: inline-block;
+                align-self: flex-start;
+            }
+        }
+
+        .highlight {
+            color: #e94560;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Elseware Experience</h1>
+            <p>Studio de jeux vidéo et expériences immersives</p>
+            <div class="badge-group">
+                <span class="badge">Dinard, France</span>
+                <span class="badge secondary">Depuis 2020</span>
+                <span class="badge">1-2 salariés</span>
+                <span class="badge secondary">Indépendant</span>
+            </div>
+        </header>
+
+        <section>
+            <h2>📋 Identité du Studio</h2>
+            <div class="content">
+                <div class="grid-2">
+                    <div class="info-card">
+                        <h3>Localisation</h3>
+                        <p><strong>Dinard</strong>, Bretagne, France</p>
+                        <p style="margin-top: 10px; color: #999; font-size: 0.9em;">Région attractive pour les créatifs et les talents du jeu vidéo</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Fondation</h3>
+                        <p><strong>2020</strong></p>
+                        <p style="margin-top: 10px; color: #999; font-size: 0.9em;">Studio jeune et dynamique avec une vision novatrice</p>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="info-card">
+                        <h3>Taille de l'équipe</h3>
+                        <p><strong>1 à 2 salariés</strong></p>
+                        <p style="margin-top: 10px; color: #999; font-size: 0.9em;">Petite équipe hautement spécialisée et passionnée</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Type de Studio</h3>
+                        <p><strong>Studio Indépendant</strong></p>
+                        <p style="margin-top: 10px; color: #999; font-size: 0.9em;">Spécialisation : jeux vidéo et expériences immersives</p>
+                    </div>
+                </div>
+
+                <div class="info-card" style="margin-top: 0;">
+                    <h3>🎯 Spécialités</h3>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>Développement de jeux vidéo innovants</li>
+                        <li>Expériences immersives (VR/AR)</li>
+                        <li>Visualisation architecturale en temps réel</li>
+                        <li>Expositions virtuelles et interactives</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>🎮 Jeux Notables</h2>
+            <div class="content">
+                <div class="game-item">
+                    <h3>Broken Pieces</h3>
+                    <p><strong>Genre :</strong> Thriller Psychologique / Puzzle</p>
+                    <p style="margin-top: 10px;">Jeu principal du studio combinant narration immersive, puzzles atmosphériques et une expérience émotionnelle intense. Reflète l'expertise du studio dans la création d'expériences immersives et narrative-driven.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>💼 Opportunités de Recrutement</h2>
+            <div class="content">
+                <div class="info-card" style="background: #ffe8e8; border-left-color: #e94560;">
+                    <h3 style="color: #c33;">Offres d'emploi actuelles</h3>
+                    <p><span class="highlight">Aucune offre d'emploi ou de stage</span> n'est actuellement disponible.</p>
+                    <p style="margin-top: 10px; color: #666;">Cependant, un contact direct via le site web ou les dirigeants reste fortement recommandé pour les candidatures spontanées.</p>
+                </div>
+
+                <div style="margin-top: 20px;">
+                    <h3 style="color: #0f3460; margin-bottom: 15px;">📧 Informations de Contact</h3>
+                    <div class="info-card" style="background: white; border: 1px solid #ddd;">
+                        <p><strong>Email Recrutement :</strong> <span class="unavailable">Non disponible</span></p>
+                        <p style="margin-top: 10px;"><strong>Site Carrières :</strong> <span class="unavailable">Non disponible</span></p>
+                        <p style="margin-top: 10px; color: #999; font-size: 0.9em;">👉 <strong>Recommandation :</strong> Contacter via le site web officiel ou les dirigeants Benoit DEREAU et Mael VIGNAUX</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>💼 Demande par Métier</h2>
+            <div class="content">
+                <div class="job-position">
+                    <h3>🎮 Game Designer</h3>
+                    <span class="demand moderate">Demande Modérée</span>
+                    <p>Pour un studio de 1-2 personnes spécialisé dans des jeux comme <strong>Broken Pieces</strong>.</p>
+                    <ul>
+                        <li>Expérience en game design narrative et puzzle design</li>
+                        <li>Portfolio de projets indépendants ou mod communities</li>
+                        <li>Capacité à travailler en très petit collectif</li>
+                        <li>Vision créative en thrillers psychologiques</li>
+                        <li>Flexibilité et polyvalence appréciées</li>
+                    </ul>
+                </div>
+
+                <div class="job-position">
+                    <h3>👨‍💻 Programmeur</h3>
+                    <span class="demand moderate">Demande Modérée</span>
+                    <p>Besoin potentiel pour le développement PC/Consoles et technologies immersives.</p>
+                    <ul>
+                        <li>Expérience C# et/ou C++ (Unreal/Unity)</li>
+                        <li>Connaissance des pipelines PC et consoles</li>
+                        <li>Expérience VR/AR serait un plus</li>
+                        <li>Capacité à optimiser et déboguer efficacement</li>
+                        <li>Esprit d'initiative et autonomie</li>
+                    </ul>
+                </div>
+
+                <div class="job-position">
+                    <h3>🎨 Artiste 3D</h3>
+                    <span class="demand high">Demande Élevée ⭐</span>
+                    <p><strong>Profil très recherché !</strong> Expertise nécessaire pour les expériences immersives et visualisation architecturale.</p>
+                    <ul>
+                        <li>Modélisation 3D haute et basse poly (Blender, Maya, 3DS Max)</li>
+                        <li>Texturing et shading avancé</li>
+                        <li>Expérience en VR et expériences immersives</li>
+                        <li>Visualisation architecturale en temps réel</li>
+                        <li>Portfolio montrant des projets immersifs</li>
+                        <li>Optimisation pour performance temps réel</li>
+                    </ul>
+                </div>
+
+                <div class="job-position">
+                    <h3>🎨 UI Artist</h3>
+                    <span class="demand moderate">Demande Modérée</span>
+                    <p>Pour des jeux narratifs comme Broken Pieces avec interfaces intuitives et immersives.</p>
+                    <ul>
+                        <li>Design d'interface utilisateur pour jeux</li>
+                        <li>Expérience UX/UI appliquée au gaming</li>
+                        <li>Maîtrise des outils : Figma, Adobe Suite, Unreal Slate</li>
+                        <li>Sens du storytelling visuel</li>
+                        <li>Portfolio de projets indépendants</li>
+                    </ul>
+                </div>
+
+                <div class="job-position">
+                    <h3>🖌️ Concept Artist</h3>
+                    <span class="demand moderate">Demande Modérée</span>
+                    <p>Pour les projets artistiques et créations off the beaten track.</p>
+                    <ul>
+                        <li>Concept art 2D de haute qualité</li>
+                        <li>Direction artistique claire et personnelle</li>
+                        <li>Maîtrise de Photoshop, Procreate ou équivalent</li>
+                        <li>Créativité et vision artistique développée</li>
+                        <li>Portfolio montrant un style unique</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>🔗 Liens Utiles</h2>
+            <div class="content">
+                <ul class="link-list">
+                    <li>
+                        <a href="https://www.elseware-experience.com/enterprise/" target="_blank">
+                            <span>🌐 Site Web Officiel</span>
+                            <span>→</span>
+                        </a>
+                    </li>
+                    <li>
+                        <p style="color: #999; margin: 0;"><strong>Steam :</strong> <span class="unavailable">Non disponible</span></p>
+                    </li>
+                    <li>
+                        <p style="color: #999; margin: 0;"><strong>LinkedIn :</strong> <span class="unavailable">Non disponible</span></p>
+                    </li>
+                    <li style="border-bottom: none; margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee;">
+                        <div class="contacts">
+                            <h3>📮 Contacts Directs</h3>
+                            <div class="contact-person">
+                                <strong>Benoit DEREAU</strong> - Directeur/Fondateur
+                            </div>
+                            <div class="contact-person">
+                                <strong>Mael VIGNAUX</strong> - Directeur/Fondateur
+                            </div>
+                            <p style="margin-top: 15px; color: #666; font-size: 0.9em;">💡 <strong>Conseil :</strong> Consultez le site web pour obtenir les coordonnées exactes ou envoyez une candidature spontanée par formulaire.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>📊 Verdict & Analyse</h2>
+            <div class="content">
+                <div class="verdict-box">
+                    <h3>Verdict Global</h3>
+                    <p><strong>Difficulté d'accès : 🔴 ÉLEVÉE (4/5)</strong></p>
+                    
+                    <div class="difficulty-meter">
+                        <p style="margin: 0 0 8px 0; font-weight: 600; color: #ff6f00;">Niveau de difficulté</p>
+                        <div class="difficulty-bar">
+                            <div class="difficulty-fill">80% - Très difficile</div>
+                        </div>
+                    </div>
+
+                    <p style="margin-top: 20px;"><strong>Pourquoi c'est difficile :</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li><span class="highlight">Très petite équipe</span> (1-2 personnes) = peu de postes</li>
+                        <li><span class="highlight">Aucune offre actuellement</span> affichée publiquement</li>
+                        <li>Studio jeune (2020) avec croissance progressive</li>
+                        <li>Pas de site carrières dédié</li>
+                        <li>Contacts limités disponibles publiquement</li>
+                    </ul>
+
+                    <p style="margin-top: 20px;"><strong>Opportunités :</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li><span class="highlight">Artiste 3D</span> : Meilleure opportunité (demande élevée pour VR/architecture)</li>
+                        <li>Spécialisation immersive = marché en croissance</li>
+                        <li>Candidature spontanée possible auprès des fondateurs</li>
+                        <li>Possible collaboration en freelance/projet</li>
+                    </ul>
+
+                    <p style="margin-top: 20px;"><strong>🎯 Recommandations pour Candidater :</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>✅ Portfolio <span class="highlight">fortement spécialisé</span> en VR/expériences immersives</li>
+                        <li>✅ Montrez des projets <span class="highlight">jeux indépendants</span> ou expériences immersives</li>
+                        <li>✅ Contactez <span class="highlight">directement</span> par le site web ou réseaux des fondateurs</li>
+                        <li>✅ Mettez en avant votre <span class="highlight">passion</span> pour le storytelling narratif</li>
+                        <li>✅ Soyez prêt à <span class="highlight">collaborer étroitement</span> en petit groupe</li>
+                        <li>✅ Valorisez votre <span class="highlight">polyvalence</span> et adaptabilité</li>
+                    </ul>
+
+                    <p style="margin-top:
