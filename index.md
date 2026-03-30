@@ -11,6 +11,7 @@
 - [Dear Villagers](studios/dear-villagers.html) — Montpellier, France
 - [Duper Games](studios/duper-games.html) — Montpellier, France
 - [Illogic Studios](studios/illogic-studios.html) — Montpellier, France
+- [Illumination Studios Paris (anciennement Illumination Mac Guff)](studios/illumination-studios-paris-(anciennement-illumination-mac-guff).html) — Paris, France
 - [Inti Creates](studios/inti-creates.html) — Ichikawa (Chiba) et Nagoya, Japon
 - [Magic Design Studios](studios/magic-design-studios.html) — Montpellier, France
 - [Manufacture 43](studios/manufacture-43.html) — Bordeaux, France
