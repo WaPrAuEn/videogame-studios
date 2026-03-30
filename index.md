@@ -29,6 +29,7 @@
 - [DIGIC Pictures](studios/digic-pictures.html) — Budapest, Hongrie
 - [Douze Dixièmes](studios/douze-dixiemes.html) — Saint Ouen, France
 - [Duper Games](studios/duper-games.html) — Montpellier, France
+- [Eden Games](studios/eden-games.html) — Lyon, France
 - [Fortiche Production](studios/fortiche-production.html) — Paris, France
 - [Game Freak, Inc.](studios/game-freak,-inc..html) — Tokyo, Japon
 - [GFactory](studios/gfactory.html) — Lyon, France
