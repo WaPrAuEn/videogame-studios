@@ -8,6 +8,7 @@
 - [Abrakam](studios/abrakam.html) — Liège, Belgique
 - [Alt Shift](studios/alt-shift.html) — Montpellier, France
 - [Ankama](studios/ankama.html) — Roubaix, France
+- [Artefacts Studio](studios/artefacts-studio.html) — Villeurbanne, France
 - [Blue Twelve Studio](studios/blue-twelve-studio.html) — Montpellier, France
 - [BlueTwelve Studio](studios/bluetwelve-studio.html) — Montpellier, France
 - [Build The Light](studios/build-the-light.html) — Montpellier, France
