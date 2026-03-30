@@ -4,6 +4,7 @@
 ## Studios analysés
 *(Les fiches apparaîtront ici automatiquement)*
 
+- [3DDDGames](studios/3dddgames.html) — Inconnu, Inconnu
 - [505 Games France](studios/505-games-france.html) — Francheville, France
 - [Abrakam](studios/abrakam.html) — Liège, Belgique
 - [Alt Shift](studios/alt-shift.html) — Montpellier, France
