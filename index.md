@@ -10,6 +10,7 @@
 - [Duper Games](studios/duper-games.html) — Montpellier, France
 - [Illogic Studios](studios/illogic-studios.html) — Montpellier, France
 - [Inti Creates](studios/inti-creates.html) — Ichikawa (Chiba) et Nagoya, Japon
+- [Mikros Animation](studios/mikros-animation.html) — Paris, France
 - [Motion Twin](studios/motion-twin.html) — Bordeaux, France — Studio de développement indépendant
 - [Playtouch](studios/playtouch.html) — Port Louis, Île Maurice
 - [Sandfall Interactive](studios/sandfall-interactive.html) — Montpellier, France
