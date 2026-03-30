@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Square Enix France - Fiche Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section h2 {
+            font-size: 1.8em;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+        
+        .identite {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .info-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .info-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+        
+        .info-card p {
+            color: #555;
+            font-size: 1.05em;
+        }
+        
+        .jeux-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .jeu-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .jeu-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .culture-valeurs {
+            background: #f0f4ff;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .culture-valeurs h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .valeurs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .valeur-tag {
+            background: white;
+            padding: 12px;
+            border-radius: 6px;
+            border: 2px solid #667eea;
+            color: #667eea;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .recrutement-info {
+            background: #fff3cd;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+            margin-bottom: 20px;
+        }
+        
+        .recrutement-info h3 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        .difficulte-bar {
+            margin-top: 15px;
+        }
+        
+        .difficulte-bar p {
+            margin-bottom: 8px;
+            color: #333;
+        }
+        
+        .bar {
+            width: 100%;
+            height: 25px;
+            background: #e9ecef;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b6b 0%, #ee5a6f 100%);
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        
+        .metiers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .metier-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .metier-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
+        }
+        
+        .metier-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .opportunite {
+            background: #d4edda;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            border-left: 4px solid #28a745;
+            color: #155724;
+        }
+        
+        .liens-utiles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .lien-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+            transition: all 0.3s ease;
+        }
+        
+        .lien-item:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .lien-item a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+            word-break: break-all;
+        }
+        
+        .lien-item:hover a {
+            color: white;
+        }
+        
+        .verdict {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .verdict h2 {
+            border: none;
+            color: white;
+            display: block;
+            margin-bottom: 15px;
+        }
+        
+        .verdict-texte {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .conseils {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+            text-align: left;
+        }
+        
+        .conseils h3 {
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+        
+        .conseils ul {
+            margin-left: 20px;
+        }
+        
+        .conseils li {
+            margin-bottom: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .identite {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .metiers {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎮 Square Enix France</h1>
+            <p>Créer de nouveaux mondes avec une imagination sans limites</p>
+        </div>
+        
+        <div class="content">
+            <!-- Section Identité -->
+            <div class="section">
+                <h2>📋 Identité du Studio</h2>
+                <div class="identite">
+                    <div class="info-card">
+                        <h3>Localisation</h3>
+                        <p>Levallois-Perret, France</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Type</h3>
+                        <p>Éditeur</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Taille</h3>
+                        <p>1031 employés</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Statut Recrutement</h3>
+                        <p>Aucune offre actuellement disponible</p>
+                    </div>
+                </div>
+                
+                <div class="culture-valeurs">
+                    <h3>🌟 Culture & Valeurs</h3>
+                    <p><strong>Mission :</strong> Créer de nouveaux mondes avec une imagination sans limites pour enrichir la vie des gens.</p>
+                    <p style="margin-top: 15px;"><strong>Valeurs Fondamentales :</strong></p>
+                    <div class="valeurs">
+                        <div class="valeur-tag">Compétences</div>
+                        <div class="valeur-tag">Passion</div>
+                        <div class="valeur-tag">Diversité</div>
+                        <div class="valeur-tag">Créativité</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Section Jeux Notables -->
+            <div class="section">
+                <h2>🎯 Jeux Notables</h2>
+                <div class="jeux-list">
+                    <div class="jeu-item">
+                        <h3>FINAL FANTASY</h3>
+                        <p>L'une des franchises les plus emblématiques du jeu vidéo</p>
+                    </div>
+                    <div class="jeu-item">
+                        <h3>DRAGON QUEST</h3>
+                        <p>Grande série RPG avec des millions de fans mondiaux</p>
+                    </div>
+                    <div class="jeu-item">
+                        <h3>SPACE INVADERS</h3>
+                        <p>Classique intemporel du jeu vidéo</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Section Recrutement -->
+            <div class="section">
+                <h2>💼 Informations Recrutement</h2>
+                <div class="recrutement-info">
+                    <h3>📌 Situation Actuelle</h3>
+                    <p>Aucune offre d'emploi ou de stage n'est disponible pour le moment. Cependant, Square Enix reste une entreprise à surveiller pour les opportunités futures.</p>
+                    <div class="difficulte-bar">
+                        <p><strong>Difficulté de Recrutement :</strong></p>
+                        <div class="bar">
+                            <div class="bar-fill">⭐ Élevée (4/5)</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background: #f0f4ff; padding: 25px; border-radius: 8px; margin-top: 20px;">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">🔍 Processus de Recrutement</h3>
+                    <ol style="margin-left: 20px; line-height: 2;">
+                        <li><strong>Candidature :</strong> CV + Lettre de motivation</li>
+                        <li><strong>Revue HR :</strong> Sélection initiale des dossiers</li>
+                        <li><strong>Shortlist :</strong> Pré-sélection des candidats retenus</li>
+                        <li><strong>Entretien Téléphonique/Skype :</strong> Première discussion</li>
+                        <li><strong>Entretien Approfondi :</strong> Avec le manager du département</li>
+                        <li><strong>Entretien Cultural Fit :</strong> Vérification des valeurs et intégration</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <!-- Section Par Métier -->
+            <div class="section">
+                <h2>👥 Opportunités par Métier</h2>
+                <div class="metiers">
+                    <div class="metier-card">
+                        <h3>🎮 Game Designer</h3>
+                        <div class="opportunite">
+                            <strong>Potentiel :</strong> Moyen
+                        </div>
+                        <p>Opportunités en développement de jeux vidéo, mais pas d'offres actuelles en France. Studio global avec besoin continu en design créatif.</p>
+                        <p style="margin-top: 10px; color: #666; font-size: 0.95em;"><em>À surveiller pour futures annonces</em></p>
+                    </div>
+                    
+                    <div class="metier-card">
+                        <h3>💻 Programmeur</h3>
+                        <div class="opportunite">
+                            <strong>Potentiel :</strong> Moyen
+                        </div>
+                        <p>Opportunités en développement de jeux et QA, mais pas d'offres actuelles en France. Square Enix recherche régulièrement des développeurs talentueux.</p>
+                        <p style="margin-top: 10px; color: #666; font-size: 0.95em;"><em>À surveiller pour futures annonces</em></p>
+                    </div>
+                    
+                    <div class="metier-card">
+                        <h3>🎨 Artiste 3D</h3>
+                        <div class="opportunite">
+                            <strong>Potentiel :</strong> Moyen
+                        </div>
+                        <p>Studios globaux incluent création de contenus 3D, mais pas d'offres actuelles en France. Demande de talents en modélisation et texturing.</p>
+                        <p style="margin-top: 10px; color: #666; font-size: 0.95em;"><em>À surveiller pour futures annonces</em></p>
+                    </div>
+                    
+                    <div class="metier-card">
+                        <h3>🖼️ UI Artist</h3>
+                        <div class="opportunite">
+                            <strong>Potentiel :</strong> Moyen
+                        </div>
+                        <p>Focus sur créativité et innovation dans les interfaces. Pas d'offres actuelles en France mais rôle important pour les franchises principales.</p>
+                        <p style="margin-top: 10px; color: #666; font-size: 0.95em;"><em>À surveiller pour futures annonces</em></p>
+                    </div>
+                    
+                    <div class="metier-card">
+                        <h3>🌌 Concept Artist</h3>
+                        <div class="opportunite">
+                            <strong>Potentiel :</strong> Moyen
+                        </div>
+                        <p>L'imagination sans limites est valorisée chez Square Enix. Pas d'offres actuelles en France mais métier clé pour la création de mondes.</p>
+                        <p style="margin-top: 10px; color: #666; font-size: 0.95em;"><em>À surveiller pour futures annonces</em></p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Section Liens Utiles -->
+            <div class="section">
+                <h2>🔗 Liens Utiles</h2>
+                <div class="liens-utiles">
+                    <div class="lien-item">
+                        <h3>🌐 Site Web</h3>
+                        <a href="https://www.square-enix-games.com/fr_FR/home" target="_blank">square-enix-games.com</a>
+                    </div>
+                    <div class="lien-item">
+                        <h3>👔 Page Carrières</h3>
+                        <a href="https://www.square-enix-games.com/fr_FR/careers" target="_blank">Consulter les offres</a>
+                    </div>
+                    <div class="lien-item">
+                        <h3>🎮 Steam Publisher</h3>
+                        <a href="https://store.steampowered.com/publisher/squareenix?l=french" target="_blank">Square Enix sur Steam</a>
+                    </div>
+                    <div class="lien-item">
+                        <h3>💼 LinkedIn</h3>
+                        <a href="https://www.linkedin.com/company/square-enix/posts/?feedView=all" target="_blank">Suivre sur LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Section Verdict -->
+            <div class="verdict">
+                <h2>✅ Verdict & Conseils</h2>
+                <div class="verdict-texte">
+                    <p>Square Enix France est une destination de prestige pour les professionnels du jeu vidéo. Bien qu'aucune offre ne soit actuellement disponible, l'entreprise offre d'excellentes perspectives d'évolution dans un environnement créatif stimulant.</p>
+                </div>
+                <div class="conseils">
+                    <h3>📝 Recommandations</h3>
+                    <ul>
+                        <li><strong>Préparer un dossier solide :</strong> CV, lettre de motivation et portfolio professionnel</li>
+                        <li><strong>Maîtriser les outils :</strong> Logiciels spécialisés selon le métier visé</li>
+                        <li><strong>Démontrer votre passion :</strong> Projets personnels, contributions Open Source ou modifications</li>
+                        <li><strong>Suivre les annonces :</strong> Consulter régulièrement le site carrières officiel</li>
+                        <li><strong>Networking :</strong> Suivre sur LinkedIn et participer aux événements de l'industrie</li>
+                        <li><strong>Rester en contact :</strong> Après candidature, relancer régulièrement pour les opportunités futures</li>
+                        <li><strong>Adapter votre profil :</strong> Aligner vos compétences avec les valeurs de l'entreprise (créativité, passion, diversité)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+Cette fiche HTML complète comprend :
+
+✅ **Design professionnel** avec dégradés et couleurs cohérentes
+✅ **Sections détaillées** : Identité, Jeux, Recrutement, Métiers, Liens, Verdict
+✅ **Responsive design** adapté aux mobiles
+✅ **Interactivité** avec hover effects sur les cartes
+✅ **Informations complètes** du recrutement au processus
+✅ **Conseils pratiques** pour postuler avec succès
+✅ **Liens directs** vers tous les sites importants
+
+La page est prête à être utilisée et affichera un rendu professionnel et attrayant !
