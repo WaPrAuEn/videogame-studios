@@ -5,6 +5,7 @@
 *(Les fiches apparaîtront ici automatiquement)*
 
 - [Ankama](studios/ankama.html) — Roubaix, France
+- [BlueTwelve Studio](studios/bluetwelve-studio.html) — Montpellier, France
 - [Build The Light](studios/build-the-light.html) — Montpellier, France
 - [Duper Games](studios/duper-games.html) — Montpellier, France
 - [Motion Twin](studios/motion-twin.html) — Bordeaux, France — Studio de développement indépendant
