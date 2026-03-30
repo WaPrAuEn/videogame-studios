@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPT Studio - Studio de Jeux Vidéo Indépendant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background: white;
+            margin-bottom: 30px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-left: 5px solid #667eea;
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #764ba2;
+            border-radius: 50%;
+            margin-right: 12px;
+        }
+
+        .identity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .identity-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #667eea30;
+        }
+
+        .identity-card strong {
+            color: #667eea;
+            font-size: 1.1em;
+        }
+
+        .identity-card p {
+            margin-top: 8px;
+            color: #555;
+        }
+
+        .games-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .game-card {
+            background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(102, 126, 234, 0.2);
+        }
+
+        .game-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .game-card .release-date {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            margin-top: 10px;
+        }
+
+        .recruitment-section {
+            margin-top: 20px;
+        }
+
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .job-card {
+            background: linear-gradient(135deg, #28a74530 0%, #20c99730 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #20c997;
+            position: relative;
+        }
+
+        .job-card h3 {
+            color: #20c997;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+        }
+
+        .job-card ul {
+            list-style: none;
+            margin-top: 12px;
+        }
+
+        .job-card li {
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+            color: #555;
+        }
+
+        .job-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #20c997;
+            font-weight: bold;
+        }
+
+        .professions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .profession-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #667eea;
+        }
+
+        .profession-card h3 {
+            color: #667eea;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .status-open {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .status-closed {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .profession-card p {
+            color: #555;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .difficulty-bar {
+            margin-top: 12px;
+        }
+
+        .difficulty-bar label {
+            color: #667eea;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .bar {
+            background: #e9ecef;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            height: 100%;
+            width: 60%;
+            border-radius: 4px;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .link-card {
+            background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #667eea30;
+            text-align: center;
+        }
+
+        .link-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .link-card p {
+            color: #999;
+            font-size: 0.95em;
+            margin-bottom: 12px;
+        }
+
+        .link-card a {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .link-card a:hover {
+            background: #764ba2;
+        }
+
+        .verdict-section {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border-left: 5px solid #667eea;
+        }
+
+        .verdict-content {
+            margin-top: 20px;
+        }
+
+        .verdict-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+        }
+
+        .verdict-box h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .verdict-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .verdict-box li {
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+            color: #555;
+        }
+
+        .verdict-box li::before {
+            content: '➜';
+            position: absolute;
+            left: 0;
+            color: #764ba2;
+            font-weight: bold;
+        }
+
+        .overall-rating {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .rating-score {
+            font-size: 2.5em;
+            color: #667eea;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .rating-stars {
+            color: #ffc107;
+            font-size: 1.8em;
+            letter-spacing: 5px;
+            margin: 10px 0;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .identity-grid,
+            .games-list,
+            .jobs-grid,
+            .professions,
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>OPT Studio</h1>
+        <p>Studio de Jeux Vidéo Indépendant - Créateurs de Fictions Interactives</p>
+    </header>
+
+    <div class="container">
+        <!-- Section Identité -->
+        <section>
+            <h2>Identité du Studio</h2>
+            <div class="identity-grid">
+                <div class="identity-card">
+                    <strong>📍 Localisation</strong>
+                    <p>Paris, France</p>
+                </div>
+                <div class="identity-card">
+                    <strong>📅 Fondé en</strong>
+                    <p>2023</p>
+                </div>
+                <div class="identity-card">
+                    <strong>👥 Taille</strong>
+                    <p>Petite équipe (concepteurs, artistes 2D, animateurs)</p>
+                </div>
+                <div class="identity-card">
+                    <strong>🎮 Type</strong>
+                    <p>Studio indépendant</p>
+                </div>
+                <div class="identity-card">
+                    <strong>🎯 Spécialité</strong>
+                    <p>Jeux interactifs pour adultes (récits érotiques 2D)</p>
+                </div>
+                <div class="identity-card">
+                    <strong>🚀 Stratégie</strong>
+                    <p>Croissance ambitieuse, fictions de qualité made in France</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Jeux Notables -->
+        <section>
+            <h2>Jeux Notables & Portfolio</h2>
+            <div class="games-list">
+                <div class="game-card">
+                    <h3>Premier Titre</h3>
+                    <p>Le premier projet du studio, marquant le lancement officiel d'OPT Studio dans l'univers des fictions interactives érotiques.</p>
+                    <span class="release-date">Juin 2023</span>
+                </div>
+                <div class="game-card">
+                    <h3>Suite</h3>
+                    <p>Continuation de l'univers narratif du premier titre, consolidant la direction créative et la base de joueurs du studio.</p>
+                    <span class="release-date">2024</span>
+                </div>
+                <div class="game-card">
+                    <h3>Jeu de Cartes Narratif</h3>
+                    <p>Nouveau format de jeu combinant mécanique de cartes et narration interactive, explorant de nouveaux horizons créatifs.</p>
+                    <span class="release-date">Prévu 2025</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Recrutement -->
+        <section class="recruitment-section">
+            <h2>Recrutement & Postes Ouverts</h2>
+            <p>OPT Studio est en phase de croissance et recrute activement pour renforcer son équipe créative et technique.</p>
+            <div class="jobs-grid">
+                <div class="job-card">
+                    <h3>Concepteurs de Jeux</h3>
+                    <span class="status-badge status-open">RECRUTEMENT OUVERT</span>
+                    <p>Créez des expériences narratives innovantes et captivantes.</p>
+                    <ul>
+                        <li>Game Design narratif</li>
+                        <li>Écriture interactive</li>
+                        <li>Mécanique de gameplay</li>
+                        <li>Expérience utilisateur</li>
+                    </ul>
+                </div>
+                <div class="job-card">
+                    <h3>Artistes Graphiques 2D</h3>
+                    <span class="status-badge status-open">RECRUTEMENT OUVERT</span>
+                    <p>Donnez vie aux mondes et personnages en 2D.</p>
+                    <ul>
+                        <li>Illustration numérique</li>
+                        <li>Design de personnages</li>
+                        <li>Asset design</li>
+                        <li>Concept art</li>
+                    </ul>
+                </div>
+                <div class="job-card">
+                    <h3>Experts en Animation</h3>
+                    <span class="status-badge status-open">RECRUTEMENT OUVERT</span>
+                    <p>Animez les scènes et interactions avec fluidité.</p>
+                    <ul>
+                        <li>Animation 2D</li>
+                        <li>Motion design</li>
+                        <li>Séquences narratives</li>
+                        <li>Effets visuels</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Par Métier -->
+        <section>
+            <h2>Opportunités par Métier</h2>
+            <div class="professions">
+                <div class="profession-card">
+                    <h3>🎮 Game Designer</h3>
+                    <span class="status-badge status-open">OUVERT</span>
+                    <p><strong>Status:</strong> Postes actifs en recrutement</p>
+                    <p>OPT Studio recherche des game designers passionnés par la narration interactive et capable de concevoir des mécaniques engageantes pour un public adulte.</p>
+                    <p><strong>Attentes:</strong> Portfolio solide démontrant de l'expérience en design narratif, compréhension des jeux interactifs, pensée créative.</p>
+                    <div class="difficulty-bar">
+                        <label>Difficulté d'accès: Moyenne</label>
+                        <div class="bar">
+                            <div class="bar-fill" style="width: 55%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profession-card">
+                    <h3>👨‍💻 Programmeur</h3>
+                    <span class="status-badge status-closed">NON MENTIONNÉ</span>
+                    <p><strong>Status:</strong> Pas de recrutement signalé</p>
+                    <p>Aucun poste de programmeur n'a été mentionné dans les offres actuelles d'OPT Studio.</p>
+                    <p><strong>Note:</strong> Il est possible que le studio utilise des solutions existantes ou dispose déjà d'équipe technique interne.</p>
+                    <div class="difficulty-bar">
+                        <label>Difficulté d'accès: Indéterminée</label>
+                        <div class="bar">
+                            <div class="bar-fill" style="width: 50%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profession-card">
+                    <h3>🎨 Artiste 3D</h3>
+                    <span class="status-badge status-closed">NON REQUIS</span>
+                    <p><strong>Status:</strong> Pas de besoin identifié</p>
+                    <p>OPT Studio se concentre exclusivement sur l'art 2D. Les postes d'artistes 3D ne correspondent pas à la stratégie créative du studio.</p>
+                    <p><strong>Alternative:</strong> Proposez vos compétences en 2D pour un meilleur positionnement.</p>
+                    <div class="difficulty-bar">
+                        <label>Difficulté d'accès: Impossible</label>
+                        <div class="bar">
+                            <div class="bar-fill" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profession-card">
+                    <h3>🖼️ UI Artist</h3>
+                    <span class="status-badge status-open">PROBABLE</span>
+                    <p><strong>Status:</strong> Inclus dans les artistes graphiques 2D</p>
+                    <p>Les artistes graphiques 2D peuvent inclure les UI artists. Excellente opportunité pour un professionnel spécialisé en design d'interface.</p>
+                    <p><strong>Attentes:</strong> Design d'interface intuitif, cohérence visuelle, expérience utilisateur.</p>
+                    <div class="difficulty-bar">
+                        <label>Difficulté d'accès: Moyenne</label>
+                        <div class="bar">
+                            <div class="bar-fill" style="width: 55%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profession-card">
+                    <h3>✏️ Concept Artist</h3>
+                    <span class="status-badge status-open">OUVERT</span>
+                    <p><strong>Status:</strong> Recrutement actif</p>
+                    <p>Rôle clé dans la création de l'univers visuel d'OPT Studio. Les concept artists jouent un rôle essentiel dans la définition de l'esthétique des jeux.</p>
+                    <p><strong>Attentes:</strong> Portfolio riche en concepts originaux, maîtrise du style pour adultes, capacités de création de mondes.</p>
+                    <div class="difficulty-bar">
+                        <label>Difficulté d'accès: Moyenne</label>
+                        <div class="bar">
+                            <div class="bar-fill" style="width: 60%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Liens Utiles -->
+        <section>
+            <h2>Liens Utiles & Informations</h2>
+            <div class="links-grid">
+                <div class="link-card">
+                    <h3>📧 Recrutement</h3>
+                    <p>Email de contact pour les candidatures</p>
+                    <p style="color: #667eea; font-size: 0.9em;">Non spécifié</p>
+                    <p style="font-style: italic; color: #ccc; font-size: 0.85em;">À vérifier directement auprès du studio</p>
+                </div>
+                <div class="link-card">
+                    <h3>💼 Carrières</h3>
+                    <p>Page carrières du studio</p>
+                    <p style="color: #667eea; font-size: 0.9em;">Non disponible</p>
+                    <p style="font-style: italic; color: #ccc; font-size: 0.85em;">Contacter via réseaux sociaux</p>
+                </div>
+                <div class="link-card">
+                    <h3>🌐 Site Web</h3>
+                    <p>Site officiel d'OPT Studio</p>
+                    <p style="color: #667eea; font-size: 0.9em;">Non spécifié</p>
+                    <p style="font-style: italic; color: #ccc; font-size: 0.85em;">À rechercher ou contacter directement</p>
+                </div>
+                <div class="link-card">
+                    <h3>🎮 Steam</h3>
+                    <p>Store Steam du studio</p>
+                    <p style="color: #667eea; font-size: 0.9em;">Non spécifié</p>
+                    <p style="font-style: italic; color: #ccc; font-size: 0.85em;">Recherchez "OPT Studio" sur Steam</p>
+                </div>
+                <div class="link-card">
+                    <h3>💼 LinkedIn</h3>
+                    <p>Profil LinkedIn du studio</p>
+                    <p style="color: #667eea; font-size: 0.9em;">Non spécifié</p>
+                    <p
