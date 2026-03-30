@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Wildcard - Fiche Complète</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            border-left: 5px solid #e94560;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            color: #ffffff;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            color: #e94560;
+            margin-bottom: 5px;
+        }
+        
+        .header .tagline {
+            color: #a0a0a0;
+            font-style: italic;
+            margin-top: 15px;
+        }
+        
+        .section {
+            background: rgba(15, 52, 96, 0.5);
+            border-left: 4px solid #e94560;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .section h2 {
+            color: #e94560;
+            font-size: 2em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section h2:before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #e94560;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .info-card {
+            background: rgba(233, 69, 96, 0.1);
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            padding: 20px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .info-card:hover {
+            background: rgba(233, 69, 96, 0.15);
+            border-color: #e94560;
+            transform: translateY(-2px);
+        }
+        
+        .info-card h3 {
+            color: #e94560;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .info-card p {
+            color: #d0d0d0;
+            font-size: 0.95em;
+        }
+        
+        .jeux-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .jeu-card {
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.2) 0%, rgba(15, 52, 96, 0.5) 100%);
+            border: 2px solid rgba(233, 69, 96, 0.4);
+            padding: 25px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .jeu-card:hover {
+            transform: translateY(-5px);
+            border-color: #e94560;
+            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.2);
+        }
+        
+        .jeu-card h3 {
+            color: #ffffff;
+            font-size: 1.5em;
+            margin-bottom: 12px;
+        }
+        
+        .jeu-card p {
+            color: #b0b0b0;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+        
+        .metier-card {
+            background: rgba(20, 40, 70, 0.6);
+            border-left: 4px solid #e94560;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .metier-card:hover {
+            background: rgba(20, 40, 70, 0.8);
+            box-shadow: 0 5px 20px rgba(233, 69, 96, 0.15);
+        }
+        
+        .metier-card h3 {
+            color: #e94560;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .metier-card h3:before {
+            content: '▶';
+            margin-right: 10px;
+            font-size: 0.8em;
+        }
+        
+        .metier-card ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .metier-card li {
+            color: #d0d0d0;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .metier-card li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #e94560;
+            font-weight: bold;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+        
+        .link-btn {
+            background: linear-gradient(135deg, #e94560 0%, #d63d52 100%);
+            color: white;
+            padding: 18px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
+        }
+        
+        .link-btn:hover {
+            background: linear-gradient(135deg, #d63d52 0%, #c0324a 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(233, 69, 96, 0.4);
+        }
+        
+        .verdict-box {
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.3) 0%, rgba(15, 52, 96, 0.6) 100%);
+            border: 2px solid #e94560;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .verdict-box h3 {
+            color: #e94560;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+        
+        .difficulty-meter {
+            background: rgba(0, 0, 0, 0.3);
+            height: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px 0;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+        }
+        
+        .difficulty-fill {
+            background: linear-gradient(90deg, #e94560 0%, #ff6b7a 100%);
+            height: 100%;
+            width: 70%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        
+        .conseil-box {
+            background: rgba(233, 69, 96, 0.1);
+            border-left: 4px solid #e94560;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 6px;
+        }
+        
+        .conseil-box h4 {
+            color: #e94560;
+            margin-bottom: 10px;
+        }
+        
+        .conseil-box ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .conseil-box li {
+            color: #d0d0d0;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .conseil-box li:before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #e94560;
+            font-weight: bold;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: rgba(233, 69, 96, 0.3);
+            border: 1px solid #e94560;
+            color: #e94560;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-right: 8px;
+            margin-top: 10px;
+        }
+        
+        .recrutement-status {
+            background: rgba(70, 130, 180, 0.2);
+            border-left: 4px solid #4682b4;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            color: #87ceeb;
+        }
+        
+        footer {
+            text-align: center;
+            color: #707070;
+            padding: 30px 0;
+            margin-top: 40px;
+            border-top: 1px solid rgba(233, 69, 96, 0.2);
+        }
+        
+        .highlight {
+            color: #e94560;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .header {
+                padding: 25px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .jeux-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Studio Wildcard</h1>
+            <p>Développeur de Jeux Vidéo Indépendant (Indie AAA)</p>
+            <p class="tagline">Apporter une qualité AAA à des productions indie ambitieuses pour joueurs core</p>
+        </div>
+        
+        <!-- IDENTITÉ -->
+        <div class="section">
+            <h2>Identité du Studio</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>📍 Localisation</h3>
+                    <p>Redmond, États-Unis</p>
+                </div>
+                <div class="info-card">
+                    <h3>📅 Fondation</h3>
+                    <p>2014</p>
+                </div>
+                <div class="info-card">
+                    <h3>👥 Taille de l'équipe</h3>
+                    <p>101-200 employés</p>
+                </div>
+                <div class="info-card">
+                    <h3>🏢 Éditeur</h3>
+                    <p>Snail Games USA</p>
+                </div>
+                <div class="info-card">
+                    <h3>🎮 Type de Studio</h3>
+                    <p>Indie avec ambitions AAA</p>
+                </div>
+                <div class="info-card">
+                    <h3>🌍 Structure</h3>
+                    <p>Équipe distribuée internationale</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- JEUX NOTABLES -->
+        <div class="section">
+            <h2>Jeux Notables</h2>
+            <div class="jeux-list">
+                <div class="jeu-card">
+                    <h3>ARK: Survival Evolved</h3>
+                    <p><strong>Genre:</strong> Survival / Action-Adventure</p>
+                    <p><strong>Plateforme:</strong> Multi-plateforme (disponible sur Steam)</p>
+                    <p><strong>Description:</strong> Un jeu de survie en monde ouvert peuplé de dinosaures. Référence en termes de contenu généré par les utilisateurs et de community engagement.</p>
+                    <span class="badge">Open-World</span>
+                    <span class="badge">Survival</span>
+                    <span class="badge">Multiplayer</span>
+                </div>
+                <div class="jeu-card">
+                    <h3>ARK II</h3>
+                    <p><strong>Genre:</strong> Survival / Action-Adventure</p>
+                    <p><strong>Plateforme:</strong> Prochainement</p>
+                    <p><strong>Description:</strong> La suite ambitieuse d'ARK, promettant des graphismes et des mécaniques de jeu encore plus avancées.</p>
+                    <span class="badge">Next-Gen</span>
+                    <span class="badge">Survival</span>
+                    <span class="badge">Monde Ouvert</span>
+                </div>
+                <div class="jeu-card">
+                    <h3>Atlas</h3>
+                    <p><strong>Genre:</strong> MMO / Survival / Action-Adventure</p>
+                    <p><strong>Plateforme:</strong> Multi-plateforme</p>
+                    <p><strong>Description:</strong> Un MMO de survie massif en monde ouvert nautique, explorant des mécaniques de navigation et de piratie.</p>
+                    <span class="badge">MMO</span>
+                    <span class="badge">Nautique</span>
+                    <span class="badge">Survival</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CULTURE & VALEURS -->
+        <div class="section">
+            <h2>Culture & Valeurs</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>🎯 Mission</h3>
+                    <p>Apporter une qualité AAA à des productions indie ambitieuses pour les joueurs hardcore.</p>
+                </div>
+                <div class="info-card">
+                    <h3>💬 Communication</h3>
+                    <p>Dialogue direct avec la communauté, intégration active du feedback des joueurs dans le développement.</p>
+                </div>
+                <div class="info-card">
+                    <h3>⚡ Développement</h3>
+                    <p>Cycle itératif rapide, agile et réactif aux demandes de la communauté.</p>
+                </div>
+                <div class="info-card">
+                    <h3>🛠️ User-Generated Content</h3>
+                    <p>Outils et support pour que la communauté crée et partage son propre contenu.</p>
+                </div>
+                <div class="info-card">
+                    <h3>🌐 Travail Distribué</h3>
+                    <p>Équipe internationale en télétravail, flexibilité et collaboration cross-border.</p>
+                </div>
+                <div class="info-card">
+                    <h3>🎮 Cible</h3>
+                    <p>Joueurs core, amateurs de jeux ambitieux et complexes.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- JEUX ET GENRES -->
+        <div class="section">
+            <h2>Spécialités & Genres</h2>
+            <p style="margin-bottom: 20px;">Studio Wildcard se concentre sur des genres et mécaniques spécifiques :</p>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>🦕 Survival Games</h3>
+                    <p>Expertise forte dans les mécaniques de survie complexes et immersives.</p>
+                </div>
+                <div class="info-card">
+                    <h3>🌍 Open-World</h3>
+                    <p>Mondes ouverts ambitieux, détaillés et exploitables.</p>
+                </div>
+                <div class="info-card">
+                    <h3>👥 Multiplayer</h3>
+                    <p>Expérience multiplayer riche avec gestion de serveurs et de communautés.</p>
+                </div>
+                <div class="info-card">
+                    <h3>⚔️ Action-Adventure</h3>
+                    <p>Combat dynamique et exploration cohérente avec narrative.</p>
+                </div>
+                <div class="info-card">
+                    <h3>🎮 RPG Elements</h3>
+                    <p>Systèmes de progression, caractérisation et customisation avancés.</p>
+                </div>
+                <div class="info-card">
+                    <h3>🏗️ Level Design</h3>
+                    <p>Design de niveaux complexes adaptés aux mondes ouverts.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- RECRUTEMENT -->
+        <div class="section">
+            <h2>Recrutement</h2>
+            <div class="recrutement-status">
+                <strong>⚠️ Statut des Postes Ouverts:</strong> Non spécifié dans les résultats récents. Vérifiez directement la page des offres d'emploi.
+            </div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>💼 Contact RH</h3>
+                    <p><strong>Email:</strong> Non trouvé publiquement</p>
+                    <p><strong>Recommandation:</strong> Consultez la page Jobs du site officiel.</p>
+                </div>
+                <div class="info-card">
+                    <h3>📊 Difficulté de Recrutement</h3>
+                    <p><strong>Niveau:</strong> Moyenne à Élevée</p>
+                    <p>Équipe expérimentée composée de vétérans de l'industrie. Recrutement sélectif.</p>
+                </div>
+            </div>
+            <div class="conseil-box">
+                <h4>📝 Conseils pour Postuler</h4>
+                <ul>
+                    <li>Mettez en avant votre expérience en jeux survival, multiplayer et open-world</li>
+                    <li>Présentez un portfolio concret avec du feedback communauté intégré</li>
+                    <li>Soulignez vos compétences en itération agile et travail à distance</li>
+                    <li>Montrez votre passion pour les jeux core et complexes</li>
+                    <li>Postulez via la page <span class="highlight">Jobs officielle</span> du site</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- POSTES PAR MÉTIER -->
+        <div class="section">
+            <h2>Postes par Métier</h2>
+            
+            <div class="metier-card">
+                <h3>🎮 Game Designer</h3>
+                <ul>
+                    <li>Conception de systèmes de survie complexes et équilibrés</li>
+                    <li>Design de mondes ouverts et d'expériences multiplayer</li>
+                    <li>Itération rapide basée sur le feedback communauté</li>
+                    <li>Expérience en jeux action-adventure et RPG</li>
+                    <li>Fort focus sur player retention et engagement</li>
+                </ul>
+                <div class="conseil-box">
+                    <h4>Pour cette position:</h4>
+                    <ul>
+                        <li>Portfolio montrant des systèmes de jeu itératifs</li>
+                        <li>Exemples de collaboration avec la communauté</li>
+                        <li>Expérience en jeux survival ou open-world</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="metier-card">
+                <h3>💻 Programmeur</h3>
+                <ul>
+                    <li>Développement de jeux AAA ambitieux avec technologies avancées</li>
+                    <li>Expérience en architecture de jeux multiplayer et serveurs</li>
+                    <li>Optimisation de performance sur multiplateformes</li>
+                    <li>Compétences en C++, C#, ou langages similaires</li>
+                    <li>Familiarité avec Unreal Engine ou Unity</li>
+                </ul>
+                <div class="conseil-box">
+                    <h4>Pour cette position:</h4>
+                    <ul>
+                        <li>Code samples montrant des systèmes complexes</li>
+                        <li>Expérience en jeux multiplayer ou serveurs</li>
+                        <li>Capacité à travailler en équipe distribuée</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="metier-card">
+                <h3>🎨 Artiste 3D</h3>
+                <ul>
+                    <li>Création de personnages, créatures et environnements détaillés</li>
+                    <li>Expérience en modélisation 3D et
