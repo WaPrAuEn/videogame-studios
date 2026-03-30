@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elia Games - Studio de Jeux Vidéo Mobile</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 30px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .section h3 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .identity-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .identity-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .identity-card strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .job-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #764ba2;
+        }
+        
+        .job-title {
+            color: #764ba2;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .demand-level {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        
+        .demand-high {
+            background: #ff6b6b;
+            color: white;
+        }
+        
+        .demand-medium {
+            background: #ffd93d;
+            color: #333;
+        }
+        
+        .demand-low {
+            background: #6bcf7f;
+            color: white;
+        }
+        
+        .job-description {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .link-button {
+            display: inline-block;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .link-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .verdict {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            padding: 30px;
+            border-radius: 10px;
+            border: 2px solid #667eea;
+            margin-top: 30px;
+        }
+        
+        .verdict-title {
+            color: #667eea;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .verdict-text {
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .highlight {
+            color: #764ba2;
+            font-weight: bold;
+        }
+        
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .info-item {
+            flex: 1;
+            min-width: 250px;
+            margin-right: 20px;
+        }
+        
+        .info-label {
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .info-value {
+            color: #666;
+        }
+        
+        .culture-box {
+            background: #fff3e0;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #ff9800;
+            margin-bottom: 20px;
+        }
+        
+        .culture-box p {
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        .no-data {
+            color: #999;
+            font-style: italic;
+        }
+        
+        @media (max-width: 768px) {
+            .identity-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Elia Games</h1>
+            <p>Studio de Développement de Jeux Mobiles & Applications</p>
+        </header>
+        
+        <div class="content">
+            <!-- SECTION IDENTITÉ -->
+            <div class="section">
+                <h2>📋 Identité du Studio</h2>
+                
+                <div class="identity-grid">
+                    <div class="identity-card">
+                        <strong>📍 Localisation</strong>
+                        <span>Saint-Gély-du-Fesc, France</span>
+                    </div>
+                    <div class="identity-card">
+                        <strong>📅 Année de Fondation</strong>
+                        <span>2020</span>
+                    </div>
+                    <div class="identity-card">
+                        <strong>👥 Taille de l'Équipe</strong>
+                        <span>11-50 collaborateurs</span>
+                    </div>
+                    <div class="identity-card">
+                        <strong>🎯 Spécialité</strong>
+                        <span>Jeux Vidéo Mobiles & Applications</span>
+                    </div>
+                </div>
+                
+                <div class="culture-box">
+                    <h3 style="margin-top: 0; color: #ff9800;">🌟 Culture & Ambition</h3>
+                    <p>Elia Games se distingue par sa vision d'un gaming intelligent et divertissant. Le studio nourrit une ambition claire : devenir le leader mondial du jeu mobile avec un objectif de <span class="highlight">1 milliard d'euros de chiffre d'affaires d'ici 2025</span>.</p>
+                    <p style="margin-top: 15px;">Cette jeune entreprise en croissance rapide mise sur l'innovation, la qualité et l'ambition internationale pour se positionner parmi les plus grands acteurs du secteur.</p>
+                </div>
+            </div>
+            
+            <!-- SECTION JEUX NOTABLES -->
+            <div class="section">
+                <h2>🎮 Jeux & Produits Notables</h2>
+                <p class="no-data">Aucune information spécifique fournie sur les jeux actuellement publiés.</p>
+                <p style="color: #666; margin-top: 10px;">Le studio se concentre sur le développement de jeux de culture générale et d'applications dans les domaines du sport et du bien-être.</p>
+            </div>
+            
+            <!-- SECTION RECRUTEMENT -->
+            <div class="section">
+                <h2>💼 Recrutement</h2>
+                
+                <div class="info-row">
+                    <div class="info-item">
+                        <div class="info-label">📧 Email Recrutement</div>
+                        <div class="info-value no-data">Non fourni</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">🌐 Site Carrières</div>
+                        <div class="info-value no-data">Non fourni</div>
+                    </div>
+                </div>
+                
+                <div class="culture-box">
+                    <h3 style="margin-top: 0; color: #ff9800;">💡 Conseil pour Candidater</h3>
+                    <p><span class="highlight">Mettez en avant votre expérience mobile/iOS</span> et votre intérêt pour l'ambition internationale du studio. Le meilleur contact est le PDG <span class="highlight">Gaël Bonnafous via LinkedIn</span>, qui pourra vous diriger vers les ressources RH appropriées.</p>
+                </div>
+            </div>
+            
+            <!-- SECTION PAR MÉTIER -->
+            <div class="section">
+                <h2>👔 Opportunités par Métier</h2>
+                
+                <div class="job-category">
+                    <div class="job-title">
+                        <span>Game Designer</span>
+                        <div class="demand-level demand-medium">Demande Moyenne</div>
+                    </div>
+                    <div class="job-description">
+                        <p><strong>Focus principal :</strong> Jeux de culture générale et applications sport/bien-être.</p>
+                        <p style="margin-top: 10px;">Elia Games cherche des Game Designers capables de concevoir des expériences engageantes et didactiques. Une compréhension des mécaniques mobiles et de l'UI/UX est essentielle.</p>
+                    </div>
+                </div>
+                
+                <div class="job-category">
+                    <div class="job-title">
+                        <span>Programmeur</span>
+                        <div class="demand-level demand-high">Demande Élevée</div>
+                    </div>
+                    <div class="job-description">
+                        <p><strong>Spécialisation :</strong> Développement de jeux vidéo et applications mobiles.</p>
+                        <p style="margin-top: 10px;">C'est le poste critique du studio en phase de croissance. Les compétences en C#, Unity, et développement iOS/Android sont très recherchées. Une expertise mobile solide est primordiale.</p>
+                    </div>
+                </div>
+                
+                <div class="job-category">
+                    <div class="job-title">
+                        <span>Artiste 3D</span>
+                        <div class="demand-level demand-low">Demande Faible</div>
+                    </div>
+                    <div class="job-description">
+                        <p><strong>État :</strong> Pas de mention explicite de recherche active.</p>
+                        <p style="margin-top: 10px;">Le studio ne semble pas actuellement en quête active d'artistes 3D. Le focus reste sur les applications mobiles avec une approche graphique plus légère.</p>
+                    </div>
+                </div>
+                
+                <div class="job-category">
+                    <div class="job-title">
+                        <span>UI Artist</span>
+                        <div class="demand-level demand-medium">Demande Moyenne</div>
+                    </div>
+                    <div class="job-description">
+                        <p><strong>Spécialisation :</strong> Applications mobiles et jeux iOS.</p>
+                        <p style="margin-top: 10px;">Compétence recherchée pour améliorer l'ergonomie et l'attrait visuel des apps mobiles. Expérience avec Figma, Adobe XD et compréhension des guidelines iOS est un plus.</p>
+                    </div>
+                </div>
+                
+                <div class="job-category">
+                    <div class="job-title">
+                        <span>Concept Artist</span>
+                        <div class="demand-level demand-medium">Demande Moyenne</div>
+                    </div>
+                    <div class="job-description">
+                        <p><strong>Focus :</strong> Création de jeux intelligents et innovants.</p>
+                        <p style="margin-top: 10px;">Capable de transformer les concepts de jeux de culture générale en visuels attrayants. Une vision créative alignée avec l'ambition du studio est essentielle.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SECTION DIFFICULTÉ -->
+            <div class="section">
+                <h2>📊 Difficulté de Candidature</h2>
+                <div class="culture-box">
+                    <p style="margin: 0;"><strong>Niveau : Moyen</strong></p>
+                    <p style="margin-top: 10px;">Elia Games est une petite équipe en croissance (environ 5 personnes à Montpellier mentionnées en contexte). Le studio n'a pas encore une structure RH complètement formalisée, ce qui signifie :</p>
+                    <ul style="margin-top: 10px; margin-left: 20px; color: #666;">
+                        <li>Pas de page carrières officielle décentralisée</li>
+                        <li>Recrutement probablement par réseau et contacts directs</li>
+                        <li>Nécessité de montrer de la passion pour le gaming mobile et l'ambition du studio</li>
+                        <li>Contact direct via LinkedIn plus efficace que candidature classique</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- SECTION LIENS UTILES -->
+            <div class="section">
+                <h2>🔗 Liens Utiles</h2>
+                <div class="links-grid">
+                    <a href="https://www.elia.games/" class="link-button" target="_blank">🌐 Site Web Officiel</a>
+                    <a href="https://www.linkedin.com/company/elia-games/" class="link-button" target="_blank">💼 Page LinkedIn</a>
+                </div>
+            </div>
+            
+            <!-- SECTION VERDICT -->
+            <div class="verdict">
+                <div class="verdict-title">🎯 Verdict Final</div>
+                <div class="verdict-text">
+                    <p><span class="highlight">Elia Games</span> représente une opportunité intéressante pour les développeurs mobiles cherchant à rejoindre un studio jeune et ambitieux en phase de croissance explosive.</p>
+                    
+                    <p style="margin-top: 15px;"><strong>Points forts :</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>Ambition claire et objectifs mesurables (1 milliard d'euros de CA en 2025)</li>
+                        <li>Focus spécialisé sur le gaming mobile et applications intelligentes</li>
+                        <li>Localisation en France (Région Occitanie)</li>
+                        <li>Petite structure favorisant l'impact individuel et la croissance rapide</li>
+                    </ul>
+                    
+                    <p style="margin-top: 15px;"><strong>Points à considérer :</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>Équipe très réduite = startup volatilité potentielle</li>
+                        <li>Pas d'infrastructure RH formalisée</li>
+                        <li>Demande très forte en programmeurs mobiles (compétitivité accrue)</li>
+                    </ul>
+                    
+                    <p style="margin-top: 15px;"><strong>Recommandation :</strong> Si vous avez une expérience solide en <span class="highlight">développement iOS/Android</span> ou en design mobile, contactez directement via LinkedIn. Mettez en avant votre vision du gaming intelligent et votre capacité à grandir avec une startup en forte croissance.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
