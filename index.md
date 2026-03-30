@@ -17,6 +17,7 @@
 - [Artefacts Studio](studios/artefacts-studio.html) — Villeurbanne, France
 - [Asobo Studio](studios/asobo-studio.html) — Bordeaux, France
 - [Atlus](studios/atlus.html) — Tokyo, Japon
+- [BioWare](studios/bioware.html) — Edmonton, Canada
 - [Black Sheep Studio](studios/black-sheep-studio.html) — Paris, France
 - [Blizzard Entertainment](studios/blizzard-entertainment.html) — Irvine, États-Unis
 - [Blue Twelve Studio](studios/blue-twelve-studio.html) — Montpellier, France
