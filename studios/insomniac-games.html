@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insomniac Games - Fiche Complète</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 50%;
+        }
+        
+        .header h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header .subtitle {
+            font-size: 1.3em;
+            color: #667eea;
+            font-weight: 300;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+            padding-bottom: 40px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .section h2 {
+            font-size: 2.2em;
+            color: #667eea;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .section h2::before {
+            content: '';
+            width: 5px;
+            height: 35px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 3px;
+        }
+        
+        .identite-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .info-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid #667eea;
+        }
+        
+        .info-card h3 {
+            color: #667eea;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        .info-card p {
+            color: #333;
+            font-size: 1.05em;
+            font-weight: 500;
+        }
+        
+        .jeux-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .jeu-card {
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.1);
+        }
+        
+        .jeu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.2);
+            border-color: #764ba2;
+        }
+        
+        .jeu-card h3 {
+            color: #1a1a2e;
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+        
+        .recrutement-info {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .recrutement-info strong {
+            color: #856404;
+        }
+        
+        .liens-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .lien-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            cursor: pointer;
+        }
+        
+        .lien-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .lien-btn.disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            opacity: 0.6;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .metiers-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .metier-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #667eea;
+        }
+        
+        .metier-card h3 {
+            color: #1a1a2e;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+        
+        .niveau-badge {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.95em;
+            margin-bottom: 15px;
+        }
+        
+        .niveau-eleve {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .niveau-moyen {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        
+        .conseil-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .conseil-box h4 {
+            font-size: 1.2em;
+            margin-bottom: 12px;
+        }
+        
+        .conseil-box ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .conseil-box li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .conseil-box li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .verdict-section {
+            background: linear-gradient(135deg, #e8d5f2 0%, #f5d5f2 100%);
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 5px solid #764ba2;
+        }
+        
+        .verdict-section h3 {
+            color: #764ba2;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+        
+        .verdict-score {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .difficulty-meter {
+            width: 100%;
+            max-width: 300px;
+            height: 12px;
+            background: #ddd;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        
+        .difficulty-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b6b 0%, #ee5a6f 100%);
+            width: 95%;
+            border-radius: 6px;
+        }
+        
+        .difficulty-label {
+            font-weight: 600;
+            color: #764ba2;
+            font-size: 1.1em;
+        }
+        
+        .culture-highlight {
+            background: #e3f2fd;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-size: 1.05em;
+        }
+        
+        .awards-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin: 5px;
+            box-shadow: 0 3px 10px rgba(255, 215, 0, 0.3);
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 20px 40px;
+            text-align: center;
+            color: #666;
+            font-size: 0.95em;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .section h2 {
+                font-size: 1.6em;
+            }
+            
+            .identite-grid,
+            .jeux-grid,
+            .metiers-container,
+            .liens-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎮 Insomniac Games</h1>
+            <p class="subtitle">Studio AAA de développement de jeux vidéo</p>
+        </div>
+        
+        <div class="content">
+            <!-- SECTION IDENTITÉ -->
+            <section class="section">
+                <h2>Identité du Studio</h2>
+                <div class="identite-grid">
+                    <div class="info-card">
+                        <h3>📍 Localisation</h3>
+                        <p>Burbank, États-Unis</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>📅 Fondation</h3>
+                        <p>1994</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>👥 Taille</h3>
+                        <p>501-1000 employés</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>🏢 Type</h3>
+                        <p>Développeur de jeux vidéo<br><strong>Filiale de Sony Interactive Entertainment</strong></p>
+                    </div>
+                    <div class="info-card">
+                        <h3>🎯 Éditeurs</h3>
+                        <p>Sony Interactive Entertainment</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>🏆 Reconnaissance</h3>
+                        <p>20 prix pour la culture d'entreprise</p>
+                    </div>
+                </div>
+                
+                <div class="culture-highlight">
+                    <strong>Culture d'Entreprise :</strong> Insomniac Games promeut une culture inclusive axée sur des thèmes positifs comme l'amitié, le sacrifice de soi et la lutte pour le bien commun. Cette philosophie se reflète dans la qualité narrative de leurs jeux.
+                </div>
+            </section>
+            
+            <!-- SECTION JEUX NOTABLES -->
+            <section class="section">
+                <h2>Jeux Notables</h2>
+                <div class="jeux-grid">
+                    <div class="jeu-card">
+                        <h3>🕷️ Marvel's Spider-Man</h3>
+                        <p>Franchise phare mêlant action dynamique et narration immersive</p>
+                    </div>
+                    <div class="jeu-card">
+                        <h3>⚙️ Ratchet & Clank</h3>
+                        <p>Plateforme et action avec graphismes 3D exceptionnels</p>
+                    </div>
+                    <div class="jeu-card">
+                        <h3>🐉 Spyro the Dragon</h3>
+                        <p>Plateforme classique revisitée avec modernité</p>
+                    </div>
+                    <div class="jeu-card">
+                        <h3>⚔️ Resistance</h3>
+                        <p>Série FPS d'action intense et immersive</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SECTION RECRUTEMENT -->
+            <section class="section">
+                <h2>Recrutement et Opportunités</h2>
+                <div class="recrutement-info">
+                    <strong>⚠️ Postes Ouverts :</strong> Non spécifiés dans les résultats disponibles
+                </div>
+                <div class="recrutement-info">
+                    <strong>📧 Email Recrutement :</strong> Non spécifié - Consulter le site officiel
+                </div>
+                <div class="recrutement-info">
+                    <strong>💼 Site Carrières :</strong> Non spécifié - Consulter le site officiel
+                </div>
+                <div class="conseil-box">
+                    <h4>Conseil pour Candidater :</h4>
+                    <ul>
+                        <li>Mettre en avant un portfolio avec jeux publiés</li>
+                        <li>Démontrer une expérience sur projets PlayStation</li>
+                        <li>Montrer votre alignement sur les valeurs positives et inclusivité</li>
+                        <li>Vérifier régulièrement le site officiel pour les opportunités</li>
+                        <li>Préparez-vous à un processus de sélection très rigoureux</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- SECTION LIENS UTILES -->
+            <section class="section">
+                <h2>Liens Utiles</h2>
+                <div class="liens-grid">
+                    <a href="https://insomniac.games" class="lien-btn" target="_blank">🌐 Site Web Officiel</a>
+                    <a href="javascript:void(0)" class="lien-btn disabled">📱 Page Steam</a>
+                    <a href="javascript:void(0)" class="lien-btn disabled">💼 LinkedIn</a>
+                </div>
+                <p style="margin-top: 15px; font-size: 0.95em; color: #666;">
+                    <em>Les liens non disponibles n'ont pas été fournis dans les informations. Consultez le site officiel pour les mises à jour.</em>
+                </p>
+            </section>
+            
+            <!-- SECTION PAR MÉTIER -->
+            <section class="section">
+                <h2>Opportunités par Métier</h2>
+                <div class="metiers-container">
+                    <!-- Game Designer -->
+                    <div class="metier-card">
+                        <h3>🎮 Game Designer</h3>
+                        <span class="niveau-badge niveau-eleve">Niveau : ÉLEVÉ</span>
+                        <p><strong>Description :</strong></p>
+                        <p>Studio axé sur des jeux narratifs avec action et plateforme. Les designers travaillent sur des franchises AAA avec une forte composante narrative.</p>
+                        <p style="margin-top: 12px;"><strong>Compétences requises :</strong></p>
+                        <ul style="margin-left: 15px; margin-top: 8px;">
+                            <li>Maîtrise du game design narratif</li>
+                            <li>Expérience sur projets AAA</li>
+                            <li>Expertise gameplay action/plateforme</li>
+                            <li>Portfolio solide avec jeux publiés</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Programmeur -->
+                    <div class="metier-card">
+                        <h3>💻 Programmeur</h3>
+                        <span class="niveau-badge niveau-eleve">Niveau : ÉLEVÉ</span>
+                        <p><strong>Description :</strong></p>
+                        <p>Développement de franchises AAA complexes sur PlayStation. Architectures logicielles sophistiquées et optimisation de performances.</p>
+                        <p style="margin-top: 12px;"><strong>Compétences requises :</strong></p>
+                        <ul style="margin-left: 15px; margin-top: 8px;">
+                            <li>C++ et architecture engine avancée</li>
+                            <li>Optimisation pour PlayStation</li>
+                            <li>Expérience projets AAA complexes</li>
+                            <li>Maîtrise des systèmes de gameplay avancés</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Artiste 3D -->
+                    <div class="metier-card">
+                        <h3>🎨 Artiste 3D</h3>
+                        <span class="niveau-badge niveau-eleve">Niveau : ÉLEVÉ</span>
+                        <p><strong>Description :</strong></p>
+                        <p>Création d'assets 3D pour jeux riches en graphismes comme Spider-Man et Ratchet & Clank. Standards visuels très élevés.</p>
+                        <p style="margin-top: 12px;"><strong>Compétences requises :</strong></p>
+                        <ul style="margin-left: 15px; margin-top: 8px;">
+                            <li>Maya, Blender ou 3DS Max</li>
+                            <li>Modélisation haute/basse poly</li>
+                            <li>Texturing AAA haut de gamme</li>
+                            <li>Connaissance pipeline temps réel</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- UI Artist -->
+                    <div class="metier-card">
+                        <h3>🖼️ UI Artist</h3>
+                        <span class="niveau-badge niveau-moyen">Niveau : MOYEN À ÉLEVÉ</span>
+                        <p><strong>Description :</strong></p>
+                        <p>Création d'interfaces pour jeux PlayStation. Design intuitif et esthétique alignée avec l'identité des franchises.</p>
+                        <p style="margin-top: 12px;"><strong>Compétences requises :</strong></p>
+                        <ul style="margin-left: 15px; margin-top: 8px;">
+                            <li>UI/UX design solide</li>
+                            <li>Adobe Creative Suite</li>
+                            <li>Expérience jeux console</li>
+                            <li>Animation UI et motion design</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Concept Artist -->
+                    <div class="metier-card">
+                        <h3>✏️ Concept Artist</h3>
+                        <span class="niveau-badge niveau-eleve">Niveau : ÉLEVÉ</span>
+                        <p><strong>Description :</strong></p>
+                        <p>Création et définition visuelle de franchises iconiques. Concept art pour personnages, environnements et univers.</p>
+                        <p style="margin-top: 12px;"><strong>Compétences requises :</strong></p>
+                        <ul style="margin-left: 15px; margin-top: 8px;">
+                            <li>Dessin traditionnel et digital expert</li>
+                            <li>Photoshop, Painter ou Procreate</li>
+                            <li>Direction artistique AAA</li>
+                            <li>Portfolio de concept art impressionnant</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SECTION VERDICT -->
+            <section class="section">
+                <h2>Verdict et Récapitulatif</h2>
+                <div class="verdict-section">
+                    <h3>🎯 Évaluation Globale</h3>
+                    
+                    <p style="margin: 20px 0;">
+                        Insomniac Games est un <strong>studio AAA de premier plan</strong>, racheté par Sony Interactive Entertainment, reconnu mon
