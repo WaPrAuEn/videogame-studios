@@ -14,6 +14,7 @@
 - [Playtouch](studios/playtouch.html) — Port Louis, Île Maurice
 - [Sandfall Interactive](studios/sandfall-interactive.html) — Montpellier, France
 - [Sirene Games](studios/sirene-games.html) — Aucamville, France
+- [Sirène Rouge Games](studios/sirene-rouge-games.html) — Lyon, France
 - [Team Cherry](studios/team-cherry.html) — Adélaïde, Australie
 - [Twin Sails Interactive](studios/twin-sails-interactive.html) — Paris, France
 - [Ubisoft](studios/ubisoft.html) — Saint-Mandé, France
