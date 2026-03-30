@@ -20,4 +20,5 @@
 - [Sirène Rouge Games](studios/sirene-rouge-games.html) — Lyon, France
 - [Team Cherry](studios/team-cherry.html) — Adélaïde, Australie
 - [Twin Sails Interactive](studios/twin-sails-interactive.html) — Paris, France
+- [Ubisoft Montpellier](studios/ubisoft-montpellier.html) — Montpellier, France
 - [Ubisoft](studios/ubisoft.html) — Saint-Mandé, France
