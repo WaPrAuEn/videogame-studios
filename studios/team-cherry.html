@@ -13,234 +13,270 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: #333;
-            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
         }
 
         header {
-            background: linear-gradient(135deg, #0f3460 0%, #533483 100%);
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             color: white;
-            padding: 60px 40px;
-            border-radius: 15px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            padding: 50px 40px;
             text-align: center;
         }
 
         header h1 {
-            font-size: 3.5em;
-            margin-bottom: 15px;
+            font-size: 3em;
+            margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         header p {
             font-size: 1.2em;
-            opacity: 0.95;
-            margin: 8px 0;
-        }
-
-        .location {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 8px 16px;
-            border-radius: 20px;
-            margin-top: 15px;
-            font-weight: 500;
+            color: #bbb;
         }
 
         .content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            padding: 40px;
+        }
+
+        section {
             margin-bottom: 40px;
         }
 
-        .card {
-            background: white;
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-        }
-
-        .card h2 {
-            color: #0f3460;
-            margin-bottom: 20px;
+        section h2 {
+            color: #667eea;
             font-size: 1.8em;
-            border-bottom: 3px solid #533483;
+            margin-bottom: 20px;
             padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
         }
 
-        .card h3 {
-            color: #533483;
-            margin-top: 15px;
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .info-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+
+        .info-card h3 {
+            color: #764ba2;
             margin-bottom: 10px;
+            font-size: 0.95em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-card p {
+            color: #333;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+
+        .jeu {
+            background: #f0f4ff;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 5px solid #764ba2;
+        }
+
+        .jeu h3 {
+            color: #764ba2;
+            margin-bottom: 10px;
+            font-size: 1.4em;
+        }
+
+        .jeu p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .metier {
+            background: #fff8f0;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 5px solid #ff9a56;
+        }
+
+        .metier h3 {
+            color: #ff7b42;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .metier p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .niveau {
+            display: inline-block;
+            background: #fff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .niveau.tres-eleve {
+            color: #27ae60;
+            border: 2px solid #27ae60;
+        }
+
+        .niveau.eleve {
+            color: #2980b9;
+            border: 2px solid #2980b9;
+        }
+
+        .niveau.modere {
+            color: #f39c12;
+            border: 2px solid #f39c12;
+        }
+
+        .niveau.faible {
+            color: #e74c3c;
+            border: 2px solid #e74c3c;
+        }
+
+        .niveau.tres-difficile {
+            color: #c0392b;
+            border: 2px solid #c0392b;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #667eea;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .link-item:hover {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .link-item::before {
+            content: "→";
+            margin-right: 10px;
             font-size: 1.2em;
         }
 
-        .info-row {
-            margin: 12px 0;
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .info-label {
-            font-weight: bold;
-            color: #0f3460;
-            min-width: 140px;
-        }
-
-        .info-value {
-            color: #555;
-        }
-
-        .jeux-list {
-            list-style: none;
-        }
-
-        .jeux-list li {
-            padding: 12px;
-            margin: 8px 0;
-            background: #f8f9fa;
-            border-left: 4px solid #533483;
-            border-radius: 5px;
-        }
-
-        .jeux-list li strong {
-            color: #0f3460;
-        }
-
-        .status-badge {
-            display: inline-block;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 0.9em;
-            margin: 5px 0;
-        }
-
-        .status-ouvert {
-            background: #d4edda;
-            color: #155724;
-        }
-
-        .status-ferme {
-            background: #f8d7da;
-            color: #721c24;
-        }
-
-        .metiers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
-        }
-
-        .metier-card {
-            background: white;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-            border-top: 5px solid #533483;
-        }
-
-        .metier-card h3 {
-            color: #0f3460;
-            margin-bottom: 15px;
-            font-size: 1.5em;
-        }
-
-        .difficulte {
-            margin: 15px 0;
-        }
-
-        .stars {
-            color: #ffc107;
-            font-size: 1.5em;
-        }
-
-        .conseil {
-            background: #e7f3ff;
-            border-left: 4px solid #0f3460;
-            padding: 15px;
-            border-radius: 5px;
-            margin-top: 15px;
-            font-style: italic;
-            color: #0c2d5a;
-        }
-
-        .verdict-card {
-            background: linear-gradient(135deg, #0f3460 0%, #533483 100%);
-            color: white;
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        .verdict {
+            background: linear-gradient(135deg, #ffe66d 0%, #ffd700 100%);
+            padding: 30px;
+            border-radius: 10px;
             margin-top: 30px;
         }
 
-        .verdict-card h2 {
-            color: white;
-            border-bottom-color: rgba(255, 255, 255, 0.3);
-            margin-bottom: 20px;
-        }
-
-        .verdict-text {
-            font-size: 1.1em;
-            line-height: 1.8;
+        .verdict h3 {
+            color: #c0392b;
             margin-bottom: 15px;
+            font-size: 1.5em;
         }
 
-        .liens-utiles {
-            list-style: none;
-            margin-top: 20px;
+        .verdict p {
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 10px;
         }
 
-        .liens-utiles li {
-            margin: 10px 0;
+        .difficulty-meter {
+            width: 100%;
+            height: 20px;
+            background: #ddd;
+            border-radius: 10px;
+            margin-top: 15px;
+            overflow: hidden;
         }
 
-        .liens-utiles a {
+        .difficulty-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #27ae60, #f39c12, #e74c3c);
+            width: 95%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
             color: white;
-            text-decoration: none;
-            padding: 10px 15px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 5px;
+            font-weight: bold;
+            font-size: 0.8em;
+        }
+
+        .status {
             display: inline-block;
-            transition: background 0.3s ease;
-            word-break: break-all;
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9em;
+            margin-top: 10px;
         }
 
-        .liens-utiles a:hover {
-            background: rgba(255, 255, 255, 0.4);
+        .status.ferme {
+            background: #e74c3c;
+            color: white;
         }
 
-        .culture {
-            background: #f0e6ff;
-            border-left: 4px solid #533483;
+        .status.ouvert {
+            background: #27ae60;
+            color: white;
+        }
+
+        footer {
+            background: #f8f9fa;
+            padding: 20px 40px;
+            text-align: center;
+            color: #888;
+            border-top: 1px solid #ddd;
+        }
+
+        .conseil-box {
+            background: #e8f4f8;
             padding: 20px;
-            border-radius: 5px;
-            margin: 15px 0;
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+            margin-top: 20px;
+            color: #2c3e50;
+            line-height: 1.8;
         }
 
-        .culture-text {
-            color: #5a3f7d;
-            font-style: italic;
-        }
-
-        .full-width {
-            grid-column: 1 / -1;
+        .conseil-box strong {
+            color: #2980b9;
         }
 
         @media (max-width: 768px) {
@@ -249,10 +285,14 @@
             }
 
             .content {
+                padding: 25px;
+            }
+
+            .info-grid {
                 grid-template-columns: 1fr;
             }
 
-            .metiers-grid {
+            .links-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -260,256 +300,184 @@
 </head>
 <body>
     <div class="container">
-        <!-- HEADER -->
         <header>
             <h1>🎮 Team Cherry</h1>
-            <p>Studio Indie Indépendant</p>
-            <div class="location">📍 Adélaïde, Australie</div>
+            <p>Studio Indépendant - Adélaïde, Australie</p>
         </header>
 
-        <!-- CONTENU PRINCIPAL -->
         <div class="content">
-            <!-- IDENTITÉ -->
-            <div class="card full-width">
-                <h2>🏢 Identité du Studio</h2>
-                
-                <div class="info-row">
-                    <span class="info-label">Fondation:</span>
-                    <span class="info-value">2014</span>
-                </div>
-                
-                <div class="info-row">
-                    <span class="info-label">Localisation:</span>
-                    <span class="info-value">Adélaïde, Australie</span>
-                </div>
-                
-                <div class="info-row">
-                    <span class="info-label">Taille:</span>
-                    <span class="info-value">Petite équipe indie (3-10 personnes)</span>
-                </div>
-                
-                <div class="info-row">
-                    <span class="info-label">Type:</span>
-                    <span class="info-value">Indépendant (Indie)</span>
-                </div>
-                
-                <div class="info-row">
-                    <span class="info-label">Édition:</span>
-                    <span class="info-value">Auto-édité (Kickstarter pour Hollow Knight)</span>
-                </div>
-
-                <div class="culture">
-                    <strong>Culture & Philosophie:</strong>
-                    <p class="culture-text">Passionnés par la création de mondes fous et excitants à explorer, inspirés par Zelda 2 et les game jams. Focus sur l'exploration, l'aventure et l'immersion du joueur dans des univers captivants.</p>
-                </div>
-            </div>
-
-            <!-- JEUX NOTABLES -->
-            <div class="card">
-                <h2>🎯 Jeux Notables</h2>
-                <ul class="jeux-list">
-                    <li>
-                        <strong>Hollow Knight</strong>
-                        <br><small>Metroidvania 2D acclamé par la critique - Succès mondial</small>
-                    </li>
-                    <li>
-                        <strong>Hollow Knight: Silksong</strong>
-                        <br><small>Suite très attendue (en développement/annoncé)</small>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- RECRUTEMENT -->
-            <div class="card">
-                <h2>💼 Recrutement</h2>
-                
-                <h3>Postes Actuels</h3>
-                <p><span class="status-badge status-ferme">❌ Aucun poste ouvert</span></p>
-                <p style="margin-top: 10px; color: #666; font-size: 0.95em;">Aucun poste indiqué dans les sources récentes. Studio très sélectif et de petite taille.</p>
-
-                <h3 style="margin-top: 25px;">Contacts</h3>
-                <div class="info-row">
-                    <span class="info-label">Email:</span>
-                    <span class="info-value">Non disponible</span>
-                </div>
-                <div class="info-row">
-                    <span class="info-label">Site carrières:</span>
-                    <span class="info-value">Non disponible</span>
-                </div>
-                <div class="info-row">
-                    <span class="info-label">LinkedIn:</span>
-                    <span class="info-value">Non disponible</span>
+            <!-- SECTION IDENTITÉ -->
+            <section>
+                <h2>Identité du Studio</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Localisation</h3>
+                        <p>Adélaïde, Australie</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Année de Fondation</h3>
+                        <p>2014</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Taille de l'Équipe</h3>
+                        <p>Très petite équipe (3-5 personnes)</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Type de Studio</h3>
+                        <p>Indépendant</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Édition</h3>
+                        <p>Auto-édité (Kickstarter pour Hollow Knight)</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Philosophie</h3>
+                        <p>"Ready when it's ready"</p>
+                    </div>
                 </div>
 
-                <div class="conseil">
-                    <strong>💡 Conseil:</strong> Mettre en avant un portfolio avec expérience en 2D indie, passion pour metroidvania/exploration, et références à Hollow Knight. Candidater via le site web si des postes s'ouvrent.
+                <div style="background: #f0f4ff; padding: 25px; border-radius: 10px; margin-top: 20px;">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">À Propos</h3>
+                    <p style="color: #555; line-height: 1.8;">Team Cherry est un studio indépendant australien passionné par la création de mondes fous et passionnants à explorer. Fondé en 2014, le studio a marqué l'industrie avec des jeux à faible tirage commercial mais forte identité artistique. Influencés par des classiques comme Zelda 2, les équipes produisent des expériences de jeu uniques et mémorables.</p>
                 </div>
-            </div>
+            </section>
 
-            <!-- LIENS UTILES -->
-            <div class="card">
-                <h2>🔗 Liens Utiles</h2>
-                <ul class="liens-utiles">
-                    <li>
-                        <strong>Site Web:</strong><br>
-                        <a href="https://www.teamcherry.com.au" target="_blank">https://www.teamcherry.com.au</a>
-                    </li>
-                    <li>
-                        <strong>Steam:</strong><br>
-                        <a href="https://store.steampowered.com/developer/teamcherry/" target="_blank">https://store.steampowered.com/developer/teamcherry/</a>
-                    </li>
-                </ul>
-            </div>
+            <!-- SECTION JEUX NOTABLES -->
+            <section>
+                <h2>Jeux Notables</h2>
+
+                <div class="jeu">
+                    <h3>Hollow Knight</h3>
+                    <p><strong>Type:</strong> Metroidvania 2D</p>
+                    <p><strong>Description:</strong> Un chef-d'œuvre du genre Metroidvania offrant une exploration profonde d'un monde souterrain fascinant. Le jeu combine une gameplay sophistiquée, un art direction exceptionnelle et une atmosphère mémorble.</p>
+                    <p><strong>Statut:</strong> Succès critique et commercial</p>
+                </div>
+
+                <div class="jeu">
+                    <h3>Hollow Knight: Silksong</h3>
+                    <p><strong>Type:</strong> Metroidvania 2D (Suite)</p>
+                    <p><strong>Description:</strong> Suite très attendue de Hollow Knight. Le jeu continue l'exploration du monde de Hallownest avec de nouveaux personnages, mécaniques et défis.</p>
+                    <p><strong>Statut:</strong> En développement (philosophie "ready when it's ready")</p>
+                </div>
+            </section>
+
+            <!-- SECTION RECRUTEMENT -->
+            <section>
+                <h2>Opportunités de Recrutement</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Postes Ouverts</h3>
+                        <p>Aucun poste visible actuellement</p>
+                        <div class="status ferme">Recrutement Fermé</div>
+                    </div>
+                    <div class="info-card">
+                        <h3>Email Recrutement</h3>
+                        <p>Non disponible</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Page Carrières</h3>
+                        <p>Non disponible</p>
+                    </div>
+                </div>
+
+                <div class="conseil-box">
+                    <strong>💡 Conseil:</strong> Bien que Team Cherry ne propose pas actuellement de postes ouverts, le studio reste intéressant pour les candidats passionnés. Nous recommandons de montrer votre intérêt via le site web officiel en cas d'opportunité future. Maintenez une présence discrète mais visible en suivant les annonces du studio.
+                </div>
+            </section>
+
+            <!-- SECTION LIENS UTILES -->
+            <section>
+                <h2>Liens Utiles</h2>
+                <div class="links-grid">
+                    <a href="https://www.teamcherry.com.au" class="link-item" target="_blank">Site Web Officiel</a>
+                </div>
+                <p style="color: #999; margin-top: 15px; font-size: 0.9em;">Note: Steam, LinkedIn et autres profils sociaux ne sont pas actuellement disponibles ou visibles publiquement.</p>
+            </section>
+
+            <!-- SECTION PAR MÉTIER -->
+            <section>
+                <h2>Analyse par Métier</h2>
+
+                <div class="metier">
+                    <h3>🎨 Game Designer</h3>
+                    <p><strong>Demande:</strong> Très élevée</p>
+                    <p>Team Cherry valorise les designers expérimentés dans le design exploratoire et les metroidvanias. Les co-directeurs Ari Gibson et William Pellen dirigent la conception globale des jeux.</p>
+                    <p><strong>Profil recherché:</strong> Expertise en level design non-linéaire, compréhension approfondie des mécaniques de jeu classiques (Zelda, Metroid), passion pour la conception d'environnements interconnectés.</p>
+                    <div class="niveau tres-eleve">Demande Très Élevée</div>
+                </div>
+
+                <div class="metier">
+                    <h3>💻 Programmeur</h3>
+                    <p><strong>Demande:</strong> Modérée</p>
+                    <p>Avec une très petite équipe, les besoins en programmation sont limités. Cependant, les programmeurs doivent être hautement compétents et capables de gérer un large éventail de tâches techniques.</p>
+                    <p><strong>Profil recherché:</strong> Expertise en C# (moteur utilisé), optimisation de performances, système de collision et physique 2D, architecture de code robuste et maintenable.</p>
+                    <div class="niveau modere">Demande Modérée</div>
+                </div>
+
+                <div class="metier">
+                    <h3>🖼️ Artiste 3D</h3>
+                    <p><strong>Demande:</strong> Très Faible</p>
+                    <p>Team Cherry se concentre exclusivement sur l'art 2D. Les artistes 3D n'ont pratiquement aucune chance de rejoindre ce studio à moins d'une réorientation majeure du style artistique.</p>
+                    <p><strong>Profil recherché:</strong> Non applicable - studio orienté 2D</p>
+                    <div class="niveau faible">Demande Très Faible</div>
+                </div>
+
+                <div class="metier">
+                    <h3>🎭 UI Artist</h3>
+                    <p><strong>Demande:</strong> Modérée</p>
+                    <p>L'interface utilisateur joue un rôle important dans les jeux Team Cherry. Des artists capables de créer des UIs élégantes et fonctionnelles en 2D seraient des atouts précieux.</p>
+                    <p><strong>Profil recherché:</strong> Expertise en design d'interface 2D, compréhension de l'UX/UI, capacité à créer des éléments visuels cohérents avec l'art direction globale, expérience avec les systèmes d'inventaire et de menus.</p>
+                    <div class="niveau modere">Demande Modérée</div>
+                </div>
+
+                <div class="metier">
+                    <h3>🎨 Concept Artist</h3>
+                    <p><strong>Demande:</strong> Très Élevée</p>
+                    <p>La conception artistique est au cœur de l'identité de Team Cherry. Ari Gibson gère personnellement l'art et l'animation 2D, mais le studio a besoin de talents créatifs pour développer la vision artistique globale.</p>
+                    <p><strong>Profil recherché:</strong> Maîtrise du dessin et de la conception visuelle, expertise en créations de mondes visuels, capacité à produire des concepts d'environnements 2D détaillés, portfolio montrant une forte identité artistique et compréhension de l'art direction pour les mondes de jeu.</p>
+                    <div class="niveau tres-eleve">Demande Très Élevée</div>
+                </div>
+            </section>
+
+            <!-- SECTION VERDICT -->
+            <section>
+                <div class="verdict">
+                    <h3>📊 Verdict: Difficulté de Recrutement</h3>
+                    
+                    <div class="difficulty-meter">
+                        <div class="difficulty-fill">Très Difficile (5/5)</div>
+                    </div>
+
+                    <p style="margin-top: 20px;"><strong>Analyse:</strong></p>
+                    <ul style="margin-left: 20px; color: #333; line-height: 1.8;">
+                        <li>🚫 Très petit studio indépendant (3-5 personnes)</li>
+                        <li>🚫 Historique de recrutement pratiquement inexistant</li>
+                        <li>🚫 Pas de postes ouverts actuellement visibles</li>
+                        <li>🚫 Pas de page carrières ni contacts de recrutement publiques</li>
+                        <li>✅ Studio respecté avec une forte culture interne</li>
+                        <li>✅ Demande élevée pour designers et concept artists exceptionnels</li>
+                    </ul>
+
+                    <p style="margin-top: 20px;"><strong>Recommandations:</strong></p>
+                    <ul style="margin-left: 20px; color: #333; line-height: 1.8;">
+                        <li>💼 Développer un portfolio exceptionnel focalisé sur le game design exploratoire et les environnements 2D</li>
+                        <li>💼 Créer des animations et des concepts d'environnements de style Metroidvania</li>
+                        <li>💼 Démontrer une passion authentique pour les jeux de type Zelda 2 et Metroid</li>
+                        <li>💼 Contacter le studio via le site web officiel uniquement si une opportunité claire se présente</li>
+                        <li>💼 Suivre les annonces du studio sur les réseaux sociaux (si disponibles)</li>
+                        <li>💼 Accepter que les chances d'acceptation sont très faibles même avec un excellent portfolio</li>
+                    </ul>
+
+                    <p style="margin-top: 20px; font-weight: bold; color: #c0392b;">⚠️ Conclusion:</p>
+                    <p>Team Cherry est un studio extrêmement difficile à rejoindre en raison de sa très petite taille et de son approche indépendante. Cependant, pour ceux qui réussissent à y entrer, c'est une opportunité unique de travailler sur des jeux d'exception avec une équipe de créatifs passionnés. La meilleure stratégie reste de construire un portfolio impressionnant et de rester visible dans la communauté des fans de game design exploratoire.</p>
+                </div>
+            </section>
         </div>
 
-        <!-- POSTES PAR MÉTIER -->
-        <h2 style="color: white; margin-bottom: 25px; font-size: 2.2em;">👥 Opportunités par Métier</h2>
-        
-        <div class="metiers-grid">
-            <!-- Game Designer -->
-            <div class="metier-card">
-                <h3>🎮 Game Designer</h3>
-                <p><strong>Statut:</strong> <span class="status-badge status-ferme">❌ Aucun poste ouvert</span></p>
-                
-                <div class="info-row">
-                    <span class="info-label">Actuellement:</span>
-                    <span class="info-value">Ari Gibson (co-directeur, responsable conception)</span>
-                </div>
-
-                <div class="difficulte">
-                    <strong>Difficulté d'accès:</strong><br>
-                    <div class="stars">★★★★★</div>
-                    <small>(5/5 - Studio très sélectif et réputé)</small>
-                </div>
-
-                <div class="conseil">
-                    <strong>💡 Pour postuler:</strong> Démontrer une expertise en conception de metroidvania, expérience avec la progression non-linéaire et l'exploration environnementale. Portfolio de game design avec jeux 2D indie est essentiel.
-                </div>
-            </div>
-
-            <!-- Programmeur -->
-            <div class="metier-card">
-                <h3>💻 Programmeur</h3>
-                <p><strong>Statut:</strong> <span class="status-badge status-ferme">❌ Aucun poste ouvert</span></p>
-                
-                <div class="info-row">
-                    <span class="info-label">Actuellement:</span>
-                    <span class="info-value">Équipe avec expérience indie</span>
-                </div>
-
-                <div class="difficulte">
-                    <strong>Difficulté d'accès:</strong><br>
-                    <div class="stars">★★★★★</div>
-                    <small>(5/5 - Équipe très compétente et stable)</small>
-                </div>
-
-                <div class="conseil">
-                    <strong>💡 Pour postuler:</strong> Montrer une expérience solide en développement indie 2D. Maîtrise de moteurs comme Unity ou GameMaker. Portfolio de projets personnels ou contrats indie est fortement recommandé.
-                </div>
-            </div>
-
-            <!-- Artiste 3D -->
-            <div class="metier-card">
-                <h3>🎨 Artiste 3D</h3>
-                <p><strong>Statut:</strong> <span class="status-badge status-ferme">❌ Non applicable</span></p>
-                
-                <div class="info-row">
-                    <span class="info-label">Actuellement:</span>
-                    <span class="info-value">Aucun (focus 2D hand-drawn)</span>
-                </div>
-
-                <p style="margin: 15px 0; padding: 12px; background: #fff3cd; border-radius: 5px; color: #856404; border-left: 4px solid #ff9800;">
-                    <strong>⚠️ Note:</strong> Team Cherry se concentre exclusivement sur l'art 2D dessiné à la main. Les postes en 3D ne sont pas pertinents pour ce studio.
-                </p>
-            </div>
-
-            <!-- UI Artist -->
-            <div class="metier-card">
-                <h3>🖼️ UI Artist</h3>
-                <p><strong>Statut:</strong> <span class="status-badge status-ferme">❌ Aucun poste ouvert</span></p>
-                
-                <div class="info-row">
-                    <span class="info-label">Besoin:</span>
-                    <span class="info-value">Oui (pour jeux 2D complexes)</span>
-                </div>
-
-                <div class="difficulte">
-                    <strong>Difficulté d'accès:</strong><br>
-                    <div class="stars">★★★★☆</div>
-                    <small>(4/5 - Besoin moins critique que game design)</small>
-                </div>
-
-                <div class="conseil">
-                    <strong>💡 Pour postuler:</strong> Portfolio montrant des interfaces UI/UX pour jeux 2D. Expérience avec des menus complexes et ergonomiques. Capacité à respecter un style artistique cohérent avec l'univers Hollow Knight-like.
-                </div>
-            </div>
-
-            <!-- Concept Artist -->
-            <div class="metier-card">
-                <h3>🎭 Concept Artist</h3>
-                <p><strong>Statut:</strong> <span class="status-badge status-ferme">❌ Aucun poste ouvert</span></p>
-                
-                <div class="info-row">
-                    <span class="info-label">Actuellement:</span>
-                    <span class="info-value">Ari Gibson (crée art et environnements)</span>
-                </div>
-
-                <div class="difficulte">
-                    <strong>Difficulté d'accès:</strong><br>
-                    <div class="stars">★★★★★</div>
-                    <small>(5/5 - Rôle crucial et actuellement pourvue)</small>
-                </div>
-
-                <div class="conseil">
-                    <strong>💡 Pour postuler:</strong> Démontrer un style artistique distinctive et mature. Portfolio riche en designs de mondes sombres, atmosphériques et exploratoires. Références à l'esthétique de jeux comme Hollow Knight, Metroid ou Castlevania.
-                </div>
-            </div>
-        </div>
-
-        <!-- VERDICT -->
-        <div class="verdict-card full-width">
-            <h2>📊 Verdict</h2>
-            
-            <div class="verdict-text">
-                <strong>Difficulté Globale d'Accès: 5/5 ⭐⭐⭐⭐⭐</strong>
-            </div>
-
-            <div class="verdict-text">
-                <strong>Résumé:</strong><br>
-                Team Cherry est un studio indie australien de très petite taille, reconnu mondialement pour la qualité exceptionnelle de Hollow Knight. Le studio est extrêmement sélectif et ne communique généralement pas sur ses recrutements. Aucun poste ne semble actuellement ouvert.
-            </div>
-
-            <div class="verdict-text">
-                <strong>Atouts du Studio:</strong>
-                <ul style="margin-left: 20px; margin-top: 10px;">
-                    <li>✓ Réputation mondiale exceptionnelle</li>
-                    <li>✓ Indépendance créative complète</li>
-                    <li>✓ Équipe passionnée et talentueuse</li>
-                    <li>✓ Focus sur l'excellence artistique et ludique</li>
-                    <li>✓ Culture indie authentique</li>
-                </ul>
-            </div>
-
-            <div class="verdict-text">
-                <strong>Défis pour les Candidats:</strong>
-                <ul style="margin-left: 20px; margin-top: 10px;">
-                    <li>✗ Pas de processus de recrutement public visible</li>
-                    <li>✗ Studio très fermé (seulement 3-10 personnes)</li>
-                    <li>✗ Aucun contact officiel pour candidatures</li>
-                    <li>✗ Standards de qualité extrêmement élevés</li>
-                    <li>✗ Équipe actuellement stable et complète</li>
-                </ul>
-            </div>
-
-            <div class="verdict-text" style="background: rgba(255, 255, 255, 0.15); padding: 15px; border-radius: 5px; margin-top: 20px;">
-                <strong>💼 Recommandation:</strong><br>
-                Pour maximiser vos chances, développez un portfolio exceptionnel en 2D indie, démontrez une passion particulière pour les metroidvanias et l'exploration, et maintenez une présence online visible (GitHub, ArtStation, itch.io). Suivez attentivement le site officiel de Team Cherry pour toute annonce de recrutement. Une approche directe discrète par le site web pourrait être tentée, mais les chances de succès restent très faibles sans une opportunité annoncée.
-            </div>
-
-            <div class="verdict-text" style="background: rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 5px; margin-top: 15px; border-left: 4px solid rgba(255, 255, 255, 0.5);">
-                <strong>🎯 Profil Idéal:</strong> Artiste 2D ou Game Designer avec 5+ ans d'expérience indie, portfolio montrant maîtrise du pixel art ou des animations 2D complexes, passion documentée pour Hollow Knight et les jeux d'exploration.
-            </div>
-        </div>
+        <footer>
+            <p>Fiche Studio - Team Cherry | Mise à jour 2024</p>
+            <p style="font-size: 0.85em; margin-top: 10px;">Cette fiche est à titre informatif. Les informations peuvent être sujettes à modification.</p>
+        </footer>
     </div>
 </body>
 </html>
