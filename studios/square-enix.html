@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Square Enix - Fiche Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #00a8ff 0%, #0081cf 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 168, 255, 0.3);
+        }
+        
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+        
+        .section {
+            background: white;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .section-header {
+            background: linear-gradient(135deg, #00a8ff 0%, #0081cf 100%);
+            color: white;
+            padding: 20px;
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+        
+        .section-content {
+            padding: 30px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .info-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid #00a8ff;
+            border-radius: 5px;
+        }
+        
+        .info-label {
+            font-weight: bold;
+            color: #0081cf;
+            font-size: 0.95em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        
+        .info-value {
+            color: #333;
+            font-size: 1.1em;
+        }
+        
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .game-card {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #00a8ff;
+            text-align: center;
+            font-weight: bold;
+            color: #0081cf;
+            transition: all 0.3s ease;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 168, 255, 0.3);
+            background: linear-gradient(135deg, #e8f4ff 0%, #d0e8ff 100%);
+        }
+        
+        .publishers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .publisher-card {
+            background: #f0f4ff;
+            padding: 12px;
+            border-radius: 8px;
+            border: 2px solid #00a8ff;
+            text-align: center;
+            font-weight: bold;
+            color: #0081cf;
+        }
+        
+        .recruitment-info {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .recruitment-info strong {
+            color: #856404;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .link-card {
+            background: #e8f4ff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #00a8ff;
+            text-align: center;
+        }
+        
+        .link-card a {
+            display: inline-block;
+            background: #00a8ff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .link-card a:hover {
+            background: #0081cf;
+            transform: scale(1.05);
+        }
+        
+        .link-card p {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .professions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .profession-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #00a8ff;
+        }
+        
+        .profession-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #0081cf;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .profession-status {
+            display: inline-block;
+            background: #28a745;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .profession-details {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.8;
+        }
+        
+        .verdict {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        .verdict-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .verdict-difficulty {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .difficulty-bar {
+            background: rgba(255, 255, 255, 0.3);
+            height: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        
+        .difficulty-fill {
+            background: #fff;
+            height: 100%;
+            width: 90%;
+            border-radius: 10px;
+        }
+        
+        .advice-section {
+            background: rgba(255, 255, 255, 0.95);
+            color: #333;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        
+        .advice-section strong {
+            color: #ee5a6f;
+        }
+        
+        .culture-box {
+            background: #e8f4ff;
+            border-left: 4px solid #00a8ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .culture-box strong {
+            color: #0081cf;
+        }
+        
+        footer {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            margin-top: 30px;
+            border-top: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .professions-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 SQUARE ENIX</h1>
+            <p>Géant du développement et de l'édition de jeux vidéo</p>
+        </header>
+        
+        <!-- IDENTITÉ -->
+        <div class="section">
+            <div class="section-header">📋 Identité du Studio</div>
+            <div class="section-content">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">Localisation</div>
+                        <div class="info-value">Tokyo, Japon</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Année de Fondation</div>
+                        <div class="info-value">2003</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Type d'Entreprise</div>
+                        <div class="info-value">Éditeur & Développeur</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Taille</div>
+                        <div class="info-value">Non spécifiée</div>
+                    </div>
+                </div>
+                
+                <div class="culture-box">
+                    <strong>Culture & Spécialité :</strong> Conglomérat spécialisé dans les jeux de rôle (RPG), englobant la création de jeux vidéo, manga, livres, anime et produits dérivés. Square Enix est reconnu mondialement pour son expertise exceptionnelle en matière de conception et de développement de RPG.
+                </div>
+            </div>
+        </div>
+        
+        <!-- JEUX NOTABLES -->
+        <div class="section">
+            <div class="section-header">🎯 Jeux Notables & Franchises</div>
+            <div class="section-content">
+                <div class="games-grid">
+                    <div class="game-card">Final Fantasy</div>
+                    <div class="game-card">Dragon Quest</div>
+                    <div class="game-card">Kingdom Hearts</div>
+                    <div class="game-card">NieR</div>
+                    <div class="game-card">Parasite Eve</div>
+                    <div class="game-card">Chrono Trigger</div>
+                    <div class="game-card">SaGa</div>
+                    <div class="game-card">Mystic Quest</div>
+                    <div class="game-card">Space Invaders</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- FILIALES & ÉDITEURS -->
+        <div class="section">
+            <div class="section-header">🏢 Filiales & Studios Édités</div>
+            <div class="section-content">
+                <p style="margin-bottom: 15px;">Square Enix contrôle et édite les studios suivants :</p>
+                <div class="publishers-grid">
+                    <div class="publisher-card">TAITO</div>
+                    <div class="publisher-card">IO Interactive</div>
+                    <div class="publisher-card">Crystal Dynamics</div>
+                    <div class="publisher-card">Eidos Montréal</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- RECRUTEMENT -->
+        <div class="section">
+            <div class="section-header">💼 Recrutement & Opportunités</div>
+            <div class="section-content">
+                <div class="recruitment-info">
+                    <strong>⚠️ Information :</strong> Les détails spécifiques concernant les postes ouverts actuels, l'adresse email de recrutement et le site carrières dédié ne sont pas disponibles. Nous recommandons de consulter régulièrement le site officiel.
+                </div>
+                
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">Postes Ouverts</div>
+                        <div class="info-value">Non spécifiée</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Email Recrutement</div>
+                        <div class="info-value">Non spécifiée</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Site Carrières</div>
+                        <div class="info-value">Non spécifiée</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Difficulté d'Accès</div>
+                        <div class="info-value">🔴 Élevée (5/5)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- LIENS UTILES -->
+        <div class="section">
+            <div class="section-header">🔗 Liens Utiles</div>
+            <div class="section-content">
+                <div class="links-grid">
+                    <div class="link-card">
+                        <p>Site Officiel</p>
+                        <a href="https://www.square-enix-games.com/" target="_blank">Visiter le site</a>
+                    </div>
+                    <div class="link-card">
+                        <p>Steam</p>
+                        <span style="color: #999;">Non spécifiée</span>
+                    </div>
+                    <div class="link-card">
+                        <p>LinkedIn</p>
+                        <span style="color: #999;">Non spécifiée</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- OPPORTUNITÉS PAR MÉTIER -->
+        <div class="section">
+            <div class="section-header">👥 Opportunités par Métier</div>
+            <div class="section-content">
+                <div class="professions-grid">
+                    <div class="profession-card">
+                        <div class="profession-title">
+                            🎮 Game Designer
+                            <span class="profession-status">DISPONIBLE</span>
+                        </div>
+                        <div class="profession-details">
+                            <strong>Disponibilité :</strong> Oui<br>
+                            <strong>Niveau d'Expertise :</strong> Expert en RPG<br><br>
+                            Square Enix recherche des game designers avec une expertise reconnue en conception de jeux de rôle. Connaissance approfondie des mécaniques de RPG et des franchises de l'entreprise essentielle.
+                        </div>
+                    </div>
+                    
+                    <div class="profession-card">
+                        <div class="profession-title">
+                            💻 Programmeur
+                            <span class="profession-status">DISPONIBLE</span>
+                        </div>
+                        <div class="profession-details">
+                            <strong>Disponibilité :</strong> Oui<br>
+                            <strong>Spécialité :</strong> Développement Interne<br><br>
+                            Le studio développe en interne la quasi-totalité de ses titres. Les programmeurs doivent maîtriser les technologies modernes et avoir une solide expérience en développement de jeux AAA.
+                        </div>
+                    </div>
+                    
+                    <div class="profession-card">
+                        <div class="profession-title">
+                            🎨 Artiste 3D
+                            <span class="profession-status">DISPONIBLE</span>
+                        </div>
+                        <div class="profession-details">
+                            <strong>Disponibilité :</strong> Oui<br>
+                            <strong>Structure :</strong> Équipes Intégrées<br><br>
+                            Les artistes 3D font partie d'équipes intégrées au sein de Square Enix. Expertise en modélisation, animation et texturing pour des jeux haut de gamme requise.
+                        </div>
+                    </div>
+                    
+                    <div class="profession-card">
+                        <div class="profession-title">
+                            🖼️ UI Artist
+                            <span class="profession-status">DISPONIBLE</span>
+                        </div>
+                        <div class="profession-details">
+                            <strong>Disponibilité :</strong> Oui<br>
+                            <strong>Production :</strong> Interne Complète<br><br>
+                            La production des interfaces utilisateur se fait entièrement en interne. Expertise en design d'UI, UX et connaissances des outils de conception modernes indispensables.
+                        </div>
+                    </div>
+                    
+                    <div class="profession-card">
+                        <div class="profession-title">
+                            ✏️ Concept Artist
+                            <span class="profession-status">DISPONIBLE</span>
+                        </div>
+                        <div class="profession-details">
+                            <strong>Disponibilité :</strong> Oui<br>
+                            <strong>Équipes :</strong> Scénaristes & Artistes<br><br>
+                            Square Enix emploie des équipes de scénaristes et concept artists. Portée créative importante pour la conception de mondes, personnages et narratives de qualité AAA.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- VERDICT -->
+        <div class="section">
+            <div class="verdict">
+                <div class="verdict-title">⚡ VERDICT FINAL</div>
+                
+                <div class="verdict-difficulty">
+                    Difficulté de Recrutement : 🔴 ÉLEVÉE (4.5/5)
+                    <div class="difficulty-bar">
+                        <div class="difficulty-fill"></div>
+                    </div>
+                </div>
+                
+                <p>Square Enix est un <strong>géant incontournable</strong> de l'industrie du jeu vidéo avec des standards extrêmement élevés. Le studio est très sélectif dans le recrutement et recherche des candidats disposant d'une expertise confirmée.</p>
+                
+                <div class="advice-section">
+                    <strong>📌 Conseils pour Candidater :</strong><br><br>
+                    ✓ Consulter régulièrement le site officiel de recrutement Square Enix pour les offres<br>
+                    ✓ Démontrer une expertise reconnue et spécialisée en développement/design de RPG<br>
+                    ✓ Montrer une connaissance approfondie des franchises phares (Final Fantasy, Dragon Quest, Kingdom Hearts, etc.)<br>
+                    ✓ Préparer un portfolio de haute qualité reflétant les standards AAA<br>
+                    ✓ Développer une compréhension des mécaniques et narratives de RPG modernes<br>
+                    ✓ Envisager une candidature par les canaux officiels plutôt que des approches spontanées<br>
+                    ✓ Maîtriser l'anglais et idéalement le japonais est un atout majeur<br><br>
+                    <strong>🎯 Profil Idéal :</strong> Professionnel confirmé (3+ ans d'expérience) avec un track record solide dans l'industrie AAA, passion vérifiable pour les RPG et les créations de Square Enix.
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Fiche informative Square Enix - Dernière mise à jour : 2024</p>
+            <p>Cette fiche est destinée à guider les candidats potentiels.</p>
+        </footer>
+    </div>
+</body>
+</html>
