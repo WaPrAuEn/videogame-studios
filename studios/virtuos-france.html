@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtuos France - Studio de Jeux Vidéo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(90deg, #0f3460 0%, #1a1a2e 100%);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 3px solid #e94560;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            color: #e94560;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        header p {
+            color: #b0b0b0;
+            font-size: 1.1em;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        section {
+            background: rgba(15, 52, 96, 0.4);
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px 0;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+        
+        section h2 {
+            color: #e94560;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e94560;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        section h3 {
+            color: #ffd700;
+            font-size: 1.3em;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .info-card {
+            background: rgba(233, 69, 96, 0.1);
+            border-left: 4px solid #e94560;
+            padding: 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .info-card:hover {
+            background: rgba(233, 69, 96, 0.2);
+            transform: translateX(5px);
+        }
+        
+        .info-card strong {
+            color: #ffd700;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .games-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .game-item {
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.2), rgba(255, 215, 0, 0.1));
+            border: 1px solid rgba(233, 69, 96, 0.5);
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .game-item:hover {
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.4), rgba(255, 215, 0, 0.2));
+            box-shadow: 0 5px 15px rgba(233, 69, 96, 0.3);
+        }
+        
+        .game-item strong {
+            color: #e94560;
+            display: block;
+            font-size: 1.1em;
+        }
+        
+        .job-category {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 5px solid #ffd700;
+        }
+        
+        .job-category h4 {
+            color: #ffd700;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .difficulty-bar {
+            background: rgba(100, 100, 100, 0.3);
+            border-radius: 5px;
+            height: 25px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        
+        .difficulty-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ffd700, #e94560);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a1a2e;
+            font-weight: bold;
+            font-size: 0.85em;
+        }
+        
+        .difficulty-low {
+            width: 30%;
+        }
+        
+        .difficulty-medium {
+            width: 50%;
+        }
+        
+        .difficulty-high {
+            width: 80%;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .link-card {
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.2), rgba(15, 52, 96, 0.5));
+            border: 1px solid rgba(233, 69, 96, 0.4);
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .link-card:hover {
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.4), rgba(15, 52, 96, 0.7));
+            box-shadow: 0 5px 15px rgba(233, 69, 96, 0.3);
+        }
+        
+        .link-card a {
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+            transition: color 0.3s ease;
+        }
+        
+        .link-card a:hover {
+            color: #e94560;
+        }
+        
+        .verdict {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(233, 69, 96, 0.1));
+            border: 2px solid #ffd700;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+        
+        .verdict h3 {
+            color: #ffd700;
+            margin-bottom: 15px;
+        }
+        
+        .verdict-points {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .verdict-points li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #e0e0e0;
+        }
+        
+        .verdict-points li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #e94560;
+            font-weight: bold;
+        }
+        
+        .conseil-box {
+            background: rgba(255, 215, 0, 0.1);
+            border-left: 4px solid #ffd700;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        
+        .conseil-box strong {
+            color: #ffd700;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 2px solid rgba(233, 69, 96, 0.3);
+            margin-top: 40px;
+            color: #b0b0b0;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: rgba(233, 69, 96, 0.3);
+            color: #e94560;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin: 5px 5px 5px 0;
+            border: 1px solid #e94560;
+        }
+        
+        .highlight {
+            color: #ffd700;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            section {
+                padding: 20px;
+            }
+            
+            .info-grid, .games-list, .links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Virtuos France</h1>
+        <p>Studio de Développement de Jeux Vidéo AAA</p>
+    </header>
+    
+    <div class="container">
+        <!-- Section Identité -->
+        <section>
+            <h2>Identité du Studio</h2>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <strong>📍 Localisation</strong>
+                    Montpellier & Lyon, France
+                </div>
+                <div class="info-card">
+                    <strong>📅 Fondation</strong>
+                    2004 (20 ans d'expertise)
+                </div>
+                <div class="info-card">
+                    <strong>👥 Taille</strong>
+                    65 employés (groupe: +3800)
+                </div>
+                <div class="info-card">
+                    <strong>🎮 Type</strong>
+                    Studio de Développement
+                </div>
+            </div>
+            
+            <h3>Spécialités</h3>
+            <div style="margin: 15px 0;">
+                <span class="badge">Développement AAA</span>
+                <span class="badge">Remakes</span>
+                <span class="badge">Co-développement</span>
+                <span class="badge">Innovation Moteur</span>
+                <span class="badge">R&D Technique</span>
+                <span class="badge">Graphismes Avancés</span>
+            </div>
+            
+            <h3>Partenaires Éditeurs</h3>
+            <div style="margin: 15px 0;">
+                <span class="badge">Ghost Story Games</span>
+                <span class="badge">Ubisoft</span>
+            </div>
+        </section>
+        
+        <!-- Section Jeux Notables -->
+        <section>
+            <h2>Jeux Notables</h2>
+            <p style="margin-bottom: 20px;">Portfolio de productions et co-développements majeurs du studio:</p>
+            
+            <div class="games-list">
+                <div class="game-item">
+                    <strong>Marvel's Avengers</strong>
+                    <small>Co-développement AAA</small>
+                </div>
+                <div class="game-item">
+                    <strong>Horizon: Zero Dawn</strong>
+                    <small>Co-développement AAA</small>
+                </div>
+                <div class="game-item">
+                    <strong>Assassin's Creed: The Ezio Collection</strong>
+                    <small>Remake Ubisoft</small>
+                </div>
+                <div class="game-item">
+                    <strong>Shadow of The Tomb Raider</strong>
+                    <small>Co-développement AAA</small>
+                </div>
+                <div class="game-item">
+                    <strong>JUDAS</strong>
+                    <small>Ghost Story Games</small>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section Recrutement -->
+        <section>
+            <h2>Recrutement & Candidature</h2>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <strong>📋 Postes Ouverts</strong>
+                    Non spécifié dans les données récentes
+                </div>
+                <div class="info-card">
+                    <strong>🌐 Site Carrières</strong>
+                    https://www.virtuosgames.com/careers/
+                </div>
+                <div class="info-card">
+                    <strong>📧 Email Recrutement</strong>
+                    Contacter via le site carrières
+                </div>
+            </div>
+            
+            <div class="conseil-box">
+                <strong>💡 Conseil de Candidature:</strong><br>
+                Mettez en avant votre expérience avec les moteurs propriétaires, votre background AAA et votre connaissance d'Ubisoft. Postulez via le site carrières avec un profil LinkedIn solide et détaillé.
+            </div>
+        </section>
+        
+        <!-- Section Par Métier -->
+        <section>
+            <h2>Opportunités par Métier</h2>
+            
+            <div class="job-category">
+                <h4>🎮 Game Designer</h4>
+                <p><strong>Demande:</strong> <span class="highlight">Moyen</span></p>
+                <p><strong>Focus:</strong> Ingénierie et technique</p>
+                <div class="difficulty-bar">
+                    <div class="difficulty-fill difficulty-medium">Moyen</div>
+                </div>
+                <p style="margin-top: 10px;"><strong>Note:</strong> Le studio privilégie les profils avec solide background technique. L'expérience AAA et la maîtrise des moteurs propriétaires sont appréciées.</p>
+            </div>
+            
+            <div class="job-category">
+                <h4>💻 Programmeur</h4>
+                <p><strong>Demande:</strong> <span class="highlight">Élevé</span></p>
+                <p><strong>Focus:</strong> Virtuos Labs dédié à l'innovation moteur et R&D</p>
+                <div class="difficulty-bar">
+                    <div class="difficulty-fill difficulty-high">Élevé</div>
+                </div>
+                <p style="margin-top: 10px;"><strong>Note:</strong> <span class="highlight">MEILLEURE OPPORTUNITÉ</span>. Le studio recherche activement des programmeurs pour l'innovation moteur. Idéal pour les profils expérimentés en C++, moteurs avancés et architecture système.</p>
+            </div>
+            
+            <div class="job-category">
+                <h4>🎨 Artiste 3D</h4>
+                <p><strong>Demande:</strong> <span class="highlight">Moyen</span></p>
+                <p><strong>Focus:</strong> Expertise en graphismes avancés</p>
+                <div class="difficulty-bar">
+                    <div class="difficulty-fill difficulty-medium">Moyen</div>
+                </div>
+                <p style="margin-top: 10px;"><strong>Note:</strong> Portfolio AAA requis avec démonstration d'expertise en modélisation haut-poly, texturing et éclairage. Connaissance des pipelines Ubisoft appréciée.</p>
+            </div>
+            
+            <div class="job-category">
+                <h4>🖼️ UI Artist</h4>
+                <p><strong>Demande:</strong> <span class="highlight">Faible</span></p>
+                <p><strong>Focus:</strong> Priorité technique</p>
+                <div class="difficulty-bar">
+                    <div class="difficulty-fill difficulty-low">Faible</div>
+                </div>
+                <p style="margin-top: 10px;"><strong>Note:</strong> Position moins prioritaire. Studio orienté vers l'ingénierie technique. Les UI Artists avec profil technique (code Lua/C++, scripting) auront plus de chances.</p>
+            </div>
+            
+            <div class="job-category">
+                <h4>🖌️ Concept Artist</h4>
+                <p><strong>Demande:</strong> <span class="highlight">Faible</span></p>
+                <p><strong>Focus:</strong> Production et ingénierie</p>
+                <div class="difficulty-bar">
+                    <div class="difficulty-fill difficulty-low">Faible</div>
+                </div>
+                <p style="margin-top: 10px;"><strong>Note:</strong> Position peu prioritaire. Studio davantage orienté vers la production et l'ingénierie. Les concept artists intéressés devraient montrer une compréhension technique du pipeline de production.</p>
+            </div>
+        </section>
+        
+        <!-- Section Liens Utiles -->
+        <section>
+            <h2>Liens Utiles</h2>
+            
+            <div class="links-grid">
+                <div class="link-card">
+                    <strong>🌐 Site Officiel</strong>
+                    <a href="https://www.virtuosgames.com" target="_blank">virtuosgames.com</a>
+                </div>
+                <div class="link-card">
+                    <strong>💼 Carrières</strong>
+                    <a href="https://www.virtuosgames.com/careers/" target="_blank">Offres d'emploi</a>
+                </div>
+                <div class="link-card">
+                    <strong>🔗 LinkedIn</strong>
+                    <a href="https://www.linkedin.com/company/virtuosgames-france/?originalSubdomain=fr" target="_blank">Virtuos France</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section Verdict -->
+        <section class="verdict">
+            <h2>Verdict & Recommandations</h2>
+            
+            <h3>Profil du Studio</h3>
+            <ul class="verdict-points">
+                <li><strong>Difficulté générale:</strong> <span class="highlight">Moyenne à Élevée</span> (expérience AAA requise, vivier talents Ubisoft)</li>
+                <li><strong>Taille:</strong> Studio de taille modérée (65 employés) mais avec ressources groupe considérables (3800+ au global)</li>
+                <li><strong>Spécialisation:</strong> Innovation technique, remakes, co-développement AAA haut-de-gamme</li>
+                <li><strong>Culture:</strong> Excellence dans le développement, ingénierie avancée, R&D moteur</li>
+                <li><strong>Compétences recherchées:</strong> Expertise moteurs propriétaires, background AAA solide, connaissance écosystème Ubisoft</li>
+            </ul>
+            
+            <h3 style="margin-top: 25px;">Recommandations par Profil</h3>
+            
+            <div style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 5px; margin: 15px 0;">
+                <strong style="color: #ffd700;">✓ FORTEMENT RECOMMANDÉ:</strong>
+                <ul class="verdict-points">
+                    <li><strong>Programmeurs:</strong> Avec expérience C++, moteurs avancés, rendering ou architecture système</li>
+                    <li><strong>Artistes 3D:</strong> Portfolio AAA conséquent, connaissance pipelines Ubisoft</li>
+                </ul>
+            </div>
+            
+            <div style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 5px; margin: 15px 0;">
+                <strong style="color: #ffd700;">△ MODÉRÉMENT RECOMMANDÉ:</strong>
+                <ul class="verdict-points">
+                    <li><strong>Game Designers:</strong> Avec fort profil technique et expérience AAA</li>
+                </ul>
+            </div>
+            
+            <div style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 5px; margin: 15px 0;">
+                <strong style="color: #ffd700;">✗ PEU RECOMMANDÉ:</strong>
+                <ul class="verdict-points">
+                    <li><strong>UI Artists et Concept Artists:</strong> Postes peu prioritaires, positionnement studio orienté technique</li>
+                </ul>
+            </div>
+            
+            <h3 style="margin-top: 25px;">Stratégie de Candidature</h3>
+            <div class="conseil-box">
+                <strong>1. Préparez un portfolio AAA solide</strong> - Démontrez votre expérience sur productions grandes budgets<br><br>
+                <strong>2. Mettez en avant les moteurs propriétaires</strong> - Soulignez votre expérience avec Unreal, propriétaires Ubisoft, etc.<br><br>
+                <strong>3. Optimisez votre LinkedIn</strong> - Profil détaillé, recommandations AAA, démonstration expertise technique<br><br>
+                <strong>4. Postulez via le site carrières</strong> - Seul canal officiel fourni, y inclure lettre motivation personnalisée<br><br>
+                <strong>5. Réseau Ubisoft</strong> - Si vous avez contacts dans l'écosystème Ubisoft, c'est un plus majeur
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 - Fiche Virtuos France | <strong>Studio basé à Montpellier & Lyon, France</strong></p>
+        <p style="margin-top: 10px; font-size: 0.9em;">Données actualisées - Pour candidature: <strong>virtuosgames.com/careers</strong></p>
+    </footer>
+</body>
+</html>
