@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Black Flag - Fiche Complète</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        section {
+            background: white;
+            margin-bottom: 25px;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            color: #0f3460;
+            border-bottom: 3px solid #e94560;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        
+        h3 {
+            color: #16213e;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.4em;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .info-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid #e94560;
+            border-radius: 4px;
+        }
+        
+        .info-label {
+            font-weight: bold;
+            color: #0f3460;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .info-value {
+            color: #333;
+            font-size: 1.1em;
+        }
+        
+        .links-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        
+        a {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #e94560 0%, #d63447 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
+        }
+        
+        a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(233, 69, 96, 0.4);
+        }
+        
+        .job-card {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            border-left: 5px solid #0f3460;
+        }
+        
+        .job-title {
+            font-weight: bold;
+            color: #0f3460;
+            font-size: 1.2em;
+            margin-bottom: 8px;
+        }
+        
+        .difficulty {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        .difficulty.tres-facile {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .difficulty.facile {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+        
+        .difficulty.moyen {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .difficulty.difficile {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .difficulty.tres-difficile {
+            background: #d32f2f;
+            color: white;
+        }
+        
+        .verdict {
+            background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .verdict h2 {
+            border-bottom-color: #e94560;
+            color: white;
+        }
+        
+        .rating {
+            font-size: 3em;
+            margin: 20px 0;
+            color: #e94560;
+            font-weight: bold;
+        }
+        
+        .conseil-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .conseil-box strong {
+            color: #0d47a1;
+        }
+        
+        .games-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .game-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 6px;
+            border-top: 4px solid #e94560;
+            text-align: center;
+        }
+        
+        .game-item h3 {
+            margin-top: 0;
+        }
+        
+        .game-item p {
+            color: #666;
+            font-size: 0.95em;
+            margin: 10px 0;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #e94560 0%, #d63447 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 6px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        footer {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            margin-top: 30px;
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .games-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .rating {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏴 Studio Black Flag</h1>
+            <p>Studio Indépendant de Développement de Jeux Vidéo</p>
+        </header>
+        
+        <!-- Section Identité -->
+        <section>
+            <h2>Identité du Studio</h2>
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-label">Année de Fondation</div>
+                    <div class="stat-number">2013</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Nombre de Personnes</div>
+                    <div class="stat-number">3</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Type</div>
+                    <div class="stat-number">Coopérative</div>
+                </div>
+            </div>
+            
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-label">Localisation</span>
+                    <span class="info-value">📍 Bordeaux, France</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Statut</span>
+                    <span class="info-value">Studio Indépendant / Coopérative Créative</span>
+                </div>
+            </div>
+            
+            <h3>À Propos</h3>
+            <p>Jeune studio indépendant de développement de jeux vidéo, Studio Black Flag est une coopérative créative fondée en 2013. Avec une équipe réduite mais motivée de 3 personnes, le studio se concentre sur la création d'expériences de jeu originales et innovantes. La structure coopérative valorise la collaboration créative et l'autonomie dans le processus de développement.</p>
+        </section>
+        
+        <!-- Section Jeux Notables -->
+        <section>
+            <h2>Jeux Notables</h2>
+            <div class="games-list">
+                <div class="game-item">
+                    <h3>Yrminsul</h3>
+                    <p>Le jeu phare du studio Black Flag, témoignant de leur engagement envers l'innovation et la création originale.</p>
+                    <a href="https://store.steampowered.com/app/412490/Yrminsul/">Voir sur Steam</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section Recrutement -->
+        <section>
+            <h2>Recrutement</h2>
+            <div class="job-card">
+                <div class="job-title">Offres d'Emploi Actuelles</div>
+                <p>Aucune offre d'emploi ou de stage n'est actuellement disponible chez Studio Black Flag.</p>
+                <p style="margin-top: 15px; color: #666; font-size: 0.95em;">Recommandation : Consultez régulièrement le formulaire de contact ou les réseaux sociaux pour connaître les futures opportunités.</p>
+                <span class="difficulty tres-difficile">Accès : Très Difficile</span>
+            </div>
+            
+            <div class="conseil-box">
+                <strong>📌 Conseil de Candidature :</strong>
+                <p style="margin-top: 10px;">Utilisez le formulaire de contact sur leur site pour proposer votre candidature. Mettez en avant votre portfolio créatif et votre expérience dans les projets indépendants. Mentionnez Yrminsul et montrez votre passion pour la création de jeux innovants adaptés aux structures réduites.</p>
+            </div>
+        </section>
+        
+        <!-- Section Par Métier -->
+        <section>
+            <h2>Analyse par Métier</h2>
+            
+            <h3>🎮 Game Designer</h3>
+            <div class="job-card">
+                <p>Niveau de demande : <strong>Modéré</strong></p>
+                <p style="margin-top: 10px;">Studio indépendant axé sur la création originale comme Yrminsul. Les game designers passionnés par l'indie et l'innovation trouvent du potentiel ici.</p>
+                <span class="difficulty moyen">Difficulté : Modérée</span>
+            </div>
+            
+            <h3>💻 Programmeur</h3>
+            <div class="job-card">
+                <p>Niveau de demande : <strong>Modéré</strong></p>
+                <p style="margin-top: 10px;">Focus sur développement de jeux pour diverses plateformes. Les développeurs avec expérience en indie et polyvalence sont recherchés.</p>
+                <span class="difficulty moyen">Difficulté : Modérée</span>
+            </div>
+            
+            <h3>🎨 Artiste 3D</h3>
+            <div class="job-card">
+                <p>Niveau de demande : <strong>Modéré</strong></p>
+                <p style="margin-top: 10px;">Équipe réduite offrant des opportunités en indie. Les artistes 3D multicompétents capables de gérer divers aspects artistiques sont les bienvenus.</p>
+                <span class="difficulty moyen">Difficulté : Modérée</span>
+            </div>
+            
+            <h3>🖼️ UI Artist</h3>
+            <div class="job-card">
+                <p>Niveau de demande : <strong>Faible</strong></p>
+                <p style="margin-top: 10px;">Pas d'offres actuelles. L'équipe très petite limite les opportunités spécialisées en UI/UX. Attendre une croissance du studio ou proposer une candidature polyvalente.</p>
+                <span class="difficulty difficile">Difficulté : Difficile</span>
+            </div>
+            
+            <h3>🖌️ Concept Artist</h3>
+            <div class="job-card">
+                <p>Niveau de demande : <strong>Modéré</strong></p>
+                <p style="margin-top: 10px;">Coopérative créative valorisant l'innovation. Les concept artists avec une vision originale et capable de travailler en petit groupe peuvent trouver leur place.</p>
+                <span class="difficulty moyen">Difficulté : Modérée</span>
+            </div>
+        </section>
+        
+        <!-- Section Liens Utiles -->
+        <section>
+            <h2>Liens Utiles</h2>
+            <div class="links-group">
+                <a href="https://studioblackflag.com" target="_blank">🌐 Site Web Officiel</a>
+                <a href="https://studioblackflag.com/contact/" target="_blank">📧 Formulaire de Contact</a>
+                <a href="https://store.steampowered.com/app/412490/Yrminsul/" target="_blank">🎮 Yrminsul sur Steam</a>
+                <a href="https://www.linkedin.com/company/studio-blackflag/?originalSubdomain=fr" target="_blank">💼 LinkedIn du Studio</a>
+            </div>
+        </section>
+        
+        <!-- Section Verdict -->
+        <section class="verdict">
+            <h2>Verdict Final</h2>
+            <p style="font-size: 1.1em; margin: 15px 0;">Difficulté d'Accès Globale</p>
+            <div class="rating">4/5 ⭐</div>
+            
+            <div style="background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 6px; margin: 20px 0; text-align: left;">
+                <h3 style="color: white; margin-top: 0;">Analyse Détaillée</h3>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li><strong>Très petite équipe (3 personnes) :</strong> Limite les offres et les postes disponibles</li>
+                    <li><strong>Aucune offre actuellement :</strong> Nécessite une candidature proactive via le formulaire</li>
+                    <li><strong>Structure coopérative :</strong> Préfère les candidats autonomes et polyvalents</li>
+                    <li><strong>Focus indie :</strong> Valorise l'expérience en petits projets et l'innovation</li>
+                    <li><strong>Secteur compétitif :</strong> Les studios indépendants attirent de nombreux candidats</li>
+                </ul>
+            </div>
+            
+            <h3 style="color: white;">Recommandations Finales</h3>
+            <p style="text-align: left; margin-left: 20px;">
+                ✅ Contactez le studio directement via leur formulaire de contact<br>
+                ✅ Présentez un portfolio créatif et des projets indie réussis<br>
+                ✅ Montrez votre enthousiasme pour la création originale<br>
+                ✅ Mentionnez votre connaissance de Yrminsul<br>
+                ✅ Démontrez votre capacité à travailler en petite équipe<br>
+                ✅ Soyez patient et persistant - les opportunités peuvent émerger<br>
+            </p>
+        </section>
+        
+        <footer>
+            <p>Fiche Informative - Studio Black Flag | Mise à jour 2024 | Données à titre informatif</p>
+        </footer>
+    </div>
+</body>
+</html>
