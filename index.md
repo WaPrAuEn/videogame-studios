@@ -57,6 +57,7 @@
 - [Nintendo Co., Ltd.](studios/nintendo-co.,-ltd..html) — Kyoto, Japon
 - [Nintendo France](studios/nintendo-france.html) — Courbevoie, France
 - [nWave Studios](studios/nwave-studios.html) — Bruxelles, Belgique
+- [Ocellus Studio](studios/ocellus-studio.html) — Lyon, France
 - [Omega Force](studios/omega-force.html) — Ashikaga, Japon
 - [Plane Toast](studios/plane-toast.html) — Montpellier, France
 - [Playtouch](studios/playtouch.html) — Port Louis, Île Maurice
