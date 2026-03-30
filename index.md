@@ -35,6 +35,7 @@
 - [Illogic Studios](studios/illogic-studios.html) — Montpellier, France
 - [Illumination Studios Paris (anciennement Illumination Mac Guff)](studios/illumination-studios-paris-(anciennement-illumination-mac-guff).html) — Paris, France
 - [Inti Creates](studios/inti-creates.html) — Ichikawa (Chiba) et Nagoya, Japon
+- [Ishtar Games](studios/ishtar-games.html) — Lille/Bordeaux, France
 - [istargames](studios/istargames.html) — 
 - [Kojima Productions](studios/kojima-productions.html) — Tokyo, Japon
 - [Ludogram](studios/ludogram.html) — Lille, France
