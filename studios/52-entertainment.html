@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>52 Entertainment - Fiche Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .identity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .identity-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .identity-card strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+            text-transform: uppercase;
+        }
+
+        .identity-card p {
+            color: #555;
+            font-size: 1.1em;
+        }
+
+        .games-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px;
+        }
+
+        .game-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .game-badge:hover {
+            transform: translateY(-5px);
+        }
+
+        .recruitment-info {
+            background: #f0f4ff;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            margin-bottom: 20px;
+        }
+
+        .recruitment-info p {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .recruitment-info strong {
+            color: #667eea;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .link-button {
+            display: inline-block;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .link-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .link-button.inactive {
+            background: #ccc;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .professions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .profession-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            overflow: hidden;
+            border-left: 4px solid #667eea;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .profession-card:hover {
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .profession-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+
+        .profession-content {
+            padding: 15px;
+        }
+
+        .demand-level {
+            margin: 10px 0;
+            font-weight: 600;
+        }
+
+        .demand-high {
+            color: #28a745;
+        }
+
+        .demand-medium {
+            color: #ffc107;
+        }
+
+        .demand-low {
+            color: #dc3545;
+        }
+
+        .profession-content p {
+            color: #666;
+            font-size: 0.95em;
+            margin: 8px 0;
+        }
+
+        .verdict {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .verdict h2 {
+            color: white;
+            border-bottom-color: white;
+            margin-bottom: 20px;
+        }
+
+        .verdict p {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .difficulty-gauge {
+            margin: 20px 0;
+        }
+
+        .gauge-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .gauge-bar {
+            width: 100%;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .gauge-fill {
+            height: 100%;
+            width: 60%;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+        }
+
+        .culture-list {
+            list-style: none;
+            margin: 15px 0;
+        }
+
+        .culture-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .culture-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .footer-note {
+            text-align: center;
+            color: #999;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .identity-grid, .games-list, .links-grid, .professions {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>52 Entertainment</h1>
+            <p>Studio de jeux vidéo à Paris, France</p>
+        </div>
+
+        <div class="content">
+            <!-- IDENTITÉ -->
+            <section class="section">
+                <h2>Identité</h2>
+                <div class="identity-grid">
+                    <div class="identity-card">
+                        <strong>Localisation</strong>
+                        <p>Paris, France</p>
+                    </div>
+                    <div class="identity-card">
+                        <strong>Année de Fondation</strong>
+                        <p>2018</p>
+                    </div>
+                    <div class="identity-card">
+                        <strong>Taille de l'équipe</strong>
+                        <p>73 collaborateurs</p>
+                    </div>
+                    <div class="identity-card">
+                        <strong>Type de Studio</strong>
+                        <p>Éditeur</p>
+                    </div>
+                    <div class="identity-card">
+                        <strong>Éditeurs</strong>
+                        <p>HLD</p>
+                    </div>
+                </div>
+
+                <div class="recruitment-info">
+                    <strong>Culture d'Entreprise</strong>
+                    <ul class="culture-list">
+                        <li>Centrée sur les personnes</li>
+                        <li>Innovation et créativité</li>
+                        <li>Spécialisation en jeux evergreen</li>
+                        <li>Communautés passionnées</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- JEUX NOTABLES -->
+            <section class="section">
+                <h2>Jeux Notables</h2>
+                <div class="games-list">
+                    <div class="game-badge">Funbridge</div>
+                    <div class="game-badge">BBO</div>
+                    <div class="game-badge">Virtual Regatta</div>
+                    <div class="game-badge">Belote</div>
+                    <div class="game-badge">Canasta</div>
+                    <div class="game-badge">Tarot</div>
+                    <div class="game-badge">Dominos</div>
+                    <div class="game-badge">Casualino</div>
+                    <div class="game-badge">Loop Games</div>
+                </div>
+            </section>
+
+            <!-- RECRUTEMENT -->
+            <section class="section">
+                <h2>Recrutement</h2>
+                <div class="recruitment-info">
+                    <p><strong>Statut actuel:</strong> Aucune offre d'emploi ou de stage actuellement disponible</p>
+                    <p><strong>Email de recrutement:</strong> Non disponible</p>
+                    <p><strong>Conseil pratique:</strong> Mettez en avant votre expérience dans les jeux casual, mobile et de stratégie. Consultez régulièrement le site carrières et n'hésitez pas à contacter directement Lea Sonnic sur LinkedIn.</p>
+                </div>
+            </section>
+
+            <!-- LIENS UTILES -->
+            <section class="section">
+                <h2>Liens Utiles</h2>
+                <div class="links-grid">
+                    <a href="https://52-entertainment.com/fr/" class="link-button" target="_blank">🌐 Site Web</a>
+                    <a href="https://52-entertainment.com/fr/careers/" class="link-button" target="_blank">💼 Site Carrières</a>
+                    <a href="https://www.linkedin.com/company/52-entertainment/" class="link-button" target="_blank">💼 LinkedIn</a>
+                    <div class="link-button inactive">🎮 Steam - N/A</div>
+                </div>
+            </section>
+
+            <!-- PAR MÉTIER -->
+            <section class="section">
+                <h2>Opportunités par Métier</h2>
+                <div class="professions">
+                    <div class="profession-card">
+                        <div class="profession-header">Game Designer</div>
+                        <div class="profession-content">
+                            <div class="demand-level demand-medium">Demande: Moyen</div>
+                            <p><strong>Focus:</strong> Jeux casual mobile à 52 Paris</p>
+                            <p>Les Game Designers sont recherchés pour contribuer au développement de jeux casual mobiles innovants et engageants. Mettez en avant votre expérience avec ce type de titre.</p>
+                        </div>
+                    </div>
+
+                    <div class="profession-card">
+                        <div class="profession-header">Programmeur</div>
+                        <div class="profession-content">
+                            <div class="demand-level demand-high">Demande: Élevée</div>
+                            <p><strong>Spécialité:</strong> Développement jeux en ligne et mobile</p>
+                            <p>Le studio recrute activement des programmeurs pour ses projets de jeux en ligne et mobiles. C'est un excellent point d'entrée pour rejoindre 52 Entertainment.</p>
+                        </div>
+                    </div>
+
+                    <div class="profession-card">
+                        <div class="profession-header">Artiste 3D</div>
+                        <div class="profession-content">
+                            <div class="demand-level demand-low">Demande: Faible</div>
+                            <p><strong>Note:</strong> Jeux 2D/stratégie principalement</p>
+                            <p>Peu d'opportunités pour les Artistes 3D car 52 Entertainment se concentre principalement sur les jeux 2D et de stratégie. Postulez si vous avez une expérience notable en 2D.</p>
+                        </div>
+                    </div>
+
+                    <div class="profession-card">
+                        <div class="profession-header">UI Artist</div>
+                        <div class="profession-content">
+                            <div class="demand-level demand-medium">Demande: Moyen</div>
+                            <p><strong>Spécialité:</strong> Interfaces jeux casual</p>
+                            <p>Les UI Artists sont recherchés pour concevoir des interfaces attrayantes et intuitives pour les jeux casual du studio. L'expérience mobile/casual est un plus.</p>
+                        </div>
+                    </div>
+
+                    <div class="profession-card">
+                        <div class="profession-header">Concept Artist</div>
+                        <div class="profession-content">
+                            <div class="demand-level demand-medium">Demande: Moyen</div>
+                            <p><strong>Focus:</strong> Nouveaux jeux casual à 52 Paris</p>
+                            <p>Les Concept Artists sont impliqués dans la création visuelle de nouveaux jeux casual. Montrez votre créativité et votre expérience en jeux mobiles/casual.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VERDICT -->
+            <section class="section">
+                <div class="verdict">
+                    <h2>Verdict & Conseils</h2>
+                    <p><strong>Difficulté d'intégration:</strong> Moyenne (3/5)</p>
+                    <div class="difficulty-gauge">
+                        <div class="gauge-label">
+                            <span>Facile</span>
+                            <span>Difficile</span>
+                        </div>
+                        <div class="gauge-bar">
+                            <div class="gauge-fill"></div>
+                        </div>
+                    </div>
+
+                    <p><strong>Profils Recherchés Prioritairement:</strong></p>
+                    <ul class="culture-list">
+                        <li>Programmeurs avec expérience jeux en ligne/mobile</li>
+                        <li>Game Designers spécialisés en casual mobile</li>
+                        <li>UI Artists et Concept Artists pour jeux casual</li>
+                    </ul>
+
+                    <p><strong>Conseils pour Candidater:</strong></p>
+                    <ul class="culture-list">
+                        <li>Mettez fortement en avant votre expérience en jeux casual, mobile et de stratégie</li>
+                        <li>Postulez directement via le site carrières: https://52-entertainment.com/fr/careers/</li>
+                        <li>Contactez Lea Sonnic sur LinkedIn pour des informations supplémentaires</li>
+                        <li>Montrez votre passion pour les communautés de jeux et les jeux evergreen</li>
+                        <li>Démontrez votre créativité et votre approche centrée sur l'utilisateur</li>
+                    </ul>
+
+                    <p><strong>Points Positifs:</strong> Studio établi depuis 2018 avec des titres reconnus, équipe de 73 collaborateurs, focus clair sur l'innovation casual/mobile, culture d'entreprise positive.</p>
+                </div>
+            </section>
+
+            <div class="footer-note">
+                <p>Fiche d'information mise à jour pour 52 Entertainment. Les informations peuvent être actualisées régulièrement.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
