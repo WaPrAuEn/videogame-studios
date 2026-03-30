@@ -61,6 +61,7 @@
 - [Square Enix](studios/square-enix.html) — Tokyo, Japon
 - [Studio Black Flag](studios/studio-black-flag.html) — Bordeaux, France
 - [Studio Wildcard](studios/studio-wildcard.html) — Redmond, États-Unis
+- [TapNation](studios/tapnation.html) — Paris, France
 - [Team Cherry](studios/team-cherry.html) — Adélaïde, Australie
 - [The Yard VFX](studios/the-yard-vfx.html) — Montpellier, France
 - [Tronatic Studio](studios/tronatic-studio.html) — Saint Avertin (Tours), France
