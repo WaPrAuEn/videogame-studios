@@ -114,6 +114,7 @@
 - [TapNation](studios/tapnation.html) — Paris, France
 - [Tarsier Studios](studios/tarsier-studios.html) — Malmö, Suède
 - [Team Cherry](studios/team-cherry.html) — Adélaïde, Australie
+- [The Game Bakers](studios/the-game-bakers.html) — Montpellier, France
 - [The Wall Productions](studios/the-wall-productions.html) — Inconnu, Inconnu
 - [The Yard VFX](studios/the-yard-vfx.html) — Montpellier, France
 - [Tin Can Studio](studios/tin-can-studio.html) — Lyon, France
