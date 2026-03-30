@@ -65,6 +65,7 @@
 - [Mangoo Games (Green Panda Games)](studios/mangoo-games-(green-panda-games).html) — Paris, France
 - [Manufacture 43](studios/manufacture-43.html) — Bordeaux, France
 - [Midgar Studio](studios/midgar-studio.html) — Montpellier, France
+- [Might and Delight](studios/might-and-delight.html) — Stockholm, Suède
 - [Miju Games](studios/miju-games.html) — Toulouse, France
 - [Mikros Animation](studios/mikros-animation.html) — Paris, France
 - [Misty Whale](studios/misty-whale.html) — Non spécifiée, Non spécifié
