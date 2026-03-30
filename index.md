@@ -117,3 +117,4 @@
 - [Virtuos France](studios/virtuos-france.html) — Montpellier & Lyon, France
 - [World Game](studios/world-game.html) — Paris, France
 - [Xeno Bits](studios/xeno-bits.html) — Bordeaux, France
+- [XR 360 Studios](studios/xr-360-studios.html) — Non spécifié, France
