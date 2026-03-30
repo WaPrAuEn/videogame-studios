@@ -42,6 +42,7 @@
 - [Evil Empire](studios/evil-empire.html) — Lyon, France
 - [Fortiche Production](studios/fortiche-production.html) — Paris, France
 - [Game Freak, Inc.](studios/game-freak,-inc..html) — Tokyo, Japon
+- [Gaminho](studios/gaminho.html) — Paris, France
 - [GFactory](studios/gfactory.html) — Lyon, France
 - [Glitchr Studio](studios/glitchr-studio.html) — Bordeaux, France
 - [Guerrilla Games](studios/guerrilla-games.html) — Amsterdam, Pays-Bas
