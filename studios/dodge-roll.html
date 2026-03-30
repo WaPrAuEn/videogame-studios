@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dodge Roll Games - Fiche Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            padding: 40px 20px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(255, 107, 107, 0.3);
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        header p {
+            font-size: 1.2em;
+            color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            border-radius: 10px;
+            padding: 25px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #ff6b6b;
+            box-shadow: 0 12px 40px rgba(255, 107, 107, 0.2);
+        }
+        
+        .card h2 {
+            color: #ff6b6b;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            border-bottom: 2px solid #ff6b6b;
+            padding-bottom: 10px;
+        }
+        
+        .card h3 {
+            color: #ffb3b3;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 107, 107, 0.1);
+        }
+        
+        .info-item:last-child {
+            border-bottom: none;
+        }
+        
+        .label {
+            font-weight: 600;
+            color: #ff6b6b;
+        }
+        
+        .value {
+            color: #b0b0b0;
+        }
+        
+        .full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .section h2 {
+            color: #ff6b6b;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 2px solid #ff6b6b;
+            padding-bottom: 10px;
+        }
+        
+        .section h3 {
+            color: #ffb3b3;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .job-card {
+            background: rgba(255, 107, 107, 0.1);
+            border-left: 4px solid #ff6b6b;
+            padding: 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .job-card:hover {
+            background: rgba(255, 107, 107, 0.15);
+            transform: translateX(5px);
+        }
+        
+        .job-card h4 {
+            color: #ff6b6b;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .job-card ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .job-card li {
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .job-card li:before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            color: #ff6b6b;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .link-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        .link-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
+        }
+        
+        .verdict {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(238, 90, 111, 0.1) 100%);
+            border-left: 5px solid #ff6b6b;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        .verdict h2 {
+            color: #ff6b6b;
+            margin-bottom: 15px;
+        }
+        
+        .verdict-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .verdict-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 3px solid #ffb3b3;
+        }
+        
+        .verdict-item strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .difficulty-bar {
+            width: 100%;
+            height: 25px;
+            background: rgba(255, 107, 107, 0.2);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        
+        .difficulty-fill {
+            height: 100%;
+            width: 60%;
+            background: linear-gradient(90deg, #ff6b6b, #ee5a6f);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: rgba(255, 107, 107, 0.2);
+            color: #ffb3b3;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin: 5px 5px 5px 0;
+            border: 1px solid rgba(255, 107, 107, 0.4);
+        }
+        
+        .check {
+            color: #4ade80;
+            font-weight: bold;
+        }
+        
+        .cross {
+            color: #ef4444;
+            font-weight: bold;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #808080;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 107, 107, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 DODGE ROLL GAMES</h1>
+            <p>Studio de jeux vidéo indépendant - Spécialiste du Roguelike &amp; Twin-Stick Shooter</p>
+        </header>
+        
+        <div class="grid-container">
+            <div class="card">
+                <h2>📍 Identité du Studio</h2>
+                <div class="info-item">
+                    <span class="label">Localisation:</span>
+                    <span class="value">Fairfax, USA</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Type:</span>
+                    <span class="value">Studio Indépendant</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Taille:</span>
+                    <span class="value">Petite équipe</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Plateformes:</span>
+                    <span class="value">PC, Console</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Éditeur:</span>
+                    <span class="value">Devolver Digital</span>
+                </div>
+                <h3>Spécialités</h3>
+                <div style="margin-top: 10px;">
+                    <span class="tag">Dodge Roll Mechanics</span>
+                    <span class="tag">Roguelike</span>
+                    <span class="tag">Twin-Stick Shooter</span>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>🎯 Jeux Notables</h2>
+                <h3>Enter the Gungeon</h3>
+                <p style="color: #b0b0b0; margin-bottom: 15px;">Le jeu emblématique du studio - Un roguelike twin-stick shooter ultra addictif avec un système de dodge roll mécanique au cœur du gameplay.</p>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <span class="tag">Roguelike</span>
+                    <span class="tag">Shooter</span>
+                    <span class="tag">2D</span>
+                    <span class="tag">Indie Hit</span>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>🎓 Profil Studio</h2>
+                <div class="info-item">
+                    <span class="label">Expérience:</span>
+                    <span class="value">Studio Expérimenté</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Difficulté de recrutement:</span>
+                    <span class="value">Moyenne (3/5)</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Compétitivité:</span>
+                    <span class="value">Compétitif</span>
+                </div>
+                <h3>Points Forts</h3>
+                <ul style="margin-left: 20px; color: #b0b0b0;">
+                    <li>Créateurs de jeux de qualité reconnue</li>
+                    <li>Spécialistes du genre roguelike</li>
+                    <li>Soutien de Devolver Digital</li>
+                </ul>
+            </div>
+        </div>
+        
+        <section class="section">
+            <h2>💼 Opportunités de Recrutement</h2>
+            <p style="color: #b0b0b0; margin-bottom: 20px;">Dodge Roll Games recrute régulièrement pour renforcer son équipe créative. Les positions ouvertes peuvent varier selon les phases de développement.</p>
+            
+            <div class="jobs-grid">
+                <div class="job-card">
+                    <h4>Game Designer</h4>
+                    <ul>
+                        <li>Design de mécaniques roguelike</li>
+                        <li>Équilibrage du gameplay</li>
+                        <li>Conception de contenu</li>
+                        <li>Itération créative</li>
+                    </ul>
+                </div>
+                
+                <div class="job-card">
+                    <h4>Programmeur</h4>
+                    <ul>
+                        <li>Architecture de jeu</li>
+                        <li>Systèmes roguelike</li>
+                        <li>Optimisation</li>
+                        <li>Multi-plateforme</li>
+                    </ul>
+                </div>
+                
+                <div class="job-card">
+                    <h4>Artiste 3D</h4>
+                    <ul>
+                        <li>Modélisation 3D</li>
+                        <li>Rigging et animation</li>
+                        <li>Assets jeu</li>
+                        <li>Direction artistique</li>
+                    </ul>
+                </div>
+                
+                <div class="job-card">
+                    <h4>UI Artist</h4>
+                    <ul>
+                        <li>Design d'interface</li>
+                        <li>Expérience utilisateur</li>
+                        <li>Animation UI</li>
+                        <li>Polish visuel</li>
+                    </ul>
+                </div>
+                
+                <div class="job-card">
+                    <h4>Concept Artist</h4>
+                    <ul>
+                        <li>Art concept</li>
+                        <li>Direction visuelle</li>
+                        <li>Design de créatures</li>
+                        <li>Environnements</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2>💡 Conseils de Candidature</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                <div style="background: rgba(255, 107, 107, 0.1); padding: 20px; border-radius: 5px; border-left: 4px solid #4ade80;">
+                    <strong style="color: #4ade80; display: block; margin-bottom: 10px;">✓ À Mettre en Avant</strong>
+                    <ul style="list-style: none; color: #b0b0b0;">
+                        <li>✓ Projets roguelike/shooter personnels</li>
+                        <li>✓ Expérience en studio indie</li>
+                        <li>✓ Passion pour la mécanique du dodge roll</li>
+                        <li>✓ Compréhension du game design procédural</li>
+                        <li>✓ Portfolio solide et diversifié</li>
+                    </ul>
+                </div>
+                
+                <div style="background: rgba(255, 107, 107, 0.1); padding: 20px; border-radius: 5px; border-left: 4px solid #ffb3b3;">
+                    <strong style="color: #ffb3b3; display: block; margin-bottom: 10px;">⚡ Points d'Intérêt</strong>
+                    <ul style="list-style: none; color: #b0b0b0;">
+                        <li>⚡ Comprendre les patterns du roguelike</li>
+                        <li>⚡ Jouer activement à Enter the Gungeon</li>
+                        <li>⚡ Connaître Devolver Digital</li>
+                        <li>⚡ Aimer les challenges indépendants</li>
+                        <li>⚡ Curiosité pour l'itération rapide</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2>🔗 Liens Utiles &amp; Contact</h2>
+            <div class="links-grid">
+                <a href="https://www.dodgeroll.com/" class="link-btn" target="_blank">🌐 Site Web Officiel</a>
+                <a href="https://www.dodgeroll.com/" class="link-btn" target="_blank">📧 Contacter le Studio</a>
+                <a href="https://www.dodgeroll.com/" class="link-btn" target="_blank">💼 Emplois &amp; Carrières</a>
+            </div>
+            
+            <h3 style="margin-top: 25px;">Suivre le Studio</h3>
+            <p style="color: #b0b0b0; margin-bottom: 15px;">Restez connecté avec les dernières actualités de Dodge Roll Games et des opportunités d'emploi.</p>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <span class="tag">Twitter/X</span>
+                <span class="tag">Instagram</span>
+                <span class="tag">Discord</span>
+                <span class="tag">LinkedIn</span>
+            </div>
+        </section>
+        
+        <div class="verdict">
+            <h2>🎖️ Verdict Final</h2>
+            
+            <div class="verdict-content">
+                <div class="verdict-item">
+                    <strong>Profil du Studio</strong>
+                    <p>Dodge Roll Games est un studio indie respecté, créateur d'Enter the Gungeon, un classique reconnu du roguelike twin-stick. Leadership créatif fort et vision claire.</p>
+                </div>
+                
+                <div class="verdict-item">
+                    <strong>Environnement de Travail</strong>
+                    <p>Petite équipe passionnée, dynamique indie authentique. Culture centrée sur l'itération, l'expérimentation et la qualité créative. Pas d'infos précises sur structure/culture.</p>
+                </div>
+                
+                <div class="verdict-item">
+                    <strong>Opportunités de Carrière</strong>
+                    <p>Studio expérimenté offrant opportunités d'apprentissage solides en game design indie. Partenariat Devolver Digital = ressources. Croissance possible limitée par taille.</p>
+                </div>
+                
+                <div class="verdict-item">
+                    <strong>Difficulté: <span style="color: #ff9800; font-size: 1.1em;">Moyenne (3/5)</span></strong>
+                    <div class="difficulty-bar">
+                        <div class="difficulty-fill">60%</div>
+                    </div>
+                    <p style="margin-top: 10px; font-size: 0.9em;">Studio indie avec réputation solide. Standards élevés, mais taille réduite = moins d'embauches. Compétition + spécialité clear = sélection rigoureuse.</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 25px; background: rgba(255, 107, 107, 0.15); padding: 20px; border-radius: 5px;">
+                <h3 style="color: #ff6b6b; margin-bottom: 15px;">🎯 Recommandations</h3>
+                <ul style="list-style: none; color: #b0b0b0;">
+                    <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #ff6b6b;">►</span>
+                        <strong>Priorité: Portfolio roguelike/shooter</strong> - Créez ou participez à un projet dans ce genre
+                    </li>
+                    <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #ff6b6b;">►</span>
+                        <strong>Jouez à leurs jeux</strong> - Approchez Enter the Gungeon avec oeil critique de créateur
+                    </li>
+                    <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #ff6b6b;">►</span>
+                        <strong>Expérience indie valorisée</strong> - Mettez en avant projets amateurs/indépendants
+                    </li>
+                    <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #ff6b6b;">►</span>
+                        <strong>Réseau: Devolver Digital</strong> - Connectez-vous via l'écosystème de l'éditeur
+                    </li>
+                    <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #ff6b6b;">►</span>
+                        <strong>Personnalité créative</strong> - Montrez passion pour le game design itératif
+                    </li>
+                </ul>
+            </div>
+            
+            <div style="margin-top: 20px; padding: 15px; background: rgba(76, 222, 128, 0.1); border-left: 4px solid #4ade80;
