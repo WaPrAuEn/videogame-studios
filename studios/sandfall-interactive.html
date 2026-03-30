@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandfall Interactive - Fiche Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2d3561 0%, #1a1a2e 100%);
+            border-left: 5px solid #d4af37;
+            padding: 40px;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            color: #d4af37;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #b8b8b8;
+            margin: 5px 0;
+        }
+
+        .header-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .meta-item {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 3px solid #d4af37;
+        }
+
+        .meta-item strong {
+            color: #d4af37;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        section {
+            background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+            margin-bottom: 30px;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            border-top: 3px solid #d4af37;
+        }
+
+        section h2 {
+            color: #d4af37;
+            font-size: 2em;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #d4af37;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        section h3 {
+            color: #b8b8b8;
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: #d4af37;
+        }
+
+        .culture-content {
+            background: rgba(212, 175, 55, 0.05);
+            padding: 20px;
+            border-left: 4px solid #d4af37;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .culture-content p {
+            margin: 10px 0;
+        }
+
+        .metier-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .metier-card {
+            background: linear-gradient(135deg, #2d3561 0%, #1a1a2e 100%);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #d4af37;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .metier-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(212, 175, 55, 0.2);
+        }
+
+        .metier-card h4 {
+            color: #d4af37;
+            font-size: 1.3em;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .difficulty-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .difficulty-moyen {
+            background: #d4af37;
+            color: #1a1a2e;
+        }
+
+        .difficulty-eleve {
+            background: #e74c3c;
+            color: #fff;
+        }
+
+        .metier-card p {
+            color: #b8b8b8;
+            margin: 10px 0;
+            font-size: 0.95em;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .link-btn {
+            display: inline-block;
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #d4af37 0%, #c9a53d 100%);
+            color: #1a1a2e;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(212, 175, 55, 0.3);
+        }
+
+        .link-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(212, 175, 55, 0.5);
+        }
+
+        .jeux-container {
+            background: rgba(212, 175, 55, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .jeu-item {
+            padding: 15px;
+            margin: 10px 0;
+            background: linear-gradient(135deg, #2d3561 0%, #1a1a2e 100%);
+            border-left: 4px solid #d4af37;
+            border-radius: 5px;
+        }
+
+        .jeu-item h4 {
+            color: #d4af37;
+            margin-bottom: 8px;
+        }
+
+        .verdict {
+            background: linear-gradient(135deg, #2d3561 0%, #1a1a2e 100%);
+            padding: 30px;
+            border-radius: 8px;
+            border: 2px solid #d4af37;
+            margin: 20px 0;
+        }
+
+        .verdict-score {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            gap: 15px;
+        }
+
+        .score-value {
+            font-size: 2.5em;
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        .score-bars {
+            display: flex;
+            gap: 3px;
+        }
+
+        .bar {
+            width: 12px;
+            height: 40px;
+            background: #d4af37;
+            border-radius: 3px;
+        }
+
+        .stars {
+            color: #d4af37;
+            font-size: 1.5em;
+            letter-spacing: 5px;
+        }
+
+        .conseil-box {
+            background: linear-gradient(135deg, #d4af37 0%, #c9a53d 100%);
+            color: #1a1a2e;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-weight: 500;
+        }
+
+        .conseil-box strong {
+            display: block;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 2px solid #d4af37;
+            color: #b8b8b8;
+        }
+
+        .highlight {
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            .metier-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <header>
+            <h1>🎮 SANDFALL INTERACTIVE</h1>
+            <p>Studio de Jeux Vidéo Indépendant</p>
+
+            <div class="header-meta">
+                <div class="meta-item">
+                    <strong>📍 Localisation</strong>
+                    Montpellier, France
+                </div>
+                <div class="meta-item">
+                    <strong>🏢 Type</strong>
+                    Studio Indépendant
+                </div>
+                <div class="meta-item">
+                    <strong>👥 Taille</strong>
+                    39 personnes
+                </div>
+                <div class="meta-item">
+                    <strong>📅 Fondation</strong>
+                    2020
+                </div>
+            </div>
+        </header>
+
+        <!-- IDENTITÉ -->
+        <section>
+            <h2>Identité & Valeurs</h2>
+            <div class="culture-content">
+                <p><strong>Domaine de spécialisation :</strong> Jeux 3D narratifs premium pour PC et consoles</p>
+                <p><strong>Inspirations :</strong> RPG japonais, narratif immersif, mécaniques innovantes</p>
+                <p><strong>Technologie :</strong> Unreal Engine 5</p>
+                <p><strong>Philosophie :</strong> Indépendance créative totale, focus sur la qualité narrative et artistique</p>
+                <p><strong>Style artistique :</strong> Univers Belle Époque avec twist fantastique, art direction premium</p>
+            </div>
+
+            <h3>🎯 Vision du Studio</h3>
+            <p>Sandfall Interactive est un studio en croissance rapide qui se positionne comme créateur de RPG narratifs haut de gamme. Le studio combine des influences japonaises avec une approche occidentale unique, en utilisant les dernières technologies d'Unreal Engine 5 pour créer des expériences immersives et visuellement remarquables.</p>
+        </section>
+
+        <!-- JEUX NOTABLES -->
+        <section>
+            <h2>Jeux Notables</h2>
+            <div class="jeux-container">
+                <div class="jeu-item">
+                    <h4>🌟 Clair Obscur: Expedition 33</h4>
+                    <p>Le jeu phare de Sandfall Interactive. Un RPG d'action avec des mécaniques innovantes combinant le tour par tour et l'action temps réel. Univers unique d'inspiration Belle Époque avec un casting de personnages charismatiques. Ce titre a propulsé le studio sur la scène internationale et attire actuellement de nombreux talents.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- RECRUTEMENT -->
+        <section>
+            <h2>Opportunités de Recrutement</h2>
+            <p>Sandfall Interactive est actuellement en phase d'expansion suite au succès de Clair Obscur: Expedition 33. Le studio recherche activement des talents pour consolider son équipe et développer ses futurs projets.</p>
+
+            <h3>📋 Postes Actuellement Ouverts</h3>
+            <p style="color: #d4af37; margin: 20px 0;">Consultez le site carrières officiel pour les postes disponibles et les candidatures en ligne.</p>
+
+            <h3>📊 Difficulté de Recrutement : <span class="highlight">3/5 - Moyenne</span></h3>
+            <div class="culture-content">
+                <p><strong>Analyse :</strong> Studio en croissance avec un succès visible et attractif. Le prestige de Clair Obscur aide à attirer les talents, mais la nature indépendante et exigeante du studio implique une sélection rigoureuse.</p>
+            </div>
+
+            <div class="conseil-box">
+                <strong>💡 Conseil pour Candidater :</strong>
+                Mettez en avant votre expérience avec Unreal Engine 5. Proposez un portfolio solide montrant des expériences narratives ou RPG. Mentionnez votre admiration pour Clair Obscur et ce que vous aimez dans sa direction créative. Postulez via le site officiel des carrières de Sandfall.
+            </div>
+        </section>
+
+        <!-- PAR MÉTIER -->
+        <section>
+            <h2>Profils Recherchés par Métier</h2>
+
+            <div class="metier-grid">
+                <div class="metier-card">
+                    <h4>
+                        🎮 Game Designer
+                        <span class="difficulty-badge difficulty-moyen">Moyen</span>
+                    </h4>
+                    <p><strong>Contexte :</strong> Studio narratif RPG avec des mécaniques innovantes mêlant tour par tour et action temps réel.</p>
+                    <p><strong>Profil :</strong> Expérience en design de RPG, compréhension des systèmes narratifs complexes, capacité à innover en gameplay.</p>
+                    <p><strong>Atout :</strong> Portfolio montrant des mécaniques hybrides, jeux avec forte composante narrative.</p>
+                </div>
+
+                <div class="metier-card">
+                    <h4>
+                        💻 Programmeur
+                        <span class="difficulty-badge difficulty-eleve">Élevé</span>
+                    </h4>
+                    <p><strong>Contexte :</strong> Utilisation intensive d'Unreal Engine 5 et technologies modernes.</p>
+                    <p><strong>Profil :</strong> Expertise confirmée en C++ et Blueprints UE5, expérience sur jeux 3D AAA-like, connaissance des systèmes narratifs.</p>
+                    <p><strong>Atout :</strong> Portfolio UE5 solide, contributions à projets open-source, compréhension des pipelines modernes.</p>
+                </div>
+
+                <div class="metier-card">
+                    <h4>
+                        🎨 Artiste 3D
+                        <span class="difficulty-badge difficulty-eleve">Élevé</span>
+                    </h4>
+                    <p><strong>Contexte :</strong> Jeux 3D premium inspirés Belle Époque avec forte identité visuelle.</p>
+                    <p><strong>Profil :</strong> Maîtrise de Blender/Maya, ZBrush, substance Painter. Expérience en asset haute-poly et baking.</p>
+                    <p><strong>Atout :</strong> Portfolio montrant des personnages/environnements Belle Époque, style artistique distinctif.</p>
+                </div>
+
+                <div class="metier-card">
+                    <h4>
+                        🖼️ UI Artist
+                        <span class="difficulty-badge difficulty-moyen">Moyen</span>
+                    </h4>
+                    <p><strong>Contexte :</strong> Conception d'interface pour RPG narratif avec univers Belle Époque riche.</p>
+                    <p><strong>Profil :</strong> Expérience UX/UI pour jeux, maîtrise d'UMG (UE5), sensibilité au design narratif.</p>
+                    <p><strong>Atout :</strong> Portfolio d'interfaces RPG, prototypes animés, compréhension de l'accessibility.</p>
+                </div>
+
+                <div class="metier-card">
+                    <h4>
+                        ✏️ Concept Artist
+                        <span class="difficulty-badge difficulty-eleve">Élevé</span>
+                    </h4>
+                    <p><strong>Contexte :</strong> Création de concept art pour univers original Clair-Obscur très spécifique.</p>
+                    <p><strong>Profil :</strong> Expertise en color script, character design, environnement concept. Maîtrise Photoshop/Procreate.</p>
+                    <p><strong>Atout :</strong> Portfolio montrant univers personnels, style distinctif, expérience RPG/fantasy.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- LIENS UTILES -->
+        <section>
+            <h2>Liens Utiles & Contact</h2>
+
+            <h3>Portails Officiels</h3>
+            <div class="links-grid">
+                <a href="https://www.sandfall.co" class="link-btn" target="_blank">
+                    🌐 Site Officiel
+                </a>
+                <a href="https://www.sandfall.co/careers" class="link-btn" target="_blank">
+                    💼 Carrières & Recrutement
+                </a>
+                <a href="https://store.steampowered.com/search/?developer=Sandfall%20Interactive" class="link-btn" target="_blank">
+                    🎮 Jeux sur Steam
+                </a>
+                <a href="https://www.linkedin.com/company/sandfall-interactive/" class="link-btn" target="_blank">
+                    💼 LinkedIn
+                </a>
+            </div>
+
+            <h3>Informations de Contact</h3>
+            <div class="culture-content">
+                <p><strong>📍 Adresse :</strong> Montpellier, France</p>
+                <p><strong>📧 Email Recrutement :</strong> Consultez la page carrières officielle</p>
+                <p><strong>🔗 Plateforme de Candidature :</strong> https://www.sandfall.co/careers</p>
+                <p><strong>💡 Conseil :</strong> Postulez directement via le site carrières pour les meilleures chances d'être vu par l'équipe recrutement.</p>
+            </div>
+        </section>
+
+        <!-- VERDICT -->
+        <section>
+            <h2>Verdict & Résumé</h2>
+
+            <div class="verdict">
+                <h3>🎯 Synthèse du Studio</h3>
+                <p><span class="highlight">Sandfall Interactive</span> est un studio indépendant de taille moyenne (39 personnes) basé à Montpellier, fondé en 2020. Le studio s'est rapidement établi comme créateur de RPG narratifs premium grâce au succès de Clair Obscur: Expedition 33, leur flagship titre.</p>
+
+                <div class="verdict-score">
+                    <div>
+                        <div style="margin-bottom: 10px;"><strong>Attractivité pour Candidats :</strong></div>
+                        <div class="score-value">4/5</div>
+                        <div class="stars">★★★★☆</div>
+                    </div>
+                </div>
+
+                <h3>✅ Points Forts</h3>
+                <div class="culture-content">
+                    <p>✓ <strong>Studio Indépendant :</strong> Indépendance créative totale, décisions autogérées</p>
+                    <p>✓ <strong>Succès Récent :</strong> Clair Obscur a créé une dynamique très positive et attire les talents</p>
+                    <p>✓ <strong>Technologie Moderne :</strong> Utilisation d'Unreal Engine 5, infrastructure technique solide</p>
+                    <p>✓ <strong>Localisation :</strong> Montpellier, tech hub français en développement</p>
+                    <p>✓ <strong>Vision Artistique :</strong> Direction créative unique avec univers Belle Époque remarquable</p>
+                    <p>✓ <strong>Petite Taille :</strong> Équipe agile et collaborative, chacun a un impact visible</p>
+                </div>
+
+                <h3>⚠️ Points d'Attention</h3>
+                <div class="culture-content">
+                    <p>⚠ <strong>Studio Indépendant :</strong> Ressources et budget potentiellement limités par rapport aux studios AAA</p>
+                    <p>⚠ <strong>Croissance Rapide :</strong> Intégration dans une équipe en expansion peut être chaotique</p>
+                    <p>⚠ <strong>Exigence :</strong> Studio narratif premium = standards qualité très élevés</p>
+                    <p>⚠ <strong>Stabilité :</strong> Comme tout studio indé, dépendance au succès des jeux en développement</p>
+                </div>
+
+                <h3>🎓 Profil Idéal</h3>
+                <div class="culture-content">
+                    <p>Candidat avec <strong>expérience UE5</strong>, <strong>portfolio narratif/RPG</strong>, passionné par <strong>l'art direction Belle Époque</strong>, admirateur du style de <strong>Clair Obscur</strong>, capable de travailler dans un environnement <strong>indépendant exigeant</strong>, et cherchant <strong>impact créatif immédiat</strong>.</p>
+                </div>
+
+                <h3>📈 Contexte de Recrutement</h3>
+                <div class="culture-content">
+                    <p><strong>Difficulté : 3/5 (Moyen)</strong></p>
+                    <p>Le studio attire naturellement les talents grâce à son succès visible, mais les candidats doivent démontrer expertise technique et sensibilité artistique. La concurrence existe mais n'est pas écrasante. La plateforme de candidature officielle est la porte d'entrée prioritaire.</p>
+                </div>
+            </div>
+
+            <div class="conseil-box">
