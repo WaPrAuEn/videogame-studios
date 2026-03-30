@@ -115,6 +115,7 @@
 - [Smart Tale Games](studios/smart-tale-games.html) — Montpellier, France
 - [Sorare](studios/sorare.html) — Paris, France
 - [Spiders](studios/spiders.html) — Paris, France
+- [Square Enix France](studios/square-enix-france.html) — Levallois-Perret, France
 - [Square Enix](studios/square-enix.html) — Tokyo, Japon
 - [Studio Black Flag](studios/studio-black-flag.html) — Bordeaux, France
 - [Studio Nyx](studios/studio-nyx.html) — Angoulême, France
