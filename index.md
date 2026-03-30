@@ -46,6 +46,7 @@
 - [Nintendo France](studios/nintendo-france.html) — Courbevoie, France
 - [nWave Studios](studios/nwave-studios.html) — Bruxelles, Belgique
 - [Omega Force](studios/omega-force.html) — Ashikaga, Japon
+- [Plane Toast](studios/plane-toast.html) — Montpellier, France
 - [Playtouch](studios/playtouch.html) — Port Louis, Île Maurice
 - [Playwing](studios/playwing.html) — Bordeaux, France
 - [PowerZ](studios/powerz.html) — Paris, France
