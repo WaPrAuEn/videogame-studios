@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DICE - Studio de Développement de Jeux Vidéo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            background: white;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        section h2 {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 20px;
+            font-size: 1.8em;
+            margin: 0;
+        }
+        
+        section h3 {
+            color: #1e3c72;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        
+        .section-content {
+            padding: 30px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .info-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid #2a5298;
+        }
+        
+        .info-card strong {
+            color: #1e3c72;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        
+        .info-card p {
+            color: #555;
+        }
+        
+        .games-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .game-item {
+            background: #f0f4f8;
+            padding: 15px;
+            border-radius: 6px;
+            border-top: 3px solid #2a5298;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .game-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(42, 82, 152, 0.2);
+        }
+        
+        .game-item strong {
+            color: #1e3c72;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .job-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 6px;
+            border: 2px solid #e0e0e0;
+            transition: border-color 0.3s;
+        }
+        
+        .job-card:hover {
+            border-color: #2a5298;
+        }
+        
+        .job-title {
+            color: #1e3c72;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .difficulty {
+            display: inline-block;
+            background: #fff3cd;
+            color: #856404;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .difficulty.high {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .difficulty.medium {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+        
+        .job-description {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+        
+        .required-skills {
+            background: white;
+            padding: 12px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+        
+        .required-skills strong {
+            color: #1e3c72;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .skills-list {
+            list-style: none;
+        }
+        
+        .skills-list li {
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+            color: #555;
+        }
+        
+        .skills-list li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #2a5298;
+            font-weight: bold;
+        }
+        
+        .recruitment-info {
+            background: #e8f4f8;
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2a5298;
+        }
+        
+        .recruitment-info strong {
+            color: #1e3c72;
+        }
+        
+        .recruitment-info p {
+            margin: 10px 0;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .link-card {
+            background: #f0f4f8;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #2a5298;
+            text-align: center;
+        }
+        
+        .link-card strong {
+            color: #1e3c72;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .link-card.unavailable {
+            background: #f5f5f5;
+            border-color: #ccc;
+            color: #999;
+        }
+        
+        .link-card a {
+            color: #2a5298;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        .link-card a:hover {
+            color: #1e3c72;
+            text-decoration: underline;
+        }
+        
+        .verdict {
+            background: linear-gradient(135deg, #f0f4f8 0%, #e8f4f8 100%);
+            padding: 25px;
+            border-radius: 6px;
+            border-left: 4px solid #2a5298;
+            margin-top: 20px;
+        }
+        
+        .verdict-title {
+            color: #1e3c72;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .verdict-text {
+            color: #333;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .verdict-tips {
+            background: white;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 15px;
+        }
+        
+        .verdict-tips strong {
+            color: #1e3c72;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .verdict-tips ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .verdict-tips li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+        }
+        
+        .verdict-tips li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        footer {
+            background: #1a1a1a;
+            color: #999;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        
+        .culture-text {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #2a5298;
+            margin: 15px 0;
+            color: #555;
+        }
+        
+        .key-points {
+            background: #f0f4f8;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+        }
+        
+        .key-points strong {
+            color: #1e3c72;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .key-points ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .key-points li {
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+            color: #555;
+        }
+        
+        .key-points li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #2a5298;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .info-grid, .games-list, .jobs-grid, .links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🎮 DICE</h1>
+        <p>Studio de Développement de Jeux Vidéo Majeur</p>
+    </header>
+
+    <div class="container">
+        <!-- Section Identité -->
+        <section>
+            <h2>Identité du Studio</h2>
+            <div class="section-content">
+                <div class="info-grid">
+                    <div class="info-card">
+                        <strong>📍 Localisation</strong>
+                        <p>Stockholm, Suède</p>
+                    </div>
+                    <div class="info-card">
+                        <strong>📅 Année de Fondation</strong>
+                        <p>1992</p>
+                    </div>
+                    <div class="info-card">
+                        <strong>🏢 Éditeur</strong>
+                        <p>Electronic Arts (EA)</p>
+                    </div>
+                    <div class="info-card">
+                        <strong>🎯 Type de Studio</strong>
+                        <p>Studio de développement de jeux vidéo FPS & Multijoueur</p>
+                    </div>
+                </div>
+
+                <h3>Culture du Studio</h3>
+                <div class="culture-text">
+                    DICE est reconnu pour son <strong>focus sur l'innovation en gameplay multijoueur</strong>, particulièrement en ce qui concerne :
+                </div>
+                
+                <div class="key-points">
+                    <ul>
+                        <li>Destruction environnementale dynamique</li>
+                        <li>Gameplay de véhicules innovant</li>
+                        <li>Expériences multijoueur immersives</li>
+                        <li>Design de jeux d'action militaire de haut niveau</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Jeux Notables -->
+        <section>
+            <h2>Jeux Notables</h2>
+            <div class="section-content">
+                <p style="margin-bottom: 20px;">Retrouvez ci-dessous les projets majeurs développés par DICE :</p>
+                <div class="games-list">
+                    <div class="game-item">
+                        <strong>⚔️ Battlefield 1942</strong>
+                        <p>Opus fondateur de la franchise Battlefield, révolutionnant le jeu multijoueur avec destruction et véhicules</p>
+                    </div>
+                    <div class="game-item">
+                        <strong>🎯 Codename Eagle</strong>
+                        <p>Titre de guerre stratégique avec gameplay multijoueur avancé</p>
+                    </div>
+                    <div class="game-item">
+                        <strong>🏎️ S40 Racing</strong>
+                        <p>Jeu de course développé par le studio</p>
+                    </div>
+                    <div class="game-item">
+                        <strong>🏍️ Motorhead</strong>
+                        <p>Titre de course mettant en avant la dynamique des véhicules</p>
+                    </div>
+                    <div class="game-item">
+                        <strong>🏁 STCC</strong>
+                        <p>Jeu de simulation de course avec focus multijoueur</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Recrutement -->
+        <section>
+            <h2>Recrutement & Contact</h2>
+            <div class="section-content">
+                <div class="recruitment-info">
+                    <strong>📌 Statut Actuel</strong>
+                    <p>Les informations spécifiques de recrutement ne sont pas disponibles directement. Nous vous recommandons de consulter les pages carrières officielles d'EA ou du studio pour les offres d'emploi actuelles.</p>
+                </div>
+
+                <h3>Canaux de Communication Disponibles</h3>
+                <div class="links-grid">
+                    <div class="link-card unavailable">
+                        <strong>✉️ Email Recrutement</strong>
+                        <p>Non disponible</p>
+                    </div>
+                    <div class="link-card unavailable">
+                        <strong>🌐 Site Carrières</strong>
+                        <p>Non disponible</p>
+                    </div>
+                    <div class="link-card unavailable">
+                        <strong>🔗 Site Web Officiel</strong>
+                        <p>Non disponible</p>
+                    </div>
+                    <div class="link-card unavailable">
+                        <strong>🎮 Steam</strong>
+                        <p>Non disponible</p>
+                    </div>
+                    <div class="link-card unavailable">
+                        <strong>💼 LinkedIn</strong>
+                        <p>Non disponible</p>
+                    </div>
+                </div>
+
+                <div class="key-points" style="margin-top: 20px;">
+                    <strong>💡 Conseil : Comment Postuler</strong>
+                    <ul>
+                        <li>Consultez les offres d'emploi EA (careers.ea.com)</li>
+                        <li>Recherchez spécifiquement les postes DICE à Stockholm</li>
+                        <li>Préparez un portfolio mettant en avant vos projets FPS/multijoueur</li>
+                        <li>Montrez votre expérience avec la destruction et les véhicules en jeu</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Par Métier -->
+        <section>
+            <h2>Opportunités par Métier</h2>
+            <div class="section-content">
+                
+                <!-- Game Designer -->
+                <h3>🎮 Game Designer</h3>
+                <div class="jobs-grid">
+                    <div class="job-card">
+                        <div class="job-title">Game Designer - Gameplay Multijoueur</div>
+                        <div class="difficulty high">Difficulté: Élevée (5/5)</div>
+                        <div class="job-description">
+                            DICE recherche des game designers expérimentés dans la conception de gameplay multijoueur innovant, avec expérience sur les mécaniques de destruction et véhicules.
+                        </div>
+                        <div class="required-skills">
+                            <strong>Compétences Requises :</strong>
+                            <ul class="skills-list">
+                                <li>Expérience probante sur franchise Battlefield ou similaire</li>
+                                <li>Expertise en gameplay multijoueur et équilibre</li>
+                                <li>Maîtrise des mécaniques de destruction dynamique</li>
+                                <li>Expérience avec les systèmes de véhicules</li>
+                                <li>Connaissance Frostbite (moteur DICE)</li>
+                                <li>Portfolio de jeux multijoueur de qualité AAA</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Programmeur -->
+                <h3 style="margin-top: 30px;">💻 Programmeur</h3>
+                <div class="jobs-grid">
+                    <div class="job-card">
+                        <div class="job-title">Programmeur - Moteur FPS</div>
+                        <div class="difficulty high">Difficulté: Élevée (5/5)</div>
+                        <div class="job-description">
+                            Rejoignez l'équipe de programmeurs de DICE pour développer et optimiser des moteurs FPS avancés avec focus sur la destruction environnementale et le multijoueur.
+                        </div>
+                        <div class="required-skills">
+                            <strong>Compétences Requises :</strong>
+                            <ul class="skills-list">
+                                <li>C++ avancé et expérience moteurs jeux</li>
+                                <li>Expertise en architecture FPS</li>
+                                <li>Optimisation multijoueur et réseau</li>
+                                <li>Connaissances Frostbite ou similaire</li>
+                                <li>Expérience destruction/physique en temps réel</li>
+                                <li>Débogage et profiling avancé</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Artiste 3D -->
+                <h3 style="margin-top: 30px;">🎨 Artiste 3D</h3>
+                <div class="jobs-grid">
+                    <div class="job-card">
+                        <div class="job-title">Artiste 3D - Environnements Guerre</div>
+                        <div class="difficulty medium">Difficulté: Moyen-Élevée (4/5)</div>
+                        <div class="job-description">
+                            Créez des environnements réalistes et destructibles pour les jeux de guerre DICE, avec un focus particulier sur les détails visuels et l'immersion.
+                        </div>
+                        <div class="required-skills">
+                            <strong>Compétences Requises :</strong>
+                            <ul class="skills-list">
+                                <li>Maîtrise Maya, 3ds Max ou Blender</li>
+                                <li>Texturing et shading avancé</li>
+                                <li>Expérience environnements temps réel AAA</li>
+                                <li>Modélisation destructible</li>
+                                <li>Substance Painter/Designer</li>
+                                <li>Portfolio de qualité militaire/réaliste</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="job-card">
+                        <div class="job-title">Artiste 3D - Véhicules</div>
+                        <div class="difficulty medium">Difficulté: Moyen-Élevée (4/5)</div>
+                        <div class="job-description">
+                            Modélisez et texturez les véhicules iconiques des jeux Battlefield, en mettant l'accent sur le détail, l'authenticitéet l'intégration gameplay.
+                        </div>
+                        <div class="required-skills">
+                            <strong>Compétences Requises :</strong>
+                            <ul class="skills-list">
+                                <li>Modélisation véhicules hard surface</li>
+                                <li>Texturing réaliste PBR</li>
+                                <li>Connaissance mécanique/technique</li>
+                                <li>Expérience jeux militaires</li>
+                                <li>Optimisation LOD et performance</li>
+                                <li>Portfolio de véhicules de qualité</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UI Artist -->
+                <h3 style="margin-top: 30px;">🖥️ UI Artist</h3>
+                <div class="jobs-grid">
+                    <div class="job-card">
+                        <div class="job-title">UI Artist - Interfaces Multijoueur</div>
+                        <div class="difficulty medium">Difficulté: Moyenne (3/5)</div>
+                        <div class="job-description">
+                            Concevez des interfaces utilisateur intuitives et visuellement impressionnantes pour les expériences multijoueur complexes de DICE.
+                        </div>
+                        <div class="required-skills">
+                            <strong>Compétences Requises :</strong>
+                            <ul class="skills-list">
+                                <li>Maîtrise Adobe Creative Suite</li>
+                                <li>Expérience UX/UI j
