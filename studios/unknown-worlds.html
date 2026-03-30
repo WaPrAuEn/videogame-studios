@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unknown Worlds - Studio de Jeux Vidéo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 4px solid #00d4ff;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #00d4ff;
+            margin-bottom: 20px;
+        }
+
+        header .tagline {
+            font-size: 1em;
+            color: #bbb;
+            font-style: italic;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            background: white;
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-left: 5px solid #00d4ff;
+        }
+
+        h2 {
+            color: #0f3460;
+            font-size: 2em;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h2::before {
+            content: '';
+            width: 4px;
+            height: 30px;
+            background: #00d4ff;
+            border-radius: 2px;
+        }
+
+        h3 {
+            color: #00d4ff;
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .identite-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #f5f5f5 0%, #efefef 100%);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #00d4ff;
+        }
+
+        .info-card strong {
+            color: #0f3460;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .info-card p {
+            color: #555;
+            font-size: 1em;
+        }
+
+        .jeux-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .jeu-card {
+            background: linear-gradient(135deg, #f0f8ff 0%, #e6f2ff 100%);
+            padding: 25px;
+            border-radius: 8px;
+            border: 2px solid #00d4ff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .jeu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.2);
+        }
+
+        .jeu-card h4 {
+            color: #0f3460;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .jeu-card p {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 10px;
+        }
+
+        .recrutement-content {
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .recrutement-content h4 {
+            color: #0f3460;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .metiers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .metier-card {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe6e6 100%);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 5px solid #ff6b6b;
+            transition: all 0.3s ease;
+        }
+
+        .metier-card:hover {
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.15);
+        }
+
+        .metier-card h4 {
+            color: #0f3460;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .metier-card .icon {
+            width: 25px;
+            height: 25px;
+            background: #ff6b6b;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .metier-card ul {
+            list-style: none;
+            margin-bottom: 15px;
+        }
+
+        .metier-card li {
+            color: #555;
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .metier-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .difficulte {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid #ffc107;
+        }
+
+        .difficulte strong {
+            color: #0f3460;
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 1.3em;
+            margin: 10px 0;
+            letter-spacing: 5px;
+        }
+
+        .liens-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .lien-button {
+            display: inline-block;
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid #00d4ff;
+            font-weight: 600;
+        }
+
+        .lien-button:hover {
+            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .verdict {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-left: 5px solid #4caf50;
+        }
+
+        .verdict h2 {
+            color: #2e7d32;
+        }
+
+        .verdict h3 {
+            color: #2e7d32;
+            margin-top: 20px;
+        }
+
+        .verdict-point {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            border-left: 4px solid #4caf50;
+            color: #333;
+        }
+
+        .verdict-point strong {
+            color: #2e7d32;
+        }
+
+        footer {
+            background: #0f3460;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+            border-top: 3px solid #00d4ff;
+        }
+
+        footer p {
+            margin: 10px 0;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            section {
+                padding: 25px;
+            }
+
+            .identite-grid,
+            .jeux-grid,
+            .metiers-grid,
+            .liens-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .culture-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .culture-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #555;
+        }
+
+        .culture-list li::before {
+            content: '🌍';
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+        }
+
+        .conseil {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid #2196f3;
+            color: #0d47a1;
+        }
+
+        .conseil strong {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #00d4ff;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin: 5px 5px 5px 0;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🎮 UNKNOWN WORLDS</h1>
+        <p>Studio Indépendant de Jeux Vidéo</p>
+        <p class="tagline">Unir le monde à travers le jeu</p>
+    </header>
+
+    <div class="container">
+        <!-- SECTION IDENTITÉ -->
+        <section>
+            <h2>Identité du Studio</h2>
+            
+            <div class="identite-grid">
+                <div class="info-card">
+                    <strong>📍 Localisation</strong>
+                    <p>San Francisco, États-Unis</p>
+                </div>
+                <div class="info-card">
+                    <strong>📅 Fondation</strong>
+                    <p>2001</p>
+                </div>
+                <div class="info-card">
+                    <strong>👥 Taille</strong>
+                    <p>Équipe distribuée mondialement</p>
+                </div>
+                <div class="info-card">
+                    <strong>🏢 Type</strong>
+                    <p>Studio Indépendant</p>
+                </div>
+                <div class="info-card">
+                    <strong>🎯 Genres</strong>
+                    <p>Survie, Stratégie, Multi-Plateformes</p>
+                </div>
+                <div class="info-card">
+                    <strong>📦 Édition</strong>
+                    <p>Auto-édité (Publisher Steam)</p>
+                </div>
+            </div>
+
+            <h3>Culture & Valeurs</h3>
+            <ul class="culture-list">
+                <li>Unir le monde à travers le jeu vidéo</li>
+                <li>Équipe distribuée mondialement (US, Canada, UK, France, Autriche, Australie, etc.)</li>
+                <li>Fondateurs issus de la scène modding Half-Life</li>
+                <li>Innovation constante dans la création de mondes immersifs</li>
+                <li>Engagement envers le travail collaboratif à distance</li>
+            </ul>
+        </section>
+
+        <!-- SECTION JEUX NOTABLES -->
+        <section>
+            <h2>Jeux Notables</h2>
+            
+            <div class="jeux-grid">
+                <div class="jeu-card">
+                    <h4>🌊 Subnautica</h4>
+                    <p><strong>Genre:</strong> Survie / Exploration</p>
+                    <p><strong>Description:</strong> Jeu de survie immersif où le joueur explore un monde océanique extraterrestre rempli de créatures mystérieuses et de ressources à découvrir.</p>
+                    <span class="badge">Multi-Plateforme</span>
+                </div>
+
+                <div class="jeu-card">
+                    <h4>❄️ Subnautica: Below Zero</h4>
+                    <p><strong>Genre:</strong> Survie / Exploration</p>
+                    <p><strong>Description:</strong> Suite du premier Subnautica, transposant l'action dans un monde glacial avec de nouveaux défis et créatures uniques.</p>
+                    <span class="badge">Aventure</span>
+                </div>
+
+                <div class="jeu-card">
+                    <h4>⚔️ Natural Selection 2</h4>
+                    <p><strong>Genre:</strong> Stratégie / Action</p>
+                    <p><strong>Description:</strong> Jeu hybride mêlant stratégie en temps réel et action FPS, avec une asymétrie unique entre deux factions.</p>
+                    <span class="badge">Multijoueur</span>
+                </div>
+
+                <div class="jeu-card">
+                    <h4>🌙 Moonbreaker</h4>
+                    <p><strong>Genre:</strong> Stratégie</p>
+                    <p><strong>Description:</strong> Jeu de stratégie tactique tour par tour avec un univers unique et des mécaniques innovantes.</p>
+                    <span class="badge">Tactique</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION RECRUTEMENT -->
+        <section>
+            <h2>Recrutement</h2>
+            
+            <div class="recrutement-content">
+                <h4>📊 Statut des Postes</h4>
+                <p>Non spécifié dans les sources disponibles. Nous recommandons de consulter régulièrement le site web officiel pour les dernières opportunités.</p>
+            </div>
+
+            <div class="metiers-grid">
+                <div class="metier-card">
+                    <h4><span class="icon">1</span>Game Designer</h4>
+                    <p><strong>Spécialités attendues:</strong></p>
+                    <ul>
+                        <li>Design de mécaniques de survie innovantes</li>
+                        <li>Conception de stratégies complexes</li>
+                        <li>Créativité en world-building</li>
+                        <li>Expérience avec des titres reconnus</li>
+                        <li>Compétences en playtesting et itération</li>
+                    </ul>
+                    <p><strong>À valoriser:</strong> Portfolio avec projets de survie/stratégie, compréhension profonde du gameplay.</p>
+                </div>
+
+                <div class="metier-card">
+                    <h4><span class="icon">2</span>Programmeur</h4>
+                    <p><strong>Spécialités attendues:</strong></p>
+                    <ul>
+                        <li>Développement multi-plateformes</li>
+                        <li>Expertise en C# ou C++</li>
+                        <li>Expérience avec Unity ou moteurs similaires</li>
+                        <li>Optimisation de performances</li>
+                        <li>Travail collaboratif en équipe distribuée</li>
+                    </ul>
+                    <p><strong>À valoriser:</strong> Projets variés, aptitude au travail remote, architecture logicielle solide.</p>
+                </div>
+
+                <div class="metier-card">
+                    <h4><span class="icon">3</span>Artiste 3D</h4>
+                    <p><strong>Spécialités attendues:</strong></p>
+                    <ul>
+                        <li>Modélisation 3D avancée</li>
+                        <li>Création de créatures détaillées</li>
+                        <li>Design d'environnements immersifs</li>
+                        <li>Texturing et matériaux réalistes</li>
+                        <li>Connaissance de pipelines de production</li>
+                    </ul>
+                    <p><strong>À valoriser:</strong> Portfolio avec mondes immersifs, maîtrise des outils (Blender, Maya, Substance).</p>
+                </div>
+
+                <div class="metier-card">
+                    <h4><span class="icon">4</span>UI Artist</h4>
+                    <p><strong>Spécialités attendues:</strong></p>
+                    <ul>
+                        <li>Design d'interfaces utilisateur</li>
+                        <li>UX pour jeux complexes</li>
+                        <li>Animation d'éléments UI</li>
+                        <li>Cohérence visuelle et branding</li>
+                        <li>Connaissance des outils de design</li>
+                    </ul>
+                    <p><strong>À valoriser:</strong> Portfolio montrant interfaces intuitives, sensibilité au design, expérience avec jeux de survie.</p>
+                </div>
+
+                <div class="metier-card">
+                    <h4><span class="icon">5</span>Concept Artist</h4>
+                    <p><strong>Spécialités attendues:</strong></p>
+                    <ul>
+                        <li>Création d'univers visuels originaux</li>
+                        <li>Design de créatures et personnages</li>
+                        <li>Concept artistique d'environnements</li>
+                        <li>Illustration narrative et storytelling visuel</li>
+                        <li>Direction artistique</li>
+                    </ul>
+                    <p><strong>À valoriser:</strong> Portfolio immersif, maîtrise des techniques traditionnelles et numériques, vision créative unique.</p>
+                </div>
+            </div>
+
+            <div class="conseil">
+                <strong>💡 Conseils pour Postuler:</strong>
+                <p>✓ Mettez en avant votre expérience en jeux de survie ou stratégie</p>
+                <p>✓ Présentez un portfolio immersif et professionnel</p>
+                <p>✓ Démontrez vos aptitudes au travail remote et collaboratif</p>
+                <p>✓ Contactez le studio via leur site web officiel pour les dernières opportunités</p>
+            </div>
+
+            <div class="difficulte">
+                <strong>🎯 Difficulté d'Intégration: 3.5/5 (Moyenne à Élevée)</strong>
+                <div class="stars">★★★☆☆</div>
+                <p>Unknown Worlds est un studio reconnu avec une équipe expérimentée et distribuée à l'international. La compétition est rude, mais une candidature bien préparée avec un portfolio solide et une expérience pertinente peut faire la différence.</p>
+            </div>
+        </section>
+
+        <!-- SECTION LIENS UTILES -->
+        <section>
+            <h2>Liens Utiles</h2>
+            
+            <div class="liens-grid">
+                <a href="https://unknownworlds.com" target="_blank" class="lien-button">🌐 Site Web</a>
+                <a href="https://store.steampowered.com/developer/unknown-worlds" target="_blank" class="lien-button">🎮 Steam</a>
+            </div>
+
+            <div class="conseil">
+                <strong>📧 Contact & Recrutement:</strong>
+                <p>Pour les informations de recrutement à jour, consultez directement le site web d'Unknown Worlds qui dispose de ressources dédiées aux candidatures.</p>
+            </div>
+        </section>
+
+        <!-- SECTION VERDICT -->
+        <section class="verdict">
+            <h2>Verdict Final</h2>
+            
+            <h3>✅ Points Forts</h3>
+            <div class="verdict-point">
+                <strong>Jeux Reconnus Mondialement:</strong> Subnautica est un succès critique et commercial, ce qui témoigne de la qualité et de la créativité du studio.
+            </div>
+            <div class="verdict-point">
+                <strong>Indépendance Créative:</strong> En tant que studio indépendant auto-édité, Unknown Worlds conserve une liberté créative totale sur ses projets.
+            </div>
+            <div class="verdict-point">
+                <strong>Équipe Distribuée Internationale:</strong> La capacité du studio à fonctionner avec une équipe dispersée à l'échelle mondiale offre une flexibilité de travail unique.
+            </div>
+            <div class="verdict-point">
+                <strong>Héritage Solide:</strong> Fondée par d'anciens moddeurs Half-Life, l'équipe possède une expertise profonde du game design et du développement.
+            </div>
+            <div class="verdict-point">
+                <strong>Innovation Continue:</strong> Les projets du studio montrent une volonté d'explorer de nouveaux genres (
