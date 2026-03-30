@@ -12,6 +12,7 @@
 - [Alt Shift](studios/alt-shift.html) — Montpellier, France
 - [Ankama](studios/ankama.html) — Roubaix, France
 - [Arkane Studios](studios/arkane-studios.html) — Lyon, France
+- [Arpentor Studio](studios/arpentor-studio.html) — Lyon, France
 - [Artefacts Studio](studios/artefacts-studio.html) — Villeurbanne, France
 - [Asobo Studio](studios/asobo-studio.html) — Bordeaux, France
 - [Black Sheep Studio](studios/black-sheep-studio.html) — Paris, France
