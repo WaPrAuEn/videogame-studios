@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ludogram - Studio Indépendant de Jeux Narratifs Interactifs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+        
+        .header-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .header-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-item strong {
+            display: block;
+            font-size: 0.9em;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+        
+        .header-item span {
+            display: block;
+            font-size: 1.3em;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        section {
+            margin-bottom: 50px;
+        }
+        
+        section h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+        
+        .identity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+        
+        .identity-card {
+            background: #f8f9ff;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .identity-card h3 {
+            color: #764ba2;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .identity-card p {
+            color: #555;
+        }
+        
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+        
+        .game-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+        
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        .game-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        
+        .game-card .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-top: 10px;
+        }
+        
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+        
+        .job-card {
+            background: #f0f4ff;
+            padding: 25px;
+            border-radius: 10px;
+            border: 2px solid #667eea;
+            transition: all 0.3s ease;
+        }
+        
+        .job-card:hover {
+            background: #e8ecff;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+        }
+        
+        .job-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .job-card .type {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .job-card .type.stage {
+            background: #ff6b6b;
+        }
+        
+        .job-card .type.cdi {
+            background: #51cf66;
+        }
+        
+        .job-card .type.alternance {
+            background: #ffa94d;
+        }
+        
+        .job-card p {
+            color: #555;
+            font-size: 0.95em;
+        }
+        
+        .job-card .contact {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+        }
+        
+        .contact-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+        
+        .professions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+        
+        .profession-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            padding: 25px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .profession-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.15);
+        }
+        
+        .profession-card h3 {
+            color: #764ba2;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .profession-card .status {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .status.open {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .status.closed {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .profession-card p {
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+        
+        .link-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+        
+        .link-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .link-card .icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        .verdict {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin-top: 25px;
+        }
+        
+        .verdict h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        
+        .verdict-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .verdict-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .verdict-item strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        
+        .difficulty-bar {
+            background: rgba(255, 255, 255, 0.2);
+            height: 8px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+        
+        .difficulty-fill {
+            background: #51cf66;
+            height: 100%;
+            width: 60%;
+        }
+        
+        footer {
+            background: #f8f9ff;
+            padding: 20px 40px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 3px 6px;
+            border-radius: 3px;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 25px;
+            }
+            
+            section h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Ludogram</h1>
+            <p>Studio Indépendant de Jeux Narratifs Interactifs</p>
+            <div class="header-info">
+                <div class="header-item">
+                    <strong>📍 Localisation</strong>
+                    <span>Lille, France</span>
+                </div>
+                <div class="header-item">
+                    <strong>📅 Fondé en</strong>
+                    <span>2019</span>
+                </div>
+                <div class="header-item">
+                    <strong>👥 Équipe</strong>
+                    <span>30 personnes</span>
+                </div>
+                <div class="header-item">
+                    <strong>🎯 Type</strong>
+                    <span>Indépendant</span>
+                </div>
+            </div>
+        </header>
+        
+        <div class="content">
+            <!-- Section Identité -->
+            <section>
+                <h2>🏢 Identité du Studio</h2>
+                <div class="identity-grid">
+                    <div class="identity-card">
+                        <h3>Type de Studio</h3>
+                        <p>Studio indépendant spécialisé dans la <span class="highlight">création de jeux narratifs interactifs</span> avec des histoires originales et des mécaniques innovantes.</p>
+                    </div>
+                    <div class="identity-card">
+                        <h3>Éditeur Partenaire</h3>
+                        <p><strong>Arte</strong> - Un éditeur suédois de renom qui publie et soutient les productions du studio.</p>
+                    </div>
+                    <div class="identity-card">
+                        <h3>Culture Studio</h3>
+                        <p>Création d'histoires interactives originales, collaboration avec des créateurs variés, narration forte et moments forts pour les joueurs.</p>
+                    </div>
+                    <div class="identity-card">
+                        <h3>Technologies Propriétaires</h3>
+                        <p>Le studio utilise ses propres moteurs : <strong>LudoScript</strong> et <strong>One for All</strong> pour créer des expériences uniques.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section Jeux Notables -->
+            <section>
+                <h2>🎮 Jeux Notables</h2>
+                <div class="games-grid">
+                    <div class="game-card">
+                        <h3>Firebird</h3>
+                        <p>Sorti en 2023, ce jeu représente l'excellence narrative de Ludogram.</p>
+                        <span class="badge">🎮 2023</span>
+                    </div>
+                    <div class="game-card">
+                        <h3>Worlds of Aria</h3>
+                        <p>Une expérience immersive dans un univers riche et détaillé.</p>
+                        <span class="badge">🌍 En catalogue</span>
+                    </div>
+                    <div class="game-card">
+                        <h3>A Better World</h3>
+                        <p>Jeu narratif interactif très attendu avec une sortie prévue fin 2024.</p>
+                        <span class="badge">⏰ Fin 2024</span>
+                    </div>
+                    <div class="game-card">
+                        <h3>SeriePlay</h3>
+                        <p>Un titre unique mêlant narration et gameplay innovant.</p>
+                        <span class="badge">🎯 Catalogue</span>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section Recrutement -->
+            <section>
+                <h2>💼 Recrutement Actif</h2>
+                <p style="margin-bottom: 20px;">Ludogram est actuellement en phase de croissance et recrute pour plusieurs postes passionnants :</p>
+                <div class="jobs-grid">
+                    <div class="job-card">
+                        <h3>Game Designer</h3>
+                        <span class="type stage">Stage</span>
+                        <p>Rejoignez l'équipe narrative et contribuez à la création de jeux interactifs innovants.</p>
+                        <div class="contact">
+                            Contact : <a href="mailto:contact@ludogram.io" class="contact-link">contact@ludogram.io</a>
+                        </div>
+                    </div>
+                    <div class="job-card">
+                        <h3>Game Designer</h3>
+                        <span class="type cdi">CDI</span>
+                        <p>Poste permanent pour un designer passionné par la narration interactive et le game design.</p>
+                        <div class="contact">
+                            Contact : <a href="mailto:contact@ludogram.io" class="contact-link">contact@ludogram.io</a>
+                        </div>
+                    </div>
+                    <div class="job-card">
+                        <h3>Gameplay Programmer</h3>
+                        <span class="type alternance">Alternance</span>
+                        <p>Développez en alternance les systèmes de gameplay des jeux Ludogram avec une équipe expérimentée.</p>
+                        <div class="contact">
+                            Contact : <a href="mailto:contact@ludogram.io" class="contact-link">contact@ludogram.io</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section Par Métier -->
+            <section>
+                <h2>👨‍💼 Opportunités par Métier</h2>
+                <div class="professions-grid">
+                    <div class="profession-card">
+                        <h3>Game Designer</h3>
+                        <span class="status open">POSTES OUVERTS</span>
+                        <p>Ludogram cherche des <strong>Game Designers</strong> en stage et en CDI. C'est l'une des priorités du studio. Vous travaillerez sur la narration interactive et les mécaniques de gameplay.</p>
+                        <p style="margin-top: 10px;"><strong>Niveau requis :</strong> Intérêt marqué pour la narration et le game design interactif.</p>
+                    </div>
+                    <div class="profession-card">
+                        <h3>Programmeur Gameplay</h3>
+                        <span class="status open">ALTERNANCE DISPONIBLE</span>
+                        <p>Un poste en <strong>alternance</strong> pour Gameplay Programmer est actuellement ouvert. Vous développerez les systèmes de gameplay en utilisant les technologies maison du studio.</p>
+                        <p style="margin-top: 10px;"><strong>Niveau requis :</strong> Formation en informatique/game development.</p>
+                    </div>
+                    <div class="profession-card">
+                        <h3>Artiste 3D</h3>
+                        <span class="status closed">NON SPÉCIFIÉ</span>
+                        <p>Aucun poste spécifiquement mentionné pour les artistes 3D. Consultez régulièrement les offres du studio ou contactez directement pour connaître les opportunités futures.</p>
+                    </div>
+                    <div class="profession-card">
+                        <h3>UI Artist</h3>
+                        <span class="status closed">NON SPÉCIFIÉ</span>
+                        <p>Les postes de UI Artist ne sont pas actuellement annoncés. Néanmoins, intéressez-vous à la page carrières pour des mises à jour régulières.</p>
+                    </div>
+                    <div class="profession-card">
+                        <h3>Concept Artist</h3>
+                        <span class="status closed">NON SPÉCIFIÉ</span>
+                        <p>Pas de poste spécifié pour le moment dans cette discipline. Restez à l'affût des évolutions du studio.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section Liens Utiles -->
+            <section>
+                <h2>🔗 Liens Utiles</h2>
+                <div class="links-grid">
+                    <a href="https://ludogram.io" target="_blank" class="link-card">
+                        <div class="icon">🌐</div>
+                        Site Officiel
+                    </a>
+                    <a href="https://www.afjv.com/societe/1163-ludogram.htm" target="_blank" class="link-card">
+                        <div class="icon">💼</div>
+                        Page Carrières AFJV
+                    </a>
+                    <a href="https://store.steampowered.com/developer/Ludogram" target="_blank" class="link-card">
+                        <div class="icon">🎮</div>
+                        Store Steam
+                    </a>
+                    <a href="https://www.linkedin.com/company/ludogram/" target="_blank" class="link-card">
+                        <div class="icon">💻</div>
+                        LinkedIn
+                    </a>
+                    <a href="mailto:contact@ludogram.io" class="link-card">
+                        <div class="icon">📧</div>
+                        Email Recrutement
+                    </a>
+                </div>
+            </section>
+            
+            <!-- Section Verdict -->
+            <section>
+                <div class="verdict">
+                    <h3>🎯 Verdict & Conseils</h3>
+                    <div class="verdict-item">
+                        <strong>Difficulté de Recrutement : 3/5 - Modérée</strong>
+                        <p>Ludogram est un studio en croissance qui recrute activement. Les postes ouverts incluent des stages, des CDI et des alternances, ce qui rend les opportunités accessibles à différents profils.</p>
+                        <div class="difficulty-bar">
+                            <div class="difficulty-fill" style="width: 60%;"></div>
+                        </div>
+                    </div>
+                    <div class="verdict-item">
+                        <strong>📋 Comment Postuler</strong>
+                        <p>Postulez via la <a href="https://www.afjv.com/societe/1163-ludogram.htm" style="color: #fff; text-decoration: underline;">page carrières AFJV</a> ou directement à <a href="mailto:contact@ludogram.io" style="color: #fff; text-decoration: underline;">contact@ludogram.io</a>.</p>
+                    </div>
+                    <div class="verdict-item">
+                        <strong>💡 Conseils pour Réussir</strong>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Mettez en avant votre <strong>passion pour la narration interactive</strong></li>
+                            <li>Démontrez votre intérêt pour le <strong>game design</strong> et les jeux narratifs</li>
+                            <li>Préparez un portfolio ou des exemples de travaux personnels</li>
+                            <li>Montrez votre compréhension des
