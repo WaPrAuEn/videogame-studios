@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asobo Studio - Fiche Complète</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            border-bottom: 5px solid #667eea;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        section h2 {
+            font-size: 2em;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+
+        .identity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .info-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .info-card h3 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .info-card p {
+            color: #555;
+            font-size: 1em;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .game-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .game-card h3 {
+            color: #1e3c72;
+            margin-bottom: 12px;
+            font-size: 1.3em;
+        }
+
+        .game-card p {
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .game-badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-top: 10px;
+        }
+
+        .recruitment-section {
+            background: #fff3cd;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+            margin-top: 20px;
+        }
+
+        .recruitment-section h3 {
+            color: #856404;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .recruitment-section p {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .job-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border-top: 3px solid #667eea;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .job-card h3 {
+            color: #1e3c72;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+        }
+
+        .job-card h4 {
+            color: #667eea;
+            font-size: 1em;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+
+        .job-card ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .job-card li {
+            padding: 8px 0;
+            color: #555;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .job-card li:before {
+            content: "►";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-size: 0.8em;
+        }
+
+        .useful-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .link-card {
+            background: #f8f9fa;
+            padding: 18px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .link-card:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .link-card a {
+            text-decoration: none;
+            color: inherit;
+            font-weight: bold;
+            font-size: 1.05em;
+        }
+
+        .link-card p {
+            font-size: 0.9em;
+            margin-top: 8px;
+            opacity: 0.8;
+        }
+
+        .verdict {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        .verdict h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .verdict-item {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .verdict-item:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .difficulty-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .editors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .editor-tag {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+
+        .culture-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .culture-item {
+            background: #e3f2fd;
+            color: #1e3c72;
+            padding: 12px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: 500;
+            border: 2px solid #667eea;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            section h2 {
+                font-size: 1.5em;
+            }
+
+            .identity-grid, .games-grid, .jobs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Asobo Studio</h1>
+            <p>Studio Indépendant de Développement PC et Console</p>
+        </header>
+
+        <div class="content">
+            <!-- IDENTITÉ -->
+            <section>
+                <h2>Identité du Studio</h2>
+                <div class="identity-grid">
+                    <div class="info-card">
+                        <h3>📍 Localisation</h3>
+                        <p>Bordeaux, France</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>📅 Fondation</h3>
+                        <p>2002 (22 ans d'expérience)</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>👥 Taille</h3>
+                        <p>250 collaborateurs</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>🎯 Type</h3>
+                        <p>Studio indépendant</p>
+                    </div>
+                </div>
+
+                <h3 style="color: #1e3c72; margin-top: 30px; margin-bottom: 15px; font-size: 1.3em;">Éditeurs Partenaires</h3>
+                <div class="editors-grid">
+                    <div class="editor-tag">Microsoft</div>
+                    <div class="editor-tag">Ubisoft</div>
+                    <div class="editor-tag">Disney/Pixar</div>
+                    <div class="editor-tag">Focus Home Interactive</div>
+                    <div class="editor-tag">Codemasters</div>
+                </div>
+
+                <h3 style="color: #1e3c72; margin-top: 30px; margin-bottom: 15px; font-size: 1.3em;">Culture d'Entreprise</h3>
+                <div class="culture-list">
+                    <div class="culture-item">Fun</div>
+                    <div class="culture-item">Talent</div>
+                    <div class="culture-item">Commitment</div>
+                    <div class="culture-item">Travail d'Équipe</div>
+                    <div class="culture-item">Communication Interne</div>
+                    <div class="culture-item">Passion Dev</div>
+                </div>
+            </section>
+
+            <!-- JEUX NOTABLES -->
+            <section>
+                <h2>Jeux Notables</h2>
+                <div class="games-grid">
+                    <div class="game-card">
+                        <h3>Microsoft Flight Simulator</h3>
+                        <p>Simulateur de vol ultra-réaliste offrant des expériences immersives extraordinaires avec graphismes dernière génération.</p>
+                        <span class="game-badge">Simulation</span>
+                    </div>
+                    <div class="game-card">
+                        <h3>A Plague Tale: Innocence</h3>
+                        <p>Adventure narratif sombre et immersif mêlant aventure, puzzle et action avec une direction artistique remarquable.</p>
+                        <span class="game-badge">Adventure</span>
+                    </div>
+                    <div class="game-card">
+                        <h3>Kinect Rush: A Disney-Pixar Adventure</h3>
+                        <p>Jeu aventure basé sur la licence Disney/Pixar, démontrant l'expertise du studio sur les adaptations de licences prestigieuses.</p>
+                        <span class="game-badge">Licence</span>
+                    </div>
+                    <div class="game-card">
+                        <h3>FUEL</h3>
+                        <p>Jeu de course au monde ouvert massif offrant liberté totale de navigation et gameplay multi-véhicules.</p>
+                        <span class="game-badge">Racing</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- RECRUTEMENT -->
+            <section>
+                <div class="recruitment-section">
+                    <h3>🔍 Informations Recrutement</h3>
+                    <p><strong>Postes Ouverts :</strong> Non spécifié dans les résultats disponibles</p>
+                    <p><strong>Email Recrutement :</strong> Non spécifié dans les résultats disponibles</p>
+                    <p><strong>Site Carrières :</strong> Non spécifié dans les résultats disponibles</p>
+                    <p style="margin-top: 15px; font-style: italic;">💡 Conseil : Consultez le site officiel ou contactez directement via les liens utiles pour les opportunités actuelles.</p>
+                </div>
+
+                <h3 style="color: #1e3c72; margin-top: 30px; margin-bottom: 20px; font-size: 1.3em;">Opportunités par Métier</h3>
+                <div class="jobs-grid">
+                    <div class="job-card">
+                        <h3>🎮 Game Designer</h3>
+                        <p><strong>Besoin : OUI</strong></p>
+                        <p style="color: #999; font-size: 0.95em;">Studio axé sur des expériences immersives innovantes</p>
+                        <h4>Profil Attendu :</h4>
+                        <ul>
+                            <li>Expertise en design d'expériences immersives</li>
+                            <li>Maîtrise des boucles de gameplay innovantes</li>
+                            <li>Expérience sur jeux complexes (simulateurs, adventure)</li>
+                            <li>Portfolio avec projets variés</li>
+                            <li>Communication et collaboration d'équipe</li>
+                        </ul>
+                    </div>
+
+                    <div class="job-card">
+                        <h3>💻 Programmeur</h3>
+                        <p><strong>Besoin : OUI</strong></p>
+                        <p style="color: #999; font-size: 0.95em;">Développement multi-plateformes et R&D next-gen</p>
+                        <h4>Profil Attendu :</h4>
+                        <ul>
+                            <li>C++, C# ou langages multi-plateformes</li>
+                            <li>Expérience PC et console (PS, Xbox, etc.)</li>
+                            <li>Recherche & développement sur technologies next-gen</li>
+                            <li>Optimisation moteur et performances</li>
+                            <li>Teamwork et communication technique</li>
+                        </ul>
+                    </div>
+
+                    <div class="job-card">
+                        <h3>🎨 Artiste 3D</h3>
+                        <p><strong>Besoin : OUI</strong></p>
+                        <p style="color: #999; font-size: 0.95em;">Création d'univers immersifs haute qualité</p>
+                        <h4>Profil Attendu :</h4>
+                        <ul>
+                            <li>Modelage 3D avancé (Blender, Maya, 3DS Max)</li>
+                            <li>Expertise en texturing et shading PBR</li>
+                            <li>Optimisation assets pour multi-plateformes</li>
+                            <li>Maîtrise des engines (Unreal, Unity)</li>
+                            <li>Portfolio immersif de qualité AAA</li>
+                        </ul>
+                    </div>
+
+                    <div class="job-card">
+                        <h3>🖼️ UI Artist</h3>
+                        <p><strong>Besoin : PROBABLE</strong></p>
+                        <p style="color: #999; font-size: 0.95em;">Interfaces pour jeux complexes (simulateurs, etc.)</p>
+                        <h4>Profil Attendu :</h4>
+                        <ul>
+                            <li>Design d'interfaces immersives</li>
+                            <li>UX/UI pour simulateurs complexes</li>
+                            <li>Animation et interaction UI</li>
+                            <li>Outils : Figma, Photoshop, AE</li>
+                            <li>Expérience avec engines gaming</li>
+                        </ul>
+                    </div>
+
+                    <div class="job-card">
+                        <h3>✏️ Concept Artist</h3>
+                        <p><strong>Besoin : OUI</strong></p>
+                        <p style="color: #999; font-size: 0.95em;">IP originales et adaptations de licences</p>
+                        <h4>Profil Attendu :</h4>
+                        <ul>
+                            <li>Direction artistique forte</li>
+                            <li>Expérience IP originales et licences</li>
+                            <li>Maîtrise des styles variés</li>
+                            <li>Communication visuelle exceptionnelle</li>
+                            <li>Portfolio riche et diversifié</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- LIENS UTILES -->
+            <section>
+                <h2>Liens Utiles</h2>
+                <div class="useful-links">
+                    <div class="link-card">
+                        <a href="https://www.asobostudio.com" target="_blank">🌐 Site Officiel</a>
+                        <p>Découvrez les projets et l'actualité du studio</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VERDICT -->
+            <section>
+                <h2>Verdict & Conseils de Candidature</h2>
+                <div class="verdict">
+                    <h3>🎯 Difficulté de Recrutement</h3>
+                    <div class="difficulty-badge">⭐⭐⭐⭐ MOYENNE À ÉLEVÉE (4/5)</div>
+                    <p style="margin-top: 20px;">Studio reconnu avec partenariats prestigieux (Microsoft, Ubisoft, Disney) et équipe expérimentée.</p>
+
+                    <h3 style="margin-top: 30px;">📋 Conseils pour Candidater</h3>
+                    <div class="verdict-item">Mettez en avant votre <strong>passion pour le développement</strong> et l'innovation immersive</div>
+                    <div class="verdict-item">Présentez des <strong>compétences techniques solides</strong> et <strong>multi-plateformes</strong> (PC, console)</div>
+                    <div class="verdict-item">Constituez un <strong>portfolio immersif</strong> avec projets démontrateurs</div>
+                    <div class="verdict-item">Mettez l'accent sur votre <strong>expérience en travail d'équipe</strong> et collaboration</div>
+                    <div class="verdict-item">Démontrez une <strong>capacité d'adaptation</strong> aux technologies next-gen</div>
+                    <div class="verdict-item">Montrez votre intérêt pour les <strong>jeux ambitieux</strong> et les défis techniques</div>
+
+                    <h3 style="margin-top: 30px;">💪 Atouts Principaux du Studio</h3>
+                    <div class="verdict-item">Partenariats avec les plus grands éditeurs mondiaux</div>
+                    <div class="verdict-item">Expertise reconnue en expériences immersives (Flight Simulator)</div>
+                    <div class="verdict-item">Culture d'entreprise axée sur la passion et le talent</div>
+                    <div class="verdict-item">Équipe de 250 professionnels expérimentés</div>
+                    <div class="verdict-item">Localisation attractive en France (Bordeaux)</div>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p>📊 Fiche Asobo Studio - Information complète pour candidats et passionnés de jeux vidéo</p>
+            <p style="margin-top: 10px; opacity: 0.8;">Mise à jour 2024 - Source : asobostudio.com</p>
+        </footer>
+    </div>
+</body>
+</html>
