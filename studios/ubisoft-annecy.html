@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubisoft Annecy - Fiche Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2d5016 0%, #1a1a2e 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section h2 {
+            font-size: 2em;
+            color: #1a1a2e;
+            border-bottom: 3px solid #2d5016;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .identity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .identity-card {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e9e9e9 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #2d5016;
+        }
+        
+        .identity-card h3 {
+            color: #2d5016;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .identity-card p {
+            color: #555;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+        
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .game-card {
+            background: linear-gradient(135deg, #fff8f0 0%, #ffe8d6 100%);
+            padding: 25px;
+            border-radius: 8px;
+            border: 2px solid #2d5016;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(45, 80, 22, 0.2);
+        }
+        
+        .game-card h3 {
+            color: #2d5016;
+            margin-bottom: 10px;
+            font-size: 1.4em;
+        }
+        
+        .game-card p {
+            color: #666;
+        }
+        
+        .recruitment-info {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 5px solid #2d5016;
+            margin-bottom: 20px;
+        }
+        
+        .recruitment-info h3 {
+            color: #1a1a2e;
+            margin-bottom: 15px;
+        }
+        
+        .recruitment-info p {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .recruitment-info strong {
+            color: #2d5016;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .link-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #2d5016 0%, #1a3a0f 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .link-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(45, 80, 22, 0.3);
+        }
+        
+        .professions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .profession-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+        
+        .profession-card:hover {
+            border-color: #2d5016;
+            box-shadow: 0 8px 20px rgba(45, 80, 22, 0.15);
+        }
+        
+        .profession-card h3 {
+            color: #2d5016;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .profession-card ul {
+            list-style: none;
+        }
+        
+        .profession-card li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+        }
+        
+        .profession-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #2d5016;
+            font-weight: bold;
+        }
+        
+        .verdict {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 5px solid #f57c00;
+            margin-top: 30px;
+        }
+        
+        .verdict h3 {
+            color: #e65100;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .verdict-content {
+            color: #333;
+            line-height: 1.8;
+        }
+        
+        .difficulty-meter {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .difficulty-label {
+            font-weight: 600;
+            color: #1a1a2e;
+            min-width: 120px;
+        }
+        
+        .meter {
+            flex: 1;
+            height: 20px;
+            background: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .meter-fill {
+            height: 100%;
+            width: 60%;
+            background: linear-gradient(90deg, #4caf50 0%, #ff9800 50%, #f44336 100%);
+            border-radius: 10px;
+        }
+        
+        .advice {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #2196f3;
+            margin-top: 20px;
+        }
+        
+        .advice h4 {
+            color: #1a73e8;
+            margin-bottom: 10px;
+        }
+        
+        .advice ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .advice li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+        }
+        
+        .advice li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #1a73e8;
+            font-weight: bold;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .stat {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            border: 1px solid #90caf9;
+        }
+        
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #1a73e8;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: #555;
+            font-size: 0.9em;
+        }
+        
+        .footer {
+            background: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .identity-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .professions {
+                grid-template-columns: 1fr;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎮 UBISOFT ANNECY</h1>
+            <p>Studio de Développement de Jeux Vidéo - Haute-Savoie, France</p>
+        </div>
+        
+        <div class="content">
+            <!-- IDENTITÉ DU STUDIO -->
+            <div class="section">
+                <h2>📋 Identité du Studio</h2>
+                <div class="identity-grid">
+                    <div class="identity-card">
+                        <h3>Localisation</h3>
+                        <p>Annecy, France</p>
+                    </div>
+                    <div class="identity-card">
+                        <h3>Fondation</h3>
+                        <p>1996</p>
+                    </div>
+                    <div class="identity-card">
+                        <h3>Taille de l'Équipe</h3>
+                        <p>120 collaborateurs</p>
+                    </div>
+                    <div class="identity-card">
+                        <h3>Type</h3>
+                        <p>Développeur</p>
+                    </div>
+                </div>
+                
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-value">20%</div>
+                        <div class="stat-label">Femmes</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">32 ans</div>
+                        <div class="stat-label">Âge moyen</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">N°1</div>
+                        <div class="stat-label">Employeur en Haute-Savoie</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- JEUX NOTABLES -->
+            <div class="section">
+                <h2>🎯 Jeux Notables</h2>
+                <div class="games-grid">
+                    <div class="game-card">
+                        <h3>Assassin's Creed</h3>
+                        <p>Expertise développée en multijoueur et gestion des communautés en ligne pour la franchise culte.</p>
+                    </div>
+                    <div class="game-card">
+                        <h3>Star Wars Outlaws</h3>
+                        <p>Collaboration internationale et développement complet, démontrant la versatilité du studio.</p>
+                    </div>
+                    <div class="game-card">
+                        <h3>Tom Clancy's Splinter Cell</h3>
+                        <p>Participation au développement d'une franchise stratégique et renommée.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- RECRUTEMENT -->
+            <div class="section">
+                <h2>💼 Recrutement</h2>
+                <div class="recruitment-info">
+                    <h3>Statut Actuel</h3>
+                    <p><strong>Studio en développement et recrutement actif</strong> - Postes ouverts non spécifiés sur la page, mais recherche permanente de talents.</p>
+                    <p>Ubisoft Annecy recrute au niveau <strong>national et international</strong>, offrant une opportunité idéale pour rejoindre un studio en croissance constante.</p>
+                </div>
+                
+                <div class="advice">
+                    <h4>💡 Conseils pour Postuler</h4>
+                    <ul>
+                        <li>Mettez en avant vos compétences en multijoueur et gestion de communautés</li>
+                        <li>Montrez votre expérience dans divers métiers du jeu vidéo</li>
+                        <li>Postulez via le portail de recrutement Ubisoft global</li>
+                        <li>Consultez régulièrement les offres d'emploi sur les sites carrières</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- PARTENARIATS -->
+            <div class="section">
+                <h2>🌐 Collaborations Internationales</h2>
+                <p style="margin-bottom: 15px;">Ubisoft Annecy travaille en étroite collaboration avec plusieurs studios Ubisoft mondiaux :</p>
+                <div class="identity-grid">
+                    <div class="identity-card">
+                        <h3>🏢 Partenaires</h3>
+                        <p>Shanghai • Bucarest • Kiev • Montréal</p>
+                    </div>
+                    <div class="identity-card">
+                        <h3>🎮 Éditeur</h3>
+                        <p>Ubisoft (interne)</p>
+                    </div>
+                    <div class="identity-card">
+                        <h3>👥 Culture d'Équipe</h3>
+                        <p>Expertise multijoueur + tous métiers présents</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- MÉTIERS -->
+            <div class="section">
+                <h2>👨‍💼 Opportunités par Métier</h2>
+                <div class="professions">
+                    <div class="profession-card">
+                        <h3>🎨 Game Designer</h3>
+                        <ul>
+                            <li>Métiers présents et valorisés</li>
+                            <li>Expertise multijoueur approfondie</li>
+                            <li>Conception de contenus pour communautés</li>
+                            <li>Opportunités réelles</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="profession-card">
+                        <h3>💻 Programmeur</h3>
+                        <ul>
+                            <li>Programmation multijoueur avancée</li>
+                            <li>Collaborations avec studios internationaux</li>
+                            <li>Technos modernes et défis complexes</li>
+                            <li>Forte demande</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="profession-card">
+                        <h3>🖼️ Artiste 3D</h3>
+                        <ul>
+                            <li>Tous les métiers sont présents</li>
+                            <li>Développement complet de jeux</li>
+                            <li>Standards AAA</li>
+                            <li>Probabilité élevée</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="profession-card">
+                        <h3>🎭 UI/UX Artist</h3>
+                        <ul>
+                            <li>Expertise multijoueur implique UI robuste</li>
+                            <li>Design d'interfaces communautaires</li>
+                            <li>Jeux AAA exigeants</li>
+                            <li>Probabilité élevée</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="profession-card">
+                        <h3>🎭 Concept Artist</h3>
+                        <ul>
+                            <li>Présence confirmée de tous métiers</li>
+                            <li>Production AAA de haut niveau</li>
+                            <li>Mondes cohérents et détaillés</li>
+                            <li>Probabilité élevée</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- LIENS UTILES -->
+            <div class="section">
+                <h2>🔗 Liens Utiles</h2>
+                <div class="links-grid">
+                    <a href="https://www.ubisoft.com/fr-fr/" class="link-button" target="_blank">🌐 Site Web Officiel</a>
+                    <a href="https://store.steampowered.com/developer/ubisoft" class="link-button" target="_blank">🎮 Jeux sur Steam</a>
+                    <a href="https://www.linkedin.com/company/ubisoft/" class="link-button" target="_blank">💼 LinkedIn Ubisoft</a>
+                </div>
+            </div>
+            
+            <!-- VERDICT -->
+            <div class="verdict">
+                <h3>⭐ Verdict</h3>
+                <div class="difficulty-meter">
+                    <span class="difficulty-label">Difficulté d'accès:</span>
+                    <div class="meter">
+                        <div class="meter-fill" style="width: 60%;"></div>
+                    </div>
+                    <span style="font-weight: 600; color: #e65100;">MOYEN</span>
+                </div>
+                
+                <div class="verdict-content">
+                    <p><strong>Ubisoft Annecy est un excellent studio pour débuter ou progresser dans l'industrie du jeu vidéo.</strong></p>
+                    
+                    <p style="margin-top: 15px;">
+                        <strong>✅ Atouts :</strong>
+                    </p>
+                    <ul style="list-style: none; padding-left: 20px;">
+                        <li>✓ Studio établi depuis 1996 avec une solide réputation</li>
+                        <li>✓ Taille idéale (120 personnes) : assez grand pour avoir des ressources, assez petit pour l'impact personnel</li>
+                        <li>✓ Expertise reconnue en multijoueur et gestion de communautés</li>
+                        <li>✓ Premier employeur en Haute-Savoie (stabilité)</li>
+                        <li>✓ Tous les métiers du jeu vidéo représentés</li>
+                        <li>✓ Collaborations internationales enrichissantes</li>
+                        <li>✓ Franchises AAA prestigieuses</li>
+                        <li>✓ Recrutement actif au niveau international</li>
+                    </ul>
+                    
+                    <p style="margin-top: 15px;">
+                        <strong>⚠️ Points d'attention :</strong>
+                    </p>
+                    <ul style="list-style: none; padding-left: 20px;">
+                        <li>⚠ Pas d'annonces de postes spécifiques en ligne actuellement</li>
+                        <li>⚠ Recrutement probabiliste selon besoins</li>
+                        <li>⚠ Postuler via le portail Ubisoft global (peut être plus impersonnel)</li>
+                    </ul>
+                    
+                    <p style="margin-top: 15px; padding-top: 15px; border-top: 2px solid #f57c00;">
+                        <strong>🎯 Recommandation :</strong> Studio à privilégier si vous avez des compétences en multijoueur, une expérience en gestion de communautés ou un portfolio solide. C'est un excellent tremplin pour une carrière dans les studios AAA, avec une excellente qualité de vie en région (Annecy est une ville magnifique).
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>&copy; 2024 Fiche Informative Ubisoft Annecy | Mise à jour : Janvier 2024</p>
+        </div>
+    </div>
+</body>
+</html>
